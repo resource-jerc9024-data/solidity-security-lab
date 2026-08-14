@@ -8,6 +8,7 @@ cache/
 out/
 node_modules/
 .termmax-review-cache/
+.gearbox-review-cache/
 
 # Keep unpublished audit notes and proof-of-concept tests local by default.
 audit/FINDINGS.md
