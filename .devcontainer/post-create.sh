@@ -22,5 +22,5 @@ touch audit/SCOPE.md audit/ARCHITECTURE.md audit/INVARIANTS.md audit/FINDINGS.md
 
 echo
 echo 'Security lab installed. Run: bash scripts/check-environment.sh'
-echo 'Authenticate Codex with your ChatGPT subscription by running: codex'
-echo 'Choose Sign in with ChatGPT when prompted.'
+echo 'In Codespaces, authenticate with your ChatGPT subscription using:'
+echo '  codex login --device-auth'

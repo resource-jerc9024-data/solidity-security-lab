@@ -12,9 +12,16 @@ When setup finishes, verify it with:
 bash scripts/check-environment.sh
 ```
 
-For Codex, run `codex`, choose **Sign in with ChatGPT**, and authenticate using the
-ChatGPT account that owns your subscription. This setup does not use an OpenAI API
-key and does not require separate API billing.
+For Codex in a Codespace, run the remote-safe authentication command:
+
+```bash
+codex login --device-auth
+```
+
+Open the URL and enter the one-time code shown in the Codespace terminal, then sign
+in with the ChatGPT account that owns your subscription. Do not use the default
+browser callback here: it points at the Codespace's `localhost`, not your computer.
+This setup does not use an OpenAI API key and does not require separate API billing.
 
 The initial `.gitignore` deliberately excludes `audit/FINDINGS.md` and Solidity
 PoCs under `test/security/`. Remove those exclusions only when you intentionally

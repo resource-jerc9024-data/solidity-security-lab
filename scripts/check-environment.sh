@@ -11,6 +11,6 @@ for command_name in git node python3 forge cast anvil slither codex; do
   fi
 done
 
-echo 'Codex authentication: run codex and choose Sign in with ChatGPT'
+echo 'Codex authentication in Codespaces: run codex login --device-auth'
 
 exit "$failed"
