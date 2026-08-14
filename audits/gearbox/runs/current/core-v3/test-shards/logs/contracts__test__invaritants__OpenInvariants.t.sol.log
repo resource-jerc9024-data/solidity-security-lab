@@ -1,0 +1,4 @@
+No files changed, compilation skipped
+Warning: no tests match the provided pattern:
+	match-path: `contracts/test/invaritants/OpenInvariants.t.sol`
+

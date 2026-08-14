@@ -1,0 +1,43 @@
+Compiling 59 files with Solc 0.8.23
+Solc 0.8.23 finished in 47.04s
+Compiler run successful with warnings:
+Warning (3628): This contract has a payable fallback function, but no receive ether function. Consider adding a receive ether function.
+ --> lib/@gearbox-protocol/core-v3/contracts/test/mocks/token/WETHMock.sol:6:1:
+  |
+6 | contract WETHMock is IERC20 {
+  | ^ (Relevant source part starts here and spans across multiple lines).
+Note: The payable fallback function is defined here.
+  --> lib/@gearbox-protocol/core-v3/contracts/test/mocks/token/WETHMock.sol:29:5:
+   |
+29 |     fallback() external payable {
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/test/migration/cloners/IntegrationCloner.sol:119:49:
+    |
+119 |     function migrateAdapter(address oldAdapter, address oldCreditManager, address newCreditManager)
+    |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+Ran 18 tests for contracts/test/TreasuryLiquidator.int.t.sol:TreasuryLiquidatorIntegrationTest
+[PASS] test_I_TL_01_constructor_sets_correct_values() (gas: 84913701)
+[PASS] test_I_TL_02_constructor_reverts_on_zero_addresses() (gas: 74180)
+[PASS] test_I_TL_03_setLiquidatorStatus_works_correctly_for_treasury() (gas: 84926840)
+[PASS] test_I_TL_04_setLiquidatorStatus_reverts_for_non_treasury() (gas: 84911713)
+[PASS] test_I_TL_05_setLiquidatorStatus_reverts_on_zero_address() (gas: 84911793)
+[PASS] test_I_TL_06_setLiquidatorStatus_does_nothing_if_status_unchanged() (gas: 84938448)
+[PASS] test_I_TL_07_setMinExchangeRate_works_correctly_for_treasury() (gas: 84941555)
+[PASS] test_I_TL_08_setMinExchangeRate_reverts_for_non_treasury() (gas: 84911917)
+[PASS] test_I_TL_09_setMinExchangeRate_reverts_on_zero_addresses() (gas: 84914064)
+[PASS] test_I_TL_10_setMinExchangeRate_does_nothing_if_rate_unchanged() (gas: 84939408)
+[PASS] test_I_TL_11_partiallyLiquidateFromTreasury_reverts_for_non_liquidator() (gas: 85385636)
+[PASS] test_I_TL_12_partiallyLiquidateFromTreasury_reverts_for_invalid_credit_suite() (gas: 85410845)
+[PASS] test_I_TL_13_partiallyLiquidateFromTreasury_reverts_for_unsupported_token_pair() (gas: 85414778)
+[PASS] test_I_TL_14_partiallyLiquidateFromTreasury_reverts_for_insufficient_treasury_funds() (gas: 85428009)
+[PASS] test_I_TL_15_partiallyLiquidateFromTreasury_reverts_for_insufficient_wrapped_treasury_funds() (gas: 85399995)
+[PASS] test_I_TL_16_partiallyLiquidateFromTreasury_works_correctly_with_direct_underlying() (gas: 85747865)
+[PASS] test_I_TL_17_partiallyLiquidateFromTreasury_works_correctly_with_wrapped_underlying() (gas: 85784625)
+[PASS] test_I_TL_18_partiallyLiquidateFromTreasury_calculates_minimum_seized_amount_correctly() (gas: 85745280)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 223.21ms (215.68ms CPU time)
+
+Ran 1 test suite in 226.96ms (223.21ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)

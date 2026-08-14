@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/attach/upshift/Upshift.attach.t.sol:UpshiftAttachTest
+[FAIL: Instance is not deployed] setUp() (gas: 0)
+Suite result: FAILED. 0 passed; 1 failed; 0 skipped; finished in 960.84µs (0.00ns CPU time)
+
+Ran 1 test suite in 20.65ms (960.84µs CPU time): 0 tests passed, 1 failed, 0 skipped (1 total tests)
+
+Failing tests:
+Encountered 1 failing test in contracts/test/attach/upshift/Upshift.attach.t.sol:UpshiftAttachTest
+[FAIL: Instance is not deployed] setUp() (gas: 0)
+
+Encountered a total of 1 failing tests, 0 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 1 failed test

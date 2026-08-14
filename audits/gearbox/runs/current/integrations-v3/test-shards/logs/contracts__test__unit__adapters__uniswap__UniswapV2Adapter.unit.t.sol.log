@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/unit/adapters/uniswap/UniswapV2Adapter.unit.t.sol:UniswapV2AdapterUnitTest
+[PASS] test_U_UNI2_01_constructor_works_as_expected() (gas: 11043)
+[PASS] test_U_UNI2_02_wrapper_functions_revert_on_wrong_caller() (gas: 31028)
+[PASS] test_U_UNI2_03_swapTokensForExactTokens_works_as_expected() (gas: 66488)
+[PASS] test_U_UNI2_04_swapExactTokensForTokens_works_as_expected() (gas: 66508)
+[PASS] test_U_UNI2_05_swapDiffTokensForTokens_works_as_expected() (gas: 530212)
+[PASS] test_U_UNI2_06_setPairStatusBatch_works_as_expected() (gas: 125297)
+[PASS] test_U_UNI2_07_validatePath_works_as_expected() (gas: 400071)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 8.56ms (4.14ms CPU time)
+
+Ran 1 test suite in 23.80ms (8.56ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

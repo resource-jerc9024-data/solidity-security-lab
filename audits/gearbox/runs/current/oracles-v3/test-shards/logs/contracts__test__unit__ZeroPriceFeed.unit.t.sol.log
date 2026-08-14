@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/unit/ZeroPriceFeed.unit.t.sol:ZeroPriceFeedUnitTest
+[PASS] test_U_ZPF_01_price_feed_has_correct_metadata() (gas: 13199)
+[PASS] test_U_ZPF_02_latestRoundData_works_as_expected() (gas: 9847)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 2.20ms (199.62µs CPU time)
+
+Ran 1 test suite in 19.65ms (2.20ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

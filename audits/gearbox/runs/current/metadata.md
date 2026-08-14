@@ -1,9 +1,10 @@
 # Gearbox V3.1 source metadata
 
 - Captured UTC date: `2026-08-14`
-- Checkout root: `.gearbox-review-cache/source/` (gitignored)
-- Checkout mode: shallow official repository clones
-- Source state: clean; dependency submodules not initialized
+- Codespace checkout root: `/workspaces/gearbox-audit/source/`
+- Checkout mode: isolated official repository clones at exact commits
+- Source state: clean; recursive dependency submodules initialized at the exact
+  commits recorded by each superproject
 - Shared Solidity configuration observed: Solidity `0.8.23`, Shanghai EVM
 
 | Repository | Branch | Commit | Solidity files under `contracts/` | Foundry test files observed |
@@ -20,6 +21,6 @@ bots have narrower production paths, while tests and mocks are excluded from bou
 impact even when retained for local harness use.
 
 Submodule graphs differ by repository and include Gearbox repositories on recorded
-submodule commits or special branches. The baseline runner must initialize the exact
-superproject-recorded submodule commits; it must not replace them with the six top-
-level scope pins merely because repository names overlap.
+submodule commits or special branches. The baseline and scan runners retained those
+exact superproject-recorded commits; they did not replace them with the six top-level
+scope pins merely because repository names overlap.

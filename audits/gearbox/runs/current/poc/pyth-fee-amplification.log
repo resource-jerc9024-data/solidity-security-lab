@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/poc/PythPriceFeedFeeAmplification.t.sol:PythPriceFeedFeeAmplificationPoC
+[PASS] test_Control_SingleTargetUpdateConsumesOnlyOneFee() (gas: 74599)
+[PASS] test_PermissionlessCallerCanConsumeEntirePrechargedBalanceWithDuplicateUpdates() (gas: 287099)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.53ms (1.19ms CPU time)
+
+Ran 1 test suite in 14.58ms (1.53ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

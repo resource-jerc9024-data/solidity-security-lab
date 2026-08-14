@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/configuration/PoolConfiguration.unit.t.sol:PoolConfigurationUnitTest
+[PASS] test_P_01_setTotalDebtLimit() (gas: 51478)
+[PASS] test_P_02_setCreditManagerDebtLimit() (gas: 77666)
+[PASS] test_P_03_setTokenLimit() (gas: 462464)
+[PASS] test_P_04_setTokenQuotaIncreaseFee() (gas: 421000)
+[PASS] test_P_05_pause_unpause() (gas: 69928)
+[PASS] test_P_06_emergency_setCreditManagerDebtLimitToZero() (gas: 59703)
+[PASS] test_P_07_emergency_setTokenLimitToZero() (gas: 423219)
+[PASS] test_P_08_emergency_pause() (gas: 54430)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 74.79ms (1.82ms CPU time)
+
+Ran 1 test suite in 75.89ms (74.79ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

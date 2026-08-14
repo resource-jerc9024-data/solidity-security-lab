@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/unit/SingleAssetLPPriceFeed.unit.t.sol:SingleAssetLPPriceFeedUnitTest
+[PASS] test_U_SAPF_01_constructor_works_as_expected() (gas: 541802)
+[PASS] test_U_SAPF_02_getAggregatePrice_works_as_expected() (gas: 34831)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 1.52ms (332.77µs CPU time)
+
+Ran 1 test suite in 14.89ms (1.52ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

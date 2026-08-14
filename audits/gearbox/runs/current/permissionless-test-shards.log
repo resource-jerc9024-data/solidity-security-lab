@@ -1,0 +1,43 @@
+Running shard contracts/test/ACL.unit.t.sol
+contracts/test/ACL.unit.t.sol finished with exit code 0
+Running shard contracts/test/ContractsRegister.unit.t.sol
+contracts/test/ContractsRegister.unit.t.sol finished with exit code 0
+Running shard contracts/test/Governor.unit.t.sol
+contracts/test/Governor.unit.t.sol finished with exit code 0
+Running shard contracts/test/RateKeeperFactoryPatchV311.t.sol
+contracts/test/RateKeeperFactoryPatchV311.t.sol finished with exit code 0
+Running shard contracts/test/TreasurySplitter.unit.t.sol
+contracts/test/TreasurySplitter.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/CreditSuiteConfiguration.unit.t.sol
+contracts/test/configuration/CreditSuiteConfiguration.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/InterestRateModelConfiguration.unit.t.sol
+contracts/test/configuration/InterestRateModelConfiguration.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/LossPolicyConfiguration.unit.t.sol
+contracts/test/configuration/LossPolicyConfiguration.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/MarketConfigurator.unit.t.sol
+contracts/test/configuration/MarketConfigurator.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/PoolConfiguration.unit.t.sol
+contracts/test/configuration/PoolConfiguration.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/PriceOracleConfiguration.unit.t.sol
+contracts/test/configuration/PriceOracleConfiguration.unit.t.sol finished with exit code 0
+Running shard contracts/test/configuration/RateKeeperConfiguration.unit.t.sol
+contracts/test/configuration/RateKeeperConfiguration.unit.t.sol finished with exit code 0
+Running shard contracts/test/global/AddressProvider.unit.t.sol
+contracts/test/global/AddressProvider.unit.t.sol finished with exit code 0
+Running shard contracts/test/global/BytecodeRepository.unit.t.sol
+contracts/test/global/BytecodeRepository.unit.t.sol finished with exit code 0
+Running shard contracts/test/global/CrossChainMultisig.unit.t.sol
+contracts/test/global/CrossChainMultisig.unit.t.sol finished with exit code 0
+Running shard contracts/test/global/InstanceManager.unit.t.sol
+contracts/test/global/InstanceManager.unit.t.sol finished with exit code 0
+Running shard contracts/test/global/MarketConfiguratorFactory.unit.t.sol
+contracts/test/global/MarketConfiguratorFactory.unit.t.sol finished with exit code 0
+Running shard contracts/test/global/PriceFeedStore.unit.t.sol
+contracts/test/global/PriceFeedStore.unit.t.sol finished with exit code 0
+Running shard contracts/test/helpers/DefaultDegenNFT.unit.t.sol
+contracts/test/helpers/DefaultDegenNFT.unit.t.sol finished with exit code 0
+Running shard contracts/test/libraries/Domain.unit.t.sol
+contracts/test/libraries/Domain.unit.t.sol finished with exit code 0
+Running shard contracts/test/libraries/NestedPriceFeeds.unit.t.sol
+contracts/test/libraries/NestedPriceFeeds.unit.t.sol finished with exit code 0
+Sharded tests complete: 21 files, 0 non-zero exits.

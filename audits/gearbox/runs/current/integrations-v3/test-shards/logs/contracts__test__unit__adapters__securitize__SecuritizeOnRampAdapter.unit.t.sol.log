@@ -1,0 +1,12 @@
+No files changed, compilation skipped
+
+Ran 6 tests for contracts/test/unit/adapters/securitize/SecuritizeOnRampAdapter.unit.t.sol:SecuritizeOnRampAdapterUnitTest
+[PASS] test_U_SOR_01_constructor_works_as_expected() (gas: 542896)
+[PASS] test_U_SOR_02_wrapper_functions_revert_on_wrong_caller() (gas: 21383)
+[PASS] test_U_SOR_03_swap_works_as_expected() (gas: 39136)
+[PASS] test_U_SOR_04_swapDiff_returns_false_when_nothing_to_swap() (gas: 189849)
+[PASS] test_U_SOR_05_swapDiff_works_as_expected() (gas: 207073)
+[PASS] test_U_SOR_06_serialize_works_as_expected() (gas: 16555)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 4.50ms (1.63ms CPU time)
+
+Ran 1 test suite in 22.30ms (4.50ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)

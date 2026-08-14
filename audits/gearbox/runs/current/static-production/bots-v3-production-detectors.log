@@ -1,0 +1,12 @@
+
+Detector: unused-return
+PartialLiquidationBotV3._initVars(address,address) (contracts/bots/PartialLiquidationBotV3.sol#158-176) ignores return value by (None,feeLiquidation,liquidationDiscount,None,None) = ICreditManagerV3(vars.creditManager).fees() (contracts/bots/PartialLiquidationBotV3.sol#162)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: missing-zero-check
+PartialLiquidationBotV3.constructor(address,uint16,uint16,uint16,uint16).treasury_ (contracts/bots/PartialLiquidationBotV3.sol#99) lacks a zero-check on :
+		- treasury = treasury_ (contracts/bots/PartialLiquidationBotV3.sol#105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+/workspaces/gearbox-audit/source/bots-v3 analyzed (32 contracts with 102 detectors), 2 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

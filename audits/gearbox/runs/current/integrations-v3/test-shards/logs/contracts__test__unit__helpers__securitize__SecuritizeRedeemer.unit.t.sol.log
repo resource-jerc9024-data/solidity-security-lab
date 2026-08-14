@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/unit/helpers/securitize/SecuritizeRedeemer.unit.t.sol:SecuritizeRedeemerUnitTest
+[PASS] test_U_SR_01_constructor_and_setAccount_work() (gas: 34078)
+[PASS] test_U_SR_02_redeem_works() (gas: 284237)
+[PASS] test_U_SR_03_redeem_reverts_if_already_redeemed() (gas: 275804)
+[PASS] test_U_SR_04_claim_works() (gas: 468605)
+[PASS] test_U_SR_05_access_control_works() (gas: 11825)
+[PASS] test_U_SR_06_getCurrentRedemptionValue_works() (gas: 280826)
+[PASS] test_U_SR_07_getRedemptionAmount_returns_min_value() (gas: 289794)
+[PASS] test_U_SR_08_getRedemptionAmount_uses_current_balance_floor() (gas: 445096)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 8.38ms (7.28ms CPU time)
+
+Ran 1 test suite in 36.36ms (8.38ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

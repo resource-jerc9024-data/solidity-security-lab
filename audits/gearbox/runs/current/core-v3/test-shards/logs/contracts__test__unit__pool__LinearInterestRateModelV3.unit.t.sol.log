@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/pool/LinearInterestRateModelV3.unit.t.sol:LinearInterestRateModelV3UnitTest
+[PASS] test_U_LIM_01_start_parameters_correct() (gas: 16161)
+[PASS] test_U_LIM_02_linear_model_constructor_reverts_for_incorrect_params() (gas: 282225)
+[PASS] test_U_LIM_03_linear_model_computes_available_to_borrow_and_borrow_rate_correctly() (gas: 6026523)
+[PASS] test_U_LIM_04_calcBorrowRate_allows_to_borrow_availableToBorrow(uint256,uint256) (runs: 256, μ: 10357, ~: 12629)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 20.81ms (20.21ms CPU time)
+
+Ran 1 test suite in 27.80ms (20.81ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

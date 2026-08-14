@@ -1,0 +1,21 @@
+No files changed, compilation skipped
+
+Ran 15 tests for contracts/test/unit/pool/GaugeV3.unit.t.sol:GauageV3UnitTest
+[PASS] test_U_GA_01_constructor_sets_correct_values() (gas: 1592036)
+[PASS] test_U_GA_02_voterOnly_functions_reverts_if_called_by_non_voter() (gas: 10223)
+[PASS] test_U_GA_03_configuratorOnly_functions_reverts_if_called_by_non_configurator() (gas: 34581)
+[PASS] test_U_GA_04_addQuotaToken_reverts_for_incorrect_params() (gas: 126064)
+[PASS] test_U_GA_05_addQuotaToken_works_as_expected() (gas: 329038)
+[PASS] test_U_GA_06A_changeQuotaMinRate_works_as_expected() (gas: 55429)
+[PASS] test_U_GA_06B_changeQuotaMaxRate_works_as_expected() (gas: 55679)
+[PASS] test_U_GA_08_isTokenAdded_works_as_expected() (gas: 35913)
+[PASS] test_U_GA_10_vote_and_unvote_reverts_in_token_isnt_added() (gas: 19125)
+[PASS] test_U_GA_11_vote_unvote_and_updates_epoch() (gas: 66449)
+[PASS] test_U_GA_12_vote_correctly_updates_votes(uint96) (runs: 256, μ: 74334, ~: 74712)
+[PASS] test_U_GA_13_unvote_correctly_updates_votes(uint96) (runs: 256, μ: 76771, ~: 76793)
+[PASS] test_U_GA_14_updateEpoch_updates_epoch() (gas: 77715)
+[PASS] test_U_GA_15_updateEpoch_updates_epoch() (gas: 114107)
+[PASS] test_U_GA_16_updateEpoch_respects_frozen_epoch() (gas: 46412)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 190.19ms (182.80ms CPU time)
+
+Ran 1 test suite in 193.65ms (190.19ms CPU time): 15 tests passed, 0 failed, 0 skipped (15 total tests)

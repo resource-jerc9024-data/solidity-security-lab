@@ -1,0 +1,17 @@
+No files changed, compilation skipped
+
+Ran 11 tests for contracts/test/unit/adapters/uniswap/UniswapV3Adapter.unit.t.sol:UniswapV3AdapterUnitTest
+[PASS] test_U_UNI3_01_constructor_works_as_expected() (gas: 11088)
+[PASS] test_U_UNI3_02A_functions_revert_on_non_allowed_pool() (gas: 45790)
+[PASS] test_U_UNI3_02_wrapper_functions_revert_on_wrong_caller() (gas: 57614)
+[PASS] test_U_UNI3_03_exactInputSingle_works_as_expected() (gas: 54276)
+[PASS] test_U_UNI3_04_exactDiffInputSingle_works_as_expected() (gas: 511108)
+[PASS] test_U_UNI3_05_exactInput_works_as_expected() (gas: 75673)
+[PASS] test_U_UNI3_06_exactDiffInput_works_as_expected() (gas: 544386)
+[PASS] test_U_UNI3_07_exactOutputSingle_works_as_expected() (gas: 54208)
+[PASS] test_U_UNI3_08_exactOutput_works_as_expected() (gas: 75781)
+[PASS] test_U_UNI3_09_setPoolStatusBatch_works_as_expected() (gas: 182900)
+[PASS] test_U_UNI3_10_validatePath_works_as_expected() (gas: 476354)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 11.03ms (6.72ms CPU time)
+
+Ran 1 test suite in 29.88ms (11.03ms CPU time): 11 tests passed, 0 failed, 0 skipped (11 total tests)

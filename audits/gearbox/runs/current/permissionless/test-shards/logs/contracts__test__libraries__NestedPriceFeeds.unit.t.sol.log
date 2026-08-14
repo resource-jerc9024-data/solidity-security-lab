@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/libraries/NestedPriceFeeds.unit.t.sol:NestedPriceFeedsUnitTest
+[PASS] test_U_NPF_01_getNestingType_works_as_expected() (gas: 1008248)
+[PASS] test_U_NPF_02_getUnderlyingFeeds_works_as_expected_with_no_nesting() (gas: 192678)
+[PASS] test_U_NPF_03_getUnderlyingFeeds_works_as_expected_with_single_underlying() (gas: 214768)
+[PASS] test_U_NPF_04_getUnderlyingFeeds_works_as_expected_with_multiple_underlyings() (gas: 1839023)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 22.13ms (15.82ms CPU time)
+
+Ran 1 test suite in 30.86ms (22.13ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

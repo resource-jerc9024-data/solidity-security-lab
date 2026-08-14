@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/unit/curve/CurveCryptoLPPriceFeed.unit.t.sol:CurveCryptoLPPriceFeedUnitTest
+[PASS] test_U_CRV_C_01_lp_related_functiontionality_works_as_expected() (gas: 1732499)
+[PASS] test_U_CRV_C_02_underlying_price_feeds_related_functiontionality_works_as_expected() (gas: 3324607)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 4.47ms (1.05ms CPU time)
+
+Ran 1 test suite in 24.22ms (4.47ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

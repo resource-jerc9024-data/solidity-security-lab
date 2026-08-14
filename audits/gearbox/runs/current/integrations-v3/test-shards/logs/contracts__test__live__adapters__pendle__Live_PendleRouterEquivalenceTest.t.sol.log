@@ -1,0 +1,7 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/live/adapters/pendle/Live_PendleRouterEquivalenceTest.t.sol:Live_PendleRouterAdapterTest
+[PASS] test_live_PEND_01_PendleRouter_adapter_and_original_contract_are_equivalent() (gas: 2473)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 9.77ms (61.01µs CPU time)
+
+Ran 1 test suite in 27.95ms (9.77ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)

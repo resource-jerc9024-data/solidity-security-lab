@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/unit/adapters/mellow/MellowWrapperAdapter.unit.t.sol:MellowWrapperAdapterUnitTest
+[PASS] test_U_MWA_01_constructor_works_as_expected() (gas: 17312)
+[PASS] test_U_MWA_02_wrapper_functions_revert_on_wrong_caller() (gas: 24055)
+[PASS] test_U_MWA_03_deposit_reverts_if_vault_not_allowed() (gas: 21694)
+[PASS] test_U_MWA_04_deposit_executes_if_vault_allowed() (gas: 132979)
+[PASS] test_U_MWA_05_depositDiff_reverts_if_vault_not_allowed() (gas: 21440)
+[PASS] test_U_MWA_06_depositDiff_returns_false_if_balance_too_low() (gas: 109392)
+[PASS] test_U_MWA_07_depositDiff_executes_if_balance_sufficient() (gas: 134506)
+[PASS] test_U_MWA_08_allowedVaults_returns_correct_list() (gas: 98460)
+[PASS] test_U_MWA_09_setVaultStatusBatch_works_as_expected() (gas: 137870)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 4.76ms (1.05ms CPU time)
+
+Ran 1 test suite in 23.59ms (4.76ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

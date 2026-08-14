@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/global/InstanceManager.unit.t.sol:InstanceManagerTest
+[PASS] test_U_IM_01_constructor_sets_initial_state() (gas: 6578410)
+[PASS] test_U_IM_02_activate_works() (gas: 13743825)
+[PASS] test_U_IM_03_setAddress_functions_work() (gas: 298912)
+[PASS] test_U_IM_04_configure_functions_work() (gas: 78595)
+[PASS] test_U_IM_05_governance_transfer_works() (gas: 60225)
+[PASS] test_U_IM_06_deploy_system_contract() (gas: 329005)
+[PASS] test_U_IM_07_deploy_legacy_gear_staking() (gas: 264376)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 10.25ms (7.95ms CPU time)
+
+Ran 1 test suite in 31.72ms (10.25ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

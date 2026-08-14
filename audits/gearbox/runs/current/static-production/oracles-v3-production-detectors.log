@@ -1,0 +1,124 @@
+
+Detector: arbitrary-send-eth
+PythPriceFeed.updatePrice(bytes) (contracts/oracles/updatable/PythPriceFeed.sol#128-150) sends eth to arbitrary user
+	Dangerous calls:
+	- IPyth(pyth).updatePriceFeeds{value: fee}(updateData) (contracts/oracles/updatable/PythPriceFeed.sol#141)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Detector: incorrect-equality
+PendleTWAPPTPriceFeed._getSYandPYIndex() (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#101-110) uses a dangerous strict equality:
+	- IPendleYT(yt).doCacheIndexSameBlock() && IPendleYT(yt).pyIndexLastUpdatedBlock() == block.number (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#105)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Detector: pyth-unchecked-confidence
+Pyth price conf field is not checked in PythPriceFeed.updatePrice(bytes) (contracts/oracles/updatable/PythPriceFeed.sol#128-150)
+	- priceData = IPyth(pyth).getPriceUnsafe(priceFeedId) (contracts/oracles/updatable/PythPriceFeed.sol#143)
+Pyth price conf field is not checked in PythPriceFeed.latestRoundData() (contracts/oracles/updatable/PythPriceFeed.sol#110-122)
+	- priceData = IPyth(pyth).getPriceUnsafe(priceFeedId) (contracts/oracles/updatable/PythPriceFeed.sol#111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#pyth-unchecked-confidence-level
+
+Detector: pyth-unchecked-publishtime
+Pyth price publishTime field is not checked in PythPriceFeed.latestRoundData() (contracts/oracles/updatable/PythPriceFeed.sol#110-122)
+	- priceData = IPyth(pyth).getPriceUnsafe(priceFeedId) (contracts/oracles/updatable/PythPriceFeed.sol#111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#pyth-unchecked-publishtime
+
+Detector: uninitialized-local
+RedstonePriceFeed.constructor(address,string,bytes32,address[10],uint8,string).numSigners (contracts/oracles/updatable/RedstonePriceFeed.sol#108) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Detector: unused-return
+PriceFeedValidationTrait._getValidatedPrice(address,uint32,bool) (contracts/traits/PriceFeedValidationTrait.sol#57-64) ignores return value by (None,answer,None,updatedAt,None) = IPriceFeed(priceFeed).latestRoundData() (contracts/traits/PriceFeedValidationTrait.sol#62)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: write-after-write
+CurveCryptoLPPriceFeed.getAggregatePriceAndTimestamp().answer (contracts/oracles/curve/CurveCryptoLPPriceFeed.sol#65) is written in both
+	(answer,updatedAt) = _getValidatedPrice(priceFeed0,stalenessPeriod0,skipCheck0) (contracts/oracles/curve/CurveCryptoLPPriceFeed.sol#66)
+	(answer,updatedAt2) = _getValidatedPrice(priceFeed1,stalenessPeriod1,skipCheck1) (contracts/oracles/curve/CurveCryptoLPPriceFeed.sol#70)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#write-after-write
+
+Detector: missing-zero-check
+BoundedPriceFeed.constructor(address,uint32,int256,string)._priceFeed (contracts/oracles/BoundedPriceFeed.sol#41) lacks a zero-check on :
+		- priceFeed = _priceFeed (contracts/oracles/BoundedPriceFeed.sol#45)
+CurveTWAPPriceFeed.constructor(uint256,uint256,bool,address,address,address,uint32,string)._token (contracts/oracles/curve/CurveTWAPPriceFeed.sol#81) lacks a zero-check on :
+		- token = _token (contracts/oracles/curve/CurveTWAPPriceFeed.sol#89)
+CurveTWAPPriceFeed.constructor(uint256,uint256,bool,address,address,address,uint32,string)._pool (contracts/oracles/curve/CurveTWAPPriceFeed.sol#82) lacks a zero-check on :
+		- pool = _pool (contracts/oracles/curve/CurveTWAPPriceFeed.sol#90)
+CurveTWAPPriceFeed.constructor(uint256,uint256,bool,address,address,address,uint32,string)._priceFeed (contracts/oracles/curve/CurveTWAPPriceFeed.sol#83) lacks a zero-check on :
+		- priceFeed = _priceFeed (contracts/oracles/curve/CurveTWAPPriceFeed.sol#91)
+PendleTWAPPTPriceFeed.constructor(address,address,uint32,uint32,bool)._market (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#57) lacks a zero-check on :
+		- market = _market (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#58)
+		- (sy,pt,yt) = IPendleMarket(_market).readTokens() (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#68)
+PendleTWAPPTPriceFeed.constructor(address,address,uint32,uint32,bool)._priceFeed (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#57) lacks a zero-check on :
+		- priceFeed = _priceFeed (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#60)
+PythPriceFeed.constructor(address,bytes32,address,uint256,string)._token (contracts/oracles/updatable/PythPriceFeed.sol#81) lacks a zero-check on :
+		- token = _token (contracts/oracles/updatable/PythPriceFeed.sol#88)
+PythPriceFeed.constructor(address,bytes32,address,uint256,string)._pyth (contracts/oracles/updatable/PythPriceFeed.sol#83) lacks a zero-check on :
+		- pyth = _pyth (contracts/oracles/updatable/PythPriceFeed.sol#90)
+RedstonePriceFeed.constructor(address,string,bytes32,address[10],uint8,string)._token (contracts/oracles/updatable/RedstonePriceFeed.sol#99) lacks a zero-check on :
+		- token = _token (contracts/oracles/updatable/RedstonePriceFeed.sol#119)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: reentrancy-events
+Reentrancy in PythPriceFeed.updatePrice(bytes) (contracts/oracles/updatable/PythPriceFeed.sol#128-150):
+	External calls:
+	- IPyth(pyth).updatePriceFeeds{value: fee}(updateData) (contracts/oracles/updatable/PythPriceFeed.sol#141)
+	Event emitted after the call(s):
+	- UpdatePrice(uint64(priceData.price)) (contracts/oracles/updatable/PythPriceFeed.sol#149)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Detector: timestamp
+PendleTWAPPTPriceFeed.latestRoundData() (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#113-131) uses timestamp for comparisons
+	Dangerous comparisons:
+	- expiry > block.timestamp (contracts/oracles/pendle/PendleTWAPPTPriceFeed.sol#116)
+PythPriceFeed._validatePublishTimestamp(uint256) (contracts/oracles/updatable/PythPriceFeed.sol#169-177) uses timestamp for comparisons
+	Dangerous comparisons:
+	- (block.timestamp < publishTimestamp) (contracts/oracles/updatable/PythPriceFeed.sol#170)
+	- (publishTimestamp - block.timestamp) > MAX_DATA_TIMESTAMP_AHEAD_SECONDS (contracts/oracles/updatable/PythPriceFeed.sol#171)
+	- (block.timestamp - publishTimestamp) > MAX_DATA_TIMESTAMP_DELAY_SECONDS (contracts/oracles/updatable/PythPriceFeed.sol#174)
+RedstonePriceFeed._validateExpectedPayloadTimestamp(uint256) (contracts/oracles/updatable/RedstonePriceFeed.sol#234-242) uses timestamp for comparisons
+	Dangerous comparisons:
+	- (block.timestamp < expectedPayloadTimestamp) (contracts/oracles/updatable/RedstonePriceFeed.sol#235)
+	- (expectedPayloadTimestamp - block.timestamp) > MAX_DATA_TIMESTAMP_AHEAD_SECONDS (contracts/oracles/updatable/RedstonePriceFeed.sol#236)
+	- (block.timestamp - expectedPayloadTimestamp) > MAX_DATA_TIMESTAMP_DELAY_SECONDS (contracts/oracles/updatable/RedstonePriceFeed.sol#239)
+PriceFeedValidationTrait._checkAnswer(int256,uint256,uint32,bool) (contracts/traits/PriceFeedValidationTrait.sol#20-23) uses timestamp for comparisons
+	Dangerous comparisons:
+	- ! skipCheck && block.timestamp >= updatedAt + stalenessPeriod (contracts/traits/PriceFeedValidationTrait.sol#22)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: dead-code
+LPPriceFeed._calcLowerBound(uint256) (contracts/oracles/LPPriceFeed.sol#139-141) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Detector: naming-convention
+Function ICurvePool.get_virtual_price() (contracts/interfaces/curve/ICurvePool.sol#7) is not in mixedCase
+Function ICurvePool.price_oracle() (contracts/interfaces/curve/ICurvePool.sol#9) is not in mixedCase
+Function ICurvePool.price_oracle(uint256) (contracts/interfaces/curve/ICurvePool.sol#11) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: too-many-digits
+RedstonePriceFeed.slitherConstructorConstantVariables() (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243) uses literals with too many digits:
+	- STRING_ERR_MESSAGE_MASK = 0x08c379a000000000000000000000000000000000000000000000000000000000 (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#23)
+RedstonePriceFeed.slitherConstructorConstantVariables() (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243) uses literals with too many digits:
+	- REDSTONE_MARKER_MASK = 0x0000000000000000000000000000000000000000000000000002ed57011e0000 (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#35)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Detector: unused-state
+RedstoneConstants.FUNCTION_SIGNATURE_BS (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#21) is never used in RedstonePriceFeed (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243)
+RedstoneConstants.REVERT_MSG_OFFSET (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#22) is never used in RedstonePriceFeed (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243)
+RedstoneConstants.STRING_ERR_MESSAGE_MASK (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#23) is never used in RedstonePriceFeed (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243)
+RedstoneConstants.TIMESTAMP_BS (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#27) is never used in RedstonePriceFeed (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243)
+RedstoneConstants.DATA_POINT_VALUE_BYTE_SIZE_BS (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#30) is never used in RedstonePriceFeed (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243)
+RedstoneConstants.DEFAULT_DATA_POINT_VALUE_BS (node_modules/@redstone-finance/evm-connector/contracts/core/RedstoneConstants.sol#32) is never used in RedstonePriceFeed (contracts/oracles/updatable/RedstonePriceFeed.sol#24-243)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+Detector: immutable-states
+BoundedPriceFeed._descriptionTicker (contracts/oracles/BoundedPriceFeed.sol#34) should be immutable 
+CompositePriceFeed._descriptionTicker (contracts/oracles/CompositePriceFeed.sol#38) should be immutable 
+ConstantPriceFeed.descriptionTicker (contracts/oracles/ConstantPriceFeed.sol#32) should be immutable 
+CurveTWAPPriceFeed.descriptionTicker (contracts/oracles/curve/CurveTWAPPriceFeed.sol#66) should be immutable 
+PythPriceFeed._descriptionTicker (contracts/oracles/updatable/PythPriceFeed.sol#54) should be immutable 
+RedstonePriceFeed._descriptionTicker (contracts/oracles/updatable/RedstonePriceFeed.sol#70) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+/workspaces/gearbox-audit/source/oracles-v3 analyzed (49 contracts with 102 detectors), 40 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/unit/updatable/PythPriceFeed.unit.t.sol:PythPriceFeedUnitTest
+[PASS] test_U_PYPF_01_constructor_sets_correct_values() (gas: 56882)
+[PASS] test_U_PYPF_02_updatePrice_stops_early_on_old_timestamp() (gas: 59836)
+[PASS] test_U_PYPF_03_updatePrice_reverts_on_non_current_timestamp() (gas: 69496)
+[PASS] test_U_PYPF_04_updatePrice_correctly_passes_data() (gas: 81268)
+[PASS] test_U_PYPF_05_updatePrice_reverts_on_incorrect_expected_timestamp() (gas: 74789)
+[PASS] test_U_PYPF_06_updatePrice_reverts_on_price_0_or_wrong_expo() (gas: 209780)
+[PASS] test_U_PYPF_07_latestRoundData_correctly_handles_non_standard_expo() (gas: 86144)
+[PASS] test_U_PYPF_08_latestRoundData_reverts_on_too_high_conf_to_price_ratio() (gas: 60513)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 4.77ms (2.25ms CPU time)
+
+Ran 1 test suite in 23.49ms (4.77ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/equivalence/PoolsEquivalenceTest.t.sol:PoolsEquivalenceTest
+[PASS] test_PCE_01_PoolCompressor_equivalence() (gas: 7186)
+Logs:
+  MarketCompressor or DataCompressor not set, or not a contract. Skipping pool compressor equivalence test.
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 575.83µs (166.05µs CPU time)
+
+Ran 1 test suite in 31.56ms (575.83µs CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)

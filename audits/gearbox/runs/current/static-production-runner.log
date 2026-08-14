@@ -1,0 +1,61 @@
+Running permissionless/production build-info
+permissionless/production build-info finished with exit code 0
+Running permissionless/production detectors
+permissionless/production detectors finished with exit code 255
+Running permissionless/production structure
+permissionless/production structure finished with exit code 0
+Running core-v3/production build-info
+core-v3/production build-info finished with exit code 0
+Running core-v3/production detectors
+core-v3/production detectors finished with exit code 255
+Running core-v3/production structure
+core-v3/production structure finished with exit code 0
+Running oracles-v3/production build-info
+oracles-v3/production build-info finished with exit code 0
+Running oracles-v3/production detectors
+oracles-v3/production detectors finished with exit code 255
+Running oracles-v3/production structure
+oracles-v3/production structure finished with exit code 0
+Running integrations-v3/adapters build-info
+integrations-v3/adapters build-info finished with exit code 0
+Running integrations-v3/adapters detectors
+integrations-v3/adapters detectors finished with exit code 255
+Running integrations-v3/adapters structure
+integrations-v3/adapters structure finished with exit code 0
+Running integrations-v3/helpers build-info
+integrations-v3/helpers build-info finished with exit code 0
+Running integrations-v3/helpers detectors
+integrations-v3/helpers detectors finished with exit code 255
+Running integrations-v3/helpers structure
+integrations-v3/helpers structure finished with exit code 0
+Running integrations-v3/integrations build-info
+integrations-v3/integrations build-info finished with exit code 0
+Running integrations-v3/integrations detectors
+integrations-v3/integrations detectors finished with exit code 255
+Running integrations-v3/integrations structure
+integrations-v3/integrations structure finished with exit code 0
+Running integrations-v3/interfaces build-info
+integrations-v3/interfaces build-info finished with exit code 0
+Running integrations-v3/interfaces detectors
+integrations-v3/interfaces detectors finished with exit code 255
+Running integrations-v3/interfaces structure
+integrations-v3/interfaces structure finished with exit code 0
+Running integrations-v3/zappers build-info
+integrations-v3/zappers build-info finished with exit code 0
+Running integrations-v3/zappers detectors
+integrations-v3/zappers detectors finished with exit code 255
+Running integrations-v3/zappers structure
+integrations-v3/zappers structure finished with exit code 0
+Running bots-v3/production build-info
+bots-v3/production build-info finished with exit code 0
+Running bots-v3/production detectors
+bots-v3/production detectors finished with exit code 255
+Running bots-v3/production structure
+bots-v3/production structure finished with exit code 0
+Running periphery-v3/production build-info
+periphery-v3/production build-info finished with exit code 0
+Running periphery-v3/production detectors
+periphery-v3/production detectors finished with exit code 255
+Running periphery-v3/production structure
+periphery-v3/production structure finished with exit code 0
+Gearbox production-only static analysis complete. Review /workspaces/gearbox-audit/audits/gearbox/runs/current/static-production/status.tsv

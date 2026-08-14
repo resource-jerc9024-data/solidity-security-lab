@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/unit/adapters/convex/ConvexV1BoosterAdapter.unit.t.sol:ConvexV1BoosterAdapterUnitTest
+[PASS] test_U_CVX1B_01_constructor_works_as_expected() (gas: 11031)
+[PASS] test_U_CVX1B_02A_functions_revert_on_unknown_pid() (gas: 50457)
+[PASS] test_U_CVX1B_02_wrapper_functions_revert_on_wrong_caller() (gas: 37539)
+[PASS] test_U_CVX1B_03_deposit_works_as_expected() (gas: 65138)
+[PASS] test_U_CVX1B_04_depositDiff_works_as_expected() (gas: 541436)
+[PASS] test_U_CVX1B_05_withdraw_works_as_expected() (gas: 31363)
+[PASS] test_U_CVX1B_06_withdrawDiff_works_as_expected() (gas: 486045)
+[PASS] test_U_CVX1B_07_updateStakedPhantomTokensMap_reverts_on_wrong_caller() (gas: 14005)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 7.30ms (3.40ms CPU time)
+
+Ran 1 test suite in 24.88ms (7.30ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

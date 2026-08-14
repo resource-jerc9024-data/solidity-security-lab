@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/unit/libraries/CreditAccountHelper.unit.t.sol:CreditAccountHelperUnitTest
+[PASS] test_U_CAH_01_safeApprove_approves_with_desired_allowance() (gas: 52678)
+[PASS] test_U_CAH_02_safeApprove_works_for_ERC20_with_approve_restrictions() (gas: 1373099)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 12.04ms (669.94µs CPU time)
+
+Ran 1 test suite in 40.79ms (12.04ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

@@ -1,12 +1,16 @@
 # Gearbox V3.1 candidate ledger
 
-No candidates exist yet. Scanner output and review suggestions do not become
-candidates until manually traced in the pinned Gearbox source.
+Scanner output and review suggestions do not become findings until manually traced
+in the pinned Gearbox source. One candidate passed the reachability, impact, PoC,
+and public known-issue gates and is promoted as `GBX-M-01`.
 
 | ID | State | Repository/component | Hypothesis | Attacker/reachability | Impact | PoC | Known-issue status |
 |---|---|---|---|---|---|---|---|
+| `CAND-001` | Confirmed Medium as `GBX-M-01` | `oracles-v3/PythPriceFeed` | Permissionless caller controls the complete Pyth update array whose fee is paid from the feed's prepaid ETH, while the post-check binds only one configured feed timestamp. | Any caller with one fresh valid target update can append duplicate or unrelated valid updates; no role or prior Gearbox position is required. | Exhausts the update-fee reserve and makes later on-demand updates fail until refunded; stale price-dependent operations can then revert. | `PythPriceFeedFeeAmplification.t.sol`: 2/2 tests pass; 50 redundant entries consume the entire modeled reserve and the next honest update reverts. | No public match found in Gearbox issues, PRs, disclosures, or public report scope. Private Spearbit issue contents referenced by PR #45 are inaccessible and remain an eligibility risk. |
+| `REJ-001` | Rejected: explicitly tested recovery semantics | `permissionless/CrossChainMultisig` | During recovery mode, permissionless execution skips signed non-self calls while advancing the batch hash, so the skipped calls cannot be replayed as the same batch. | Anyone can relay a threshold-signed batch, but threshold signers must first enable recovery mode and sign the exact batch. | Suggested governance-action censorship. | Not created: current unit test `test_U_CCM_21_RecoveryModeSkipsExecution` already deliberately signs a mixed batch, skips its external call, executes its self-call, and accepts execution. | Intended behavior is stated in `_executeBatch` documentation and the recovery-mode test; not a new vulnerability. |
+| `REJ-002` | Rejected: no supported-token trigger | `bots-v3/PartialLiquidationBotV3` and `core-v3/CreditFacadeV3` | The bot probes `getPhantomTokenInfo` with 10,000 gas while the facade uses 30,000, potentially disagreeing about the asset received. | A liquidator chooses the collateral token, but that token and its adapter must already be registered by privileged configuration. | At most bot partial-liquidation unavailability; atomic mismatch reverts. | Not created: every supported integration phantom-token getter is a simple return of stored addresses and fits the smaller probe. A synthetic slow getter would require privileged admission. | No matching public issue found, but current reachability and listed-impact gates fail. |
+| `TEST-001` | Rejected: attachment environment | `integrations-v3/Upshift.attach.t.sol` | The only non-zero final baseline shard reports `Instance is not deployed` in `setUp`. | Requires an expected external/local deployment fixture absent from the clean baseline environment. | No production-contract impact. | Existing attachment test only; 114 other test files complete without failure. | Test/configuration behavior is out of scope without independent production impact. |
 
 Every new entry must contain exact source locations, root cause, attacker-controlled
 inputs, transaction sequence, violated Gearbox invariant, full end effect, severity
 mapping, deterministic local PoC status, and known-issue disposition.
-

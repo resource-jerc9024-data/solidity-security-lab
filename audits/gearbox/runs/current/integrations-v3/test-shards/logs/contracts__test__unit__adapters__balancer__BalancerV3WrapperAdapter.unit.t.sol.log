@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/unit/adapters/balancer/BalancerV3WrapperAdapter.unit.t.sol:BalancerV3WrapperAdapterUnitTest
+[PASS] test_U_BV3W_01_constructor_works_as_expected() (gas: 579349)
+[PASS] test_U_BV3W_02_wrapper_functions_revert_on_wrong_caller() (gas: 36930)
+[PASS] test_U_BV3W_03_mint_works_as_expected() (gas: 39057)
+[PASS] test_U_BV3W_04_mintDiff_works_as_expected() (gas: 494712)
+[PASS] test_U_BV3W_05_burn_works_as_expected() (gas: 28574)
+[PASS] test_U_BV3W_06_burnDiff_works_as_expected() (gas: 478062)
+[PASS] test_U_BV3W_07_serialize_works_as_expected() (gas: 13995)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 7.17ms (2.65ms CPU time)
+
+Ran 1 test suite in 26.58ms (7.17ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/unit/adapters/velodrome/VelodromeV2Adapter.unit.t.sol:VelodtomeV2AdapterUnitTest
+[PASS] test_U_VELO2_01_constructor_works_as_expected() (gas: 11000)
+[PASS] test_U_VELO2_02_wrapper_functions_revert_on_wrong_caller() (gas: 22649)
+[PASS] test_U_VELO2_03_swapExactTokensForTokens_works_as_expected() (gas: 68353)
+[PASS] test_U_VELO2_04_swapDiffTokensForTokens_works_as_expected() (gas: 533128)
+[PASS] test_U_VELO2_05_setPoolStatusBatch_works_as_expected() (gas: 217211)
+[PASS] test_U_VELO2_06_validatePath_works_as_expected() (gas: 500658)
+[PASS] test_U_VELO2_07_validatePath_filters_disjunct_paths() (gas: 76280)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 10.52ms (4.91ms CPU time)
+
+Ran 1 test suite in 28.55ms (10.52ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

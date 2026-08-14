@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/integration/credit/ManageDebt.int.t.sol:ManegDebtIntegrationTest
+[PASS] test_I_MD_01_increaseDebt_executes_actions_as_expected() (gas: 82625425)
+[PASS] test_I_MD_02_increaseDebt_revets_if_more_than_block_limit() (gas: 82580947)
+[PASS] test_I_MD_03_increaseDebt_revets_if_more_than_block_limit() (gas: 82603907)
+[PASS] test_I_MD_04_increaseDebt_revets_isIncreaseDebtForbidden_is_enabled() (gas: 82587163)
+[PASS] test_I_MD_05_increaseDebt_reverts_with_forbidden_tokens() (gas: 82732330)
+[PASS] test_I_MD_06_decreaseDebt_executes_actions_as_expected() (gas: 82629926)
+[PASS] test_I_MD_07_decreaseDebt_revets_if_less_than_minDebt() (gas: 82587854)
+[PASS] test_I_MD_08_manageDebt_correctly_increases_debt(uint120) (runs: 256, μ: 82258507, ~: 82258507)
+[PASS] test_I_MD_09_manageDebt_correctly_decreases_debt(uint128) (runs: 256, μ: 82230941, ~: 82230941)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 6.46s (6.45s CPU time)
+
+Ran 1 test suite in 6.47s (6.46s CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

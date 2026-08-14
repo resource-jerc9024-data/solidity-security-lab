@@ -27,3 +27,31 @@ Generated evidence belongs under `audits/gearbox/runs/current/`, with one direct
 per repository and separate `codex/` and `poc/` logs. Large generated logs should
 be reviewed before deciding whether they belong in version control.
 
+## Implemented runners
+
+Run from the isolated Codespace audit root after the six pinned repositories and
+their recursive submodules are present under `source/`:
+
+```bash
+bash scripts/run-gearbox-baseline.sh
+bash scripts/run-gearbox-static.sh
+bash scripts/run-gearbox-codex-passes.sh
+```
+
+`run-gearbox-static.sh` creates exact production source manifests. It deliberately
+does not treat the pinned periphery tree's `contracts/rwa/` as a substitute for the
+canonical scope's missing `contracts/kyc/` path. Integrations are sharded by source
+component to keep Slither below Codespace memory limits without omitting files.
+
+To reproduce `GBX-M-01`, use the dedicated runner. It copies the committed PoC into
+the isolated Oracle checkout, runs only its contract, and removes the temporary
+copy through an exit trap so the source pin remains clean:
+
+```bash
+bash scripts/run-gearbox-pocs.sh
+git -C source/oracles-v3 status --short
+```
+
+The expected final command output is empty. Full generated Slither JSON and
+structure output remain in the Codespace; compact detector logs, manifests, status
+tables, baseline shards, Codex reports, and PoC output are retained on the branch.

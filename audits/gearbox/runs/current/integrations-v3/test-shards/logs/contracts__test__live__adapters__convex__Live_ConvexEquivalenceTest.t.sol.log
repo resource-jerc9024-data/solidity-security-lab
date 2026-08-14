@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/live/adapters/convex/Live_ConvexEquivalenceTest.t.sol:Live_ConvexEquivalenceTest
+[PASS] test_live_CVXET_01_Convex_adapters_and_original_contracts_are_equivalent() (gas: 2473)
+[PASS] test_live_CVXET_02_Convex_phantom_token_withdrawals_work_correctly() (gas: 2518)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 7.08ms (103.55µs CPU time)
+
+Ran 1 test suite in 30.41ms (7.08ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

@@ -1,0 +1,9 @@
+Compiling 355 files with Solc 0.8.23
+Solc 0.8.23 finished in 27.17s
+Compiler run successful with warnings:
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/test/migration/cloners/IntegrationCloner.sol:119:49:
+    |
+119 |     function migrateAdapter(address oldAdapter, address oldCreditManager, address newCreditManager)
+    |                                                 ^^^^^^^^^^^^^^^^^^^^^^^^
+

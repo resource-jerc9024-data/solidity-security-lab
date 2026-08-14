@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/libraries/BitMask.unit.t.sol:BitMaskUnitTest
+[PASS] test_U_BM_03_calcEnabledTokens_works_correctly(uint8,uint256) (runs: 256, μ: 52679, ~: 10164)
+[PASS] test_U_BM_04_enable_and_disable_works_correctly(uint8) (runs: 256, μ: 662, ~: 662)
+[PASS] test_U_BM_05_enableDisable_works_correctly(uint8) (runs: 256, μ: 682, ~: 682)
+[PASS] test_U_BM_06_lsbMask_works_correctly(uint256) (runs: 256, μ: 877, ~: 888)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 87.16ms (85.74ms CPU time)
+
+Ran 1 test suite in 89.11ms (87.16ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

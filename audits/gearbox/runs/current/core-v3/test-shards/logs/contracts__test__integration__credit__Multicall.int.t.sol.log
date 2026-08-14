@@ -1,0 +1,18 @@
+No files changed, compilation skipped
+
+Ran 12 tests for contracts/test/integration/credit/Multicall.int.t.sol:MultiCallIntegrationTest
+[PASS] test_I_MC_01_multicall_reverts_if_credit_account_not_exists() (gas: 82237120)
+[PASS] test_I_MC_02_multicall_correctly_wraps_ETH() (gas: 82666744)
+[PASS] test_I_MC_03_multicall_reverts_for_unknown_methods() (gas: 82577937)
+[PASS] test_I_MC_04_multicall_reverts_for_non_whilisted_adapters() (gas: 82580432)
+[PASS] test_I_MC_05_addCollateral_executes_actions_as_expected() (gas: 82785498)
+[PASS] test_I_MC_06_multicall_addCollateral_and_increase_debt_works_with_creditFacade_calls_as_expected() (gas: 82802800)
+[PASS] test_I_MC_07_multicall_addCollateral_and_decreaseDebt_works_with_creditFacade_calls_as_expected() (gas: 82814560)
+[PASS] test_I_MC_08_multicall_reverts_for_decrease_opeartion_after_increase_one() (gas: 82581160)
+[PASS] test_I_MC_09_multicall_works_with_adapters_calls_as_expected() (gas: 83361280)
+[PASS] test_I_MC_11_slippage_check_works_correctly() (gas: 82816152)
+[PASS] test_I_MC_12_slippage_check_reverts_if_called_incorrectly() (gas: 82591223)
+[PASS] test_I_MC_15_setFullCheckParams_correctly_passes_params_to_fullCollateralCheck() (gas: 82606756)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 157.96ms (151.67ms CPU time)
+
+Ran 1 test suite in 160.59ms (157.96ms CPU time): 12 tests passed, 0 failed, 0 skipped (12 total tests)

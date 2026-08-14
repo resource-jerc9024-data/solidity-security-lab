@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/pool/TumblerV3.unit.t.sol:TumblerV3UnitTest
+[PASS] test_U_TU_01_constructor_works_as_expected() (gas: 78187)
+[PASS] test_U_TU_02_addToken_works_as_expected() (gas: 259191)
+[PASS] test_U_TU_03_setRate_works_as_expected() (gas: 136193)
+[PASS] test_U_TU_04_updateRates_works_as_expected() (gas: 209399)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 6.14ms (943.71µs CPU time)
+
+Ran 1 test suite in 29.81ms (6.14ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

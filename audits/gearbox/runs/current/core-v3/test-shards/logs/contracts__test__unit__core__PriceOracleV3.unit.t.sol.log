@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/unit/core/PriceOracleV3.unit.t.sol:PriceOracleV3UnitTest
+[PASS] test_U_PO_01_getPrice_works_as_expected() (gas: 1424493)
+[PASS] test_U_PO_02_getSafePrice_and_getReservePrice_work_as_expected() (gas: 1895673)
+[PASS] test_U_PO_03_setPriceFeed_works_as_expected() (gas: 564057)
+[PASS] test_U_PO_04_setReservePriceFeed_works_as_expected() (gas: 496186)
+[PASS] test_U_PO_06_getTokenReserveKey_works_as_expected(address) (runs: 256, μ: 6194, ~: 6194)
+[PASS] test_U_PO_07_validateToken_works_as_expected() (gas: 28780)
+[PASS] test_U_PO_08_validatePriceFeed_works_as_expected() (gas: 72113)
+[PASS] test_U_PO_09_getValidatedPrice_works_as_expected() (gas: 44760)
+[PASS] test_U_PO_10_validatePriceFeed_works_correctly_for_price_feeds_with_fallback() (gas: 697286)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 36.25ms (32.56ms CPU time)
+
+Ran 1 test suite in 37.61ms (36.25ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

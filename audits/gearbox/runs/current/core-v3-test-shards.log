@@ -1,0 +1,65 @@
+Running shard contracts/test/gas/ArrayAlloc.gas.t.sol
+contracts/test/gas/ArrayAlloc.gas.t.sol finished with exit code 0
+Running shard contracts/test/gas/credit/CreditFacade.gas.t.sol
+contracts/test/gas/credit/CreditFacade.gas.t.sol finished with exit code 0
+Running shard contracts/test/gas/pool/Gauge.gas.t.sol
+contracts/test/gas/pool/Gauge.gas.t.sol finished with exit code 0
+Running shard contracts/test/integration/credit/CreditConfigurator.int.t.sol
+contracts/test/integration/credit/CreditConfigurator.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/credit/LiquidateCreditAccount.int.t.sol
+contracts/test/integration/credit/LiquidateCreditAccount.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/credit/ManageDebt.int.t.sol
+contracts/test/integration/credit/ManageDebt.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/credit/Multicall.int.t.sol
+contracts/test/integration/credit/Multicall.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/credit/OpenCreditAccount.int.t.sol
+contracts/test/integration/credit/OpenCreditAccount.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/credit/Quotas.int.t.sol
+contracts/test/integration/credit/Quotas.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/governance/GaugeMigration.int.t.sol
+contracts/test/integration/governance/GaugeMigration.int.t.sol finished with exit code 0
+Running shard contracts/test/integration/governance/QuotaRates.int.t.sol
+contracts/test/integration/governance/QuotaRates.int.t.sol finished with exit code 0
+Running shard contracts/test/invaritants/OpenInvariants.t.sol
+contracts/test/invaritants/OpenInvariants.t.sol finished with exit code 0
+Running shard contracts/test/unit/core/AliasedLossPolicyV3.unit.t.sol
+contracts/test/unit/core/AliasedLossPolicyV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/core/BotListV3.unit.t.sol
+contracts/test/unit/core/BotListV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/core/DefaultAccountFactoryV3.unit.t.sol
+contracts/test/unit/core/DefaultAccountFactoryV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/core/GearStakingV3.unit.t.sol
+contracts/test/unit/core/GearStakingV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/core/PriceOracleV3.unit.t.sol
+contracts/test/unit/core/PriceOracleV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/credit/CreditAccountV3.unit.t.sol
+contracts/test/unit/credit/CreditAccountV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/credit/CreditFacadeV3.unit.t.sol
+contracts/test/unit/credit/CreditFacadeV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/credit/CreditManagerV3.unit.t.sol
+contracts/test/unit/credit/CreditManagerV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/libraries/BalancesLogic.unit.t.sol
+contracts/test/unit/libraries/BalancesLogic.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/libraries/BitMask.unit.t.sol
+contracts/test/unit/libraries/BitMask.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/libraries/CollateralLogic.unit.t.sol
+contracts/test/unit/libraries/CollateralLogic.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/libraries/CreditAccountHelper.unit.t.sol
+contracts/test/unit/libraries/CreditAccountHelper.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/libraries/CreditLogic.unit.t.sol
+contracts/test/unit/libraries/CreditLogic.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/libraries/QuotasLogic.unit.t.sol
+contracts/test/unit/libraries/QuotasLogic.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/pool/GaugeV3.unit.t.sol
+contracts/test/unit/pool/GaugeV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/pool/LinearInterestRateModelV3.unit.t.sol
+contracts/test/unit/pool/LinearInterestRateModelV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/pool/PoolQuotaKeeperV3.unit.t.sol
+contracts/test/unit/pool/PoolQuotaKeeperV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/pool/PoolV3.unit.t.sol
+contracts/test/unit/pool/PoolV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/pool/TumblerV3.unit.t.sol
+contracts/test/unit/pool/TumblerV3.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/traits/USDT_Transfer.unit.t.sol
+contracts/test/unit/traits/USDT_Transfer.unit.t.sol finished with exit code 0
+Sharded tests complete: 32 files, 0 non-zero exits.

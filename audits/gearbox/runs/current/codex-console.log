@@ -1,0 +1,13 @@
+Running Codex pass 01-credit-pool-liquidation
+01-credit-pool-liquidation finished with exit code 0
+Running Codex pass 02-permissionless-governance-deployment
+02-permissionless-governance-deployment finished with exit code 0
+Running Codex pass 03-oracles-health-pricing
+03-oracles-health-pricing finished with exit code 0
+Running Codex pass 04-adapters-external-calls
+04-adapters-external-calls finished with exit code 0
+Running Codex pass 05-bots-emergency-migration
+05-bots-emergency-migration finished with exit code 0
+Running Codex pass 06-cross-repository-synthesis
+06-cross-repository-synthesis finished with exit code 0
+Gearbox Codex passes complete. Review /workspaces/gearbox-audit/audits/gearbox/runs/current/codex/status.tsv

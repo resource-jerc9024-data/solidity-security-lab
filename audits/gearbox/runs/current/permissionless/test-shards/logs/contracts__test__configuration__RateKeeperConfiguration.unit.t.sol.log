@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/configuration/RateKeeperConfiguration.unit.t.sol:RateKeeperConfigurationUnitTest
+[PASS] test_RK_01_setRate() (gas: 73030)
+[PASS] test_RK_02_updateRates() (gas: 95689)
+[PASS] test_RK_03_addToken_reverts() (gas: 41643)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 65.50ms (547.44µs CPU time)
+
+Ran 1 test suite in 67.63ms (65.50ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

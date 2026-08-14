@@ -1,0 +1,651 @@
+Function not found safeBalanceOf
+Impossible to generate IR for PoolV3.availableLiquidity (lib/@gearbox-protocol/core-v3/contracts/pool/PoolV3.sol#178-180):
+ 'NoneType' object has no attribute 'type'
+
+Detector: reentrancy-balance
+Reentrancy in MellowClaimerAdapter._claim(address,uint256[],uint256[][],address,uint256) (contracts/adapters/mellow/MellowClaimerAdapter.sol#104-127):
+	External call allowing reentrancy:
+	- _execute(abi.encodeCall(IMellowClaimer.multiAcceptAndClaim,(multiVault,subvaultIndices,indices,creditAccount,maxAssets))) (contracts/adapters/mellow/MellowClaimerAdapter.sol#114-118)
+		- ICreditManagerV3(creditManager).execute(callData) (contracts/adapters/AbstractAdapter.sol#70)
+	Balance read before the call:
+	- assetBalanceBefore = IERC20(asset).balanceOf(creditAccount) (contracts/adapters/mellow/MellowClaimerAdapter.sol#113)
+	Possible stale balance used after the call in a condition:
+	- assetBalanceAfter - assetBalanceBefore < maxAssets (contracts/adapters/mellow/MellowClaimerAdapter.sol#124)
+		- stale variable `assetBalanceBefore`
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Detector: unchecked-transfer
+LidoV1Gateway.submit(uint256,address) (contracts/helpers/lido/LidoV1_WETHGateway.sol#46-52) ignores return value by IERC20(weth).transferFrom(msg.sender,address(this),amount) (contracts/helpers/lido/LidoV1_WETHGateway.sol#47)
+LidoV1Gateway.submit(uint256,address) (contracts/helpers/lido/LidoV1_WETHGateway.sol#46-52) ignores return value by IERC20(stETH).transfer(msg.sender,IERC20(stETH).balanceOf(address(this))) (contracts/helpers/lido/LidoV1_WETHGateway.sol#51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+Detector: uninitialized-local
+ConvexV1BaseRewardPoolAdapter.constructor(address,address,address)._extraReward2 (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#69) is a local variable never initialized
+PendleRouterAdapter.addLiquiditySingleTokenDiff(address,uint256,ApproxParams,TokenDiffInput).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#390) is a local variable never initialized
+PendleRouterAdapter.swapDiffPtForToken(address,uint256,TokenDiffOutput).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#229) is a local variable never initialized
+PendleRouterAdapter.redeemPyToToken(address,address,uint256,TokenOutput).output_m (contracts/adapters/pendle/PendleRouterAdapter.sol#265) is a local variable never initialized
+ConvexV1BaseRewardPoolAdapter.constructor(address,address,address)._extraReward3 (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#70) is a local variable never initialized
+PendleRouterAdapter.swapExactTokenForPt(address,address,uint256,ApproxParams,TokenInput,LimitOrderData).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#90) is a local variable never initialized
+PendleRouterAdapter.swapExactTokenForPt(address,address,uint256,ApproxParams,TokenInput,LimitOrderData).input_m (contracts/adapters/pendle/PendleRouterAdapter.sol#92) is a local variable never initialized
+ConvexV1BaseRewardPoolAdapter.constructor(address,address,address)._extraReward4 (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#71) is a local variable never initialized
+PendleRouterAdapter.redeemDiffPyToToken(address,uint256,TokenDiffOutput).output (contracts/adapters/pendle/PendleRouterAdapter.sol#309) is a local variable never initialized
+PendleRouterAdapter.swapDiffTokenForPt(address,uint256,ApproxParams,TokenDiffInput).input (contracts/adapters/pendle/PendleRouterAdapter.sol#138) is a local variable never initialized
+CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool).tokens (contracts/adapters/curve/CurveV1_Base.sol#75) is a local variable never initialized
+CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool).underlyings (contracts/adapters/curve/CurveV1_Base.sol#88) is a local variable never initialized
+PendleRouterAdapter.removeLiquiditySingleTokenDiff(address,uint256,TokenDiffOutput).output (contracts/adapters/pendle/PendleRouterAdapter.sol#468) is a local variable never initialized
+PendleRouterAdapter.swapDiffTokenForPt(address,uint256,ApproxParams,TokenDiffInput).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#143) is a local variable never initialized
+PendleRouterAdapter.addLiquiditySingleToken(address,address,uint256,ApproxParams,TokenInput,LimitOrderData).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#342) is a local variable never initialized
+PendleRouterAdapter.addLiquiditySingleToken(address,address,uint256,ApproxParams,TokenInput,LimitOrderData).input_m (contracts/adapters/pendle/PendleRouterAdapter.sol#344) is a local variable never initialized
+PendleRouterAdapter.swapDiffPtForToken(address,uint256,TokenDiffOutput).output (contracts/adapters/pendle/PendleRouterAdapter.sol#224) is a local variable never initialized
+PendleRouterAdapter.swapExactPtForToken(address,address,uint256,TokenOutput,LimitOrderData).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#183) is a local variable never initialized
+PendleRouterAdapter.addLiquiditySingleTokenDiff(address,uint256,ApproxParams,TokenDiffInput).input (contracts/adapters/pendle/PendleRouterAdapter.sol#385) is a local variable never initialized
+PendleRouterAdapter.swapExactPtForToken(address,address,uint256,TokenOutput,LimitOrderData).output_m (contracts/adapters/pendle/PendleRouterAdapter.sol#185) is a local variable never initialized
+PendleRouterAdapter.removeLiquiditySingleTokenDiff(address,uint256,TokenDiffOutput).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#473) is a local variable never initialized
+PendleRouterAdapter.removeLiquiditySingleToken(address,address,uint256,TokenOutput,LimitOrderData).limit (contracts/adapters/pendle/PendleRouterAdapter.sol#426) is a local variable never initialized
+ConvexV1BaseRewardPoolAdapter.constructor(address,address,address)._extraReward1 (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#68) is a local variable never initialized
+PendleRouterAdapter.removeLiquiditySingleToken(address,address,uint256,TokenOutput,LimitOrderData).output_m (contracts/adapters/pendle/PendleRouterAdapter.sol#428) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Detector: unused-return
+BalancerV3RouterAdapter.setPoolStatusBatch(BalancerV3PoolStatus[]) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#270-297) ignores return value by _allowedPools.add(pools[i].pool) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#284)
+BalancerV3RouterAdapter.setPoolStatusBatch(BalancerV3PoolStatus[]) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#270-297) ignores return value by _allowedPools.add(pools[i].pool) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#290)
+BalancerV3RouterAdapter.setPoolStatusBatch(BalancerV3PoolStatus[]) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#270-297) ignores return value by _allowedPools.remove(pools[i].pool) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#292)
+CamelotV3Adapter.setPoolStatusBatch(CamelotV3PoolStatus[]) (contracts/adapters/camelot/CamelotV3Adapter.sol#280-301) ignores return value by _supportedPoolHashes.add(poolHash) (contracts/adapters/camelot/CamelotV3Adapter.sol#293)
+CamelotV3Adapter.setPoolStatusBatch(CamelotV3PoolStatus[]) (contracts/adapters/camelot/CamelotV3Adapter.sol#280-301) ignores return value by _supportedPoolHashes.remove(poolHash) (contracts/adapters/camelot/CamelotV3Adapter.sol#296)
+ConvexV1BaseRewardPoolAdapter._getExtraReward(uint256) (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#97-111) ignores return value by ICreditManagerV3(creditManager).getTokenMaskOrRevert(extraReward) (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#102-110)
+ConvexV1BaseRewardPoolAdapter._checkSecondaryRewardMask(address) (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#117-125) ignores return value by ICreditManagerV3(creditManager).getTokenMaskOrRevert(reward) (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#120-124)
+InfinifiGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#226-252) ignores return value by _allowedLockedTokens.add(lockedTokens[i].lockedToken) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#238)
+InfinifiGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#226-252) ignores return value by _allowedLockedTokens.remove(lockedTokens[i].lockedToken) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#243)
+InfinifiUnwindingGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#95-121) ignores return value by _allowedLockedTokens.add(lockedTokens[i].lockedToken) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#107)
+InfinifiUnwindingGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#95-121) ignores return value by _allowedLockedTokens.remove(lockedTokens[i].lockedToken) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#112)
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) ignores return value by (None,withdrawalIndices[i],None) = IEigenLayerWithdrawalQueue(subvault.withdrawalQueue).getAccountData({account:user,withdrawalsLimit:type()(uint256).max,withdrawalsOffset:0,transferredWithdrawalsLimit:0,transferredWithdrawalsOffset:0}) (contracts/adapters/mellow/MellowClaimerAdapter.sol#154-160)
+MellowClaimerAdapter.setMultiVaultStatusBatch(MellowMultiVaultStatus[]) (contracts/adapters/mellow/MellowClaimerAdapter.sol#176-200) ignores return value by _allowedMultiVaults.add(multiVaults[i].multiVault) (contracts/adapters/mellow/MellowClaimerAdapter.sol#193)
+MellowClaimerAdapter.setMultiVaultStatusBatch(MellowMultiVaultStatus[]) (contracts/adapters/mellow/MellowClaimerAdapter.sol#176-200) ignores return value by _allowedMultiVaults.remove(multiVaults[i].multiVault) (contracts/adapters/mellow/MellowClaimerAdapter.sol#196)
+MellowWrapperAdapter.setVaultStatusBatch(MellowVaultStatus[]) (contracts/adapters/mellow/MellowWrapperAdapter.sol#101-112) ignores return value by _allowedVaults.add(vaults[i].vault) (contracts/adapters/mellow/MellowWrapperAdapter.sol#106)
+MellowWrapperAdapter.setVaultStatusBatch(MellowVaultStatus[]) (contracts/adapters/mellow/MellowWrapperAdapter.sol#101-112) ignores return value by _allowedVaults.remove(vaults[i].vault) (contracts/adapters/mellow/MellowWrapperAdapter.sol#108)
+MidasIssuanceVaultAdapter.setTokenAllowedStatusBatch(address[],bool[]) (contracts/adapters/midas/MidasIssuanceVaultAdapter.sol#123-142) ignores return value by _allowedTokens.add(tokens[i]) (contracts/adapters/midas/MidasIssuanceVaultAdapter.sol#136)
+MidasIssuanceVaultAdapter.setTokenAllowedStatusBatch(address[],bool[]) (contracts/adapters/midas/MidasIssuanceVaultAdapter.sol#123-142) ignores return value by _allowedTokens.remove(tokens[i]) (contracts/adapters/midas/MidasIssuanceVaultAdapter.sol#138)
+MidasRedemptionVaultAdapter.setTokenAllowedStatusBatch(IMidasRedemptionVaultAdapter.MidasAllowedTokenStatus[]) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#190-225) ignores return value by _allowedTokens.add(config.token) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#202)
+MidasRedemptionVaultAdapter.setTokenAllowedStatusBatch(IMidasRedemptionVaultAdapter.MidasAllowedTokenStatus[]) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#190-225) ignores return value by _allowedTokens.remove(config.token) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#213)
+PendleRouterAdapter.swapExactTokenForPt(address,address,uint256,ApproxParams,TokenInput,LimitOrderData) (contracts/adapters/pendle/PendleRouterAdapter.sol#72-108) ignores return value by (None,pt,None) = IPendleMarket(market).readTokens() (contracts/adapters/pendle/PendleRouterAdapter.sol#84)
+PendleRouterAdapter.swapDiffTokenForPt(address,uint256,ApproxParams,TokenDiffInput) (contracts/adapters/pendle/PendleRouterAdapter.sol#115-154) ignores return value by (None,pt,None) = IPendleMarket(market).readTokens() (contracts/adapters/pendle/PendleRouterAdapter.sol#125)
+PendleRouterAdapter.swapExactPtForToken(address,address,uint256,TokenOutput,LimitOrderData) (contracts/adapters/pendle/PendleRouterAdapter.sol#166-198) ignores return value by (None,pt,None) = IPendleMarket(market).readTokens() (contracts/adapters/pendle/PendleRouterAdapter.sol#177)
+PendleRouterAdapter.swapDiffPtForToken(address,uint256,TokenDiffOutput) (contracts/adapters/pendle/PendleRouterAdapter.sol#204-236) ignores return value by (None,pt,None) = IPendleMarket(market).readTokens() (contracts/adapters/pendle/PendleRouterAdapter.sol#209)
+PendleRouterAdapter.setPairStatusBatch(PendlePairStatus[]) (contracts/adapters/pendle/PendleRouterAdapter.sol#513-554) ignores return value by (None,pt,None) = IPendleMarket(pairs[i].market).readTokens() (contracts/adapters/pendle/PendleRouterAdapter.sol#523)
+PendleRouterAdapter.setPairStatusBatch(PendlePairStatus[]) (contracts/adapters/pendle/PendleRouterAdapter.sol#513-554) ignores return value by _allowedPairHashes.add(pairHash) (contracts/adapters/pendle/PendleRouterAdapter.sol#538)
+PendleRouterAdapter.setPairStatusBatch(PendlePairStatus[]) (contracts/adapters/pendle/PendleRouterAdapter.sol#513-554) ignores return value by _allowedPairHashes.remove(pairHash) (contracts/adapters/pendle/PendleRouterAdapter.sol#545)
+TraderJoeRouterAdapter.setPoolStatusBatch(TraderJoePoolStatus[]) (contracts/adapters/traderjoe/TraderJoeRouterAdapter.sol#207-230) ignores return value by _supportedPoolHashes.add(poolHash) (contracts/adapters/traderjoe/TraderJoeRouterAdapter.sol#217)
+TraderJoeRouterAdapter.setPoolStatusBatch(TraderJoePoolStatus[]) (contracts/adapters/traderjoe/TraderJoeRouterAdapter.sol#207-230) ignores return value by _supportedPoolHashes.remove(poolHash) (contracts/adapters/traderjoe/TraderJoeRouterAdapter.sol#225)
+UniswapV2Adapter.setPairStatusBatch(UniswapV2PairStatus[]) (contracts/adapters/uniswap/UniswapV2.sol#177-201) ignores return value by _supportedPairHashes.add(pairHash) (contracts/adapters/uniswap/UniswapV2.sol#193)
+UniswapV2Adapter.setPairStatusBatch(UniswapV2PairStatus[]) (contracts/adapters/uniswap/UniswapV2.sol#177-201) ignores return value by _supportedPairHashes.remove(pairHash) (contracts/adapters/uniswap/UniswapV2.sol#196)
+UniswapV3Adapter.setPoolStatusBatch(UniswapV3PoolStatus[]) (contracts/adapters/uniswap/UniswapV3.sol#237-261) ignores return value by _supportedPoolHashes.add(poolHash) (contracts/adapters/uniswap/UniswapV3.sol#253)
+UniswapV3Adapter.setPoolStatusBatch(UniswapV3PoolStatus[]) (contracts/adapters/uniswap/UniswapV3.sol#237-261) ignores return value by _supportedPoolHashes.remove(poolHash) (contracts/adapters/uniswap/UniswapV3.sol#256)
+UniswapV4Adapter.setPoolKeyStatusBatch(UniswapV4PoolStatus[]) (contracts/adapters/uniswap/UniswapV4.sol#144-176) ignores return value by _supportedPoolKeyHashes.add(poolKeyHash) (contracts/adapters/uniswap/UniswapV4.sol#161)
+UniswapV4Adapter.setPoolKeyStatusBatch(UniswapV4PoolStatus[]) (contracts/adapters/uniswap/UniswapV4.sol#144-176) ignores return value by _supportedPoolKeyHashes.remove(poolKeyHash) (contracts/adapters/uniswap/UniswapV4.sol#164)
+VelodromeV2RouterAdapter.setPoolStatusBatch(VelodromeV2PoolStatus[]) (contracts/adapters/velodrome/VelodromeV2RouterAdapter.sol#151-176) ignores return value by _supportedPoolHashes.add(poolHash) (contracts/adapters/velodrome/VelodromeV2RouterAdapter.sol#163)
+VelodromeV2RouterAdapter.setPoolStatusBatch(VelodromeV2PoolStatus[]) (contracts/adapters/velodrome/VelodromeV2RouterAdapter.sol#151-176) ignores return value by _supportedPoolHashes.remove(poolHash) (contracts/adapters/velodrome/VelodromeV2RouterAdapter.sol#171)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: missing-zero-check
+BalancerV3WrapperAdapter.constructor(address,address)._wrapper (contracts/adapters/balancer/BalancerV3WrapperAdapter.sol#25) lacks a zero-check on :
+		- balancerPoolToken = IBalancerV3Wrapper(_wrapper).balancerPoolToken() (contracts/adapters/balancer/BalancerV3WrapperAdapter.sol#26)
+ConvexV1BaseRewardPoolAdapter.constructor(address,address,address)._baseRewardPool (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#50) lacks a zero-check on :
+		- stakingToken = address(IBaseRewardPool(_baseRewardPool).stakingToken()) (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#53)
+ConvexV1BaseRewardPoolAdapter.constructor(address,address,address)._stakedPhantomToken (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#50) lacks a zero-check on :
+		- stakedPhantomToken = _stakedPhantomToken (contracts/adapters/convex/ConvexV1_BaseRewardPool.sol#56)
+ERC4626Adapter.constructor(address,address,address)._vault (contracts/adapters/erc4626/ERC4626Adapter.sol#34) lacks a zero-check on :
+		- vault = _vault (contracts/adapters/erc4626/ERC4626Adapter.sol#37)
+		- asset = IERC4626(_vault).asset() (contracts/adapters/erc4626/ERC4626Adapter.sol#38)
+InfinifiGatewayAdapter.constructor(address,address)._infinifiGateway (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#48) lacks a zero-check on :
+		- usdc = IInfinifiGateway(_infinifiGateway).getAddress(USDC) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#49)
+		- iusd = IInfinifiGateway(_infinifiGateway).getAddress(receiptToken) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#50)
+		- siusd = IInfinifiGateway(_infinifiGateway).getAddress(stakedToken) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#51)
+InfinifiUnwindingGatewayAdapter.constructor(address,address,address)._infinifiUnwindingPhantomToken (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#44) lacks a zero-check on :
+		- infinifiUnwindingPhantomToken = _infinifiUnwindingPhantomToken (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#47)
+LidoV1Adapter.constructor(address,address)._lidoGateway (contracts/adapters/lido/LidoV1.sol#35) lacks a zero-check on :
+		- stETH = LidoV1Gateway(address(_lidoGateway)).stETH() (contracts/adapters/lido/LidoV1.sol#38)
+		- weth = LidoV1Gateway(address(_lidoGateway)).weth() (contracts/adapters/lido/LidoV1.sol#39)
+WstETHV1Adapter.constructor(address,address)._wstETH (contracts/adapters/lido/WstETHV1.sol#25) lacks a zero-check on :
+		- stETH = IwstETH(_wstETH).stETH() (contracts/adapters/lido/WstETHV1.sol#28)
+MellowWrapperAdapter.constructor(address,address,address)._referral (contracts/adapters/mellow/MellowWrapperAdapter.sol#27) lacks a zero-check on :
+		- referral = _referral (contracts/adapters/mellow/MellowWrapperAdapter.sol#30)
+MellowWrapperAdapter.constructor(address,address,address)._mellowWrapper (contracts/adapters/mellow/MellowWrapperAdapter.sol#27) lacks a zero-check on :
+		- weth = IMellowWrapper(_mellowWrapper).WETH() (contracts/adapters/mellow/MellowWrapperAdapter.sol#31)
+MidasIssuanceVaultAdapter.constructor(address,address,bytes32)._midasIssuanceVault (contracts/adapters/midas/MidasIssuanceVaultAdapter.sol#38) lacks a zero-check on :
+		- mToken = IMidasIssuanceVault(_midasIssuanceVault).mToken() (contracts/adapters/midas/MidasIssuanceVaultAdapter.sol#41)
+MidasRedemptionVaultAdapter.constructor(address,address)._gateway (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#45) lacks a zero-check on :
+		- gateway = _gateway (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#46)
+		- mToken = IMidasRedemptionVaultGateway(_gateway).mToken() (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#47)
+SecuritizeOnRampAdapter.constructor(address,address)._targetContract (contracts/adapters/securitize/SecuritizeOnRampAdapter.sol#29) lacks a zero-check on :
+		- dsToken = ISecuritizeOnRamp(_targetContract).dsToken() (contracts/adapters/securitize/SecuritizeOnRampAdapter.sol#30)
+		- liquidityToken = ISecuritizeOnRamp(_targetContract).liquidityToken() (contracts/adapters/securitize/SecuritizeOnRampAdapter.sol#31)
+SecuritizeRedemptionGatewayAdapter.constructor(address,address,address)._targetContract (contracts/adapters/securitize/SecuritizeRedemptionGatewayAdapter.sol#33) lacks a zero-check on :
+		- dsToken = ISecuritizeRedemptionGateway(_targetContract).dsToken() (contracts/adapters/securitize/SecuritizeRedemptionGatewayAdapter.sol#36)
+		- stableCoinToken = ISecuritizeRedemptionGateway(_targetContract).stableCoinToken() (contracts/adapters/securitize/SecuritizeRedemptionGatewayAdapter.sol#37)
+SecuritizeRedemptionGatewayAdapter.constructor(address,address,address)._redemptionPhantomToken (contracts/adapters/securitize/SecuritizeRedemptionGatewayAdapter.sol#33) lacks a zero-check on :
+		- redemptionPhantomToken = _redemptionPhantomToken (contracts/adapters/securitize/SecuritizeRedemptionGatewayAdapter.sol#38)
+DaiUsdsAdapter.constructor(address,address)._targetContract (contracts/adapters/sky/DaiUsdsAdapter.sol#30) lacks a zero-check on :
+		- dai = IDaiUsds(_targetContract).dai() (contracts/adapters/sky/DaiUsdsAdapter.sol#31)
+		- usds = IDaiUsds(_targetContract).usds() (contracts/adapters/sky/DaiUsdsAdapter.sol#32)
+StakingRewardsAdapter.constructor(address,address,address,uint16)._stakingRewards (contracts/adapters/sky/StakingRewardsAdapter.sol#41) lacks a zero-check on :
+		- stakingToken = IStakingRewards(_stakingRewards).stakingToken() (contracts/adapters/sky/StakingRewardsAdapter.sol#44)
+		- rewardsToken = IStakingRewards(_stakingRewards).rewardsToken() (contracts/adapters/sky/StakingRewardsAdapter.sol#47)
+StakingRewardsAdapter.constructor(address,address,address,uint16)._stakedPhantomToken (contracts/adapters/sky/StakingRewardsAdapter.sol#41) lacks a zero-check on :
+		- stakedPhantomToken = _stakedPhantomToken (contracts/adapters/sky/StakingRewardsAdapter.sol#50)
+UniswapV4Adapter.constructor(address,address)._gateway (contracts/adapters/uniswap/UniswapV4.sol#35) lacks a zero-check on :
+		- weth = IUniswapV4Gateway(_gateway).weth() (contracts/adapters/uniswap/UniswapV4.sol#36)
+UpshiftVaultAdapter.constructor(address,address,address)._stakedPhantomToken (contracts/adapters/upshift/UpshiftVaultAdapter.sol#28) lacks a zero-check on :
+		- stakedPhantomToken = _stakedPhantomToken (contracts/adapters/upshift/UpshiftVaultAdapter.sol#31)
+LidoV1Gateway.constructor(address,address)._weth (contracts/helpers/lido/LidoV1_WETHGateway.sol#30) lacks a zero-check on :
+		- weth = _weth (contracts/helpers/lido/LidoV1_WETHGateway.sol#34)
+LidoV1Gateway.constructor(address,address)._stETH (contracts/helpers/lido/LidoV1_WETHGateway.sol#30) lacks a zero-check on :
+		- stETH = _stETH (contracts/helpers/lido/LidoV1_WETHGateway.sol#35)
+MellowWithdrawalPhantomToken.constructor(address,address,address)._multiVault (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#34) lacks a zero-check on :
+		- multiVault = _multiVault (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#44)
+MellowWithdrawalPhantomToken.constructor(address,address,address)._claimer (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#34) lacks a zero-check on :
+		- claimer = _claimer (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#45)
+MidasRedemptionVaultPhantomToken.constructor(address,address)._gateway (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#26) lacks a zero-check on :
+		- gateway = _gateway (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#42)
+MidasRedemptionVaultPhantomToken.constructor(address,address)._tokenOut (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#26) lacks a zero-check on :
+		- tokenOut = _tokenOut (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#43)
+SecuritizeRedemptionPhantomToken.constructor(address)._redemptionGateway (contracts/helpers/securitize/SecuritizeRedemptionPhantomToken.sol#26) lacks a zero-check on :
+		- redemptionGateway = _redemptionGateway (contracts/helpers/securitize/SecuritizeRedemptionPhantomToken.sol#44)
+		- stableCoinToken = ISecuritizeRedemptionGateway(_redemptionGateway).stableCoinToken() (contracts/helpers/securitize/SecuritizeRedemptionPhantomToken.sol#45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: calls-loop
+AbstractAdapter._approveToken(address,uint256) (contracts/adapters/AbstractAdapter.sol#61-63) has external calls inside a loop: ICreditManagerV3(creditManager).approveCreditAccount(token,amount) (contracts/adapters/AbstractAdapter.sol#62)
+	Calls stack containing the loop:
+		BalancerV3RouterAdapter.addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes)
+		BalancerV3RouterAdapter._addLiquidityUnbalanced(address,IERC20[],uint256[],uint256)
+BalancerV3RouterAdapter._getAmountOverLeftover(IERC20,uint256,address) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#321-332) has external calls inside a loop: amount = token.balanceOf(creditAccount) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#326)
+	Calls stack containing the loop:
+		BalancerV3RouterAdapter.addLiquidityUnbalancedDiff(address,uint256[],uint256[])
+AbstractAdapter._approveToken(address,uint256) (contracts/adapters/AbstractAdapter.sol#61-63) has external calls inside a loop: ICreditManagerV3(creditManager).approveCreditAccount(token,amount) (contracts/adapters/AbstractAdapter.sol#62)
+	Calls stack containing the loop:
+		BalancerV3RouterAdapter.addLiquidityUnbalancedDiff(address,uint256[],uint256[])
+		BalancerV3RouterAdapter._addLiquidityUnbalanced(address,IERC20[],uint256[],uint256)
+BalancerV3RouterAdapter.setPoolStatusBatch(BalancerV3PoolStatus[]) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#270-297) has external calls inside a loop: tokens = IBalancerV3Pool(pools[i].pool).getTokens() (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#279)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		BalancerV3RouterAdapter.setPoolStatusBatch(BalancerV3PoolStatus[])
+BalancerV3RouterAdapter.setPoolStatusBatch(BalancerV3PoolStatus[]) (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#270-297) has external calls inside a loop: tokens_scope_0 = IBalancerV3Pool(pools[i].pool).getTokens() (contracts/adapters/balancer/BalancerV3RouterAdapter.sol#286)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		CamelotV3Adapter.setPoolStatusBatch(CamelotV3PoolStatus[])
+ConvexV1BoosterAdapter.updateSupportedPids() (contracts/adapters/convex/ConvexV1_Booster.sol#177-208) has external calls inside a loop: poolTargetContract = IAdapter(adapter).targetContract() (contracts/adapters/convex/ConvexV1_Booster.sol#189)
+ConvexV1BoosterAdapter.updateSupportedPids() (contracts/adapters/convex/ConvexV1_Booster.sol#177-208) has external calls inside a loop: IAdapter(adapter).contractType() == ADAPTER::CVX_V1_BASE_REWARD_POOL && IBaseRewardPool(poolTargetContract).operator() == targetContract (contracts/adapters/convex/ConvexV1_Booster.sol#192-193)
+ConvexV1BoosterAdapter.updateSupportedPids() (contracts/adapters/convex/ConvexV1_Booster.sol#177-208) has external calls inside a loop: pid = IBaseRewardPool(poolTargetContract).pid() (contracts/adapters/convex/ConvexV1_Booster.sol#195)
+ConvexV1BoosterAdapter.updateSupportedPids() (contracts/adapters/convex/ConvexV1_Booster.sol#177-208) has external calls inside a loop: phantomToken = IConvexV1BaseRewardPoolAdapter(adapter).stakedPhantomToken() (contracts/adapters/convex/ConvexV1_Booster.sol#196)
+ConvexV1BoosterAdapter.updateSupportedPids() (contracts/adapters/convex/ConvexV1_Booster.sol#177-208) has external calls inside a loop: pidToCurveToken[pid] = IConvexV1BaseRewardPoolAdapter(adapter).curveLPtoken() (contracts/adapters/convex/ConvexV1_Booster.sol#202)
+ConvexV1BoosterAdapter.updateSupportedPids() (contracts/adapters/convex/ConvexV1_Booster.sol#177-208) has external calls inside a loop: pidToConvexToken[pid] = IConvexV1BaseRewardPoolAdapter(adapter).stakingToken() (contracts/adapters/convex/ConvexV1_Booster.sol#203)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr = ICurvePool(pool).coins(i) (contracts/adapters/curve/CurveV1_Base.sol#418-424)
+	Calls stack containing the loop:
+		CurveV1Adapter3Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr_scope_0 = ICurvePool(pool).coins(int128(int256(i))) (contracts/adapters/curve/CurveV1_Base.sol#421-423)
+	Calls stack containing the loop:
+		CurveV1Adapter3Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callData) (contracts/adapters/curve/CurveV1_Base.sol#434)
+	Calls stack containing the loop:
+		CurveV1Adapter3Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callDataAlt) (contracts/adapters/curve/CurveV1_Base.sol#436)
+	Calls stack containing the loop:
+		CurveV1Adapter3Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr = ICurvePool(pool).coins(i) (contracts/adapters/curve/CurveV1_Base.sol#418-424)
+	Calls stack containing the loop:
+		CurveV1Adapter4Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr_scope_0 = ICurvePool(pool).coins(int128(int256(i))) (contracts/adapters/curve/CurveV1_Base.sol#421-423)
+	Calls stack containing the loop:
+		CurveV1Adapter4Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callData) (contracts/adapters/curve/CurveV1_Base.sol#434)
+	Calls stack containing the loop:
+		CurveV1Adapter4Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callDataAlt) (contracts/adapters/curve/CurveV1_Base.sol#436)
+	Calls stack containing the loop:
+		CurveV1Adapter4Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr = ICurvePool(pool).coins(i) (contracts/adapters/curve/CurveV1_Base.sol#418-424)
+	Calls stack containing the loop:
+		CurveV1AdapterStableNG.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr_scope_0 = ICurvePool(pool).coins(int128(int256(i))) (contracts/adapters/curve/CurveV1_Base.sol#421-423)
+	Calls stack containing the loop:
+		CurveV1AdapterStableNG.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callData) (contracts/adapters/curve/CurveV1_Base.sol#434)
+	Calls stack containing the loop:
+		CurveV1AdapterStableNG.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callDataAlt) (contracts/adapters/curve/CurveV1_Base.sol#436)
+	Calls stack containing the loop:
+		CurveV1AdapterStableNG.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr = ICurvePool(pool).coins(i) (contracts/adapters/curve/CurveV1_Base.sol#418-424)
+	Calls stack containing the loop:
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr_scope_0 = ICurvePool(pool).coins(int128(int256(i))) (contracts/adapters/curve/CurveV1_Base.sol#421-423)
+	Calls stack containing the loop:
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callData) (contracts/adapters/curve/CurveV1_Base.sol#434)
+	Calls stack containing the loop:
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callDataAlt) (contracts/adapters/curve/CurveV1_Base.sol#436)
+	Calls stack containing the loop:
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr = ICurvePool(pool).coins(i) (contracts/adapters/curve/CurveV1_Base.sol#418-424)
+	Calls stack containing the loop:
+		CurveV1AdapterStETH.constructor(address,address,address)
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._getCoin(address,uint256) (contracts/adapters/curve/CurveV1_Base.sol#417-425) has external calls inside a loop: addr_scope_0 = ICurvePool(pool).coins(int128(int256(i))) (contracts/adapters/curve/CurveV1_Base.sol#421-423)
+	Calls stack containing the loop:
+		CurveV1AdapterStETH.constructor(address,address,address)
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callData) (contracts/adapters/curve/CurveV1_Base.sol#434)
+	Calls stack containing the loop:
+		CurveV1AdapterStETH.constructor(address,address,address)
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438) has external calls inside a loop: (success,returnData) = targetContract.staticcall(callDataAlt) (contracts/adapters/curve/CurveV1_Base.sol#436)
+	Calls stack containing the loop:
+		CurveV1AdapterStETH.constructor(address,address,address)
+		CurveV1Adapter2Assets.constructor(address,address,address,address,bool)
+		CurveV1AdapterBase.constructor(address,address,address,address,uint256,bool)
+InfinifiGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#226-252) has external calls inside a loop: IInfinifiLockingController(lockingController).shareToken(lockedTokens[i].unwindingEpochs) != lockedTokens[i].lockedToken (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#231-232)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		InfinifiGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[])
+InfinifiUnwindingGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#95-121) has external calls inside a loop: IInfinifiLockingController(lockingController).shareToken(lockedTokens[i].unwindingEpochs) != lockedTokens[i].lockedToken (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#100-101)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		InfinifiUnwindingGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[])
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/adapters/mellow/MellowClaimerAdapter.sol#151)
+	Calls stack containing the loop:
+		MellowClaimerAdapter.withdrawPhantomToken(address,uint256)
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) has external calls inside a loop: (None,withdrawalIndices[i],None) = IEigenLayerWithdrawalQueue(subvault.withdrawalQueue).getAccountData({account:user,withdrawalsLimit:type()(uint256).max,withdrawalsOffset:0,transferredWithdrawalsLimit:0,transferredWithdrawalsOffset:0}) (contracts/adapters/mellow/MellowClaimerAdapter.sol#154-160)
+	Calls stack containing the loop:
+		MellowClaimerAdapter.withdrawPhantomToken(address,uint256)
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/adapters/mellow/MellowClaimerAdapter.sol#151)
+	Calls stack containing the loop:
+		MellowClaimerAdapter.getMultiVaultSubvaultIndices(address)
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) has external calls inside a loop: (None,withdrawalIndices[i],None) = IEigenLayerWithdrawalQueue(subvault.withdrawalQueue).getAccountData({account:user,withdrawalsLimit:type()(uint256).max,withdrawalsOffset:0,transferredWithdrawalsLimit:0,transferredWithdrawalsOffset:0}) (contracts/adapters/mellow/MellowClaimerAdapter.sol#154-160)
+	Calls stack containing the loop:
+		MellowClaimerAdapter.getMultiVaultSubvaultIndices(address)
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/adapters/mellow/MellowClaimerAdapter.sol#151)
+MellowClaimerAdapter.getUserSubvaultIndices(address,address) (contracts/adapters/mellow/MellowClaimerAdapter.sol#141-163) has external calls inside a loop: (None,withdrawalIndices[i],None) = IEigenLayerWithdrawalQueue(subvault.withdrawalQueue).getAccountData({account:user,withdrawalsLimit:type()(uint256).max,withdrawalsOffset:0,transferredWithdrawalsLimit:0,transferredWithdrawalsOffset:0}) (contracts/adapters/mellow/MellowClaimerAdapter.sol#154-160)
+MellowClaimerAdapter.setMultiVaultStatusBatch(MellowMultiVaultStatus[]) (contracts/adapters/mellow/MellowClaimerAdapter.sol#176-200) has external calls inside a loop: asset = IMellowMultiVault(multiVaults[i].multiVault).asset() (contracts/adapters/mellow/MellowClaimerAdapter.sol#180)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		MellowClaimerAdapter.setMultiVaultStatusBatch(MellowMultiVaultStatus[])
+MellowClaimerAdapter.setMultiVaultStatusBatch(MellowMultiVaultStatus[]) (contracts/adapters/mellow/MellowClaimerAdapter.sol#176-200) has external calls inside a loop: (claimer,underlying) = MellowWithdrawalPhantomToken(multiVaults[i].stakedPhantomToken).getPhantomTokenInfo() (contracts/adapters/mellow/MellowClaimerAdapter.sol#185-186)
+MellowClaimerAdapter.setMultiVaultStatusBatch(MellowMultiVaultStatus[]) (contracts/adapters/mellow/MellowClaimerAdapter.sol#176-200) has external calls inside a loop: vault = MellowWithdrawalPhantomToken(multiVaults[i].stakedPhantomToken).multiVault() (contracts/adapters/mellow/MellowClaimerAdapter.sol#190)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		MellowWrapperAdapter.setVaultStatusBatch(MellowVaultStatus[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		MidasIssuanceVaultAdapter.setTokenAllowedStatusBatch(address[],bool[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		MidasRedemptionVaultAdapter.setTokenAllowedStatusBatch(IMidasRedemptionVaultAdapter.MidasAllowedTokenStatus[])
+MidasRedemptionVaultAdapter.setTokenAllowedStatusBatch(IMidasRedemptionVaultAdapter.MidasAllowedTokenStatus[]) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#190-225) has external calls inside a loop: MidasRedemptionVaultPhantomToken(config.phantomToken).tokenOut() != config.token (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#205)
+PendleRouterAdapter.setPairStatusBatch(PendlePairStatus[]) (contracts/adapters/pendle/PendleRouterAdapter.sol#513-554) has external calls inside a loop: (None,pt,None) = IPendleMarket(pairs[i].market).readTokens() (contracts/adapters/pendle/PendleRouterAdapter.sol#523)
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		PendleRouterAdapter.setPairStatusBatch(PendlePairStatus[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		TraderJoeRouterAdapter.setPoolStatusBatch(TraderJoePoolStatus[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		UniswapV2Adapter.setPairStatusBatch(UniswapV2PairStatus[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		UniswapV3Adapter.setPoolStatusBatch(UniswapV3PoolStatus[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		UniswapV4Adapter.setPoolKeyStatusBatch(UniswapV4PoolStatus[])
+AbstractAdapter._getMaskOrRevert(address) (contracts/adapters/AbstractAdapter.sol#53-55) has external calls inside a loop: tokenMask = ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/adapters/AbstractAdapter.sol#54)
+	Calls stack containing the loop:
+		VelodromeV2RouterAdapter.setPoolStatusBatch(VelodromeV2PoolStatus[])
+MellowWithdrawalPhantomToken.balanceOf(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#50-61) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#54)
+MellowWithdrawalPhantomToken.balanceOf(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#50-61) has external calls inside a loop: balance += IMellowWithdrawalQueue(subvault.withdrawalQueue).pendingAssetsOf(account) + IMellowWithdrawalQueue(subvault.withdrawalQueue).claimableAssetsOf(account) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#58-59)
+MellowWithdrawalPhantomToken.setClaimer(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#73-90) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#78)
+MellowWithdrawalPhantomToken.setClaimer(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#73-90) has external calls inside a loop: queueClaimer = IMellowWithdrawalQueue(subvault.withdrawalQueue).claimer() (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#82)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Detector: timestamp
+PendleRouterAdapter.redeemPyToToken(address,address,uint256,TokenOutput) (contracts/adapters/pendle/PendleRouterAdapter.sol#249-278) uses timestamp for comparisons
+	Dangerous comparisons:
+	- IPToken(pt).YT() != yt || ! isRedemptionAllowed[output.tokenOut][pt] || IYToken(yt).expiry() > block.timestamp (contracts/adapters/pendle/PendleRouterAdapter.sol#257-258)
+PendleRouterAdapter.redeemDiffPyToToken(address,uint256,TokenDiffOutput) (contracts/adapters/pendle/PendleRouterAdapter.sol#286-317) uses timestamp for comparisons
+	Dangerous comparisons:
+	- IPToken(pt).YT() != yt || ! isRedemptionAllowed[diffOutput.tokenOut][pt] || IYToken(yt).expiry() > block.timestamp (contracts/adapters/pendle/PendleRouterAdapter.sol#294-295)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: assembly
+BytesLib.toAddress(bytes,uint256) (contracts/integrations/uniswap/BytesLib.sol#12-21) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#16-18)
+BytesLib.toUint24(bytes,uint256) (contracts/integrations/uniswap/BytesLib.sol#23-33) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#28-30)
+BytesLib.concat(bytes,bytes) (contracts/integrations/uniswap/BytesLib.sol#35-103) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#38-100)
+BytesLib.slice(bytes,uint256,uint256) (contracts/integrations/uniswap/BytesLib.sol#105-162) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#111-159)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Detector: costly-loop
+CamelotV3Adapter.setPoolStatusBatch(CamelotV3PoolStatus[]) (contracts/adapters/camelot/CamelotV3Adapter.sol#280-301) has costly operations inside a loop:
+	- delete _hashToPool[poolHash] (contracts/adapters/camelot/CamelotV3Adapter.sol#297)
+InfinifiGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#226-252) has costly operations inside a loop:
+	- delete unwindingEpochToLockedToken[lockedTokens[i].unwindingEpochs] (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#244)
+InfinifiGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#226-252) has costly operations inside a loop:
+	- delete lockedTokenToUnwindingEpoch[lockedTokens[i].lockedToken] (contracts/adapters/infinifi/InfinifiGatewayAdapter.sol#245)
+InfinifiUnwindingGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#95-121) has costly operations inside a loop:
+	- delete unwindingEpochToLockedToken[lockedTokens[i].unwindingEpochs] (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#113)
+InfinifiUnwindingGatewayAdapter.setLockedTokenBatchStatus(LockedTokenStatus[]) (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#95-121) has costly operations inside a loop:
+	- delete lockedTokenToUnwindingEpoch[lockedTokens[i].lockedToken] (contracts/adapters/infinifi/InfinifiUnwindingGatewayAdapter.sol#114)
+MidasRedemptionVaultAdapter.setTokenAllowedStatusBatch(IMidasRedemptionVaultAdapter.MidasAllowedTokenStatus[]) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#190-225) has costly operations inside a loop:
+	- delete outputTokenToPhantomToken[config.token] (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#218)
+MidasRedemptionVaultAdapter.setTokenAllowedStatusBatch(IMidasRedemptionVaultAdapter.MidasAllowedTokenStatus[]) (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#190-225) has costly operations inside a loop:
+	- delete phantomTokenToOutputToken[phantomToken] (contracts/adapters/midas/MidasRedemptionVaultAdapter.sol#219)
+TraderJoeRouterAdapter.setPoolStatusBatch(TraderJoePoolStatus[]) (contracts/adapters/traderjoe/TraderJoeRouterAdapter.sol#207-230) has costly operations inside a loop:
+	- delete _hashToPool[poolHash] (contracts/adapters/traderjoe/TraderJoeRouterAdapter.sol#226)
+UniswapV2Adapter.setPairStatusBatch(UniswapV2PairStatus[]) (contracts/adapters/uniswap/UniswapV2.sol#177-201) has costly operations inside a loop:
+	- delete _hashToPair[pairHash] (contracts/adapters/uniswap/UniswapV2.sol#197)
+UniswapV3Adapter.setPoolStatusBatch(UniswapV3PoolStatus[]) (contracts/adapters/uniswap/UniswapV3.sol#237-261) has costly operations inside a loop:
+	- delete _hashToPool[poolHash] (contracts/adapters/uniswap/UniswapV3.sol#257)
+UniswapV4Adapter.setPoolKeyStatusBatch(UniswapV4PoolStatus[]) (contracts/adapters/uniswap/UniswapV4.sol#144-176) has costly operations inside a loop:
+	- delete _hashToPoolKey[poolKeyHash] (contracts/adapters/uniswap/UniswapV4.sol#165)
+VelodromeV2RouterAdapter.setPoolStatusBatch(VelodromeV2PoolStatus[]) (contracts/adapters/velodrome/VelodromeV2RouterAdapter.sol#151-176) has costly operations inside a loop:
+	- delete _hashToPool[poolHash] (contracts/adapters/velodrome/VelodromeV2RouterAdapter.sol#172)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#costly-operations-inside-a-loop
+
+Detector: solc-version
+Version constraint ^0.8.10 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- DataLocationChangeInInternalOverride
+	- NestedCalldataArrayAbiReencodingSizeValidation.
+It is used by:
+	- ^0.8.10 (contracts/helpers/PhantomERC20.sol#4)
+	- ^0.8.10 (contracts/integrations/convex/IBaseRewardPool.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/IBooster.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/Interfaces.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_2.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_3.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_4.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_StableNG.sol#2)
+	- ^0.8.10 (contracts/integrations/lido/IstETH.sol#4)
+	- ^0.8.10 (contracts/integrations/lido/IwstETH.sol#4)
+	- ^0.8.10 (contracts/integrations/traderjoe/ITraderJoeRouter.sol#3)
+Version constraint >=0.7.5 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- DataLocationChangeInInternalOverride
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- SignedImmutables
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching.
+It is used by:
+	- >=0.7.5 (contracts/integrations/camelot/ICamelotV3Router.sol#2)
+	- >=0.7.5 (contracts/integrations/uniswap/IUniswapV3.sol#2)
+Version constraint >=0.8.0<0.9.0 is too complex.
+It is used by:
+	- >=0.8.0<0.9.0 (contracts/integrations/uniswap/BytesLib.sol#9)
+Version constraint >=0.6.2 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- MissingEscapingInFormatting
+	- ArraySliceDynamicallyEncodedBaseType
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow.
+It is used by:
+	- >=0.6.2 (contracts/integrations/uniswap/IUniswapV2Router01.sol#2)
+	- >=0.6.2 (contracts/integrations/uniswap/IUniswapV2Router02.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: low-level-calls
+Low level call in CurveV1AdapterBase._callWithAlternative(bytes,bytes) (contracts/adapters/curve/CurveV1_Base.sol#429-438):
+	- (success,returnData) = targetContract.staticcall(callData) (contracts/adapters/curve/CurveV1_Base.sol#434)
+	- (success,returnData) = targetContract.staticcall(callDataAlt) (contracts/adapters/curve/CurveV1_Base.sol#436)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Detector: naming-convention
+Parameter ConvexV1BoosterAdapter.deposit(uint256,uint256,bool)._pid (contracts/adapters/convex/ConvexV1_Booster.sol#63) is not in mixedCase
+Parameter ConvexV1BoosterAdapter.depositDiff(uint256,uint256,bool)._pid (contracts/adapters/convex/ConvexV1_Booster.sol#78) is not in mixedCase
+Parameter ConvexV1BoosterAdapter.depositDiff(uint256,uint256,bool)._stake (contracts/adapters/convex/ConvexV1_Booster.sol#78) is not in mixedCase
+Parameter ConvexV1BoosterAdapter.withdraw(uint256,uint256)._pid (contracts/adapters/convex/ConvexV1_Booster.sol#109) is not in mixedCase
+Parameter ConvexV1BoosterAdapter.withdrawDiff(uint256,uint256)._pid (contracts/adapters/convex/ConvexV1_Booster.sol#123) is not in mixedCase
+Function CurveV1Adapter2Assets.add_liquidity(uint256[2],uint256) (contracts/adapters/curve/CurveV1_2.sol#31-39) is not in mixedCase
+Function CurveV1Adapter2Assets.remove_liquidity(uint256,uint256[2]) (contracts/adapters/curve/CurveV1_2.sol#70-78) is not in mixedCase
+Function CurveV1Adapter2Assets.remove_liquidity_imbalance(uint256[2],uint256) (contracts/adapters/curve/CurveV1_2.sol#82-91) is not in mixedCase
+Function CurveV1Adapter3Assets.add_liquidity(uint256[3],uint256) (contracts/adapters/curve/CurveV1_3.sol#29-37) is not in mixedCase
+Function CurveV1Adapter3Assets.remove_liquidity(uint256,uint256[3]) (contracts/adapters/curve/CurveV1_3.sol#68-76) is not in mixedCase
+Function CurveV1Adapter3Assets.remove_liquidity_imbalance(uint256[3],uint256) (contracts/adapters/curve/CurveV1_3.sol#80-89) is not in mixedCase
+Function CurveV1Adapter4Assets.add_liquidity(uint256[4],uint256) (contracts/adapters/curve/CurveV1_4.sol#29-37) is not in mixedCase
+Function CurveV1Adapter4Assets.remove_liquidity(uint256,uint256[4]) (contracts/adapters/curve/CurveV1_4.sol#68-76) is not in mixedCase
+Function CurveV1Adapter4Assets.remove_liquidity_imbalance(uint256[4],uint256) (contracts/adapters/curve/CurveV1_4.sol#80-89) is not in mixedCase
+Parameter CurveV1AdapterBase.exchange(uint256,uint256,uint256,uint256).min_dy (contracts/adapters/curve/CurveV1_Base.sol#123) is not in mixedCase
+Parameter CurveV1AdapterBase.exchange(int128,int128,uint256,uint256).min_dy (contracts/adapters/curve/CurveV1_Base.sol#134) is not in mixedCase
+Function CurveV1AdapterBase.exchange_diff(uint256,uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#154-172) is not in mixedCase
+Function CurveV1AdapterBase.exchange_underlying(uint256,uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#190-198) is not in mixedCase
+Parameter CurveV1AdapterBase.exchange_underlying(uint256,uint256,uint256,uint256).min_dy (contracts/adapters/curve/CurveV1_Base.sol#190) is not in mixedCase
+Function CurveV1AdapterBase.exchange_underlying(int128,int128,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#201-209) is not in mixedCase
+Parameter CurveV1AdapterBase.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/adapters/curve/CurveV1_Base.sol#201) is not in mixedCase
+Function CurveV1AdapterBase._exchange_underlying(uint256,uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#212-214) is not in mixedCase
+Parameter CurveV1AdapterBase._exchange_underlying(uint256,uint256,uint256,uint256).min_dy (contracts/adapters/curve/CurveV1_Base.sol#212) is not in mixedCase
+Function CurveV1AdapterBase.exchange_diff_underlying(uint256,uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#220-238) is not in mixedCase
+Function CurveV1AdapterBase._add_liquidity(bool,bool,bool,bool) (contracts/adapters/curve/CurveV1_Base.sol#259-263) is not in mixedCase
+Function CurveV1AdapterBase.add_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#269-277) is not in mixedCase
+Function CurveV1AdapterBase.add_diff_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#283-301) is not in mixedCase
+Function CurveV1AdapterBase.calc_add_one_coin(uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#306-316) is not in mixedCase
+Function CurveV1AdapterBase.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#341-350) is not in mixedCase
+Function CurveV1AdapterBase.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/adapters/curve/CurveV1_Base.sol#353-362) is not in mixedCase
+Function CurveV1AdapterBase._remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#365-367) is not in mixedCase
+Function CurveV1AdapterBase.remove_diff_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#373-381) is not in mixedCase
+Function CurveV1AdapterBase._remove_diff_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_Base.sol#384-399) is not in mixedCase
+Function CurveV1AdapterBase._get_token(uint256) (contracts/adapters/curve/CurveV1_Base.sol#441-446) is not in mixedCase
+Function CurveV1AdapterBase._get_underlying(uint256) (contracts/adapters/curve/CurveV1_Base.sol#449-454) is not in mixedCase
+Variable CurveV1AdapterBase.lp_token (contracts/adapters/curve/CurveV1_Base.sol#28) is not in mixedCase
+Function CurveV1AdapterStableNG.add_liquidity(uint256[],uint256) (contracts/adapters/curve/CurveV1_StableNG.sol#35-39) is not in mixedCase
+Function CurveV1AdapterStableNG.remove_liquidity(uint256,uint256[]) (contracts/adapters/curve/CurveV1_StableNG.sol#70-73) is not in mixedCase
+Function CurveV1AdapterStableNG.remove_liquidity_imbalance(uint256[],uint256) (contracts/adapters/curve/CurveV1_StableNG.sol#77-86) is not in mixedCase
+Function CurveV1AdapterStETH.remove_liquidity(uint256,uint256[2]) (contracts/adapters/curve/CurveV1_stETH.sol#37-46) is not in mixedCase
+Function CurveV1AdapterStETH.remove_liquidity_imbalance(uint256[2],uint256) (contracts/adapters/curve/CurveV1_stETH.sol#50-59) is not in mixedCase
+Function CurveV1AdapterStETH.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_stETH.sol#63-72) is not in mixedCase
+Function CurveV1AdapterStETH.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/adapters/curve/CurveV1_stETH.sol#76-85) is not in mixedCase
+Function CurveV1AdapterStETH.remove_diff_liquidity_one_coin(uint256,uint256,uint256) (contracts/adapters/curve/CurveV1_stETH.sol#89-97) is not in mixedCase
+Parameter LidoV1Gateway.submit(uint256,address)._referral (contracts/helpers/lido/LidoV1_WETHGateway.sol#46) is not in mixedCase
+Parameter MellowWithdrawalPhantomToken.setClaimer(address)._claimer (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#73) is not in mixedCase
+Function ICurveGaugeV3.claim_rewards() (contracts/integrations/convex/Interfaces.sol#12) is not in mixedCase
+Function ICurveGaugeV3.reward_tokens(uint256) (contracts/integrations/convex/Interfaces.sol#14) is not in mixedCase
+Function ICurveGaugeV3.rewarded_token() (contracts/integrations/convex/Interfaces.sol#16) is not in mixedCase
+Function ICurveGaugeV3.lp_token() (contracts/integrations/convex/Interfaces.sol#18) is not in mixedCase
+Function ICurveVoteEscrow.create_lock(uint256,uint256) (contracts/integrations/convex/Interfaces.sol#22) is not in mixedCase
+Function ICurveVoteEscrow.increase_amount(uint256) (contracts/integrations/convex/Interfaces.sol#24) is not in mixedCase
+Function ICurveVoteEscrow.increase_unlock_time(uint256) (contracts/integrations/convex/Interfaces.sol#26) is not in mixedCase
+Function ICurveVoteEscrow.smart_wallet_checker() (contracts/integrations/convex/Interfaces.sol#30) is not in mixedCase
+Function IVoting.vote_for_gauge_weights(address,uint256) (contracts/integrations/convex/Interfaces.sol#45) is not in mixedCase
+Function IRegistry.get_registry() (contracts/integrations/convex/Interfaces.sol#53) is not in mixedCase
+Function IRegistry.get_address(uint256) (contracts/integrations/convex/Interfaces.sol#55) is not in mixedCase
+Function IRegistry.gauge_controller() (contracts/integrations/convex/Interfaces.sol#57) is not in mixedCase
+Function IRegistry.get_lp_token(address) (contracts/integrations/convex/Interfaces.sol#59) is not in mixedCase
+Function IRegistry.get_gauges(address) (contracts/integrations/convex/Interfaces.sol#61) is not in mixedCase
+Function IRewardFactory.CreateCrvRewards(uint256,address) (contracts/integrations/convex/Interfaces.sol#178) is not in mixedCase
+Function IRewardFactory.CreateTokenRewards(address,address,address) (contracts/integrations/convex/Interfaces.sol#180) is not in mixedCase
+Function IStashFactory.CreateStash(uint256,address,address,uint256) (contracts/integrations/convex/Interfaces.sol#190) is not in mixedCase
+Function ITokenFactory.CreateDepositToken(address) (contracts/integrations/convex/Interfaces.sol#194) is not in mixedCase
+Function ICurvePool.underlying_coins(uint256) (contracts/integrations/curve/ICurvePool.sol#7) is not in mixedCase
+Function ICurvePool.underlying_coins(int128) (contracts/integrations/curve/ICurvePool.sol#13) is not in mixedCase
+Parameter ICurvePool.exchange(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#17) is not in mixedCase
+Parameter ICurvePool.exchange(uint256,uint256,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#19) is not in mixedCase
+Function ICurvePool.exchange_underlying(int128,int128,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#21) is not in mixedCase
+Parameter ICurvePool.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#21) is not in mixedCase
+Function ICurvePool.exchange_underlying(uint256,uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#23) is not in mixedCase
+Parameter ICurvePool.exchange_underlying(uint256,uint256,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#23) is not in mixedCase
+Function ICurvePool.get_dy_underlying(int128,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#25) is not in mixedCase
+Function ICurvePool.get_dy_underlying(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#27) is not in mixedCase
+Function ICurvePool.get_dy(int128,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#29) is not in mixedCase
+Function ICurvePool.get_dy(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#31) is not in mixedCase
+Function ICurvePool.get_virtual_price() (contracts/integrations/curve/ICurvePool.sol#33) is not in mixedCase
+Function ICurvePool.virtual_price() (contracts/integrations/curve/ICurvePool.sol#35) is not in mixedCase
+Function ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256)._token_amount (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256).min_amount (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Function ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256)._token_amount (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256).min_amount (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Function ICurvePool.A() (contracts/integrations/curve/ICurvePool.sol#43) is not in mixedCase
+Function ICurvePool.A_precise() (contracts/integrations/curve/ICurvePool.sol#45) is not in mixedCase
+Function ICurvePool.calc_withdraw_one_coin(uint256,int128) (contracts/integrations/curve/ICurvePool.sol#47) is not in mixedCase
+Parameter ICurvePool.calc_withdraw_one_coin(uint256,int128)._burn_amount (contracts/integrations/curve/ICurvePool.sol#47) is not in mixedCase
+Function ICurvePool.calc_withdraw_one_coin(uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#49) is not in mixedCase
+Parameter ICurvePool.calc_withdraw_one_coin(uint256,uint256)._burn_amount (contracts/integrations/curve/ICurvePool.sol#49) is not in mixedCase
+Function ICurvePool.admin_balances(uint256) (contracts/integrations/curve/ICurvePool.sol#51) is not in mixedCase
+Function ICurvePool.admin_fee() (contracts/integrations/curve/ICurvePool.sol#57) is not in mixedCase
+Function ICurvePool.block_timestamp_last() (contracts/integrations/curve/ICurvePool.sol#59) is not in mixedCase
+Function ICurvePool.initial_A() (contracts/integrations/curve/ICurvePool.sol#61) is not in mixedCase
+Function ICurvePool.future_A() (contracts/integrations/curve/ICurvePool.sol#63) is not in mixedCase
+Function ICurvePool.initial_A_time() (contracts/integrations/curve/ICurvePool.sol#65) is not in mixedCase
+Function ICurvePool.future_A_time() (contracts/integrations/curve/ICurvePool.sol#67) is not in mixedCase
+Function ICurvePool.mid_fee() (contracts/integrations/curve/ICurvePool.sol#69) is not in mixedCase
+Function ICurvePool2Assets.add_liquidity(uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#11) is not in mixedCase
+Parameter ICurvePool2Assets.add_liquidity(uint256[2],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_2.sol#11) is not in mixedCase
+Function ICurvePool2Assets.remove_liquidity(uint256,uint256[2]) (contracts/integrations/curve/ICurvePool_2.sol#13) is not in mixedCase
+Parameter ICurvePool2Assets.remove_liquidity(uint256,uint256[2]).min_amounts (contracts/integrations/curve/ICurvePool_2.sol#13) is not in mixedCase
+Function ICurvePool2Assets.remove_liquidity_imbalance(uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#15) is not in mixedCase
+Parameter ICurvePool2Assets.remove_liquidity_imbalance(uint256[2],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_2.sol#15) is not in mixedCase
+Function ICurvePool2Assets.calc_token_amount(uint256[2],bool) (contracts/integrations/curve/ICurvePool_2.sol#17) is not in mixedCase
+Parameter ICurvePool2Assets.calc_token_amount(uint256[2],bool)._is_deposit (contracts/integrations/curve/ICurvePool_2.sol#17) is not in mixedCase
+Function ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#19-23) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._first_balances (contracts/integrations/curve/ICurvePool_2.sol#20) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._last_balances (contracts/integrations/curve/ICurvePool_2.sol#21) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_2.sol#22) is not in mixedCase
+Function ICurvePool2Assets.get_balances() (contracts/integrations/curve/ICurvePool_2.sol#25) is not in mixedCase
+Function ICurvePool2Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_2.sol#27) is not in mixedCase
+Function ICurvePool2Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_2.sol#29) is not in mixedCase
+Function ICurvePool3Assets.add_liquidity(uint256[3],uint256) (contracts/integrations/curve/ICurvePool_3.sol#11) is not in mixedCase
+Parameter ICurvePool3Assets.add_liquidity(uint256[3],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_3.sol#11) is not in mixedCase
+Function ICurvePool3Assets.remove_liquidity(uint256,uint256[3]) (contracts/integrations/curve/ICurvePool_3.sol#13) is not in mixedCase
+Parameter ICurvePool3Assets.remove_liquidity(uint256,uint256[3]).min_amounts (contracts/integrations/curve/ICurvePool_3.sol#13) is not in mixedCase
+Function ICurvePool3Assets.remove_liquidity_imbalance(uint256[3],uint256) (contracts/integrations/curve/ICurvePool_3.sol#15) is not in mixedCase
+Parameter ICurvePool3Assets.remove_liquidity_imbalance(uint256[3],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_3.sol#15) is not in mixedCase
+Function ICurvePool3Assets.calc_token_amount(uint256[3],bool) (contracts/integrations/curve/ICurvePool_3.sol#17) is not in mixedCase
+Parameter ICurvePool3Assets.calc_token_amount(uint256[3],bool)._is_deposit (contracts/integrations/curve/ICurvePool_3.sol#17) is not in mixedCase
+Function ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256) (contracts/integrations/curve/ICurvePool_3.sol#19-23) is not in mixedCase
+Parameter ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256)._first_balances (contracts/integrations/curve/ICurvePool_3.sol#20) is not in mixedCase
+Parameter ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256)._last_balances (contracts/integrations/curve/ICurvePool_3.sol#21) is not in mixedCase
+Parameter ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_3.sol#22) is not in mixedCase
+Function ICurvePool3Assets.get_balances() (contracts/integrations/curve/ICurvePool_3.sol#25) is not in mixedCase
+Function ICurvePool3Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_3.sol#27) is not in mixedCase
+Function ICurvePool3Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_3.sol#29) is not in mixedCase
+Function ICurvePool4Assets.add_liquidity(uint256[4],uint256) (contracts/integrations/curve/ICurvePool_4.sol#11) is not in mixedCase
+Parameter ICurvePool4Assets.add_liquidity(uint256[4],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_4.sol#11) is not in mixedCase
+Function ICurvePool4Assets.remove_liquidity(uint256,uint256[4]) (contracts/integrations/curve/ICurvePool_4.sol#13) is not in mixedCase
+Parameter ICurvePool4Assets.remove_liquidity(uint256,uint256[4]).min_amounts (contracts/integrations/curve/ICurvePool_4.sol#13) is not in mixedCase
+Function ICurvePool4Assets.remove_liquidity_imbalance(uint256[4],uint256) (contracts/integrations/curve/ICurvePool_4.sol#15) is not in mixedCase
+Parameter ICurvePool4Assets.remove_liquidity_imbalance(uint256[4],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_4.sol#15) is not in mixedCase
+Function ICurvePool4Assets.calc_token_amount(uint256[4],bool) (contracts/integrations/curve/ICurvePool_4.sol#17) is not in mixedCase
+Parameter ICurvePool4Assets.calc_token_amount(uint256[4],bool)._is_deposit (contracts/integrations/curve/ICurvePool_4.sol#17) is not in mixedCase
+Function ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256) (contracts/integrations/curve/ICurvePool_4.sol#19-23) is not in mixedCase
+Parameter ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256)._first_balances (contracts/integrations/curve/ICurvePool_4.sol#20) is not in mixedCase
+Parameter ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256)._last_balances (contracts/integrations/curve/ICurvePool_4.sol#21) is not in mixedCase
+Parameter ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_4.sol#22) is not in mixedCase
+Function ICurvePool4Assets.get_balances() (contracts/integrations/curve/ICurvePool_4.sol#25) is not in mixedCase
+Function ICurvePool4Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_4.sol#27) is not in mixedCase
+Function ICurvePool4Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_4.sol#29) is not in mixedCase
+Function ICurvePoolStableNG.add_liquidity(uint256[],uint256) (contracts/integrations/curve/ICurvePool_StableNG.sol#9) is not in mixedCase
+Parameter ICurvePoolStableNG.add_liquidity(uint256[],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_StableNG.sol#9) is not in mixedCase
+Function ICurvePoolStableNG.remove_liquidity(uint256,uint256[]) (contracts/integrations/curve/ICurvePool_StableNG.sol#11) is not in mixedCase
+Parameter ICurvePoolStableNG.remove_liquidity(uint256,uint256[]).min_amounts (contracts/integrations/curve/ICurvePool_StableNG.sol#11) is not in mixedCase
+Function ICurvePoolStableNG.remove_liquidity_imbalance(uint256[],uint256) (contracts/integrations/curve/ICurvePool_StableNG.sol#13) is not in mixedCase
+Parameter ICurvePoolStableNG.remove_liquidity_imbalance(uint256[],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_StableNG.sol#13) is not in mixedCase
+Function ICurvePoolStableNG.calc_token_amount(uint256[],bool) (contracts/integrations/curve/ICurvePool_StableNG.sol#15) is not in mixedCase
+Parameter ICurvePoolStableNG.calc_token_amount(uint256[],bool)._is_deposit (contracts/integrations/curve/ICurvePool_StableNG.sol#15) is not in mixedCase
+Function ICurvePoolStableNG.get_balances() (contracts/integrations/curve/ICurvePool_StableNG.sol#17) is not in mixedCase
+Function ICurvePoolStableNG.N_COINS() (contracts/integrations/curve/ICurvePool_StableNG.sol#19) is not in mixedCase
+Function IMellowWrapper.WETH() (contracts/integrations/mellow/IMellowWrapper.sol#9) is not in mixedCase
+Parameter IPendleRouter.redeemPyToToken(address,address,uint256,TokenOutput).YT (contracts/integrations/pendle/IPendleRouter.sol#100) is not in mixedCase
+Function IYToken.PT() (contracts/integrations/pendle/IPendleRouter.sol#127) is not in mixedCase
+Function IPToken.YT() (contracts/integrations/pendle/IPendleRouter.sol#133) is not in mixedCase
+Parameter BytesLib.toAddress(bytes,uint256)._bytes (contracts/integrations/uniswap/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.toAddress(bytes,uint256)._start (contracts/integrations/uniswap/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.toUint24(bytes,uint256)._bytes (contracts/integrations/uniswap/BytesLib.sol#23) is not in mixedCase
+Parameter BytesLib.toUint24(bytes,uint256)._start (contracts/integrations/uniswap/BytesLib.sol#23) is not in mixedCase
+Parameter BytesLib.concat(bytes,bytes)._preBytes (contracts/integrations/uniswap/BytesLib.sol#35) is not in mixedCase
+Parameter BytesLib.concat(bytes,bytes)._postBytes (contracts/integrations/uniswap/BytesLib.sol#35) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._bytes (contracts/integrations/uniswap/BytesLib.sol#105) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._start (contracts/integrations/uniswap/BytesLib.sol#105) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._length (contracts/integrations/uniswap/BytesLib.sol#105) is not in mixedCase
+Function IUniswapV2Router01.WETH() (contracts/integrations/uniswap/IUniswapV2Router01.sol#7) is not in mixedCase
+Function IUniswapV2Router02.WETH() (contracts/integrations/uniswap/IUniswapV2Router02.sol#54) is not in mixedCase
+Function ICurveV1Adapter.lp_token() (contracts/interfaces/curve/ICurveV1Adapter.sol#12) is not in mixedCase
+Parameter ICurveV1Adapter.exchange(uint256,uint256,uint256,uint256).min_dy (contracts/interfaces/curve/ICurveV1Adapter.sol#34) is not in mixedCase
+Parameter ICurveV1Adapter.exchange(int128,int128,uint256,uint256).min_dy (contracts/interfaces/curve/ICurveV1Adapter.sol#36) is not in mixedCase
+Function ICurveV1Adapter.exchange_diff(uint256,uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#38-40) is not in mixedCase
+Function ICurveV1Adapter.exchange_underlying(uint256,uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#42-44) is not in mixedCase
+Parameter ICurveV1Adapter.exchange_underlying(uint256,uint256,uint256,uint256).min_dy (contracts/interfaces/curve/ICurveV1Adapter.sol#42) is not in mixedCase
+Function ICurveV1Adapter.exchange_underlying(int128,int128,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#46-48) is not in mixedCase
+Parameter ICurveV1Adapter.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/interfaces/curve/ICurveV1Adapter.sol#46) is not in mixedCase
+Function ICurveV1Adapter.exchange_diff_underlying(uint256,uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#50-52) is not in mixedCase
+Function ICurveV1Adapter.add_liquidity_one_coin(uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#58-60) is not in mixedCase
+Function ICurveV1Adapter.add_diff_liquidity_one_coin(uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#62-64) is not in mixedCase
+Function ICurveV1Adapter.calc_add_one_coin(uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#66) is not in mixedCase
+Function ICurveV1Adapter.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#72-74) is not in mixedCase
+Function ICurveV1Adapter.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#76-78) is not in mixedCase
+Function ICurveV1Adapter.remove_diff_liquidity_one_coin(uint256,uint256,uint256) (contracts/interfaces/curve/ICurveV1Adapter.sol#80-82) is not in mixedCase
+Contract ICurveV1_2AssetsAdapter (contracts/interfaces/curve/ICurveV1_2AssetsAdapter.sol#10-18) is not in CapWords
+Function ICurveV1_2AssetsAdapter.add_liquidity(uint256[2],uint256) (contracts/interfaces/curve/ICurveV1_2AssetsAdapter.sol#11) is not in mixedCase
+Function ICurveV1_2AssetsAdapter.remove_liquidity(uint256,uint256[2]) (contracts/interfaces/curve/ICurveV1_2AssetsAdapter.sol#13) is not in mixedCase
+Function ICurveV1_2AssetsAdapter.remove_liquidity_imbalance(uint256[2],uint256) (contracts/interfaces/curve/ICurveV1_2AssetsAdapter.sol#15-17) is not in mixedCase
+Contract ICurveV1_3AssetsAdapter (contracts/interfaces/curve/ICurveV1_3AssetsAdapter.sol#10-18) is not in CapWords
+Function ICurveV1_3AssetsAdapter.add_liquidity(uint256[3],uint256) (contracts/interfaces/curve/ICurveV1_3AssetsAdapter.sol#11) is not in mixedCase
+Function ICurveV1_3AssetsAdapter.remove_liquidity(uint256,uint256[3]) (contracts/interfaces/curve/ICurveV1_3AssetsAdapter.sol#13) is not in mixedCase
+Function ICurveV1_3AssetsAdapter.remove_liquidity_imbalance(uint256[3],uint256) (contracts/interfaces/curve/ICurveV1_3AssetsAdapter.sol#15-17) is not in mixedCase
+Contract ICurveV1_4AssetsAdapter (contracts/interfaces/curve/ICurveV1_4AssetsAdapter.sol#10-18) is not in CapWords
+Function ICurveV1_4AssetsAdapter.add_liquidity(uint256[4],uint256) (contracts/interfaces/curve/ICurveV1_4AssetsAdapter.sol#11) is not in mixedCase
+Function ICurveV1_4AssetsAdapter.remove_liquidity(uint256,uint256[4]) (contracts/interfaces/curve/ICurveV1_4AssetsAdapter.sol#13) is not in mixedCase
+Function ICurveV1_4AssetsAdapter.remove_liquidity_imbalance(uint256[4],uint256) (contracts/interfaces/curve/ICurveV1_4AssetsAdapter.sol#15-17) is not in mixedCase
+Contract ICurveV1_StableNGAdapter (contracts/interfaces/curve/ICurveV1_StableNGAdapter.sol#9-15) is not in CapWords
+Function ICurveV1_StableNGAdapter.add_liquidity(uint256[],uint256) (contracts/interfaces/curve/ICurveV1_StableNGAdapter.sol#10) is not in mixedCase
+Function ICurveV1_StableNGAdapter.remove_liquidity(uint256,uint256[]) (contracts/interfaces/curve/ICurveV1_StableNGAdapter.sol#12) is not in mixedCase
+Function ICurveV1_StableNGAdapter.remove_liquidity_imbalance(uint256[],uint256) (contracts/interfaces/curve/ICurveV1_StableNGAdapter.sol#14) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: too-many-digits
+BytesLib.toAddress(bytes,uint256) (contracts/integrations/uniswap/BytesLib.sol#12-21) uses literals with too many digits:
+	- tempAddress = mload(uint256)(_bytes + 0x20 + _start) / 0x1000000000000000000000000 (contracts/integrations/uniswap/BytesLib.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+
+Detector: unindexed-event-address
+Event IInfinifiGatewayEvents.SetLockedTokenStatus(address,uint32,bool) (contracts/interfaces/infinifi/IInfinifiGatewayAdapter.sol#15) has address parameters but no indexed parameters
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unindexed-event-address-parameters
+/workspaces/gearbox-audit/source/integrations-v3 analyzed (219 contracts with 102 detectors), 377 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

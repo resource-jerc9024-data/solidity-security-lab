@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/equivalence/CreditAccountsEquivalenceTest.t.sol:CreditAccountsEquivalenceTest
+[PASS] test_CAE_01_CreditAccounts_equivalence() (gas: 8954)
+Logs:
+  MarketCompressor, DataCompressor, CreditAccountCompressor, PriceFeedCompressor or CreditManager not set, or not a contract. Skipping credit accounts equivalence test.
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 3.25ms (2.85ms CPU time)
+
+Ran 1 test suite in 18.46ms (3.25ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)

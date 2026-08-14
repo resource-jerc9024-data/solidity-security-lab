@@ -1,0 +1,2 @@
+*.sh text eol=lf
+audits/gearbox/runs/** -whitespace

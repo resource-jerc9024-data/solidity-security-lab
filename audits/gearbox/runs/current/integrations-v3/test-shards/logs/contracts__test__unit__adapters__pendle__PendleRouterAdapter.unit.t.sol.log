@@ -1,0 +1,19 @@
+No files changed, compilation skipped
+
+Ran 13 tests for contracts/test/unit/adapters/pendle/PendleRouterAdapter.unit.t.sol:PendleRouterAdapterUnitTest
+[PASS] test_U_PEND_01_constructor_works_as_expected() (gas: 11131)
+[PASS] test_U_PEND_02_wrapper_functions_revert_on_wrong_caller() (gas: 108525)
+[PASS] test_U_PEND_03_swapExactTokenForPt_works_as_expected() (gas: 84527)
+[PASS] test_U_PEND_04_swapDiffTokenForPt_works_as_expected() (gas: 556344)
+[PASS] test_U_PEND_05_swapExactPtForToken_works_as_expected() (gas: 82440)
+[PASS] test_U_PEND_06_swapDiffPtForToken_works_as_expected() (gas: 552379)
+[PASS] test_U_PEND_07_redeemPyToToken_works_as_expected() (gas: 162915)
+[PASS] test_U_PEND_08_redeemDiffPyToToken_works_as_expected() (gas: 712865)
+[PASS] test_U_PEND_09_addLiquiditySingleToken_works_as_expected() (gas: 236379)
+[PASS] test_U_PEND_10_addLiquiditySingleTokenDiff_works_as_expected() (gas: 845079)
+[PASS] test_U_PEND_11_removeLiquiditySingleToken_works_as_expected() (gas: 234127)
+[PASS] test_U_PEND_12_removeLiquiditySingleTokenDiff_works_as_expected() (gas: 562685)
+[PASS] test_U_PEND_13_setPairStatusBatch_works_as_expected() (gas: 408395)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 34.67ms (22.10ms CPU time)
+
+Ran 1 test suite in 39.29ms (34.67ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)

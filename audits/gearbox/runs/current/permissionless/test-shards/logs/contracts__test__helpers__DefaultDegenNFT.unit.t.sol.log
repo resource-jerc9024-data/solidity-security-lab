@@ -1,0 +1,17 @@
+No files changed, compilation skipped
+
+Ran 11 tests for contracts/test/helpers/DefaultDegenNFT.unit.t.sol:DefaultDegenNFTTest
+[PASS] test_DD_01_mint() (gas: 167339)
+[PASS] test_DD_02_mintMultipleUsers() (gas: 239606)
+[PASS] test_DD_03_burnByCreditFacade() (gas: 194395)
+[PASS] test_DD_04_burnByEmergencyAdmin() (gas: 184999)
+[PASS] test_DD_05_burnRevertIfInsufficientBalance() (gas: 129961)
+[PASS] test_DD_06_onlyMinterCanMint() (gas: 44189)
+[PASS] test_DD_07_onlyCreditFacadeOrEmergencyAdminCanBurn() (gas: 125597)
+[PASS] test_DD_08_onlyAdminCanSetMinter() (gas: 48584)
+[PASS] test_DD_09_setMinter() (gas: 48277)
+[PASS] test_DD_10_setBaseUri() (gas: 139108)
+[PASS] test_DD_11_transferRestrictions() (gas: 120001)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 169.05ms (1.32ms CPU time)
+
+Ran 1 test suite in 177.53ms (169.05ms CPU time): 11 tests passed, 0 failed, 0 skipped (11 total tests)

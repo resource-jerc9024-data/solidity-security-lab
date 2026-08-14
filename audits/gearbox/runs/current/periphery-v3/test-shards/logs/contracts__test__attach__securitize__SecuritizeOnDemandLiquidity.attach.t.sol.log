@@ -1,0 +1,7 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/attach/securitize/SecuritizeOnDemandLiquidity.attach.t.sol:SecuritizeOnDemandLiquidityAttachTest
+[SKIP: skipped: Not in an attach mode] setUp() (gas: 0)
+Suite result: ok. 0 passed; 0 failed; 1 skipped; finished in 3.25ms (0.00ns CPU time)
+
+Ran 1 test suite in 20.70ms (3.25ms CPU time): 0 tests passed, 0 failed, 1 skipped (1 total tests)

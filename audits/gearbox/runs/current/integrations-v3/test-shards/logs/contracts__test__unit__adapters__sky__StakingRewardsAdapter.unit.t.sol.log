@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/unit/adapters/sky/StakingRewardsAdapter.unit.t.sol:StakingRewardsAdapterUnitTest
+[PASS] test_U_SR_01_constructor_works_as_expected() (gas: 767402)
+[PASS] test_U_SR_02_wrapper_functions_revert_on_wrong_caller() (gas: 54033)
+[PASS] test_U_SR_03_stake_works_as_expected() (gas: 39086)
+[PASS] test_U_SR_04_stakeDiff_works_as_expected() (gas: 495003)
+[PASS] test_U_SR_05_getReward_works_as_expected() (gas: 26267)
+[PASS] test_U_SR_06_withdraw_works_as_expected() (gas: 28678)
+[PASS] test_U_SR_07_withdrawDiff_works_as_expected() (gas: 478153)
+[PASS] test_U_SR_08_withdrawPhantomToken_works_as_expected() (gas: 37098)
+[PASS] test_U_SR_09_stake_with_referral_works_as_expected() (gas: 1981961)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 9.02ms (5.28ms CPU time)
+
+Ran 1 test suite in 25.19ms (9.02ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

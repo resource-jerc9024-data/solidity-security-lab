@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/global/AddressProvider.unit.t.sol:AddressProviderTest
+[PASS] test_U_AP_01_constructor_sets_initial_state() (gas: 11588)
+[PASS] test_U_AP_02_setAddress_works() (gas: 321578)
+[PASS] test_U_AP_03_version_tracking_works() (gas: 723323)
+[PASS] test_U_AP_04_getters_work() (gas: 308949)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 7.96ms (4.54ms CPU time)
+
+Ran 1 test suite in 29.81ms (7.96ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

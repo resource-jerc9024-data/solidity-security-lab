@@ -1,0 +1,12 @@
+No files changed, compilation skipped
+
+Ran 6 tests for contracts/test/unit/adapters/mellow/MellowDVVAdapter.unit.t.sol:MellowDVVAdapterUnitTest
+[PASS] test_U_MDVV_01_constructor_works_as_expected() (gas: 10964)
+[PASS] test_U_MDVV_02_wrapper_functions_revert_on_wrong_caller() (gas: 21593)
+[PASS] test_U_MDVV_03_deposit_and_mint_revert() (gas: 30339)
+[PASS] test_U_MDVV_04_inherited_withdraw_works_as_expected() (gas: 43178)
+[PASS] test_U_MDVV_05_inherited_redeem_works_as_expected() (gas: 43059)
+[PASS] test_U_MDVV_06_inherited_redeemDiff_works_as_expected() (gas: 491592)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 5.60ms (1.80ms CPU time)
+
+Ran 1 test suite in 22.80ms (5.60ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)

@@ -1,0 +1,43 @@
+No files changed, compilation skipped
+
+Warning: the following cheatcode(s) are deprecated and will be removed in future versions:
+  revertTo(uint256): replaced by `revertToState`
+  snapshot(): replaced by `snapshotState`
+Ran 34 tests for contracts/test/integration/credit/CreditConfigurator.int.t.sol:CreditConfiguratorIntegrationTest
+[PASS] test_I_CC_01_constructor_sets_correct_values() (gas: 82269798)
+[PASS] test_I_CC_02A_pausableAdminsOnly_functions_revert_on_non_pausable_admin() (gas: 82240205)
+[PASS] test_I_CC_02_configuratorOnly_functions_revert_on_non_configurator() (gas: 82268343)
+[PASS] test_I_CC_03_addCollateralToken_reverts_as_expected() (gas: 83951744)
+[PASS] test_I_CC_04_addCollateralToken_adds_new_token_to_creditManager_and_set_lt() (gas: 82432052)
+[PASS] test_I_CC_05_setLiquidationThreshold_reverts_for_underling_token_and_incorrect_values() (gas: 82239836)
+[PASS] test_I_CC_06_setLiquidationThreshold_sets_liquidation_threshold_in_creditManager() (gas: 82243449)
+[PASS] test_I_CC_07_allowToken_and_forbidToken_reverts_for_unknown_or_underlying_token() (gas: 82247751)
+[PASS] test_I_CC_08_allowToken_works_correctly() (gas: 82263625)
+[PASS] test_I_CC_09_forbidToken_works_correctly() (gas: 82274281)
+[PASS] test_I_CC_10A_allowAdapter_reverts_for_non_contract_addresses() (gas: 82237626)
+[PASS] test_I_CC_10B_allowAdapter_reverts_for_non_compartible_adapter_contract() (gas: 82549777)
+[PASS] test_I_CC_10C_allowAdapter_reverts_for_creditManager_and_creditFacade_contracts() (gas: 82886947)
+[PASS] test_I_CC_10_allowAdapter_and_forbidAdapter_reverts_for_zero_address() (gas: 82881547)
+[PASS] test_I_CC_11_allowAdapter_allows_targetContract_adapter_and_emits_event() (gas: 82878887)
+[PASS] test_I_CC_12_allowAdapter_removes_old_adapter_if_it_exists() (gas: 83217658)
+[PASS] test_I_CC_13_forbidAdapter_reverts_for_unknown_contract() (gas: 83200623)
+[PASS] test_I_CC_14_forbidAdapter_forbids_contract_and_emits_event() (gas: 82804436)
+[PASS] test_I_CC_15_setDebtLimits_reverts_if_limits_are_incorrect() (gas: 82249982)
+[PASS] test_I_CC_16_setDebtLimits_works_as_expected() (gas: 82250688)
+[PASS] test_I_CC_17_setFees_reverts_for_incorrect_fees() (gas: 164477010)
+[PASS] test_I_CC_19_setFees_sets_fees_and_doesnt_change_others() (gas: 82246496)
+[PASS] test_I_CC_20_contract_upgrade_functions_revert_on_incompatible_addresses() (gas: 82579130)
+[PASS] test_I_CC_21_setPriceOracle_upgrades_priceOracle_correctly() (gas: 84432212)
+[PASS] test_I_CC_22B_setCreditFacade_reverts_if_new_facade_is_adapter() (gas: 87439437)
+[PASS] test_I_CC_22C_setCreditFacade_correctly_migrates_array_parameters() (gas: 91583411)
+[PASS] test_I_CC_22_setCreditFacade_upgrades_creditFacade_and_migrates_params() (gas: 192196338)
+[PASS] test_I_CC_23_upgradeCreditConfigurator_upgrades_creditConfigurator() (gas: 89919667)
+[PASS] test_I_CC_24_setMaxDebtPerBlockMultiplier() (gas: 82253558)
+[PASS] test_I_CC_25_setExpirationDate_reverts_on_incorrect_newExpirationDate_otherwise_sets() (gas: 164446484)
+[PASS] test_I_CC_26_setLossPolicy_works_correctly() (gas: 82480610)
+[PASS] test_I_CC_29_arrays_are_migrated_correctly_for_new_CC() (gas: 86114979)
+[PASS] test_I_CC_30_rampLiquidationThreshold_works_correctly() (gas: 82278034)
+[PASS] test_I_CC_31_addCollateralToken_works_with_state_changing_fallback() (gas: 83738653)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 443.16ms (434.80ms CPU time)
+
+Ran 1 test suite in 447.73ms (443.16ms CPU time): 34 tests passed, 0 failed, 0 skipped (34 total tests)

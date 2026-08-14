@@ -1,0 +1,16 @@
+No files changed, compilation skipped
+
+Ran 10 tests for contracts/test/ContractsRegister.unit.t.sol:ContractsRegisterUnitTest
+[PASS] test_U_CR_01_constructor_works_correctly() (gas: 22755)
+[PASS] test_U_CR_02_onlyConfigurator_can_call_functions() (gas: 50986)
+[PASS] test_U_CR_03_registerMarket_works_correctly() (gas: 171628)
+[PASS] test_U_CR_04_registerMarket_reverts_for_shutdown_markets() (gas: 214015)
+[PASS] test_U_CR_05_shutdownMarket_works_correctly() (gas: 244311)
+[PASS] test_U_CR_06_shutdownMarket_reverts_if_market_has_credit_managers() (gas: 224707)
+[PASS] test_U_CR_07_market_parameters_update_works_correctly() (gas: 184501)
+[PASS] test_U_CR_08_registerCreditSuite_works_correctly() (gas: 312669)
+[PASS] test_U_CR_09_registerCreditSuite_reverts_for_shutdown_suites() (gas: 288363)
+[PASS] test_U_CR_10_shutdownCreditSuite_works_correctly() (gas: 310714)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 6.27ms (1.73ms CPU time)
+
+Ran 1 test suite in 18.69ms (6.27ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

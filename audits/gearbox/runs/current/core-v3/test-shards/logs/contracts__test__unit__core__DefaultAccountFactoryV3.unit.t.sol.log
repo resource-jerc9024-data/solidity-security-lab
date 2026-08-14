@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/unit/core/DefaultAccountFactoryV3.unit.t.sol:DefaultAccountFactoryV3UnitTest
+[PASS] test_U_AF_01_external_functions_have_correct_access(address) (runs: 256, μ: 24474, ~: 24474)
+[PASS] test_U_AF_02A_takeCreditAccount_works_correctly_when_queue_has_no_reusable_accounts(uint40,uint40) (runs: 256, μ: 95631, ~: 98888)
+[PASS] test_U_AF_02B_takeCreditAccount_works_correctly_when_queue_has_reusable_accounts(address,uint40,uint40) (runs: 256, μ: 37220, ~: 37466)
+[PASS] test_U_AF_03_returnCreditAccount_works_correctly(address,uint8) (runs: 256, μ: 50204, ~: 50204)
+[PASS] test_U_AF_04A_addCreditManager_reverts_on_already_added_credit_manager(address,address) (runs: 256, μ: 37594, ~: 37594)
+[PASS] test_U_AF_04B_addCreditManager_works_correctly(address) (runs: 256, μ: 454218, ~: 454218)
+[PASS] test_U_AF_05A_rescue_reverts_when_credit_account_is_in_use(address,address) (runs: 256, μ: 20843, ~: 20843)
+[PASS] test_U_AF_05B_rescue_works_correctly(address,address,bytes) (runs: 256, μ: 29942, ~: 29487)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 290.37ms (285.97ms CPU time)
+
+Ran 1 test suite in 292.32ms (290.37ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

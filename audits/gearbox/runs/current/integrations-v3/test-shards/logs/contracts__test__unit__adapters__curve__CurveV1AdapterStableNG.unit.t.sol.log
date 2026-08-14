@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/adapters/curve/CurveV1AdapterStableNG.unit.t.sol:CurveV1AdapterStablNGUnitTest
+[PASS] test_U_CRVNG_01_wrapper_functions_revert_on_wrong_caller() (gas: 30270)
+[PASS] test_U_CRVNG_02_add_liquidity_works_as_expected() (gas: 59598)
+[PASS] test_U_CRVNG_03_remove_liquidity_works_as_expected() (gas: 29098)
+[PASS] test_U_CRVNG_04_remove_liquidity_imbalance_works_as_expected() (gas: 29082)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 7.64ms (2.46ms CPU time)
+
+Ran 1 test suite in 25.45ms (7.64ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

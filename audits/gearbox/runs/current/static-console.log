@@ -1,0 +1,39 @@
+Running permissionless build-info
+permissionless build-info finished with exit code 0
+Running permissionless detectors
+permissionless detectors finished with exit code 255
+Running permissionless structure
+permissionless structure finished with exit code 0
+Running core-v3 build-info
+core-v3 build-info finished with exit code 0
+Running core-v3 detectors
+core-v3 detectors finished with exit code 255
+Running core-v3 structure
+core-v3 structure finished with exit code 0
+Running oracles-v3 build-info
+oracles-v3 build-info finished with exit code 0
+Running oracles-v3 detectors
+oracles-v3 detectors finished with exit code 1
+Running oracles-v3 structure
+oracles-v3 structure finished with exit code 1
+Running integrations-v3 build-info
+integrations-v3 build-info finished with exit code 0
+Running integrations-v3 detectors
+Terminated
+integrations-v3 detectors finished with exit code 143
+Running integrations-v3 structure
+Terminated
+integrations-v3 structure finished with exit code 143
+Running bots-v3 build-info
+bots-v3 build-info finished with exit code 0
+Running bots-v3 detectors
+bots-v3 detectors finished with exit code 255
+Running bots-v3 structure
+bots-v3 structure finished with exit code 0
+Running periphery-v3 build-info
+periphery-v3 build-info finished with exit code 0
+Running periphery-v3 detectors
+periphery-v3 detectors finished with exit code 255
+Running periphery-v3 structure
+periphery-v3 structure finished with exit code 0
+Gearbox static analysis complete. Review /workspaces/gearbox-audit/audits/gearbox/runs/current/static/status.tsv

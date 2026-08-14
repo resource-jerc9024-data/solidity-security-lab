@@ -1,0 +1,20 @@
+No files changed, compilation skipped
+
+Ran 14 tests for contracts/test/configuration/CreditSuiteConfiguration.unit.t.sol:CreditSuiteConfigurationUnitTest
+[PASS] test_CS_01_allowAdapter() (gas: 1184122)
+[PASS] test_CS_02_forbidAdapter() (gas: 600596)
+[PASS] test_CS_03_setFees() (gas: 73317)
+[PASS] test_CS_04_addCollateralToken() (gas: 505167)
+[PASS] test_CS_05_forbidToken() (gas: 560212)
+[PASS] test_CS_06_allowToken() (gas: 564927)
+[PASS] test_CS_07_upgradeCreditConfigurator() (gas: 9895099)
+[PASS] test_CS_08_upgradeCreditFacade() (gas: 5158466)
+[PASS] test_CS_09_configureAdapter() (gas: 1231523)
+[PASS] test_CS_10_pause_unpause() (gas: 85533)
+[PASS] test_CS_11_emergency_forbidAdapter() (gas: 599161)
+[PASS] test_CS_12_emergency_forbidToken() (gas: 562866)
+[PASS] test_CS_13_emergency_forbidBorrowing() (gas: 75123)
+[PASS] test_CS_14_emergency_pause() (gas: 61813)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 102.16ms (12.75ms CPU time)
+
+Ran 1 test suite in 104.26ms (102.16ms CPU time): 14 tests passed, 0 failed, 0 skipped (14 total tests)

@@ -1,0 +1,1321 @@
+Impossible to generate IR for CreditManagerV3_USDT._amountUSDTWithFee (contracts/traits/USDT_Transfer.sol#22-26):
+ 'NoneType' object has no attribute 'parameters'
+Impossible to generate IR for CreditManagerV3_USDT._amountUSDTMinusFee (contracts/traits/USDT_Transfer.sol#29-33):
+ 'NoneType' object has no attribute 'parameters'
+Impossible to generate IR for PoolV3_USDT._amountUSDTWithFee (contracts/traits/USDT_Transfer.sol#22-26):
+ 'NoneType' object has no attribute 'parameters'
+Impossible to generate IR for PoolV3_USDT._amountUSDTMinusFee (contracts/traits/USDT_Transfer.sol#29-33):
+ 'NoneType' object has no attribute 'parameters'
+
+Detector: arbitrary-send-erc20
+CreditManagerV3.addCollateral(address,address,address,uint256) (contracts/credit/CreditManagerV3.sol#481-491) uses arbitrary from in transferFrom: IERC20(token).safeTransferFrom({from:payer,to:creditAccount,amount:amount}) (contracts/credit/CreditManagerV3.sol#489)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#arbitrary-from-in-transferfrom
+
+Detector: divide-before-multiply
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) performs a multiplication on the result of a division:
+	- (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+LinearInterestRateModelV3.constructor(uint16,uint16,uint16,uint16,uint16,uint16,bool) (contracts/pool/LinearInterestRateModelV3.sol#55-82) performs a multiplication on the result of a division:
+	- U_1_WAD = U_1 * (WAD / PERCENTAGE_FACTOR) (contracts/pool/LinearInterestRateModelV3.sol#72)
+LinearInterestRateModelV3.constructor(uint16,uint16,uint16,uint16,uint16,uint16,bool) (contracts/pool/LinearInterestRateModelV3.sol#55-82) performs a multiplication on the result of a division:
+	- U_2_WAD = U_2 * (WAD / PERCENTAGE_FACTOR) (contracts/pool/LinearInterestRateModelV3.sol#73)
+LinearInterestRateModelV3.constructor(uint16,uint16,uint16,uint16,uint16,uint16,bool) (contracts/pool/LinearInterestRateModelV3.sol#55-82) performs a multiplication on the result of a division:
+	- R_base_RAY = R_base * (RAY / PERCENTAGE_FACTOR) (contracts/pool/LinearInterestRateModelV3.sol#76)
+LinearInterestRateModelV3.constructor(uint16,uint16,uint16,uint16,uint16,uint16,bool) (contracts/pool/LinearInterestRateModelV3.sol#55-82) performs a multiplication on the result of a division:
+	- R_slope1_RAY = R_slope1 * (RAY / PERCENTAGE_FACTOR) (contracts/pool/LinearInterestRateModelV3.sol#77)
+LinearInterestRateModelV3.constructor(uint16,uint16,uint16,uint16,uint16,uint16,bool) (contracts/pool/LinearInterestRateModelV3.sol#55-82) performs a multiplication on the result of a division:
+	- R_slope2_RAY = R_slope2 * (RAY / PERCENTAGE_FACTOR) (contracts/pool/LinearInterestRateModelV3.sol#78)
+LinearInterestRateModelV3.constructor(uint16,uint16,uint16,uint16,uint16,uint16,bool) (contracts/pool/LinearInterestRateModelV3.sol#55-82) performs a multiplication on the result of a division:
+	- R_slope3_RAY = R_slope3 * (RAY / PERCENTAGE_FACTOR) (contracts/pool/LinearInterestRateModelV3.sol#79)
+LinearInterestRateModelV3.calcBorrowRate(uint256,uint256,bool) (contracts/pool/LinearInterestRateModelV3.sol#96-142) performs a multiplication on the result of a division:
+	- U_WAD = (WAD * (expectedLiquidity - availableLiquidity)) / expectedLiquidity (contracts/pool/LinearInterestRateModelV3.sol#110)
+	- R_base_RAY + ((R_slope1_RAY * U_WAD) / U_1_WAD) (contracts/pool/LinearInterestRateModelV3.sol#118)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Detector: incorrect-equality
+AliasedLossPolicyV3._adjustForAliases(address,uint256) (contracts/core/AliasedLossPolicyV3.sol#243-260) uses a dangerous strict equality:
+	- tokenInfo.quotaUSD == 0 (contracts/core/AliasedLossPolicyV3.sol#255)
+PriceFeedValidationTrait._checkAnswer(int256,uint256,uint32,bool) (contracts/traits/PriceFeedValidationTrait.sol#26-29) uses a dangerous strict equality:
+	- price < 0 || ! skipCheck && price == 0 (contracts/traits/PriceFeedValidationTrait.sol#27)
+AliasedLossPolicyV3._getTokenInfo(address,uint256,AliasedLossPolicyV3.SharedInfo) (contracts/core/AliasedLossPolicyV3.sol#273-289) uses a dangerous strict equality:
+	- info.balance == 0 (contracts/core/AliasedLossPolicyV3.sol#285)
+CreditConfiguratorV3._setExpirationDate(uint40) (contracts/credit/CreditConfiguratorV3.sol#662-671) uses a dangerous strict equality:
+	- newExpirationDate == expirationDate (contracts/credit/CreditConfiguratorV3.sol#666)
+CreditFacadeV3._revertIfOutOfDebtPerBlockLimit(uint256) (contracts/credit/CreditFacadeV3.sol#926-944) uses a dangerous strict equality:
+	- lastBlockBorrowed == block.number (contracts/credit/CreditFacadeV3.sol#931)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Detector: reentrancy-no-eth
+Reentrancy in GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288):
+	External calls:
+	- IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	- IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	State variables written after the call(s):
+	- vld.available -= currentVote.voteAmount (contracts/core/GearStakingV3.sol#271)
+	GearStakingV3.voteLockData (contracts/core/GearStakingV3.sol#56) can be used in cross function reentrancies:
+	- GearStakingV3.availableBalance(address) (contracts/core/GearStakingV3.sol#305-307)
+	- GearStakingV3.balanceOf(address) (contracts/core/GearStakingV3.sol#300-302)
+	- vld.available += currentVote.voteAmount (contracts/core/GearStakingV3.sol#281)
+	GearStakingV3.voteLockData (contracts/core/GearStakingV3.sol#56) can be used in cross function reentrancies:
+	- GearStakingV3.availableBalance(address) (contracts/core/GearStakingV3.sol#305-307)
+	- GearStakingV3.balanceOf(address) (contracts/core/GearStakingV3.sol#300-302)
+Reentrancy in GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224):
+	External calls:
+	- _checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#204)
+		- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	State variables written after the call(s):
+	- qp.totalVotesLpSide -= votes (contracts/pool/GaugeV3.sol#212)
+	GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48) can be used in cross function reentrancies:
+	- GaugeV3._addToken(address,uint16,uint16) (contracts/pool/GaugeV3.sol#268-283)
+	- GaugeV3._changeQuotaTokenRateParams(address,uint16,uint16) (contracts/pool/GaugeV3.sol#308-319)
+	- GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224)
+	- GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179)
+	- GaugeV3.changeQuotaMaxRate(address,uint16) (contracts/pool/GaugeV3.sol#298-305)
+	- GaugeV3.changeQuotaMinRate(address,uint16) (contracts/pool/GaugeV3.sol#287-294)
+	- GaugeV3.getRates(address[]) (contracts/pool/GaugeV3.sol#118-140)
+	- GaugeV3.isTokenAdded(address) (contracts/pool/GaugeV3.sol#329-331)
+	- GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48)
+	- GaugeV3.serialize() (contracts/pool/GaugeV3.sol#83-91)
+	- qp.totalVotesCaSide -= votes (contracts/pool/GaugeV3.sol#218)
+	GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48) can be used in cross function reentrancies:
+	- GaugeV3._addToken(address,uint16,uint16) (contracts/pool/GaugeV3.sol#268-283)
+	- GaugeV3._changeQuotaTokenRateParams(address,uint16,uint16) (contracts/pool/GaugeV3.sol#308-319)
+	- GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224)
+	- GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179)
+	- GaugeV3.changeQuotaMaxRate(address,uint16) (contracts/pool/GaugeV3.sol#298-305)
+	- GaugeV3.changeQuotaMinRate(address,uint16) (contracts/pool/GaugeV3.sol#287-294)
+	- GaugeV3.getRates(address[]) (contracts/pool/GaugeV3.sol#118-140)
+	- GaugeV3.isTokenAdded(address) (contracts/pool/GaugeV3.sol#329-331)
+	- GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48)
+	- GaugeV3.serialize() (contracts/pool/GaugeV3.sol#83-91)
+Reentrancy in GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179):
+	External calls:
+	- _checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#165)
+		- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	State variables written after the call(s):
+	- qp.totalVotesLpSide += votes (contracts/pool/GaugeV3.sol#171)
+	GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48) can be used in cross function reentrancies:
+	- GaugeV3._addToken(address,uint16,uint16) (contracts/pool/GaugeV3.sol#268-283)
+	- GaugeV3._changeQuotaTokenRateParams(address,uint16,uint16) (contracts/pool/GaugeV3.sol#308-319)
+	- GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224)
+	- GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179)
+	- GaugeV3.changeQuotaMaxRate(address,uint16) (contracts/pool/GaugeV3.sol#298-305)
+	- GaugeV3.changeQuotaMinRate(address,uint16) (contracts/pool/GaugeV3.sol#287-294)
+	- GaugeV3.getRates(address[]) (contracts/pool/GaugeV3.sol#118-140)
+	- GaugeV3.isTokenAdded(address) (contracts/pool/GaugeV3.sol#329-331)
+	- GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48)
+	- GaugeV3.serialize() (contracts/pool/GaugeV3.sol#83-91)
+	- qp.totalVotesCaSide += votes (contracts/pool/GaugeV3.sol#174)
+	GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48) can be used in cross function reentrancies:
+	- GaugeV3._addToken(address,uint16,uint16) (contracts/pool/GaugeV3.sol#268-283)
+	- GaugeV3._changeQuotaTokenRateParams(address,uint16,uint16) (contracts/pool/GaugeV3.sol#308-319)
+	- GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224)
+	- GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179)
+	- GaugeV3.changeQuotaMaxRate(address,uint16) (contracts/pool/GaugeV3.sol#298-305)
+	- GaugeV3.changeQuotaMinRate(address,uint16) (contracts/pool/GaugeV3.sol#287-294)
+	- GaugeV3.getRates(address[]) (contracts/pool/GaugeV3.sol#118-140)
+	- GaugeV3.isTokenAdded(address) (contracts/pool/GaugeV3.sol#329-331)
+	- GaugeV3.quotaRateParams (contracts/pool/GaugeV3.sol#48)
+	- GaugeV3.serialize() (contracts/pool/GaugeV3.sol#83-91)
+Reentrancy in GearStakingV3.depositWithPermit(uint96,MultiVote[],uint256,uint8,bytes32,bytes32) (contracts/core/GearStakingV3.sol#116-126):
+	External calls:
+	- IERC20Permit(_gear()).permit(msg.sender,address(this),amount,deadline,v,r,s) (contracts/core/GearStakingV3.sol#124)
+	- _deposit(amount,msg.sender,votes) (contracts/core/GearStakingV3.sol#125)
+		- IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+		- IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	State variables written after the call(s):
+	- _deposit(amount,msg.sender,votes) (contracts/core/GearStakingV3.sol#125)
+		- _gearCached = IAddressProvider(_addressProvider).getAddressOrRevert(AP_GEAR_TOKEN,NO_VERSION_CONTROL) (contracts/core/GearStakingV3.sol#99)
+	GearStakingV3._gearCached (contracts/core/GearStakingV3.sol#50) can be used in cross function reentrancies:
+	- GearStakingV3.constructor(address) (contracts/core/GearStakingV3.sol#78-88)
+	- GearStakingV3.gear() (contracts/core/GearStakingV3.sol#91-94)
+Reentrancy in PoolV3.lendCreditAccount(uint256,address) (contracts/pool/PoolV3.sol#444-469):
+	External calls:
+	- _updateBaseInterest({expectedLiquidityDelta:0,availableLiquidityDelta:- borrowedAmount.toInt256(),checkOptimalBorrowing:true}) (contracts/pool/PoolV3.sol#458-462)
+		- _baseInterestRate = IInterestRateModel(interestRateModel).calcBorrowRate({expectedLiquidity:expectedLiquidity_,availableLiquidity:availableLiquidity_,checkOptimalBorrowing:checkOptimalBorrowing}).toUint128() (contracts/pool/PoolV3.sol#603-607)
+	State variables written after the call(s):
+	- cmDebt.borrowed = cmBorrowed_ (contracts/pool/PoolV3.sol#464)
+	PoolV3._creditManagerDebt (contracts/pool/PoolV3.sol#104) can be used in cross function reentrancies:
+	- PoolV3.creditManagerBorrowable(address) (contracts/pool/PoolV3.sol#426-439)
+	- PoolV3.creditManagerBorrowed(address) (contracts/pool/PoolV3.sol#416-418)
+	- PoolV3.creditManagerDebtLimit(address) (contracts/pool/PoolV3.sol#421-423)
+	- PoolV3.setCreditManagerDebtLimit(address,uint256) (contracts/pool/PoolV3.sol#726-742)
+	- _totalDebt.borrowed = totalBorrowed_ (contracts/pool/PoolV3.sol#465)
+	PoolV3._totalDebt (contracts/pool/PoolV3.sol#101) can be used in cross function reentrancies:
+	- PoolV3._calcBaseInterestAccrued(uint256) (contracts/pool/PoolV3.sol#611-613)
+	- PoolV3._setTotalDebtLimit(uint256) (contracts/pool/PoolV3.sol#776-782)
+	- PoolV3.creditManagerBorrowable(address) (contracts/pool/PoolV3.sol#426-439)
+	- PoolV3.supplyRate() (contracts/pool/PoolV3.sol#551-557)
+	- PoolV3.totalBorrowed() (contracts/pool/PoolV3.sol#406-408)
+	- PoolV3.totalDebtLimit() (contracts/pool/PoolV3.sol#411-413)
+Reentrancy in CreditManagerV3.manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditManagerV3.sol#385-471):
+	External calls:
+	- _safeTransfer({creditAccount:creditAccount,token:underlying,to:pool,amount:amount}) (contracts/credit/CreditManagerV3.sol#426)
+		- ICreditAccountV3(creditAccount).safeTransfer(token,to,amount) (contracts/credit/CreditManagerV3.sol#1341)
+	State variables written after the call(s):
+	- currentCreditAccountInfo.quotaFees = 0 (contracts/credit/CreditManagerV3.sol#435)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+	- (newDebt,newCumulativeIndex,profit,newCumulativeQuotaInterest,currentCreditAccountInfo.quotaFees) = CreditLogic.calcDecrease({amount:_amountMinusFee(amount),debt:collateralDebtData.debt,cumulativeIndexNow:collateralDebtData.cumulativeIndexNow,cumulativeIndexLastUpdate:collateralDebtData.cumulativeIndexLastUpdate,cumulativeQuotaInterest:collateralDebtData.cumulativeQuotaInterest,quotaFees:currentCreditAccountInfo.quotaFees,feeInterest:feeInterest}) (contracts/credit/CreditManagerV3.sol#437-446)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+Reentrancy in CreditManagerV3.manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditManagerV3.sol#385-471):
+	External calls:
+	- _safeTransfer({creditAccount:creditAccount,token:underlying,to:pool,amount:amount}) (contracts/credit/CreditManagerV3.sol#426)
+		- ICreditAccountV3(creditAccount).safeTransfer(token,to,amount) (contracts/credit/CreditManagerV3.sol#1341)
+	- IPoolQuotaKeeperV3(collateralDebtData._poolQuotaKeeper).accrueQuotaInterest({creditAccount:creditAccount,tokens:collateralDebtData.quotedTokens}) (contracts/credit/CreditManagerV3.sol#456-459)
+	- _poolRepayCreditAccount(collateralDebtData.debt - newDebt,profit,0) (contracts/credit/CreditManagerV3.sol#462)
+		- IPoolV3(pool).repayCreditAccount(debt,profit,loss) (contracts/credit/CreditManagerV3.sol#1351)
+	State variables written after the call(s):
+	- currentCreditAccountInfo.cumulativeQuotaInterest = newCumulativeQuotaInterest + 1 (contracts/credit/CreditManagerV3.sol#464)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+Reentrancy in CreditManagerV3.manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditManagerV3.sol#385-471):
+	External calls:
+	- _poolLendCreditAccount(amount,creditAccount) (contracts/credit/CreditManagerV3.sol#419)
+		- IPoolV3(pool).lendCreditAccount(amount,creditAccount) (contracts/credit/CreditManagerV3.sol#1356)
+	- _safeTransfer({creditAccount:creditAccount,token:underlying,to:pool,amount:amount}) (contracts/credit/CreditManagerV3.sol#426)
+		- ICreditAccountV3(creditAccount).safeTransfer(token,to,amount) (contracts/credit/CreditManagerV3.sol#1341)
+	- IPoolQuotaKeeperV3(collateralDebtData._poolQuotaKeeper).accrueQuotaInterest({creditAccount:creditAccount,tokens:collateralDebtData.quotedTokens}) (contracts/credit/CreditManagerV3.sol#456-459)
+	- _poolRepayCreditAccount(collateralDebtData.debt - newDebt,profit,0) (contracts/credit/CreditManagerV3.sol#462)
+		- IPoolV3(pool).repayCreditAccount(debt,profit,loss) (contracts/credit/CreditManagerV3.sol#1351)
+	State variables written after the call(s):
+	- currentCreditAccountInfo.debt = newDebt (contracts/credit/CreditManagerV3.sol#467)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+	- currentCreditAccountInfo.lastDebtUpdate = uint64(block.number) (contracts/credit/CreditManagerV3.sol#468)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+	- currentCreditAccountInfo.cumulativeIndexLastUpdate = newCumulativeIndex (contracts/credit/CreditManagerV3.sol#469)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+Reentrancy in GearStakingV3.migrate(uint96,MultiVote[],MultiVote[]) (contracts/core/GearStakingV3.sol#181-201):
+	External calls:
+	- _multivote(msg.sender,votesBefore) (contracts/core/GearStakingV3.sol#187)
+		- IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+		- IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	State variables written after the call(s):
+	- vld.available -= amount (contracts/core/GearStakingV3.sol#193)
+	GearStakingV3.voteLockData (contracts/core/GearStakingV3.sol#56) can be used in cross function reentrancies:
+	- GearStakingV3.availableBalance(address) (contracts/core/GearStakingV3.sol#305-307)
+	- GearStakingV3.balanceOf(address) (contracts/core/GearStakingV3.sol#300-302)
+	- vld.totalStaked -= amount (contracts/core/GearStakingV3.sol#194)
+	GearStakingV3.voteLockData (contracts/core/GearStakingV3.sol#56) can be used in cross function reentrancies:
+	- GearStakingV3.availableBalance(address) (contracts/core/GearStakingV3.sol#305-307)
+	- GearStakingV3.balanceOf(address) (contracts/core/GearStakingV3.sol#300-302)
+Reentrancy in PoolV3.repayCreditAccount(uint256,uint256,uint256) (contracts/pool/PoolV3.sol#484-525):
+	External calls:
+	- _updateBaseInterest({expectedLiquidityDelta:profit.toInt256() - loss.toInt256(),availableLiquidityDelta:0,checkOptimalBorrowing:false}) (contracts/pool/PoolV3.sol#515-519)
+		- _baseInterestRate = IInterestRateModel(interestRateModel).calcBorrowRate({expectedLiquidity:expectedLiquidity_,availableLiquidity:availableLiquidity_,checkOptimalBorrowing:checkOptimalBorrowing}).toUint128() (contracts/pool/PoolV3.sol#603-607)
+	State variables written after the call(s):
+	- cmDebt.borrowed = cmBorrowed - repaidAmountU128 (contracts/pool/PoolV3.sol#522)
+	PoolV3._creditManagerDebt (contracts/pool/PoolV3.sol#104) can be used in cross function reentrancies:
+	- PoolV3.creditManagerBorrowable(address) (contracts/pool/PoolV3.sol#426-439)
+	- PoolV3.creditManagerBorrowed(address) (contracts/pool/PoolV3.sol#416-418)
+	- PoolV3.creditManagerDebtLimit(address) (contracts/pool/PoolV3.sol#421-423)
+	- PoolV3.setCreditManagerDebtLimit(address,uint256) (contracts/pool/PoolV3.sol#726-742)
+	- _totalDebt.borrowed -= repaidAmountU128 (contracts/pool/PoolV3.sol#521)
+	PoolV3._totalDebt (contracts/pool/PoolV3.sol#101) can be used in cross function reentrancies:
+	- PoolV3._calcBaseInterestAccrued(uint256) (contracts/pool/PoolV3.sol#611-613)
+	- PoolV3._setTotalDebtLimit(uint256) (contracts/pool/PoolV3.sol#776-782)
+	- PoolV3.creditManagerBorrowable(address) (contracts/pool/PoolV3.sol#426-439)
+	- PoolV3.supplyRate() (contracts/pool/PoolV3.sol#551-557)
+	- PoolV3.totalBorrowed() (contracts/pool/PoolV3.sol#406-408)
+	- PoolV3.totalDebtLimit() (contracts/pool/PoolV3.sol#411-413)
+Reentrancy in CreditManagerV3.updateQuota(address,address,int96,uint96,uint96) (contracts/credit/CreditManagerV3.sol#907-938):
+	External calls:
+	- (caInterestChange,quotaFees,enable,disable) = IPoolQuotaKeeperV3(poolQuotaKeeper()).updateQuota({creditAccount:creditAccount,token:token,requestedChange:quotaChange,minQuota:minQuota,maxQuota:maxQuota}) (contracts/credit/CreditManagerV3.sol#919-926)
+	State variables written after the call(s):
+	- currentCreditAccountInfo.cumulativeQuotaInterest += caInterestChange (contracts/credit/CreditManagerV3.sol#934)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+	- currentCreditAccountInfo.quotaFees += quotaFees (contracts/credit/CreditManagerV3.sol#936)
+	CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123) can be used in cross function reentrancies:
+	- CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool) (contracts/credit/CreditManagerV3.sol#707-784)
+	- CreditManagerV3.creditAccountInfo (contracts/credit/CreditManagerV3.sol#123)
+	- CreditManagerV3.enabledTokensMaskOf(address) (contracts/credit/CreditManagerV3.sol#1122-1124)
+	- CreditManagerV3.flagsOf(address) (contracts/credit/CreditManagerV3.sol#1088-1090)
+	- CreditManagerV3.getBorrowerOrRevert(address) (contracts/credit/CreditManagerV3.sol#1081-1084)
+Reentrancy in PoolQuotaKeeperV3.updateRates() (contracts/pool/PoolQuotaKeeperV3.sol#393-429):
+	External calls:
+	- IPoolV3(pool).setQuotaRevenue(quotaRevenue) (contracts/pool/PoolQuotaKeeperV3.sol#427)
+	State variables written after the call(s):
+	- lastQuotaRateUpdate = uint40(block.timestamp) (contracts/pool/PoolQuotaKeeperV3.sol#428)
+	PoolQuotaKeeperV3.lastQuotaRateUpdate (contracts/pool/PoolQuotaKeeperV3.sol#69) can be used in cross function reentrancies:
+	- PoolQuotaKeeperV3._updateQuota(address,address,int96,uint96,uint96) (contracts/pool/PoolQuotaKeeperV3.sol#128-186)
+	- PoolQuotaKeeperV3.accrueQuotaInterest(address,address[]) (contracts/pool/PoolQuotaKeeperV3.sol#238-260)
+	- PoolQuotaKeeperV3.cumulativeIndex(address) (contracts/pool/PoolQuotaKeeperV3.sol#284-289)
+	- PoolQuotaKeeperV3.lastQuotaRateUpdate (contracts/pool/PoolQuotaKeeperV3.sol#69)
+	- PoolQuotaKeeperV3.updateRates() (contracts/pool/PoolQuotaKeeperV3.sol#393-429)
+Reentrancy in GearStakingV3.withdraw(uint96,address,MultiVote[]) (contracts/core/GearStakingV3.sol#153-168):
+	External calls:
+	- _multivote(msg.sender,votes) (contracts/core/GearStakingV3.sol#154)
+		- IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+		- IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	State variables written after the call(s):
+	- _processPendingWithdrawals(msg.sender,to) (contracts/core/GearStakingV3.sol#156)
+		- voteLockData[user].totalStaked -= totalClaimable.toUint96() (contracts/core/GearStakingV3.sol#244)
+	GearStakingV3.voteLockData (contracts/core/GearStakingV3.sol#56) can be used in cross function reentrancies:
+	- GearStakingV3.availableBalance(address) (contracts/core/GearStakingV3.sol#305-307)
+	- GearStakingV3.balanceOf(address) (contracts/core/GearStakingV3.sol#300-302)
+	- vld.available -= amount (contracts/core/GearStakingV3.sol#162)
+	GearStakingV3.voteLockData (contracts/core/GearStakingV3.sol#56) can be used in cross function reentrancies:
+	- GearStakingV3.availableBalance(address) (contracts/core/GearStakingV3.sol#305-307)
+	- GearStakingV3.balanceOf(address) (contracts/core/GearStakingV3.sol#300-302)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Detector: uninitialized-local
+CreditManagerV3.calcDebtAndCollateral(address,CollateralCalcTask).useSafePrices (contracts/credit/CreditManagerV3.sol#680) is a local variable never initialized
+CreditManagerV3._getQuotedTokensData(address,uint256,uint256[],address).tokensIdx (contracts/credit/CreditManagerV3.sol#810) is a local variable never initialized
+PoolQuotaKeeperV3.removeQuotas(address,address[],bool).quotaRevenueChange (contracts/pool/PoolQuotaKeeperV3.sol#202) is a local variable never initialized
+CreditManagerV3._getQuotedTokensData(address,uint256,uint256[],address).hintsIdx (contracts/credit/CreditManagerV3.sol#815) is a local variable never initialized
+PoolQuotaKeeperV3.updateRates().quotaRevenue (contracts/pool/PoolQuotaKeeperV3.sol#401) is a local variable never initialized
+CreditManagerV3.manageDebt(address,uint256,uint256,ManageDebtAction).collateralHints (contracts/credit/CreditManagerV3.sol#398) is a local variable never initialized
+GearStakingV3._processPendingWithdrawals(address,address).totalClaimable (contracts/core/GearStakingV3.sol#225) is a local variable never initialized
+CreditManagerV3.isLiquidatable(address,uint16).collateralHints (contracts/credit/CreditManagerV3.sol#652) is a local variable never initialized
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256).fullCheckParams (contracts/credit/CreditFacadeV3.sol#509) is a local variable never initialized
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256).forbiddenBalances (contracts/credit/CreditFacadeV3.sol#510) is a local variable never initialized
+CreditManagerV3.calcDebtAndCollateral(address,CollateralCalcTask).collateralHints (contracts/credit/CreditManagerV3.sol#688) is a local variable never initialized
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256).expectedBalances (contracts/credit/CreditFacadeV3.sol#523) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Detector: unused-return
+PriceFeedValidationTrait._validatePriceFeed(address,uint32) (contracts/traits/PriceFeedValidationTrait.sol#65-74) ignores return value by (answer,updatedAt) = IPriceFeed(priceFeed).latestRoundData() (contracts/traits/PriceFeedValidationTrait.sol#68-73)
+PriceFeedValidationTrait._getValidatedPrice(address,uint32,bool) (contracts/traits/PriceFeedValidationTrait.sol#78-86) ignores return value by (None,answer,None,updatedAt,None) = IPriceFeed(priceFeed).latestRoundData() (contracts/traits/PriceFeedValidationTrait.sol#84)
+AliasedLossPolicyV3.setAliasPriceFeed(address,address) (contracts/core/AliasedLossPolicyV3.sol#201-227) ignores return value by _tokensWithAliasSet.add(token) (contracts/core/AliasedLossPolicyV3.sol#225)
+AliasedLossPolicyV3._getTokenInfo(address,uint256,AliasedLossPolicyV3.SharedInfo) (contracts/core/AliasedLossPolicyV3.sol#273-289) ignores return value by (quota,None) = IPoolQuotaKeeperV3(sharedInfo.quotaKeeper).getQuota(creditAccount,info.token) (contracts/core/AliasedLossPolicyV3.sol#287)
+BotListV3.setBotPermissions(address,address,uint192) (contracts/core/BotListV3.sol#88-113) ignores return value by accountBots.add(bot) (contracts/core/BotListV3.sol#102)
+BotListV3.setBotPermissions(address,address,uint192) (contracts/core/BotListV3.sol#88-113) ignores return value by accountBots.remove(bot) (contracts/core/BotListV3.sol#104)
+BotListV3.eraseAllBotPermissions(address) (contracts/core/BotListV3.sol#118-131) ignores return value by accountBots.remove(bot) (contracts/core/BotListV3.sol#126)
+BotListV3._validateCreditAccountAndCaller(address,address) (contracts/core/BotListV3.sol#156-161) ignores return value by ICreditManagerV3(creditManager).getBorrowerOrRevert(creditAccount) (contracts/core/BotListV3.sol#157)
+DefaultAccountFactoryV3.rescue(address,address,bytes) (contracts/core/DefaultAccountFactoryV3.sol#141-155) ignores return value by (None,None,None,None,None,None,None,borrower) = CreditManagerV3(creditManager).creditAccountInfo(creditAccount) (contracts/core/DefaultAccountFactoryV3.sol#148)
+GearStakingV3.migrate(uint96,MultiVote[],MultiVote[]) (contracts/core/GearStakingV3.sol#181-201) ignores return value by IERC20(_gear()).approve(successor,uint256(amount)) (contracts/core/GearStakingV3.sol#197)
+PriceOracleV3.setPriceFeed(address,address,uint32) (contracts/core/PriceOracleV3.sol#130-156) ignores return value by _tokensSet.add(token) (contracts/core/PriceOracleV3.sol#140)
+CreditAccountV3.rescue(address,bytes) (contracts/credit/CreditAccountV3.sol#83-89) ignores return value by target.functionCall(data) (contracts/credit/CreditAccountV3.sol#88)
+CreditConfiguratorV3.constructor(address) (contracts/credit/CreditConfiguratorV3.sol#72-86) ignores return value by allowedAdaptersSet.add(adapters[i]) (contracts/credit/CreditConfiguratorV3.sol#82)
+CreditConfiguratorV3._addCollateralToken(address) (contracts/credit/CreditConfiguratorV3.sol#133-164) ignores return value by IERC20(token).balanceOf(address(this)) (contracts/credit/CreditConfiguratorV3.sol#136-139)
+CreditConfiguratorV3._setLiquidationThreshold(address,uint16) (contracts/credit/CreditConfiguratorV3.sol#182-199) ignores return value by (None,ltUnderlying) = CreditManagerV3(creditManager).collateralTokenByMask({tokenMask:UNDERLYING_TOKEN_MASK}) (contracts/credit/CreditConfiguratorV3.sol#183-184)
+CreditConfiguratorV3.rampLiquidationThreshold(address,uint16,uint40,uint24) (contracts/credit/CreditConfiguratorV3.sol#210-250) ignores return value by (None,ltUnderlying) = CreditManagerV3(creditManager).collateralTokenByMask({tokenMask:UNDERLYING_TOKEN_MASK}) (contracts/credit/CreditConfiguratorV3.sol#221-222)
+CreditConfiguratorV3.allowAdapter(address) (contracts/credit/CreditConfiguratorV3.sol#312-339) ignores return value by allowedAdaptersSet.remove(currentAdapter) (contracts/credit/CreditConfiguratorV3.sol#331)
+CreditConfiguratorV3.allowAdapter(address) (contracts/credit/CreditConfiguratorV3.sol#312-339) ignores return value by allowedAdaptersSet.add(adapter) (contracts/credit/CreditConfiguratorV3.sol#336)
+CreditConfiguratorV3.forbidAdapter(address) (contracts/credit/CreditConfiguratorV3.sol#345-362) ignores return value by allowedAdaptersSet.remove(adapter) (contracts/credit/CreditConfiguratorV3.sol#359)
+CreditConfiguratorV3.setPriceOracle(address) (contracts/credit/CreditConfiguratorV3.sol#458-481) ignores return value by (minDebt,None) = CreditFacadeV3(creditFacade()).debtLimits() (contracts/credit/CreditConfiguratorV3.sol#465)
+CreditConfiguratorV3.setPriceOracle(address) (contracts/credit/CreditConfiguratorV3.sol#458-481) ignores return value by IPriceOracleV3(newPriceOracle).getPrice(token) (contracts/credit/CreditConfiguratorV3.sol#472-475)
+CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes) (contracts/credit/CreditFacadeV3.sol#306-365) ignores return value by (remainingFunds,None) = ICreditManagerV3(creditManager).liquidateCreditAccount({creditAccount:creditAccount,collateralDebtData:collateralDebtData,to:to,isExpired:! isUnhealthy}) (contracts/credit/CreditFacadeV3.sol#357-362)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) ignores return value by (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+CreditFacadeV3._hasBadDebt(CollateralDebtData) (contracts/credit/CreditFacadeV3.sol#986-991) ignores return value by (None,None,liquidationDiscount,None,None) = ICreditManagerV3(creditManager).fees() (contracts/credit/CreditFacadeV3.sol#987)
+CreditFacadeV3._calcPartialLiquidationPayments(uint256,address,bool) (contracts/credit/CreditFacadeV3.sol#997-1017) ignores return value by (None,feeLiquidation,liquidationDiscount,feeLiquidationExpired,liquidationDiscountExpired) = ICreditManagerV3(creditManager).fees() (contracts/credit/CreditFacadeV3.sol#1003-1009)
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) ignores return value by ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) ignores return value by ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+CreditFacadeV3._fullCollateralCheck(address,uint256,uint256[],uint16,bool) (contracts/credit/CreditFacadeV3.sol#1070-1085) ignores return value by ICreditManagerV3(creditManager).fullCollateralCheck({creditAccount:creditAccount,enabledTokensMask:enabledTokensMask.enable(UNDERLYING_TOKEN_MASK),collateralHints:collateralHints,minHealthFactor:minHealthFactor,useSafePrices:useSafePrices}) (contracts/credit/CreditFacadeV3.sol#1078-1084)
+CreditManagerV3.constructor(address,address,address,uint8,uint16,uint16,uint16,uint16,uint16,string) (contracts/credit/CreditManagerV3.sol#159-200) ignores return value by IPriceOracleV3(_priceOracle).getPrice(underlying) (contracts/credit/CreditManagerV3.sol#193-196)
+CreditManagerV3.openCreditAccount(address) (contracts/credit/CreditManagerV3.sol#214-245) ignores return value by creditAccountsSet.add(creditAccount) (contracts/credit/CreditManagerV3.sol#244)
+CreditManagerV3.closeCreditAccount(address) (contracts/credit/CreditManagerV3.sol#250-289) ignores return value by creditAccountsSet.remove(creditAccount) (contracts/credit/CreditManagerV3.sol#288)
+PoolQuotaKeeperV3.addQuotaToken(address) (contracts/pool/PoolQuotaKeeperV3.sol#373-387) ignores return value by quotaTokensSet.add(token) (contracts/pool/PoolQuotaKeeperV3.sol#383)
+PoolQuotaKeeperV3.addCreditManager(address) (contracts/pool/PoolQuotaKeeperV3.sol#461-476) ignores return value by creditManagerSet.add(_creditManager) (contracts/pool/PoolQuotaKeeperV3.sol#473)
+PoolV3.setCreditManagerDebtLimit(address,uint256) (contracts/pool/PoolV3.sol#726-742) ignores return value by _creditManagerSet.add(creditManager) (contracts/pool/PoolV3.sol#737)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: shadowing-local
+ICreditManagerV3.setCreditFacade(address).creditFacade (contracts/interfaces/ICreditManagerV3.sol#264) shadows:
+	- ICreditManagerV3.creditFacade() (contracts/interfaces/ICreditManagerV3.sol#83) (function)
+ICreditManagerV3.setPriceOracle(address).priceOracle (contracts/interfaces/ICreditManagerV3.sol#266) shadows:
+	- ICreditManagerV3.priceOracle() (contracts/interfaces/ICreditManagerV3.sol#144) (function)
+ICreditManagerV3.setCreditConfigurator(address).creditConfigurator (contracts/interfaces/ICreditManagerV3.sol#268) shadows:
+	- ICreditManagerV3.creditConfigurator() (contracts/interfaces/ICreditManagerV3.sol#85) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+Detector: events-maths
+CreditFacadeV3.setExpirationDate(uint40) (contracts/credit/CreditFacadeV3.sol#845-854) should emit an event for: 
+	- expirationDate = newExpirationDate (contracts/credit/CreditFacadeV3.sol#853) 
+CreditFacadeV3.setDebtLimits(uint128,uint128,uint8) (contracts/credit/CreditFacadeV3.sol#863-877) should emit an event for: 
+	- maxDebtPerBlockMultiplier = newMaxDebtPerBlockMultiplier (contracts/credit/CreditFacadeV3.sol#874) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Detector: missing-zero-check
+AliasedLossPolicyV3.constructor(address,address).pool_ (contracts/core/AliasedLossPolicyV3.sol#99) lacks a zero-check on :
+		- pool = pool_ (contracts/core/AliasedLossPolicyV3.sol#100)
+		- underlying = IPoolV3(pool_).asset() (contracts/core/AliasedLossPolicyV3.sol#101)
+AliasedLossPolicyV3.constructor(address,address).addressProvider_ (contracts/core/AliasedLossPolicyV3.sol#99) lacks a zero-check on :
+		- priceFeedStore = IAddressProvider(addressProvider_).getAddressOrRevert(AP_PRICE_FEED_STORE,NO_VERSION_CONTROL) (contracts/core/AliasedLossPolicyV3.sol#102)
+GearStakingV3.constructor(address).addressProvider_ (contracts/core/GearStakingV3.sol#78) lacks a zero-check on :
+		- _addressProvider = addressProvider_ (contracts/core/GearStakingV3.sol#79)
+GearStakingV3.constructor(address).gear_ (contracts/core/GearStakingV3.sol#81) lacks a zero-check on :
+		- _gearCached = gear_ (contracts/core/GearStakingV3.sol#83)
+CreditAccountV3.constructor(address)._creditManager (contracts/credit/CreditAccountV3.sol#47) lacks a zero-check on :
+		- creditManager = _creditManager (contracts/credit/CreditAccountV3.sol#48)
+CreditConfiguratorV3.constructor(address)._creditManager (contracts/credit/CreditConfiguratorV3.sol#72) lacks a zero-check on :
+		- creditManager = _creditManager (contracts/credit/CreditConfiguratorV3.sol#73)
+		- underlying = CreditManagerV3(_creditManager).underlying() (contracts/credit/CreditConfiguratorV3.sol#74)
+CreditFacadeV3.constructor(address,address,address,address,address,address,bool)._creditManager (contracts/credit/CreditFacadeV3.sol#175) lacks a zero-check on :
+		- creditManager = _creditManager (contracts/credit/CreditFacadeV3.sol#182)
+		- underlying = ICreditManagerV3(_creditManager).underlying() (contracts/credit/CreditFacadeV3.sol#189)
+		- treasury = ICreditManagerV3(_creditManager).getTreasury() (contracts/credit/CreditFacadeV3.sol#190)
+CreditFacadeV3.constructor(address,address,address,address,address,address,bool)._lossPolicy (contracts/credit/CreditFacadeV3.sol#176) lacks a zero-check on :
+		- lossPolicy = _lossPolicy (contracts/credit/CreditFacadeV3.sol#183)
+CreditFacadeV3.constructor(address,address,address,address,address,address,bool)._botList (contracts/credit/CreditFacadeV3.sol#177) lacks a zero-check on :
+		- botList = _botList (contracts/credit/CreditFacadeV3.sol#184)
+CreditFacadeV3.constructor(address,address,address,address,address,address,bool)._weth (contracts/credit/CreditFacadeV3.sol#178) lacks a zero-check on :
+		- weth = _weth (contracts/credit/CreditFacadeV3.sol#185)
+CreditFacadeV3.constructor(address,address,address,address,address,address,bool)._degenNFT (contracts/credit/CreditFacadeV3.sol#179) lacks a zero-check on :
+		- degenNFT = _degenNFT (contracts/credit/CreditFacadeV3.sol#186)
+CreditFacadeV3.constructor(address,address,address,address,address,address,bool)._addressProvider (contracts/credit/CreditFacadeV3.sol#174) lacks a zero-check on :
+		- priceFeedStore = IAddressProvider(_addressProvider).getAddressOrRevert(AP_PRICE_FEED_STORE,NO_VERSION_CONTROL) (contracts/credit/CreditFacadeV3.sol#191)
+CreditFacadeV3.setLossPolicy(address).newLossPolicy (contracts/credit/CreditFacadeV3.sol#882) lacks a zero-check on :
+		- lossPolicy = newLossPolicy (contracts/credit/CreditFacadeV3.sol#887)
+USDT_Transfer.constructor(address)._usdt (contracts/traits/USDT_Transfer.sol#17) lacks a zero-check on :
+		- usdt = _usdt (contracts/traits/USDT_Transfer.sol#18)
+CreditManagerV3.setCreditFacade(address)._creditFacade (contracts/credit/CreditManagerV3.sol#1274) lacks a zero-check on :
+		- creditFacade = _creditFacade (contracts/credit/CreditManagerV3.sol#1279)
+CreditManagerV3.setPriceOracle(address)._priceOracle (contracts/credit/CreditManagerV3.sol#1284) lacks a zero-check on :
+		- priceOracle = _priceOracle (contracts/credit/CreditManagerV3.sol#1289)
+GaugeV3.constructor(address,address)._pool (contracts/pool/GaugeV3.sol#71) lacks a zero-check on :
+		- pool = _pool (contracts/pool/GaugeV3.sol#75)
+GaugeV3.constructor(address,address)._gearStaking (contracts/pool/GaugeV3.sol#71) lacks a zero-check on :
+		- voter = _gearStaking (contracts/pool/GaugeV3.sol#76)
+PoolQuotaKeeperV3.constructor(address)._pool (contracts/pool/PoolQuotaKeeperV3.sol#85) lacks a zero-check on :
+		- pool = _pool (contracts/pool/PoolQuotaKeeperV3.sol#89)
+		- underlying = IPoolV3(_pool).asset() (contracts/pool/PoolQuotaKeeperV3.sol#90)
+PoolV3.setInterestRateModel(address).newInterestRateModel (contracts/pool/PoolV3.sol#681) lacks a zero-check on :
+		- interestRateModel = newInterestRateModel (contracts/pool/PoolV3.sol#687)
+TumblerV3.constructor(address,uint256).pool_ (contracts/pool/TumblerV3.sol#59) lacks a zero-check on :
+		- pool = pool_ (contracts/pool/TumblerV3.sol#60)
+		- poolQuotaKeeper = IPoolV3(pool_).poolQuotaKeeper() (contracts/pool/TumblerV3.sol#61)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: calls-loop
+AliasedLossPolicyV3._getTokenInfo(address,uint256,AliasedLossPolicyV3.SharedInfo) (contracts/core/AliasedLossPolicyV3.sol#273-289) has external calls inside a loop: (info.token,info.lt) = ICreditManagerV3(sharedInfo.creditManager).collateralTokenByMask(tokenMask) (contracts/core/AliasedLossPolicyV3.sol#278)
+	Calls stack containing the loop:
+		AliasedLossPolicyV3.isLiquidatableWithLoss(address,address,ILossPolicy.Params)
+		AliasedLossPolicyV3._adjustForAliases(address,uint256)
+AliasedLossPolicyV3._getTokenInfo(address,uint256,AliasedLossPolicyV3.SharedInfo) (contracts/core/AliasedLossPolicyV3.sol#273-289) has external calls inside a loop: info.balance = ERC20(info.token).balanceOf(creditAccount) (contracts/core/AliasedLossPolicyV3.sol#284)
+	Calls stack containing the loop:
+		AliasedLossPolicyV3.isLiquidatableWithLoss(address,address,ILossPolicy.Params)
+		AliasedLossPolicyV3._adjustForAliases(address,uint256)
+AliasedLossPolicyV3._getTokenInfo(address,uint256,AliasedLossPolicyV3.SharedInfo) (contracts/core/AliasedLossPolicyV3.sol#273-289) has external calls inside a loop: (quota,None) = IPoolQuotaKeeperV3(sharedInfo.quotaKeeper).getQuota(creditAccount,info.token) (contracts/core/AliasedLossPolicyV3.sol#287)
+	Calls stack containing the loop:
+		AliasedLossPolicyV3.isLiquidatableWithLoss(address,address,ILossPolicy.Params)
+		AliasedLossPolicyV3._adjustForAliases(address,uint256)
+PriceFeedValidationTrait._getValidatedPrice(address,uint32,bool) (contracts/traits/PriceFeedValidationTrait.sol#78-86) has external calls inside a loop: (None,answer,None,updatedAt,None) = IPriceFeed(priceFeed).latestRoundData() (contracts/traits/PriceFeedValidationTrait.sol#84)
+	Calls stack containing the loop:
+		AliasedLossPolicyV3.isLiquidatableWithLoss(address,address,ILossPolicy.Params)
+		AliasedLossPolicyV3._adjustForAliases(address,uint256)
+		AliasedLossPolicyV3._getWeightedValueUSD(AliasedLossPolicyV3.TokenInfo,AliasedLossPolicyV3.SharedInfo,AliasedLossPolicyV3.PriceFeedType)
+		AliasedLossPolicyV3._convertToUSDAlias(PriceFeedParams,uint256)
+AliasedLossPolicyV3._getWeightedValueUSD(AliasedLossPolicyV3.TokenInfo,AliasedLossPolicyV3.SharedInfo,AliasedLossPolicyV3.PriceFeedType) (contracts/core/AliasedLossPolicyV3.sol#293-303) has external calls inside a loop: valueUSD = IPriceOracleV3(sharedInfo.priceOracle).convertToUSD(tokenInfo.balance,tokenInfo.token) (contracts/core/AliasedLossPolicyV3.sol#298-300)
+	Calls stack containing the loop:
+		AliasedLossPolicyV3.isLiquidatableWithLoss(address,address,ILossPolicy.Params)
+		AliasedLossPolicyV3._adjustForAliases(address,uint256)
+AliasedLossPolicyV3.getRequiredAliasPriceFeeds(address) (contracts/core/AliasedLossPolicyV3.sol#150-172) has external calls inside a loop: token = ICreditManagerV3(creditManager).getTokenByMask(tokenMask) (contracts/core/AliasedLossPolicyV3.sol#165)
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	Calls stack containing the loop:
+		GearStakingV3.deposit(uint96,MultiVote[])
+		GearStakingV3._deposit(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	Calls stack containing the loop:
+		GearStakingV3.deposit(uint96,MultiVote[])
+		GearStakingV3._deposit(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	Calls stack containing the loop:
+		GearStakingV3.depositWithPermit(uint96,MultiVote[],uint256,uint8,bytes32,bytes32)
+		GearStakingV3._deposit(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	Calls stack containing the loop:
+		GearStakingV3.depositWithPermit(uint96,MultiVote[],uint256,uint8,bytes32,bytes32)
+		GearStakingV3._deposit(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	Calls stack containing the loop:
+		GearStakingV3.multivote(MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	Calls stack containing the loop:
+		GearStakingV3.multivote(MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	Calls stack containing the loop:
+		GearStakingV3.withdraw(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	Calls stack containing the loop:
+		GearStakingV3.withdraw(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	Calls stack containing the loop:
+		GearStakingV3.migrate(uint96,MultiVote[],MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	Calls stack containing the loop:
+		GearStakingV3.migrate(uint96,MultiVote[],MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+	Calls stack containing the loop:
+		GearStakingV3.depositOnMigration(uint96,address,MultiVote[])
+		GearStakingV3._deposit(uint96,address,MultiVote[])
+GearStakingV3._multivote(address,MultiVote[]) (contracts/core/GearStakingV3.sol#255-288) has external calls inside a loop: IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	Calls stack containing the loop:
+		GearStakingV3.depositOnMigration(uint96,address,MultiVote[])
+		GearStakingV3._deposit(uint96,address,MultiVote[])
+CreditConfiguratorV3.setPriceOracle(address) (contracts/credit/CreditConfiguratorV3.sol#458-481) has external calls inside a loop: token = CreditManagerV3(creditManager).getTokenByMask(1 << i) (contracts/credit/CreditConfiguratorV3.sol#471)
+CreditConfiguratorV3.setPriceOracle(address) (contracts/credit/CreditConfiguratorV3.sol#458-481) has external calls inside a loop: IPriceOracleV3(newPriceOracle).getPrice(token) (contracts/credit/CreditConfiguratorV3.sol#472-475)
+CreditConfiguratorV3._migrateForbiddenTokens(uint256) (contracts/credit/CreditConfiguratorV3.sol#522-531) has external calls inside a loop: token = CreditManagerV3(creditManager).getTokenByMask(mask) (contracts/credit/CreditConfiguratorV3.sol#526)
+	Calls stack containing the loop:
+		CreditConfiguratorV3.setCreditFacade(address,bool)
+CreditConfiguratorV3._getTokenMaskOrRevert(address) (contracts/credit/CreditConfiguratorV3.sol#678-680) has external calls inside a loop: CreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditConfiguratorV3.sol#679)
+	Calls stack containing the loop:
+		CreditConfiguratorV3.setCreditFacade(address,bool)
+		CreditConfiguratorV3._migrateForbiddenTokens(uint256)
+		CreditConfiguratorV3._forbidToken(address)
+CreditConfiguratorV3._forbidToken(address) (contracts/credit/CreditConfiguratorV3.sol#267-275) has external calls inside a loop: cf.forbiddenTokenMask() & tokenMask != 0 (contracts/credit/CreditConfiguratorV3.sol#271)
+	Calls stack containing the loop:
+		CreditConfiguratorV3.setCreditFacade(address,bool)
+		CreditConfiguratorV3._migrateForbiddenTokens(uint256)
+CreditConfiguratorV3._forbidToken(address) (contracts/credit/CreditConfiguratorV3.sol#267-275) has external calls inside a loop: cf.setTokenAllowance({token:token,allowance:AllowanceAction.FORBID}) (contracts/credit/CreditConfiguratorV3.sol#273)
+	Calls stack containing the loop:
+		CreditConfiguratorV3.setCreditFacade(address,bool)
+		CreditConfiguratorV3._migrateForbiddenTokens(uint256)
+CreditFacadeV3._updatePrices(PriceUpdate[]) (contracts/credit/CreditFacadeV3.sol#1043-1045) has external calls inside a loop: IPriceFeedStore(priceFeedStore).updatePrices(updates) (contracts/credit/CreditFacadeV3.sol#1044)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._onDemandPriceUpdates(bytes)
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) has external calls inside a loop: ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._addCollateral(address,bytes)
+CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697) has external calls inside a loop: IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._getTokenMaskOrRevert(address) (contracts/credit/CreditFacadeV3.sol#1093-1095) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditFacadeV3.sol#1094)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._updateQuota(address,bytes,uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange,minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#786-816) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:target,adapter:ICreditManagerV3(creditManager).contractToAdapter(target),callData:abi.encodeCall(IPhantomTokenWithdrawer.withdrawPhantomToken,(token,amount)),flags:flags}) (contracts/credit/CreditFacadeV3.sol#806-812)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._setActiveCreditAccount(address) (contracts/credit/CreditFacadeV3.sol#1113-1115) has external calls inside a loop: ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+		CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256)
+		CreditFacadeV3._externalCall(address,address,address,bytes,uint256)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) has external calls inside a loop: ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) has external calls inside a loop: (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setBotPermissions(address,bytes) (contracts/credit/CreditFacadeV3.sol#768-783) has external calls inside a loop: remainingBots = IBotListV3(botList).setBotPermissions({bot:bot,creditAccount:creditAccount,permissions:permissions}) (contracts/credit/CreditFacadeV3.sol#775-776)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setFlagFor(address,uint16,bool) (contracts/credit/CreditFacadeV3.sol#1108-1110) has external calls inside a loop: ICreditManagerV3(creditManager).setFlagFor(creditAccount,flag,value) (contracts/credit/CreditFacadeV3.sol#1109)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._flagsOf(address) (contracts/credit/CreditFacadeV3.sol#1103-1105) has external calls inside a loop: ICreditManagerV3(creditManager).flagsOf(creditAccount) (contracts/credit/CreditFacadeV3.sol#1104)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:ICreditManagerV3(creditManager).adapterToContract(mcall.target),adapter:mcall.target,callData:mcall.callData,flags:flags}) (contracts/credit/CreditFacadeV3.sol#604-610)
+	Calls stack containing the loop:
+		CreditFacadeV3.openCreditAccount(address,MultiCall[],uint256)
+CreditFacadeV3._updatePrices(PriceUpdate[]) (contracts/credit/CreditFacadeV3.sol#1043-1045) has external calls inside a loop: IPriceFeedStore(priceFeedStore).updatePrices(updates) (contracts/credit/CreditFacadeV3.sol#1044)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._onDemandPriceUpdates(bytes)
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) has external calls inside a loop: ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._addCollateral(address,bytes)
+CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697) has external calls inside a loop: IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._getTokenMaskOrRevert(address) (contracts/credit/CreditFacadeV3.sol#1093-1095) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditFacadeV3.sol#1094)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._updateQuota(address,bytes,uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange,minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#786-816) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:target,adapter:ICreditManagerV3(creditManager).contractToAdapter(target),callData:abi.encodeCall(IPhantomTokenWithdrawer.withdrawPhantomToken,(token,amount)),flags:flags}) (contracts/credit/CreditFacadeV3.sol#806-812)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._setActiveCreditAccount(address) (contracts/credit/CreditFacadeV3.sol#1113-1115) has external calls inside a loop: ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+		CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256)
+		CreditFacadeV3._externalCall(address,address,address,bytes,uint256)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) has external calls inside a loop: ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) has external calls inside a loop: (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setBotPermissions(address,bytes) (contracts/credit/CreditFacadeV3.sol#768-783) has external calls inside a loop: remainingBots = IBotListV3(botList).setBotPermissions({bot:bot,creditAccount:creditAccount,permissions:permissions}) (contracts/credit/CreditFacadeV3.sol#775-776)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setFlagFor(address,uint16,bool) (contracts/credit/CreditFacadeV3.sol#1108-1110) has external calls inside a loop: ICreditManagerV3(creditManager).setFlagFor(creditAccount,flag,value) (contracts/credit/CreditFacadeV3.sol#1109)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._flagsOf(address) (contracts/credit/CreditFacadeV3.sol#1103-1105) has external calls inside a loop: ICreditManagerV3(creditManager).flagsOf(creditAccount) (contracts/credit/CreditFacadeV3.sol#1104)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:ICreditManagerV3(creditManager).adapterToContract(mcall.target),adapter:mcall.target,callData:mcall.callData,flags:flags}) (contracts/credit/CreditFacadeV3.sol#604-610)
+	Calls stack containing the loop:
+		CreditFacadeV3.closeCreditAccount(address,MultiCall[])
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) has external calls inside a loop: ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._addCollateral(address,bytes)
+CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697) has external calls inside a loop: IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._getTokenMaskOrRevert(address) (contracts/credit/CreditFacadeV3.sol#1093-1095) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditFacadeV3.sol#1094)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._updateQuota(address,bytes,uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange,minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#786-816) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:target,adapter:ICreditManagerV3(creditManager).contractToAdapter(target),callData:abi.encodeCall(IPhantomTokenWithdrawer.withdrawPhantomToken,(token,amount)),flags:flags}) (contracts/credit/CreditFacadeV3.sol#806-812)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._setActiveCreditAccount(address) (contracts/credit/CreditFacadeV3.sol#1113-1115) has external calls inside a loop: ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+		CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256)
+		CreditFacadeV3._externalCall(address,address,address,bytes,uint256)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) has external calls inside a loop: ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) has external calls inside a loop: (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setBotPermissions(address,bytes) (contracts/credit/CreditFacadeV3.sol#768-783) has external calls inside a loop: remainingBots = IBotListV3(botList).setBotPermissions({bot:bot,creditAccount:creditAccount,permissions:permissions}) (contracts/credit/CreditFacadeV3.sol#775-776)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setFlagFor(address,uint16,bool) (contracts/credit/CreditFacadeV3.sol#1108-1110) has external calls inside a loop: ICreditManagerV3(creditManager).setFlagFor(creditAccount,flag,value) (contracts/credit/CreditFacadeV3.sol#1109)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._flagsOf(address) (contracts/credit/CreditFacadeV3.sol#1103-1105) has external calls inside a loop: ICreditManagerV3(creditManager).flagsOf(creditAccount) (contracts/credit/CreditFacadeV3.sol#1104)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:ICreditManagerV3(creditManager).adapterToContract(mcall.target),adapter:mcall.target,callData:mcall.callData,flags:flags}) (contracts/credit/CreditFacadeV3.sol#604-610)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) has external calls inside a loop: ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._addCollateral(address,bytes)
+CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697) has external calls inside a loop: IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._getTokenMaskOrRevert(address) (contracts/credit/CreditFacadeV3.sol#1093-1095) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditFacadeV3.sol#1094)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._updateQuota(address,bytes,uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange,minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#786-816) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:target,adapter:ICreditManagerV3(creditManager).contractToAdapter(target),callData:abi.encodeCall(IPhantomTokenWithdrawer.withdrawPhantomToken,(token,amount)),flags:flags}) (contracts/credit/CreditFacadeV3.sol#806-812)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._setActiveCreditAccount(address) (contracts/credit/CreditFacadeV3.sol#1113-1115) has external calls inside a loop: ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+		CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256)
+		CreditFacadeV3._externalCall(address,address,address,bytes,uint256)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) has external calls inside a loop: ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) has external calls inside a loop: (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setBotPermissions(address,bytes) (contracts/credit/CreditFacadeV3.sol#768-783) has external calls inside a loop: remainingBots = IBotListV3(botList).setBotPermissions({bot:bot,creditAccount:creditAccount,permissions:permissions}) (contracts/credit/CreditFacadeV3.sol#775-776)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setFlagFor(address,uint16,bool) (contracts/credit/CreditFacadeV3.sol#1108-1110) has external calls inside a loop: ICreditManagerV3(creditManager).setFlagFor(creditAccount,flag,value) (contracts/credit/CreditFacadeV3.sol#1109)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._flagsOf(address) (contracts/credit/CreditFacadeV3.sol#1103-1105) has external calls inside a loop: ICreditManagerV3(creditManager).flagsOf(creditAccount) (contracts/credit/CreditFacadeV3.sol#1104)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:ICreditManagerV3(creditManager).adapterToContract(mcall.target),adapter:mcall.target,callData:mcall.callData,flags:flags}) (contracts/credit/CreditFacadeV3.sol#604-610)
+	Calls stack containing the loop:
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[])
+		CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes)
+CreditFacadeV3._updatePrices(PriceUpdate[]) (contracts/credit/CreditFacadeV3.sol#1043-1045) has external calls inside a loop: IPriceFeedStore(priceFeedStore).updatePrices(updates) (contracts/credit/CreditFacadeV3.sol#1044)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._onDemandPriceUpdates(bytes)
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) has external calls inside a loop: ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._addCollateral(address,bytes)
+CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697) has external calls inside a loop: IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._getTokenMaskOrRevert(address) (contracts/credit/CreditFacadeV3.sol#1093-1095) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditFacadeV3.sol#1094)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._updateQuota(address,bytes,uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange,minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#786-816) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:target,adapter:ICreditManagerV3(creditManager).contractToAdapter(target),callData:abi.encodeCall(IPhantomTokenWithdrawer.withdrawPhantomToken,(token,amount)),flags:flags}) (contracts/credit/CreditFacadeV3.sol#806-812)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._setActiveCreditAccount(address) (contracts/credit/CreditFacadeV3.sol#1113-1115) has external calls inside a loop: ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+		CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256)
+		CreditFacadeV3._externalCall(address,address,address,bytes,uint256)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) has external calls inside a loop: ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) has external calls inside a loop: (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setBotPermissions(address,bytes) (contracts/credit/CreditFacadeV3.sol#768-783) has external calls inside a loop: remainingBots = IBotListV3(botList).setBotPermissions({bot:bot,creditAccount:creditAccount,permissions:permissions}) (contracts/credit/CreditFacadeV3.sol#775-776)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setFlagFor(address,uint16,bool) (contracts/credit/CreditFacadeV3.sol#1108-1110) has external calls inside a loop: ICreditManagerV3(creditManager).setFlagFor(creditAccount,flag,value) (contracts/credit/CreditFacadeV3.sol#1109)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._flagsOf(address) (contracts/credit/CreditFacadeV3.sol#1103-1105) has external calls inside a loop: ICreditManagerV3(creditManager).flagsOf(creditAccount) (contracts/credit/CreditFacadeV3.sol#1104)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:ICreditManagerV3(creditManager).adapterToContract(mcall.target),adapter:mcall.target,callData:mcall.callData,flags:flags}) (contracts/credit/CreditFacadeV3.sol#604-610)
+	Calls stack containing the loop:
+		CreditFacadeV3.multicall(address,MultiCall[])
+CreditFacadeV3._updatePrices(PriceUpdate[]) (contracts/credit/CreditFacadeV3.sol#1043-1045) has external calls inside a loop: IPriceFeedStore(priceFeedStore).updatePrices(updates) (contracts/credit/CreditFacadeV3.sol#1044)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._onDemandPriceUpdates(bytes)
+CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056) has external calls inside a loop: ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._addCollateral(address,bytes)
+CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697) has external calls inside a loop: IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._getTokenMaskOrRevert(address) (contracts/credit/CreditFacadeV3.sol#1093-1095) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(token) (contracts/credit/CreditFacadeV3.sol#1094)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._updateQuota(address,bytes,uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange / int96(uint96(PERCENTAGE_FACTOR)) * int96(uint96(PERCENTAGE_FACTOR)),minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._updateQuota(address,bytes,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#715-743) has external calls inside a loop: (tokensToEnable,tokensToDisable) = ICreditManagerV3(creditManager).updateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange,minQuota:minQuota,maxQuota:uint96(Math.min(type()(uint96).max,maxQuotaMultiplier * debtLimits.maxDebt))}) (contracts/credit/CreditFacadeV3.sol#732-740)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256) (contracts/credit/CreditFacadeV3.sol#786-816) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:target,adapter:ICreditManagerV3(creditManager).contractToAdapter(target),callData:abi.encodeCall(IPhantomTokenWithdrawer.withdrawPhantomToken,(token,amount)),flags:flags}) (contracts/credit/CreditFacadeV3.sol#806-812)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._setActiveCreditAccount(address) (contracts/credit/CreditFacadeV3.sol#1113-1115) has external calls inside a loop: ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+		CreditFacadeV3._tryWithdrawPhantomToken(address,address,uint256,uint256)
+		CreditFacadeV3._externalCall(address,address,address,bytes,uint256)
+CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067) has external calls inside a loop: ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._withdrawCollateral(address,bytes,uint256)
+CreditFacadeV3._manageDebt(address,uint256,uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#700-712) has external calls inside a loop: (newDebt,None,None) = ICreditManagerV3(creditManager).manageDebt(creditAccount,amount,enabledTokensMask,action) (contracts/credit/CreditFacadeV3.sol#708-709)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setBotPermissions(address,bytes) (contracts/credit/CreditFacadeV3.sol#768-783) has external calls inside a loop: remainingBots = IBotListV3(botList).setBotPermissions({bot:bot,creditAccount:creditAccount,permissions:permissions}) (contracts/credit/CreditFacadeV3.sol#775-776)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+CreditFacadeV3._setFlagFor(address,uint16,bool) (contracts/credit/CreditFacadeV3.sol#1108-1110) has external calls inside a loop: ICreditManagerV3(creditManager).setFlagFor(creditAccount,flag,value) (contracts/credit/CreditFacadeV3.sol#1109)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+		CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256)
+		CreditFacadeV3._setBotPermissions(address,bytes)
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has external calls inside a loop: flags = _externalCall({creditAccount:creditAccount,target:ICreditManagerV3(creditManager).adapterToContract(mcall.target),adapter:mcall.target,callData:mcall.callData,flags:flags}) (contracts/credit/CreditFacadeV3.sol#604-610)
+	Calls stack containing the loop:
+		CreditFacadeV3.botMulticall(address,MultiCall[])
+CreditManagerV3._convertToUSD(address,uint256,address) (contracts/credit/CreditManagerV3.sol#1360-1366) has external calls inside a loop: amountInUSD = IPriceOracleV3(_priceOracle).convertToUSD(amountInToken,token) (contracts/credit/CreditManagerV3.sol#1365)
+	Calls stack containing the loop:
+		CreditManagerV3.liquidateCreditAccount(address,CollateralDebtData,address,bool)
+		CreditManagerV3._getRemainingFunds(address,uint256)
+CreditManagerV3._getQuotedTokensData(address,uint256,uint256[],address) (contracts/credit/CreditManagerV3.sol#795-848) has external calls inside a loop: (quota,outstandingInterestDelta) = IPoolQuotaKeeperV3(_poolQuotaKeeper).getQuotaAndOutstandingInterest(_creditAccount,token) (contracts/credit/CreditManagerV3.sol#834-835)
+	Calls stack containing the loop:
+		CreditManagerV3.manageDebt(address,uint256,uint256,ManageDebtAction)
+		CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool)
+CreditManagerV3._getQuotedTokensData(address,uint256,uint256[],address) (contracts/credit/CreditManagerV3.sol#795-848) has external calls inside a loop: (quota,outstandingInterestDelta) = IPoolQuotaKeeperV3(_poolQuotaKeeper).getQuotaAndOutstandingInterest(_creditAccount,token) (contracts/credit/CreditManagerV3.sol#834-835)
+	Calls stack containing the loop:
+		CreditManagerV3.fullCollateralCheck(address,uint256,uint256[],uint16,bool)
+		CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool)
+CreditManagerV3._getQuotedTokensData(address,uint256,uint256[],address) (contracts/credit/CreditManagerV3.sol#795-848) has external calls inside a loop: (quota,outstandingInterestDelta) = IPoolQuotaKeeperV3(_poolQuotaKeeper).getQuotaAndOutstandingInterest(_creditAccount,token) (contracts/credit/CreditManagerV3.sol#834-835)
+	Calls stack containing the loop:
+		CreditManagerV3.isLiquidatable(address,uint16)
+		CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool)
+CreditManagerV3._getQuotedTokensData(address,uint256,uint256[],address) (contracts/credit/CreditManagerV3.sol#795-848) has external calls inside a loop: (quota,outstandingInterestDelta) = IPoolQuotaKeeperV3(_poolQuotaKeeper).getQuotaAndOutstandingInterest(_creditAccount,token) (contracts/credit/CreditManagerV3.sol#834-835)
+	Calls stack containing the loop:
+		CreditManagerV3.calcDebtAndCollateral(address,CollateralCalcTask)
+		CreditManagerV3._calcDebtAndCollateral(address,uint256,uint256[],uint16,CollateralCalcTask,bool)
+PoolQuotaKeeperV3.setGauge(address) (contracts/pool/PoolQuotaKeeperV3.sol#433-457) has external calls inside a loop: ! IRateKeeper(_gauge).isTokenAdded(quotaTokensSet.at(i)) (contracts/pool/PoolQuotaKeeperV3.sol#447)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Detector: reentrancy-benign
+Reentrancy in GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224):
+	External calls:
+	- _checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#204)
+		- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	State variables written after the call(s):
+	- uv.votesLpSide -= votes (contracts/pool/GaugeV3.sol#213)
+	- uv.votesCaSide -= votes (contracts/pool/GaugeV3.sol#219)
+Reentrancy in GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179):
+	External calls:
+	- _checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#165)
+		- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	State variables written after the call(s):
+	- uv.votesLpSide += votes (contracts/pool/GaugeV3.sol#172)
+	- uv.votesCaSide += votes (contracts/pool/GaugeV3.sol#175)
+Reentrancy in TumblerV3.addToken(address) (contracts/pool/TumblerV3.sol#107-115):
+	External calls:
+	- IPoolQuotaKeeperV3(poolQuotaKeeper).addQuotaToken(token) (contracts/pool/TumblerV3.sol#110)
+	State variables written after the call(s):
+	- _setRate(token,1) (contracts/pool/TumblerV3.sol#114)
+		- _rates[token] = rate (contracts/pool/TumblerV3.sol#136)
+Reentrancy in CreditFacadeV3.liquidateCreditAccount(address,address,MultiCall[],bytes) (contracts/credit/CreditFacadeV3.sol#306-365):
+	External calls:
+	- _onDemandPriceUpdates(calls[0].callData) (contracts/credit/CreditFacadeV3.sol#322)
+		- IPriceFeedStore(priceFeedStore).updatePrices(updates) (contracts/credit/CreditFacadeV3.sol#1044)
+	- ! ILossPolicy(lossPolicy).isLiquidatableWithLoss(creditAccount,msg.sender,params) (contracts/credit/CreditFacadeV3.sol#333)
+	State variables written after the call(s):
+	- maxDebtPerBlockMultiplier = 0 (contracts/credit/CreditFacadeV3.sol#336)
+Reentrancy in CreditManagerV3.liquidateCreditAccount(address,CollateralDebtData,address,bool) (contracts/credit/CreditManagerV3.sol#306-374):
+	External calls:
+	- IPoolQuotaKeeperV3(collateralDebtData._poolQuotaKeeper).removeQuotas({creditAccount:creditAccount,tokens:collateralDebtData.quotedTokens,setLimitsToZero:loss > 0}) (contracts/credit/CreditManagerV3.sol#329-333)
+	- _safeTransfer({creditAccount:creditAccount,token:underlying,to:pool,amount:amountToPool}) (contracts/credit/CreditManagerV3.sol#337)
+		- ICreditAccountV3(creditAccount).safeTransfer(token,to,amount) (contracts/credit/CreditManagerV3.sol#1341)
+	- _poolRepayCreditAccount(collateralDebtData.debt,profit,loss) (contracts/credit/CreditManagerV3.sol#339)
+		- IPoolV3(pool).repayCreditAccount(debt,profit,loss) (contracts/credit/CreditManagerV3.sol#1351)
+	- _safeTransfer({creditAccount:creditAccount,token:underlying,to:to,amount:amountToLiquidator}) (contracts/credit/CreditManagerV3.sol#353)
+		- ICreditAccountV3(creditAccount).safeTransfer(token,to,amount) (contracts/credit/CreditManagerV3.sol#1341)
+	State variables written after the call(s):
+	- currentCreditAccountInfo.debt = 0 (contracts/credit/CreditManagerV3.sol#364)
+	- currentCreditAccountInfo.lastDebtUpdate = uint64(block.number) (contracts/credit/CreditManagerV3.sol#365)
+	- currentCreditAccountInfo.enabledTokensMask = UNDERLYING_TOKEN_MASK (contracts/credit/CreditManagerV3.sol#366)
+Reentrancy in CreditManagerV3.openCreditAccount(address) (contracts/credit/CreditManagerV3.sol#214-245):
+	External calls:
+	- creditAccount = IAccountFactory(accountFactory).takeCreditAccount(0,0) (contracts/credit/CreditManagerV3.sol#222)
+	State variables written after the call(s):
+	- newCreditAccountInfo.enabledTokensMask = UNDERLYING_TOKEN_MASK (contracts/credit/CreditManagerV3.sol#242)
+Reentrancy in GearStakingV3.withdraw(uint96,address,MultiVote[]) (contracts/core/GearStakingV3.sol#153-168):
+	External calls:
+	- _multivote(msg.sender,votes) (contracts/core/GearStakingV3.sol#154)
+		- IVotingContract(currentVote.votingContract).vote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#274)
+		- IVotingContract(currentVote.votingContract).unvote(user,currentVote.voteAmount,currentVote.extraData) (contracts/core/GearStakingV3.sol#280)
+	State variables written after the call(s):
+	- _processPendingWithdrawals(msg.sender,to) (contracts/core/GearStakingV3.sol#156)
+		- _gearCached = IAddressProvider(_addressProvider).getAddressOrRevert(AP_GEAR_TOKEN,NO_VERSION_CONTROL) (contracts/core/GearStakingV3.sol#99)
+	- _processPendingWithdrawals(msg.sender,to) (contracts/core/GearStakingV3.sol#156)
+		- withdrawalData[user] = wd (contracts/core/GearStakingV3.sol#250)
+	- withdrawalData[msg.sender].withdrawalsPerEpoch[EPOCHS_TO_WITHDRAW - 1] += amount (contracts/core/GearStakingV3.sol#165)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Detector: reentrancy-events
+Reentrancy in CreditFacadeV3._addCollateral(address,address,uint256) (contracts/credit/CreditFacadeV3.sol#1048-1056):
+	External calls:
+	- ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Event emitted after the call(s):
+	- AddCollateral(creditAccount,token,amount) (contracts/credit/CreditFacadeV3.sol#1055)
+Reentrancy in CreditConfiguratorV3._addCollateralToken(address) (contracts/credit/CreditConfiguratorV3.sol#133-164):
+	External calls:
+	- CreditManagerV3(creditManager).addToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#162)
+	Event emitted after the call(s):
+	- AddCollateralToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#163)
+Reentrancy in CreditFacadeV3._addCollateralWithPermit(address,bytes) (contracts/credit/CreditFacadeV3.sol#687-697):
+	External calls:
+	- IERC20Permit(token).permit(msg.sender,creditManager,amount,deadline,v,r,s) (contracts/credit/CreditFacadeV3.sol#694)
+	- _addCollateral(creditAccount,token,amount) (contracts/credit/CreditFacadeV3.sol#696)
+		- ICreditManagerV3(creditManager).addCollateral({payer:msg.sender,creditAccount:creditAccount,token:token,amount:amount}) (contracts/credit/CreditFacadeV3.sol#1049-1054)
+	Event emitted after the call(s):
+	- AddCollateral(creditAccount,token,amount) (contracts/credit/CreditFacadeV3.sol#1055)
+		- _addCollateral(creditAccount,token,amount) (contracts/credit/CreditFacadeV3.sol#696)
+Reentrancy in GaugeV3._addToken(address,uint16,uint16) (contracts/pool/GaugeV3.sol#268-283):
+	External calls:
+	- quotaKeeper.addQuotaToken({token:token}) (contracts/pool/GaugeV3.sol#279)
+	Event emitted after the call(s):
+	- AddQuotaToken({token:token,minRate:minRate,maxRate:maxRate}) (contracts/pool/GaugeV3.sol#282)
+Reentrancy in GaugeV3._checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#99-112):
+	External calls:
+	- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	Event emitted after the call(s):
+	- UpdateEpoch(epochNow) (contracts/pool/GaugeV3.sol#110)
+Reentrancy in CreditFacadeV3._externalCall(address,address,address,bytes,uint256) (contracts/credit/CreditFacadeV3.sol#819-835):
+	External calls:
+	- _setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#826)
+		- ICreditManagerV3(creditManager).setActiveCreditAccount(creditAccount) (contracts/credit/CreditFacadeV3.sol#1114)
+	- useSafePrices = abi.decode(adapter.functionCall(callData),(bool)) (contracts/credit/CreditFacadeV3.sol#830)
+	Event emitted after the call(s):
+	- Execute({creditAccount:creditAccount,targetContract:target}) (contracts/credit/CreditFacadeV3.sol#833)
+Reentrancy in CreditConfiguratorV3._forbidToken(address) (contracts/credit/CreditConfiguratorV3.sol#267-275):
+	External calls:
+	- cf.setTokenAllowance({token:token,allowance:AllowanceAction.FORBID}) (contracts/credit/CreditConfiguratorV3.sol#273)
+	Event emitted after the call(s):
+	- ForbidToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#274)
+Reentrancy in CreditConfiguratorV3._setExpirationDate(uint40) (contracts/credit/CreditConfiguratorV3.sol#662-671):
+	External calls:
+	- cf.setExpirationDate(newExpirationDate) (contracts/credit/CreditConfiguratorV3.sol#669)
+	Event emitted after the call(s):
+	- SetExpirationDate(newExpirationDate) (contracts/credit/CreditConfiguratorV3.sol#670)
+Reentrancy in CreditConfiguratorV3._setLimits(uint128,uint128) (contracts/credit/CreditConfiguratorV3.sol#577-595):
+	External calls:
+	- cf.setDebtLimits(minDebt,maxDebt,cf.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#593)
+	Event emitted after the call(s):
+	- SetBorrowingLimits(minDebt,maxDebt) (contracts/credit/CreditConfiguratorV3.sol#594)
+Reentrancy in CreditConfiguratorV3._setLiquidationThreshold(address,uint16) (contracts/credit/CreditConfiguratorV3.sol#182-199):
+	External calls:
+	- CreditManagerV3(creditManager).setCollateralTokenData({token:token,ltInitial:liquidationThreshold,ltFinal:liquidationThreshold,timestampRampStart:type()(uint40).max,rampDuration:0}) (contracts/credit/CreditConfiguratorV3.sol#190-196)
+	Event emitted after the call(s):
+	- SetTokenLiquidationThreshold({token:token,liquidationThreshold:liquidationThreshold}) (contracts/credit/CreditConfiguratorV3.sol#198)
+Reentrancy in CreditConfiguratorV3._setMaxDebtPerBlockMultiplier(uint8) (contracts/credit/CreditConfiguratorV3.sol#617-625):
+	External calls:
+	- cf.setDebtLimits(minDebt,maxDebt,newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#623)
+	Event emitted after the call(s):
+	- SetMaxDebtPerBlockMultiplier(newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#624)
+Reentrancy in GaugeV3._unvote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#201-224):
+	External calls:
+	- _checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#204)
+		- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	Event emitted after the call(s):
+	- Unvote({user:user,token:token,votes:votes,lpSide:lpSide}) (contracts/pool/GaugeV3.sol#223)
+Reentrancy in GaugeV3._vote(address,uint96,address,bool) (contracts/pool/GaugeV3.sol#162-179):
+	External calls:
+	- _checkAndUpdateEpoch() (contracts/pool/GaugeV3.sol#165)
+		- _poolQuotaKeeper().updateRates() (contracts/pool/GaugeV3.sol#107)
+	Event emitted after the call(s):
+	- Vote({user:user,token:token,votes:votes,lpSide:lpSide}) (contracts/pool/GaugeV3.sol#178)
+Reentrancy in CreditFacadeV3._withdrawCollateral(address,address,uint256,address) (contracts/credit/CreditFacadeV3.sol#1059-1067):
+	External calls:
+	- ICreditManagerV3(creditManager).withdrawCollateral({creditAccount:creditAccount,token:token,amount:amount,to:to}) (contracts/credit/CreditFacadeV3.sol#1060-1065)
+	Event emitted after the call(s):
+	- WithdrawCollateral(creditAccount,token,amount,to) (contracts/credit/CreditFacadeV3.sol#1066)
+Reentrancy in CreditConfiguratorV3.addCollateralToken(address,uint16) (contracts/credit/CreditConfiguratorV3.sol#121-130):
+	External calls:
+	- _addCollateralToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#128)
+		- CreditManagerV3(creditManager).addToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#162)
+	- _setLiquidationThreshold({token:token,liquidationThreshold:liquidationThreshold}) (contracts/credit/CreditConfiguratorV3.sol#129)
+		- CreditManagerV3(creditManager).setCollateralTokenData({token:token,ltInitial:liquidationThreshold,ltFinal:liquidationThreshold,timestampRampStart:type()(uint40).max,rampDuration:0}) (contracts/credit/CreditConfiguratorV3.sol#190-196)
+	Event emitted after the call(s):
+	- SetTokenLiquidationThreshold({token:token,liquidationThreshold:liquidationThreshold}) (contracts/credit/CreditConfiguratorV3.sol#198)
+		- _setLiquidationThreshold({token:token,liquidationThreshold:liquidationThreshold}) (contracts/credit/CreditConfiguratorV3.sol#129)
+Reentrancy in TumblerV3.addToken(address) (contracts/pool/TumblerV3.sol#107-115):
+	External calls:
+	- IPoolQuotaKeeperV3(poolQuotaKeeper).addQuotaToken(token) (contracts/pool/TumblerV3.sol#110)
+	Event emitted after the call(s):
+	- AddToken(token) (contracts/pool/TumblerV3.sol#112)
+	- SetRate(token,rate) (contracts/pool/TumblerV3.sol#137)
+		- _setRate(token,1) (contracts/pool/TumblerV3.sol#114)
+Reentrancy in CreditConfiguratorV3.allowAdapter(address) (contracts/credit/CreditConfiguratorV3.sol#312-339):
+	External calls:
+	- CreditManagerV3(creditManager).setContractAllowance({adapter:currentAdapter,targetContract:address(0)}) (contracts/credit/CreditConfiguratorV3.sol#330)
+	- CreditManagerV3(creditManager).setContractAllowance({adapter:adapter,targetContract:targetContract}) (contracts/credit/CreditConfiguratorV3.sol#334)
+	Event emitted after the call(s):
+	- AllowAdapter({targetContract:targetContract,adapter:adapter}) (contracts/credit/CreditConfiguratorV3.sol#338)
+Reentrancy in CreditConfiguratorV3.allowToken(address) (contracts/credit/CreditConfiguratorV3.sol#281-295):
+	External calls:
+	- cf.setTokenAllowance({token:token,allowance:AllowanceAction.ALLOW}) (contracts/credit/CreditConfiguratorV3.sol#293)
+	Event emitted after the call(s):
+	- AllowToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#294)
+Reentrancy in PoolV3.depositWithReferral(uint256,address,uint256) (contracts/pool/PoolV3.sol#220-227):
+	External calls:
+	- shares = deposit(assets,receiver) (contracts/pool/PoolV3.sol#225)
+		- _baseInterestRate = IInterestRateModel(interestRateModel).calcBorrowRate({expectedLiquidity:expectedLiquidity_,availableLiquidity:availableLiquidity_,checkOptimalBorrowing:checkOptimalBorrowing}).toUint128() (contracts/pool/PoolV3.sol#603-607)
+	Event emitted after the call(s):
+	- Refer(receiver,referralCode,assets) (contracts/pool/PoolV3.sol#226)
+Reentrancy in CreditConfiguratorV3.forbidAdapter(address) (contracts/credit/CreditConfiguratorV3.sol#345-362):
+	External calls:
+	- CreditManagerV3(creditManager).setContractAllowance({adapter:adapter,targetContract:address(0)}) (contracts/credit/CreditConfiguratorV3.sol#356)
+	- CreditManagerV3(creditManager).setContractAllowance({adapter:address(0),targetContract:targetContract}) (contracts/credit/CreditConfiguratorV3.sol#357)
+	Event emitted after the call(s):
+	- ForbidAdapter({targetContract:targetContract,adapter:adapter}) (contracts/credit/CreditConfiguratorV3.sol#361)
+Reentrancy in PoolV3.mintWithReferral(uint256,address,uint256) (contracts/pool/PoolV3.sol#247-254):
+	External calls:
+	- assets = mint(shares,receiver) (contracts/pool/PoolV3.sol#252)
+		- _baseInterestRate = IInterestRateModel(interestRateModel).calcBorrowRate({expectedLiquidity:expectedLiquidity_,availableLiquidity:availableLiquidity_,checkOptimalBorrowing:checkOptimalBorrowing}).toUint128() (contracts/pool/PoolV3.sol#603-607)
+	Event emitted after the call(s):
+	- Refer(receiver,referralCode,assets) (contracts/pool/PoolV3.sol#253)
+Reentrancy in CreditConfiguratorV3.rampLiquidationThreshold(address,uint16,uint40,uint24) (contracts/credit/CreditConfiguratorV3.sol#210-250):
+	External calls:
+	- CreditManagerV3(creditManager).setCollateralTokenData({token:token,ltInitial:currentLT,ltFinal:liquidationThresholdFinal,timestampRampStart:rampStart,rampDuration:rampDuration}) (contracts/credit/CreditConfiguratorV3.sol#235-241)
+	Event emitted after the call(s):
+	- ScheduleTokenLiquidationThresholdRamp({token:token,liquidationThresholdInitial:currentLT,liquidationThresholdFinal:liquidationThresholdFinal,timestampRampStart:rampStart,timestampRampEnd:rampStart + rampDuration}) (contracts/credit/CreditConfiguratorV3.sol#243-249)
+Reentrancy in DefaultAccountFactoryV3.rescue(address,address,bytes) (contracts/core/DefaultAccountFactoryV3.sol#141-155):
+	External calls:
+	- CreditAccountV3(creditAccount).rescue(target,data) (contracts/core/DefaultAccountFactoryV3.sol#153)
+	Event emitted after the call(s):
+	- Rescue(creditAccount,target,data) (contracts/core/DefaultAccountFactoryV3.sol#154)
+Reentrancy in CreditConfiguratorV3.setCreditFacade(address,bool) (contracts/credit/CreditConfiguratorV3.sol#489-519):
+	External calls:
+	- CreditManagerV3(creditManager).setCreditFacade(newCreditFacade) (contracts/credit/CreditConfiguratorV3.sol#503)
+	- _setMaxDebtPerBlockMultiplier(prevCreditFacade.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#506)
+		- cf.setDebtLimits(minDebt,maxDebt,newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#623)
+	Event emitted after the call(s):
+	- SetMaxDebtPerBlockMultiplier(newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#624)
+		- _setMaxDebtPerBlockMultiplier(prevCreditFacade.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#506)
+Reentrancy in CreditConfiguratorV3.setCreditFacade(address,bool) (contracts/credit/CreditConfiguratorV3.sol#489-519):
+	External calls:
+	- CreditManagerV3(creditManager).setCreditFacade(newCreditFacade) (contracts/credit/CreditConfiguratorV3.sol#503)
+	- _setMaxDebtPerBlockMultiplier(prevCreditFacade.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#506)
+		- cf.setDebtLimits(minDebt,maxDebt,newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#623)
+	- _setLimits({minDebt:minDebt,maxDebt:maxDebt}) (contracts/credit/CreditConfiguratorV3.sol#509)
+		- cf.setDebtLimits(minDebt,maxDebt,cf.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#593)
+	Event emitted after the call(s):
+	- SetBorrowingLimits(minDebt,maxDebt) (contracts/credit/CreditConfiguratorV3.sol#594)
+		- _setLimits({minDebt:minDebt,maxDebt:maxDebt}) (contracts/credit/CreditConfiguratorV3.sol#509)
+Reentrancy in CreditConfiguratorV3.setCreditFacade(address,bool) (contracts/credit/CreditConfiguratorV3.sol#489-519):
+	External calls:
+	- CreditManagerV3(creditManager).setCreditFacade(newCreditFacade) (contracts/credit/CreditConfiguratorV3.sol#503)
+	- _setMaxDebtPerBlockMultiplier(prevCreditFacade.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#506)
+		- cf.setDebtLimits(minDebt,maxDebt,newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#623)
+	- _setLimits({minDebt:minDebt,maxDebt:maxDebt}) (contracts/credit/CreditConfiguratorV3.sol#509)
+		- cf.setDebtLimits(minDebt,maxDebt,cf.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#593)
+	- _migrateForbiddenTokens(prevCreditFacade.forbiddenTokenMask()) (contracts/credit/CreditConfiguratorV3.sol#511)
+		- cf.setTokenAllowance({token:token,allowance:AllowanceAction.FORBID}) (contracts/credit/CreditConfiguratorV3.sol#273)
+	Event emitted after the call(s):
+	- ForbidToken({token:token}) (contracts/credit/CreditConfiguratorV3.sol#274)
+		- _migrateForbiddenTokens(prevCreditFacade.forbiddenTokenMask()) (contracts/credit/CreditConfiguratorV3.sol#511)
+Reentrancy in CreditConfiguratorV3.setCreditFacade(address,bool) (contracts/credit/CreditConfiguratorV3.sol#489-519):
+	External calls:
+	- CreditManagerV3(creditManager).setCreditFacade(newCreditFacade) (contracts/credit/CreditConfiguratorV3.sol#503)
+	- _setMaxDebtPerBlockMultiplier(prevCreditFacade.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#506)
+		- cf.setDebtLimits(minDebt,maxDebt,newMaxDebtLimitPerBlockMultiplier) (contracts/credit/CreditConfiguratorV3.sol#623)
+	- _setLimits({minDebt:minDebt,maxDebt:maxDebt}) (contracts/credit/CreditConfiguratorV3.sol#509)
+		- cf.setDebtLimits(minDebt,maxDebt,cf.maxDebtPerBlockMultiplier()) (contracts/credit/CreditConfiguratorV3.sol#593)
+	- _migrateForbiddenTokens(prevCreditFacade.forbiddenTokenMask()) (contracts/credit/CreditConfiguratorV3.sol#511)
+		- cf.setTokenAllowance({token:token,allowance:AllowanceAction.FORBID}) (contracts/credit/CreditConfiguratorV3.sol#273)
+	- _setExpirationDate(prevCreditFacade.expirationDate()) (contracts/credit/CreditConfiguratorV3.sol#514)
+		- cf.setExpirationDate(newExpirationDate) (contracts/credit/CreditConfiguratorV3.sol#669)
+	Event emitted after the call(s):
+	- SetCreditFacade(newCreditFacade) (contracts/credit/CreditConfiguratorV3.sol#518)
+	- SetExpirationDate(newExpirationDate) (contracts/credit/CreditConfiguratorV3.sol#670)
+		- _setExpirationDate(prevCreditFacade.expirationDate()) (contracts/credit/CreditConfiguratorV3.sol#514)
+Reentrancy in CreditConfiguratorV3.setFees(uint16,uint16,uint16,uint16) (contracts/credit/CreditConfiguratorV3.sol#391-448):
+	External calls:
+	- CreditManagerV3(creditManager).setFees(_feeInterestCurrent,feeLiquidation,liquidationDiscount,feeLiquidationExpired,liquidationDiscountExpired) (contracts/credit/CreditConfiguratorV3.sol#438-440)
+	Event emitted after the call(s):
+	- UpdateFees({feeLiquidation:feeLiquidation,liquidationPremium:liquidationPremium,feeLiquidationExpired:feeLiquidationExpired,liquidationPremiumExpired:liquidationPremiumExpired}) (contracts/credit/CreditConfiguratorV3.sol#442-447)
+Reentrancy in PoolV3.setInterestRateModel(address) (contracts/pool/PoolV3.sol#681-690):
+	External calls:
+	- _updateBaseInterest(0,0,false) (contracts/pool/PoolV3.sol#688)
+		- _baseInterestRate = IInterestRateModel(interestRateModel).calcBorrowRate({expectedLiquidity:expectedLiquidity_,availableLiquidity:availableLiquidity_,checkOptimalBorrowing:checkOptimalBorrowing}).toUint128() (contracts/pool/PoolV3.sol#603-607)
+	Event emitted after the call(s):
+	- SetInterestRateModel(newInterestRateModel) (contracts/pool/PoolV3.sol#689)
+Reentrancy in CreditConfiguratorV3.setLossPolicy(address) (contracts/credit/CreditConfiguratorV3.sol#629-643):
+	External calls:
+	- cf.setLossPolicy(newLossPolicy) (contracts/credit/CreditConfiguratorV3.sol#641)
+	Event emitted after the call(s):
+	- SetLossPolicy(newLossPolicy) (contracts/credit/CreditConfiguratorV3.sol#642)
+Reentrancy in CreditConfiguratorV3.setPriceOracle(address) (contracts/credit/CreditConfiguratorV3.sol#458-481):
+	External calls:
+	- CreditManagerV3(creditManager).setPriceOracle(newPriceOracle) (contracts/credit/CreditConfiguratorV3.sol#479)
+	Event emitted after the call(s):
+	- SetPriceOracle(newPriceOracle) (contracts/credit/CreditConfiguratorV3.sol#480)
+Reentrancy in PoolQuotaKeeperV3.updateQuota(address,address,int96,uint96,uint96) (contracts/pool/PoolQuotaKeeperV3.sol#112-125):
+	External calls:
+	- (caQuotaInterestChange,fees,quotaChange,enableToken,disableToken) = _updateQuota(creditAccount,token,requestedChange,minQuota,maxQuota) (contracts/pool/PoolQuotaKeeperV3.sol#119-120)
+		- IPoolV3(pool).updateQuotaRevenue(quotaRevenueChange) (contracts/pool/PoolQuotaKeeperV3.sol#184)
+	Event emitted after the call(s):
+	- UpdateQuota({creditAccount:creditAccount,token:token,quotaChange:quotaChange}) (contracts/pool/PoolQuotaKeeperV3.sol#123)
+Reentrancy in CreditConfiguratorV3.upgradeCreditConfigurator(address) (contracts/credit/CreditConfiguratorV3.sol#536-556):
+	External calls:
+	- CreditManagerV3(creditManager).setCreditConfigurator(newCreditConfigurator) (contracts/credit/CreditConfiguratorV3.sol#554)
+	Event emitted after the call(s):
+	- CreditConfiguratorUpgraded(newCreditConfigurator) (contracts/credit/CreditConfiguratorV3.sol#555)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Detector: timestamp
+DefaultAccountFactoryV3.takeCreditAccount(uint256,uint256) (contracts/core/DefaultAccountFactoryV3.sol#78-99) uses timestamp for comparisons
+	Dangerous comparisons:
+	- head == fp.tail || block.timestamp < _queuedAccounts[msg.sender][head].reusableAfter (contracts/core/DefaultAccountFactoryV3.sol#87)
+GearStakingV3._processPendingWithdrawals(address,address) (contracts/core/GearStakingV3.sol#218-252) uses timestamp for comparisons
+	Dangerous comparisons:
+	- epochNow > withdrawalData[user].epochLastUpdate (contracts/core/GearStakingV3.sol#221)
+	- i < epochDiff (contracts/core/GearStakingV3.sol#232)
+	- (i + epochDiff < EPOCHS_TO_WITHDRAW) (contracts/core/GearStakingV3.sol#236-237)
+GearStakingV3.getCurrentEpoch() (contracts/core/GearStakingV3.sol#291-297) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp < firstEpochTimestamp (contracts/core/GearStakingV3.sol#292)
+GearStakingV3.getWithdrawableAmounts(address) (contracts/core/GearStakingV3.sol#310-329) uses timestamp for comparisons
+	Dangerous comparisons:
+	- i < epochDiff (contracts/core/GearStakingV3.sol#321)
+	- (i + epochDiff < EPOCHS_TO_WITHDRAW) (contracts/core/GearStakingV3.sol#325-326)
+CreditConfiguratorV3.rampLiquidationThreshold(address,uint16,uint40,uint24) (contracts/credit/CreditConfiguratorV3.sol#210-250) uses timestamp for comparisons
+	Dangerous comparisons:
+	- uint256(rampStart) + rampDuration > type()(uint40).max (contracts/credit/CreditConfiguratorV3.sol#230)
+	- block.timestamp > rampStart (contracts/credit/CreditConfiguratorV3.sol#229)
+CreditConfiguratorV3.setFees(uint16,uint16,uint16,uint16) (contracts/credit/CreditConfiguratorV3.sol#391-448) uses timestamp for comparisons
+	Dangerous comparisons:
+	- expirationDate != 0 && block.timestamp + 1209600 > expirationDate (contracts/credit/CreditConfiguratorV3.sol#433)
+CreditConfiguratorV3.setExpirationDate(uint40) (contracts/credit/CreditConfiguratorV3.sol#651-659) uses timestamp for comparisons
+	Dangerous comparisons:
+	- newExpirationDate < block.timestamp (contracts/credit/CreditConfiguratorV3.sol#656)
+	- newExpirationDate < block.timestamp + 1209600 (contracts/credit/CreditConfiguratorV3.sol#657)
+CreditConfiguratorV3._setExpirationDate(uint40) (contracts/credit/CreditConfiguratorV3.sol#662-671) uses timestamp for comparisons
+	Dangerous comparisons:
+	- newExpirationDate == expirationDate (contracts/credit/CreditConfiguratorV3.sol#666)
+	- newExpirationDate < expirationDate (contracts/credit/CreditConfiguratorV3.sol#667)
+CreditFacadeV3._revertIfNotLiquidatable(address) (contracts/credit/CreditFacadeV3.sol#975-983) uses timestamp for comparisons
+	Dangerous comparisons:
+	- cdd.debt == 0 || ! isUnhealthy && ! _isExpired() (contracts/credit/CreditFacadeV3.sol#982)
+CreditFacadeV3._isExpired() (contracts/credit/CreditFacadeV3.sol#1036-1040) uses timestamp for comparisons
+	Dangerous comparisons:
+	- _expirationDate != 0 && block.timestamp >= _expirationDate (contracts/credit/CreditFacadeV3.sol#1039)
+PoolV3._deposit(address,uint256,uint256,uint256) (contracts/pool/PoolV3.sol#344-356) uses timestamp for comparisons
+	Dangerous comparisons:
+	- assetsReceived == 0 || shares == 0 (contracts/pool/PoolV3.sol#345)
+PoolV3._withdraw(address,address,uint256,uint256,uint256,uint256) (contracts/pool/PoolV3.sol#362-387) uses timestamp for comparisons
+	Dangerous comparisons:
+	- assetsReceived == 0 || shares == 0 (contracts/pool/PoolV3.sol#370)
+	- assetsSent > amountToUser (contracts/pool/PoolV3.sol#381)
+PoolV3._convertToShares(uint256,Math.Rounding) (contracts/pool/PoolV3.sol#390-393) uses timestamp for comparisons
+	Dangerous comparisons:
+	- (assets == 0 || supply == 0) (contracts/pool/PoolV3.sol#392)
+PoolV3._convertToAssets(uint256,Math.Rounding) (contracts/pool/PoolV3.sol#396-399) uses timestamp for comparisons
+	Dangerous comparisons:
+	- (supply == 0) (contracts/pool/PoolV3.sol#398)
+PoolV3.creditManagerBorrowable(address) (contracts/pool/PoolV3.sol#426-439) uses timestamp for comparisons
+	Dangerous comparisons:
+	- borrowable == 0 (contracts/pool/PoolV3.sol#428)
+	- borrowable == 0 (contracts/pool/PoolV3.sol#431)
+PoolV3.repayCreditAccount(uint256,uint256,uint256) (contracts/pool/PoolV3.sol#484-525) uses timestamp for comparisons
+	Dangerous comparisons:
+	- sharesToBurn > sharesInTreasury (contracts/pool/PoolV3.sol#503)
+PoolV3.supplyRate() (contracts/pool/PoolV3.sol#551-557) uses timestamp for comparisons
+	Dangerous comparisons:
+	- assets == 0 (contracts/pool/PoolV3.sol#554)
+PoolV3.baseInterestIndex() (contracts/pool/PoolV3.sol#560-564) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp == timestampLU (contracts/pool/PoolV3.sol#562)
+PoolV3._calcBaseInterestAccrued() (contracts/pool/PoolV3.sol#572-576) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp == timestampLU (contracts/pool/PoolV3.sol#574)
+PoolV3._updateBaseInterest(int256,int256,bool) (contracts/pool/PoolV3.sol#584-608) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp != lastBaseInterestUpdate_ (contracts/pool/PoolV3.sol#593)
+	- block.timestamp != lastQuotaRevenueUpdate (contracts/pool/PoolV3.sol#598)
+PoolV3._calcQuotaRevenueAccrued() (contracts/pool/PoolV3.sol#652-656) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp == timestampLU (contracts/pool/PoolV3.sol#654)
+PoolV3._setQuotaRevenue(uint256) (contracts/pool/PoolV3.sol#661-668) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp != timestampLU (contracts/pool/PoolV3.sol#663)
+TumblerV3.updateRates() (contracts/pool/TumblerV3.sol#128-131) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp < IPoolQuotaKeeperV3(poolQuotaKeeper).lastQuotaRateUpdate() + epochLength (contracts/pool/TumblerV3.sol#129)
+PriceFeedValidationTrait._checkAnswer(int256,uint256,uint32,bool) (contracts/traits/PriceFeedValidationTrait.sol#26-29) uses timestamp for comparisons
+	Dangerous comparisons:
+	- ! skipCheck && block.timestamp >= updatedAt + stalenessPeriod (contracts/traits/PriceFeedValidationTrait.sol#28)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: assembly
+AliasedLossPolicyV3.getRequiredAliasPriceFeeds(address) (contracts/core/AliasedLossPolicyV3.sol#150-172) uses assembly
+	- INLINE ASM (contracts/core/AliasedLossPolicyV3.sol#169-171)
+PriceOracleV3._getTokenReserveKey(address) (contracts/core/PriceOracleV3.sol#228-234) uses assembly
+	- INLINE ASM (contracts/core/PriceOracleV3.sol#230-233)
+CreditFacadeV3._revertIfOutOfDebtLimits(uint256,ManageDebtAction) (contracts/credit/CreditFacadeV3.sol#949-965) uses assembly
+	- INLINE ASM (contracts/credit/CreditFacadeV3.sol#956-960)
+CreditManagerV3.openCreditAccount(address) (contracts/credit/CreditManagerV3.sol#214-245) uses assembly
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#229-233)
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#237-240)
+CreditManagerV3.closeCreditAccount(address) (contracts/credit/CreditManagerV3.sol#250-289) uses assembly
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#264-267)
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#275-278)
+CreditManagerV3.liquidateCreditAccount(address,CollateralDebtData,address,bool) (contracts/credit/CreditManagerV3.sol#306-374) uses assembly
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#370-373)
+CreditManagerV3._collateralTokenByMask(uint256,bool) (contracts/credit/CreditManagerV3.sol#1007-1049) uses assembly
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#1019-1022)
+	- INLINE ASM (contracts/credit/CreditManagerV3.sol#1034-1039)
+PoolQuotaKeeperV3._getTokenQuotaParamsOrRevert(TokenQuotaParams) (contracts/pool/PoolQuotaKeeperV3.sol#540-558) uses assembly
+	- INLINE ASM (contracts/pool/PoolQuotaKeeperV3.sol#548-553)
+PoolQuotaKeeperV3._getTokenQuotaTotalAndLimit(TokenQuotaParams) (contracts/pool/PoolQuotaKeeperV3.sol#561-573) uses assembly
+	- INLINE ASM (contracts/pool/PoolQuotaKeeperV3.sol#568-572)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Detector: cyclomatic-complexity
+CreditFacadeV3._multicall(address,MultiCall[],uint256,uint256) (contracts/credit/CreditFacadeV3.sol#503-650) has a high cyclomatic complexity (27).
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cyclomatic-complexity
+
+Detector: dead-code
+ContractsRegisterTrait._ensureRegisteredPool(address) (contracts/traits/ContractsRegisterTrait.sol#46-48) is never used and should be removed
+CreditFacadeV3._getTokenByMask(uint256) (contracts/credit/CreditFacadeV3.sol#1098-1100) is never used and should be removed
+CreditManagerV3._safeConvertToUSD(address,uint256,address) (contracts/credit/CreditManagerV3.sol#1379-1387) is never used and should be removed
+USDT_Transfer._basisPointsRate() (contracts/traits/USDT_Transfer.sol#36-38) is never used and should be removed
+USDT_Transfer._maximumFee() (contracts/traits/USDT_Transfer.sol#41-43) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Detector: naming-convention
+Parameter CreditManagerV3.setFees(uint16,uint16,uint16,uint16,uint16)._feeLiquidation (contracts/credit/CreditManagerV3.sol#1205) is not in mixedCase
+Parameter CreditManagerV3.setFees(uint16,uint16,uint16,uint16,uint16)._liquidationDiscount (contracts/credit/CreditManagerV3.sol#1206) is not in mixedCase
+Parameter CreditManagerV3.setFees(uint16,uint16,uint16,uint16,uint16)._feeLiquidationExpired (contracts/credit/CreditManagerV3.sol#1207) is not in mixedCase
+Parameter CreditManagerV3.setFees(uint16,uint16,uint16,uint16,uint16)._liquidationDiscountExpired (contracts/credit/CreditManagerV3.sol#1208) is not in mixedCase
+Parameter CreditManagerV3.setCreditFacade(address)._creditFacade (contracts/credit/CreditManagerV3.sol#1274) is not in mixedCase
+Parameter CreditManagerV3.setPriceOracle(address)._priceOracle (contracts/credit/CreditManagerV3.sol#1284) is not in mixedCase
+Parameter CreditManagerV3.setCreditConfigurator(address)._creditConfigurator (contracts/credit/CreditManagerV3.sol#1294) is not in mixedCase
+Contract CreditManagerV3_USDT (contracts/credit/CreditManagerV3_USDT.sol#12-50) is not in CapWords
+Variable LinearInterestRateModelV3.U_1_WAD (contracts/pool/LinearInterestRateModelV3.sol#30) is not in mixedCase
+Variable LinearInterestRateModelV3.U_2_WAD (contracts/pool/LinearInterestRateModelV3.sol#33) is not in mixedCase
+Variable LinearInterestRateModelV3.R_base_RAY (contracts/pool/LinearInterestRateModelV3.sol#36) is not in mixedCase
+Variable LinearInterestRateModelV3.R_slope1_RAY (contracts/pool/LinearInterestRateModelV3.sol#39) is not in mixedCase
+Variable LinearInterestRateModelV3.R_slope2_RAY (contracts/pool/LinearInterestRateModelV3.sol#42) is not in mixedCase
+Variable LinearInterestRateModelV3.R_slope3_RAY (contracts/pool/LinearInterestRateModelV3.sol#45) is not in mixedCase
+Parameter PoolQuotaKeeperV3.setGauge(address)._gauge (contracts/pool/PoolQuotaKeeperV3.sol#433) is not in mixedCase
+Parameter PoolQuotaKeeperV3.addCreditManager(address)._creditManager (contracts/pool/PoolQuotaKeeperV3.sol#461) is not in mixedCase
+Contract PoolV3_USDT (contracts/pool/PoolV3_USDT.sol#11-36) is not in CapWords
+Contract USDT_Transfer (contracts/traits/USDT_Transfer.sol#11-44) is not in CapWords
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+/workspaces/gearbox-audit/source/core-v3 analyzed (112 contracts with 102 detectors), 307 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

@@ -1,0 +1,11 @@
+No files changed, compilation skipped
+
+Warning: the following cheatcode(s) are deprecated and will be removed in future versions:
+  snapshot(): replaced by `snapshotState`
+  revertTo(uint256): replaced by `revertToState`
+Ran 2 tests for contracts/test/unit/libraries/CollateralLogic.unit.t.sol:CollateralLogicUnitTest
+[PASS] test_U_CLL_01_calcOneTokenCollateral_works_correctly() (gas: 164836)
+[PASS] test_U_CLL_02_calcCollateral_works_correctly() (gas: 748067)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 5.45ms (1.54ms CPU time)
+
+Ran 1 test suite in 23.32ms (5.45ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

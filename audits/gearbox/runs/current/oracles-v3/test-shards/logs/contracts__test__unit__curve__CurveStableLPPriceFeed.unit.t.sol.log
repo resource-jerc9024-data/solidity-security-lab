@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/unit/curve/CurveStableLPPriceFeed.unit.t.sol:CurveStableLPPriceFeedUnitTest
+[PASS] test_U_CRV_S_01_lp_related_functiontionality_works_as_expected() (gas: 1163065)
+[PASS] test_U_CRV_S_02_underlying_price_feeds_related_functiontionality_works_as_expected() (gas: 3156672)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 8.22ms (1.20ms CPU time)
+
+Ran 1 test suite in 22.15ms (8.22ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

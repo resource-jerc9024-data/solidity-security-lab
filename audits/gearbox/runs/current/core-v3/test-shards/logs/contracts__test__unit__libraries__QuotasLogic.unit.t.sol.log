@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/unit/libraries/QuotasLogic.unit.t.sol:QuotasLogicUnitTest
+[PASS] test_U_QL_01_calcAdditiveCumulativeIndex_computes_index_correctly() (gas: 8378)
+[PASS] test_U_QL_02_calcAccruedQuotaInterest_computes_index_correctly() (gas: 27457)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 659.61µs (160.14µs CPU time)
+
+Ran 1 test suite in 26.03ms (659.61µs CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

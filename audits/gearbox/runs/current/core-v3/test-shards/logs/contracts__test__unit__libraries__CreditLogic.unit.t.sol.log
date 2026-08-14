@@ -1,0 +1,11 @@
+No files changed, compilation skipped
+
+Ran 5 tests for contracts/test/unit/libraries/CreditLogic.unit.t.sol:CreditLogicUnitTest
+[PASS] test_U_CL_01_calcAccruedInterest_works_correctly(uint256,uint256,uint256,uint256) (runs: 256, μ: 8003, ~: 8161)
+[PASS] test_U_CL_02_calcIncrease_works_correctly(uint256,uint256,uint256,uint256,uint256) (runs: 256, μ: 9494, ~: 9389)
+[PASS] test_U_CL_03_calcDecrease_works_correctly(uint256,uint256,uint256,uint256,uint256,uint128,uint128,uint16) (runs: 256, μ: 22235, ~: 21639)
+[PASS] test_U_CL_04_calcLiquidationPayments_case_test() (gas: 41243)
+[PASS] test_U_CL_05_getLiquidationThreshold_case_test() (gas: 10120)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 74.97ms (72.94ms CPU time)
+
+Ran 1 test suite in 76.00ms (74.97ms CPU time): 5 tests passed, 0 failed, 0 skipped (5 total tests)

@@ -1,0 +1,16 @@
+No files changed, compilation skipped
+
+Ran 10 tests for contracts/test/unit/adapters/curve/CurveV1AdapterBase.unit.t.sol:CurveV1AdapterBaseUnitTest
+[PASS] test_U_CRVB_01_constructor_works_as_expected() (gas: 5779660)
+[PASS] test_U_CRVB_02_wrapper_functions_revert_on_wrong_caller() (gas: 4398645)
+[PASS] test_U_CRVB_03_exchange_works_as_expected() (gas: 4333521)
+[PASS] test_U_CRVB_04_exchange_diff_works_as_expected() (gas: 5117503)
+[PASS] test_U_CRVB_05_exchange_underlying_works_as_expected() (gas: 4333589)
+[PASS] test_U_CRVB_06_exchange_diff_underlying_works_as_expected() (gas: 5117644)
+[PASS] test_U_CRVB_07_add_liquidity_one_coin_works_as_expected() (gas: 2124727)
+[PASS] test_U_CRVB_08_add_diff_liquidity_one_coin_works_as_expected() (gas: 2535562)
+[PASS] test_U_CRVB_09_remove_liquidity_one_coin_works_as_expected() (gas: 4289636)
+[PASS] test_U_CRVB_10_remove_diff_liquidity_one_coin_works_as_expected() (gas: 5074367)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 27.78ms (17.23ms CPU time)
+
+Ran 1 test suite in 35.58ms (27.78ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

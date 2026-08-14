@@ -1,0 +1,77 @@
+Running shard contracts/test/attach/upshift/Upshift.attach.t.sol
+contracts/test/attach/upshift/Upshift.attach.t.sol finished with exit code 1
+Running shard contracts/test/live/adapters/convex/Live_ConvexEquivalenceTest.t.sol
+contracts/test/live/adapters/convex/Live_ConvexEquivalenceTest.t.sol finished with exit code 0
+Running shard contracts/test/live/adapters/lido/Live_WstETHV1Adapter.t.sol
+contracts/test/live/adapters/lido/Live_WstETHV1Adapter.t.sol finished with exit code 0
+Running shard contracts/test/live/adapters/pendle/Live_PendleRouterEquivalenceTest.t.sol
+contracts/test/live/adapters/pendle/Live_PendleRouterEquivalenceTest.t.sol finished with exit code 0
+Running shard contracts/test/live/zappers/AllZappers.live.t.sol
+contracts/test/live/zappers/AllZappers.live.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/balancer/BalancerV3RouterAdapter.unit.t.sol
+contracts/test/unit/adapters/balancer/BalancerV3RouterAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/balancer/BalancerV3WrapperAdapter.unit.t.sol
+contracts/test/unit/adapters/balancer/BalancerV3WrapperAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/camelot/CamelotV3Adapter.unit.t.sol
+contracts/test/unit/adapters/camelot/CamelotV3Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/convex/ConvexV1BaseRewardPoolAdapter.unit.t.sol
+contracts/test/unit/adapters/convex/ConvexV1BaseRewardPoolAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/convex/ConvexV1BoosterAdapter.unit.t.sol
+contracts/test/unit/adapters/convex/ConvexV1BoosterAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/curve/CurveV1Adapter2Assets.unit.t.sol
+contracts/test/unit/adapters/curve/CurveV1Adapter2Assets.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/curve/CurveV1Adapter3Assets.unit.t.sol
+contracts/test/unit/adapters/curve/CurveV1Adapter3Assets.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/curve/CurveV1Adapter4Assets.unit.t.sol
+contracts/test/unit/adapters/curve/CurveV1Adapter4Assets.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/curve/CurveV1AdapterBase.unit.t.sol
+contracts/test/unit/adapters/curve/CurveV1AdapterBase.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/curve/CurveV1AdapterStableNG.unit.t.sol
+contracts/test/unit/adapters/curve/CurveV1AdapterStableNG.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/erc4626/ERC4626Adapter.unit.t.sol
+contracts/test/unit/adapters/erc4626/ERC4626Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/fluid/FluidDexAdapter.unit.t.sol
+contracts/test/unit/adapters/fluid/FluidDexAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/lido/LidoV1Adapter.unit.t.sol
+contracts/test/unit/adapters/lido/LidoV1Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/lido/WstETHV1Adapter.unit.t.sol
+contracts/test/unit/adapters/lido/WstETHV1Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/mellow/Mellow4626VaultAdapter.unit.t.sol
+contracts/test/unit/adapters/mellow/Mellow4626VaultAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/mellow/MellowClaimerAdapter.unit.t.sol
+contracts/test/unit/adapters/mellow/MellowClaimerAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/mellow/MellowDVVAdapter.unit.t.sol
+contracts/test/unit/adapters/mellow/MellowDVVAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/mellow/MellowWrapperAdapter.unit.t.sol
+contracts/test/unit/adapters/mellow/MellowWrapperAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/pendle/PendleRouterAdapter.unit.t.sol
+contracts/test/unit/adapters/pendle/PendleRouterAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/securitize/SecuritizeOnRampAdapter.unit.t.sol
+contracts/test/unit/adapters/securitize/SecuritizeOnRampAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/securitize/SecuritizeRedemptionGatewayAdapter.unit.t.sol
+contracts/test/unit/adapters/securitize/SecuritizeRedemptionGatewayAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/sky/DaiUsdsAdapter.unit.t.sol
+contracts/test/unit/adapters/sky/DaiUsdsAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/sky/StakingRewardsAdapter.unit.t.sol
+contracts/test/unit/adapters/sky/StakingRewardsAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/traderjoe/TraderJoeRouterAdapter.unit.t.sol
+contracts/test/unit/adapters/traderjoe/TraderJoeRouterAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/uniswap/UniswapV2Adapter.unit.t.sol
+contracts/test/unit/adapters/uniswap/UniswapV2Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/uniswap/UniswapV3Adapter.unit.t.sol
+contracts/test/unit/adapters/uniswap/UniswapV3Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/upshift/UpshiftVaultAdapter.unit.t.sol
+contracts/test/unit/adapters/upshift/UpshiftVaultAdapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/adapters/velodrome/VelodromeV2Adapter.unit.t.sol
+contracts/test/unit/adapters/velodrome/VelodromeV2Adapter.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/helpers/fluid/FluidDexETHGateway.unit.t.sol
+contracts/test/unit/helpers/fluid/FluidDexETHGateway.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/helpers/lido/LidoV1_WETHGateway.unit.t.sol
+contracts/test/unit/helpers/lido/LidoV1_WETHGateway.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/helpers/securitize/SecuritizeRedeemer.unit.t.sol
+contracts/test/unit/helpers/securitize/SecuritizeRedeemer.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/helpers/securitize/SecuritizeRedemptionGateway.unit.t.sol
+contracts/test/unit/helpers/securitize/SecuritizeRedemptionGateway.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/zappers/ZapperBase.unit.t.sol
+contracts/test/unit/zappers/ZapperBase.unit.t.sol finished with exit code 0
+Sharded tests complete: 38 files, 1 non-zero exits.

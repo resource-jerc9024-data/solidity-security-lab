@@ -1,0 +1,19 @@
+No files changed, compilation skipped
+
+Warning: the following cheatcode(s) are deprecated and will be removed in future versions:
+  revertTo(uint256): replaced by `revertToState`
+  snapshot(): replaced by `snapshotState`
+Ran 10 tests for contracts/test/unit/core/GearStakingV3.unit.t.sol:GearStakingV3UnitTest
+[PASS] test_U_GS_01_constructor_sets_correct_values() (gas: 15507)
+[PASS] test_U_GS_02_deposit_works_correctly() (gas: 425308)
+[PASS] test_U_GS_03_withdraw_works_correctly() (gas: 318359)
+[PASS] test_U_GS_04A_multivote_respects_voting_contract_status() (gas: 311170)
+[PASS] test_U_GS_04_multivote_works_correctly() (gas: 612271)
+[PASS] test_U_GS_05_claimWithdrawals_works_correctly() (gas: 314424)
+[PASS] test_U_GS_06_setVotingContractStatus_works_correctly() (gas: 41409)
+[PASS] test_U_GS_07_migrate_and_depositOnMigration_work_correctly() (gas: 2497318)
+[PASS] test_U_GS_08_setSuccessor_works_correctly() (gas: 51613)
+[PASS] test_U_GS_09_setMigrator_works_correctly() (gas: 42327)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 18.85ms (8.43ms CPU time)
+
+Ran 1 test suite in 23.29ms (18.85ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

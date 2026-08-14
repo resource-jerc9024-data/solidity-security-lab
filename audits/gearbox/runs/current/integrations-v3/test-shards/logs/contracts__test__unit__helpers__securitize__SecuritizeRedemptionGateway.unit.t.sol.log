@@ -1,0 +1,19 @@
+No files changed, compilation skipped
+
+Ran 13 tests for contracts/test/unit/helpers/securitize/SecuritizeRedemptionGateway.unit.t.sol:SecuritizeRedemptionGatewayUnitTest
+[PASS] test_U_SRG_01A_redeem_zero_is_noop() (gas: 26100)
+[PASS] test_U_SRG_01_constructor_works() (gas: 26098)
+[PASS] test_U_SRG_02_redeem_works() (gas: 585048)
+[PASS] test_U_SRG_03_redeem_creates_new_redeemer_each_time() (gas: 830830)
+[PASS] test_U_SRG_04_claim_works() (gas: 754136)
+[PASS] test_U_SRG_05_claim_reverts_if_not_owned() (gas: 570289)
+[PASS] test_U_SRG_06_getRedemptionAmount_works() (gas: 994086)
+[PASS] test_U_SRG_07A_transferRedeemer_reverts_when_new_account_not_registered() (gas: 600814)
+[PASS] test_U_SRG_07_transferRedeemer_works_when_allowed() (gas: 904728)
+[PASS] test_U_SRG_08_transferRedeemer_reverts_when_not_allowed() (gas: 575573)
+[PASS] test_U_SRG_09_transferRedeemer_reverts_if_not_owned() (gas: 20179)
+[PASS] test_U_SRG_10_claim_works_after_transferRedeemer() (gas: 893982)
+[PASS] test_U_SRG_11_redeem_reverts_on_max_unclaimed_redeemers() (gas: 3018289)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 22.89ms (14.90ms CPU time)
+
+Ran 1 test suite in 43.75ms (22.89ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)

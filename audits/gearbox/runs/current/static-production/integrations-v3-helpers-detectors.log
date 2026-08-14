@@ -1,0 +1,508 @@
+
+Detector: arbitrary-send-eth
+CurveV1StETHPoolGateway.exchange(int128,int128,uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#66-82) sends eth to arbitrary user
+	Dangerous calls:
+	- ICurvePoolStETH(pool).exchange{value: dx}(i,j,dx,min_dy) (contracts/helpers/curve/CurveV1_stETHGateway.sol#70)
+	- IWETH(token0).deposit{value: address(this).balance}() (contracts/helpers/curve/CurveV1_stETHGateway.sol#76)
+CurveV1StETHPoolGateway.add_liquidity(uint256[2],uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#95-108) sends eth to arbitrary user
+	Dangerous calls:
+	- ICurvePoolStETH(pool).add_liquidity{value: amounts[0]}(amounts,min_mint_amount) (contracts/helpers/curve/CurveV1_stETHGateway.sol#105)
+CurveV1StETHPoolGateway.remove_liquidity(uint256,uint256[2]) (contracts/helpers/curve/CurveV1_stETHGateway.sol#117-127) sends eth to arbitrary user
+	Dangerous calls:
+	- IWETH(token0).deposit{value: address(this).balance}() (contracts/helpers/curve/CurveV1_stETHGateway.sol#122)
+CurveV1StETHPoolGateway.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#137-148) sends eth to arbitrary user
+	Dangerous calls:
+	- IWETH(token0).deposit{value: address(this).balance}() (contracts/helpers/curve/CurveV1_stETHGateway.sol#143)
+CurveV1StETHPoolGateway.remove_liquidity_imbalance(uint256[2],uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#161-186) sends eth to arbitrary user
+	Dangerous calls:
+	- IWETH(token0).deposit{value: address(this).balance}() (contracts/helpers/curve/CurveV1_stETHGateway.sol#167)
+FluidDexETHGateway.swapIn(bool,uint256,uint256,address) (contracts/helpers/fluid/FluidDexETHGateway.sol#74-96) sends eth to arbitrary user
+	Dangerous calls:
+	- amountOut = IFluidDex(pool).swapIn{value: amountIn}(swap0to1,amountIn,amountOutMin,to) (contracts/helpers/fluid/FluidDexETHGateway.sol#83)
+	- IWETH(weth).deposit{value: address(this).balance}() (contracts/helpers/fluid/FluidDexETHGateway.sol#91)
+UniswapV4Gateway._transferOut(address,address,uint256) (contracts/helpers/uniswap/UniswapV4Gateway.sol#138-145) sends eth to arbitrary user
+	Dangerous calls:
+	- IWETH(weth).deposit{value: amount}() (contracts/helpers/uniswap/UniswapV4Gateway.sol#140)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Detector: reentrancy-balance
+Reentrancy in InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101):
+	External call allowing reentrancy:
+	- IInfinifiGateway(infinifiGateway).withdraw(userUnwindingData.unwindingTimestamp) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#81)
+	Balance read before the call:
+	- balanceBefore = IERC20(iUSD).balanceOf(address(this)) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#80)
+	Possible stale balance used after the call in a condition:
+	- pendingAssets < amount (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#87)
+		- stale variable `pendingAssets`
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities
+
+Detector: unchecked-transfer
+InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69) ignores return value by IERC20(lockedToken).transferFrom(msg.sender,address(this),shares) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#59)
+InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101) ignores return value by IERC20(iUSD).transfer(msg.sender,amount) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#90)
+LidoV1Gateway.submit(uint256,address) (contracts/helpers/lido/LidoV1_WETHGateway.sol#46-52) ignores return value by IERC20(weth).transferFrom(msg.sender,address(this),amount) (contracts/helpers/lido/LidoV1_WETHGateway.sol#47)
+LidoV1Gateway.submit(uint256,address) (contracts/helpers/lido/LidoV1_WETHGateway.sol#46-52) ignores return value by IERC20(stETH).transfer(msg.sender,IERC20(stETH).balanceOf(address(this))) (contracts/helpers/lido/LidoV1_WETHGateway.sol#51)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unchecked-transfer
+
+Detector: divide-before-multiply
+MidasRedemptionVaultGateway._calculateTokenOutAmount(uint256,uint256,uint256,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#212-225) performs a multiplication on the result of a division:
+	- amount1e18 = (amountMTokenIn * mTokenRate) / tokenOutRate (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#218)
+	- amount1e18 * tokenUnit / WAD (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#224)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+
+Detector: incorrect-equality
+InfinifiUnwindingGateway._getPendingAssets(UserUnwindingData) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#111-117) uses a dangerous strict equality:
+	- userUnwindingData.unwindingTimestamp == 0 (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#112)
+InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69) uses a dangerous strict equality:
+	- block.timestamp == lastUnwindingTimestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#52)
+InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101) uses a dangerous strict equality:
+	- userUnwindingData.unwindingTimestamp == 0 (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#73)
+MidasRedemptionVaultGateway._calculateTokenOutAmount(uint256,uint256,uint256,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#212-225) uses a dangerous strict equality:
+	- tokenUnit == WAD (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#222)
+MidasRedemptionVaultGateway.withdraw(uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#86-133) uses a dangerous strict equality:
+	- amount == availableAmount (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#126)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dangerous-strict-equalities
+
+Detector: reentrancy-no-eth
+Reentrancy in UpshiftVaultGateway.claim(uint256) (contracts/helpers/upshift/UpshiftVaultGateway.sol#69-95):
+	External calls:
+	- IUpshiftVault(upshiftVault).claim(pendingRedeem.year,pendingRedeem.month,pendingRedeem.day,address(this)) (contracts/helpers/upshift/UpshiftVaultGateway.sol#89)
+	State variables written after the call(s):
+	- pendingRedeems[msg.sender].assets -= amount (contracts/helpers/upshift/UpshiftVaultGateway.sol#92)
+	UpshiftVaultGateway.pendingRedeems (contracts/helpers/upshift/UpshiftVaultGateway.sol#31) can be used in cross function reentrancies:
+	- UpshiftVaultGateway.pendingAssetsOf(address) (contracts/helpers/upshift/UpshiftVaultGateway.sol#97-99)
+	- UpshiftVaultGateway.pendingRedeems (contracts/helpers/upshift/UpshiftVaultGateway.sol#31)
+Reentrancy in MidasRedemptionVaultGateway.clearCancelledRequest(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#180-204):
+	External calls:
+	- IERC20(tokenOut).safeTransferFrom(msg.sender,address(this),amount) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#200)
+	State variables written after the call(s):
+	- pendingRedemptions[account].isManuallyCleared = true (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#202)
+	MidasRedemptionVaultGateway.pendingRedemptions (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#27) can be used in cross function reentrancies:
+	- MidasRedemptionVaultGateway.clearCancelledRequest(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#180-204)
+	- MidasRedemptionVaultGateway.getCurrentRequestTokenOut(address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#163-173)
+	- MidasRedemptionVaultGateway.pendingRedemptions (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#27)
+	- MidasRedemptionVaultGateway.pendingTokenOutAmount(address,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#139-158)
+	- pendingRedemptions[account].remainder = amount (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#203)
+	MidasRedemptionVaultGateway.pendingRedemptions (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#27) can be used in cross function reentrancies:
+	- MidasRedemptionVaultGateway.clearCancelledRequest(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#180-204)
+	- MidasRedemptionVaultGateway.getCurrentRequestTokenOut(address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#163-173)
+	- MidasRedemptionVaultGateway.pendingRedemptions (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#27)
+	- MidasRedemptionVaultGateway.pendingTokenOutAmount(address,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#139-158)
+Reentrancy in SecuritizeRedeemer.redeem(uint256) (contracts/helpers/securitize/SecuritizeRedeemer.sol#89-95):
+	External calls:
+	- IERC20(dsToken).safeTransfer(redemptionAccount,dsTokenAmount) (contracts/helpers/securitize/SecuritizeRedeemer.sol#90)
+	State variables written after the call(s):
+	- alreadyRedeemed = true (contracts/helpers/securitize/SecuritizeRedeemer.sol#94)
+	SecuritizeRedeemer.alreadyRedeemed (contracts/helpers/securitize/SecuritizeRedeemer.sol#51) can be used in cross function reentrancies:
+	- SecuritizeRedeemer.alreadyRedeemed (contracts/helpers/securitize/SecuritizeRedeemer.sol#51)
+	- SecuritizeRedeemer.redeem(uint256) (contracts/helpers/securitize/SecuritizeRedeemer.sol#89-95)
+	- SecuritizeRedeemer.whenNotAlreadyRedeemed() (contracts/helpers/securitize/SecuritizeRedeemer.sol#59-64)
+Reentrancy in MidasRedemptionVaultGateway.requestRedeem(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#58-81):
+	External calls:
+	- IERC20(mToken).safeTransferFrom(msg.sender,address(this),amountMTokenIn) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#69)
+	- IERC20(mToken).forceApprove(midasRedemptionVault,amountMTokenIn) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#71)
+	- IMidasRedemptionVault(midasRedemptionVault).redeemRequest(tokenOut,amountMTokenIn) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#72)
+	State variables written after the call(s):
+	- pendingRedemptions[msg.sender] = PendingRedemption({isActive:true,isManuallyCleared:false,requestId:requestId,timestamp:block.timestamp,remainder:0}) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#74-80)
+	MidasRedemptionVaultGateway.pendingRedemptions (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#27) can be used in cross function reentrancies:
+	- MidasRedemptionVaultGateway.clearCancelledRequest(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#180-204)
+	- MidasRedemptionVaultGateway.getCurrentRequestTokenOut(address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#163-173)
+	- MidasRedemptionVaultGateway.pendingRedemptions (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#27)
+	- MidasRedemptionVaultGateway.pendingTokenOutAmount(address,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#139-158)
+Reentrancy in UpshiftVaultGateway.requestRedeem(uint256) (contracts/helpers/upshift/UpshiftVaultGateway.sol#52-67):
+	External calls:
+	- (assets,claimableTimestamp) = IUpshiftVault(upshiftVault).requestRedeem({shares:shares,receiverAddr:address(this),holderAddr:msg.sender}) (contracts/helpers/upshift/UpshiftVaultGateway.sol#59-63)
+	State variables written after the call(s):
+	- pendingRedeems[msg.sender] = PendingRedeem({claimableTimestamp:claimableTimestamp,assets:assets,year:year,month:month,day:day}) (contracts/helpers/upshift/UpshiftVaultGateway.sol#65-66)
+	UpshiftVaultGateway.pendingRedeems (contracts/helpers/upshift/UpshiftVaultGateway.sol#31) can be used in cross function reentrancies:
+	- UpshiftVaultGateway.pendingAssetsOf(address) (contracts/helpers/upshift/UpshiftVaultGateway.sol#97-99)
+	- UpshiftVaultGateway.pendingRedeems (contracts/helpers/upshift/UpshiftVaultGateway.sol#31)
+Reentrancy in InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69):
+	External calls:
+	- IERC20(lockedToken).transferFrom(msg.sender,address(this),shares) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#59)
+	- IERC20(lockedToken).approve(infinifiGateway,shares) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#60)
+	State variables written after the call(s):
+	- lastUnwindingTimestamp = block.timestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#66)
+	InfinifiUnwindingGateway.lastUnwindingTimestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#38) can be used in cross function reentrancies:
+	- InfinifiUnwindingGateway.lastUnwindingTimestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#38)
+	- InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69)
+	- userUnwindingData.shares = shares (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#62)
+	InfinifiUnwindingGateway.userToUnwindingData (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#40) can be used in cross function reentrancies:
+	- InfinifiUnwindingGateway.getPendingAssets(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#103-105)
+	- InfinifiUnwindingGateway.getUserUnwindingData(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#107-109)
+	- InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69)
+	- InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101)
+	- userUnwindingData.unwindingTimestamp = block.timestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#63)
+	InfinifiUnwindingGateway.userToUnwindingData (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#40) can be used in cross function reentrancies:
+	- InfinifiUnwindingGateway.getPendingAssets(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#103-105)
+	- InfinifiUnwindingGateway.getUserUnwindingData(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#107-109)
+	- InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69)
+	- InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101)
+	- userUnwindingData.isWithdrawn = false (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#64)
+	InfinifiUnwindingGateway.userToUnwindingData (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#40) can be used in cross function reentrancies:
+	- InfinifiUnwindingGateway.getPendingAssets(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#103-105)
+	- InfinifiUnwindingGateway.getUserUnwindingData(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#107-109)
+	- InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69)
+	- InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101)
+	- userUnwindingData.unwindingEpochs = unwindingEpochs (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#65)
+	InfinifiUnwindingGateway.userToUnwindingData (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#40) can be used in cross function reentrancies:
+	- InfinifiUnwindingGateway.getPendingAssets(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#103-105)
+	- InfinifiUnwindingGateway.getUserUnwindingData(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#107-109)
+	- InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69)
+	- InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101)
+Reentrancy in InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101):
+	External calls:
+	- IInfinifiGateway(infinifiGateway).withdraw(userUnwindingData.unwindingTimestamp) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#81)
+	- IERC20(iUSD).transfer(msg.sender,amount) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#90)
+	State variables written after the call(s):
+	- userToUnwindingData[msg.sender] = userUnwindingData (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#100)
+	InfinifiUnwindingGateway.userToUnwindingData (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#40) can be used in cross function reentrancies:
+	- InfinifiUnwindingGateway.getPendingAssets(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#103-105)
+	- InfinifiUnwindingGateway.getUserUnwindingData(address) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#107-109)
+	- InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69)
+	- InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Detector: unused-return
+BalancerV3RouterGateway.swapSingleTokenExactIn(address,IERC20,IERC20,uint256,uint256,uint256,bool,bytes) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#45-69) ignores return value by IBalancerV3Router(balancerV3Router).swapSingleTokenExactIn(pool,tokenIn,tokenOut,exactAmountIn,minAmountOut,deadline,wethIsEth,userData) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#60-62)
+BalancerV3RouterGateway.addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#78-109) ignores return value by IBalancerV3Router(balancerV3Router).addLiquidityUnbalanced(pool,exactAmountsIn,minBptAmountOut,wethIsEth,userData) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#98-100)
+BalancerV3RouterGateway.removeLiquiditySingleTokenExactIn(address,uint256,IERC20,uint256,bool,bytes) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#119-139) ignores return value by IBalancerV3Router(balancerV3Router).removeLiquiditySingleTokenExactIn(pool,exactBptAmountIn,tokenOut,minAmountOut,wethIsEth,userData) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#132-134)
+CurveV1StETHPoolGateway.constructor(address,address,address) (contracts/helpers/curve/CurveV1_stETHGateway.sol#44-55) ignores return value by IERC20(token1).approve(pool,type()(uint256).max) (contracts/helpers/curve/CurveV1_stETHGateway.sol#54)
+FluidDexETHGateway.swapIn(bool,uint256,uint256,address) (contracts/helpers/fluid/FluidDexETHGateway.sol#74-96) ignores return value by IFluidDex(pool).swapIn(swap0to1,amountIn,amountOutMin,address(this)) (contracts/helpers/fluid/FluidDexETHGateway.sol#89)
+InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69) ignores return value by IERC20(lockedToken).approve(infinifiGateway,shares) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#60)
+MidasRedemptionVaultGateway.pendingTokenOutAmount(address,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#139-158) ignores return value by (sender,requestTokenOut,None,amountMTokenIn,mTokenRate,tokenOutRate) = IMidasRedemptionVault(midasRedemptionVault).redeemRequests(pending.requestId) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#146-147)
+MidasRedemptionVaultGateway.getCurrentRequestTokenOut(address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#163-173) ignores return value by (None,requestTokenOut,None,None,None,None) = IMidasRedemptionVault(midasRedemptionVault).redeemRequests(pending.requestId) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#170)
+MidasRedemptionVaultGateway.clearCancelledRequest(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#180-204) ignores return value by (None,tokenOut,status,amountMTokenIn,mTokenRate,tokenOutRate) = IMidasRedemptionVault(midasRedemptionVault).redeemRequests(pending.requestId) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#187-188)
+SecuritizeLiquidator.liquidatePendingRedemption(address,address,PriceUpdate[],bytes) (contracts/helpers/securitize/SecuritizeLiquidator.sol#50-115) ignores return value by (None,None,liquidationDiscount,None,None) = ICreditManagerV3(creditManager).fees() (contracts/helpers/securitize/SecuritizeLiquidator.sol#76)
+SecuritizeRedemptionGateway.transferRedeemer(address,address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#75-93) ignores return value by redeemersByAccount[msg.sender].remove(redeemer) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#87)
+SecuritizeRedemptionGateway.transferRedeemer(address,address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#75-93) ignores return value by unclaimedRedeemers[msg.sender].remove(redeemer) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#88)
+SecuritizeRedemptionGateway.transferRedeemer(address,address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#75-93) ignores return value by redeemersByAccount[newAccount].add(redeemer) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#89)
+SecuritizeRedemptionGateway.transferRedeemer(address,address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#75-93) ignores return value by unclaimedRedeemers[newAccount].add(redeemer) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#90)
+SecuritizeRedemptionGateway.claim(address[]) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#97-106) ignores return value by unclaimedRedeemers[msg.sender].remove(redeemers[i]) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#104)
+SecuritizeRedemptionGateway._makeNewRedeemerForAccount(address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#127-138) ignores return value by redeemersByAccount[account].add(redeemer) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#136)
+SecuritizeRedemptionGateway._makeNewRedeemerForAccount(address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#127-138) ignores return value by unclaimedRedeemers[account].add(redeemer) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#137)
+UpshiftVaultGateway.deposit(uint256,address) (contracts/helpers/upshift/UpshiftVaultGateway.sol#38-42) ignores return value by IERC4626(upshiftVault).deposit(assets,receiver) (contracts/helpers/upshift/UpshiftVaultGateway.sol#41)
+UpshiftVaultGateway.mint(uint256,address) (contracts/helpers/upshift/UpshiftVaultGateway.sol#44-50) ignores return value by IERC4626(upshiftVault).mint(shares,receiver) (contracts/helpers/upshift/UpshiftVaultGateway.sol#49)
+UpshiftVaultGateway.requestRedeem(uint256) (contracts/helpers/upshift/UpshiftVaultGateway.sol#52-67) ignores return value by (year,month,day,None) = IUpshiftVault(upshiftVault).getWithdrawalEpoch() (contracts/helpers/upshift/UpshiftVaultGateway.sol#57)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: events-maths
+SecuritizeRedeemer.redeem(uint256) (contracts/helpers/securitize/SecuritizeRedeemer.sol#89-95) should emit an event for: 
+	- pendingDsTokenAmount = dsTokenAmount (contracts/helpers/securitize/SecuritizeRedeemer.sol#93) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Detector: missing-zero-check
+BalancerV3RouterGateway.constructor(address,address)._balancerV3Router (contracts/helpers/balancer/BalancerV3RouterGateway.sol#30) lacks a zero-check on :
+		- balancerV3Router = _balancerV3Router (contracts/helpers/balancer/BalancerV3RouterGateway.sol#31)
+BalancerV3RouterGateway.constructor(address,address)._permit2 (contracts/helpers/balancer/BalancerV3RouterGateway.sol#30) lacks a zero-check on :
+		- permit2 = _permit2 (contracts/helpers/balancer/BalancerV3RouterGateway.sol#32)
+ConvexStakedPositionToken.constructor(address,address,address)._pool (contracts/helpers/convex/ConvexV1_StakedPositionToken.sol#29) lacks a zero-check on :
+		- pool = _pool (contracts/helpers/convex/ConvexV1_StakedPositionToken.sol#37)
+ConvexStakedPositionToken.constructor(address,address,address)._booster (contracts/helpers/convex/ConvexV1_StakedPositionToken.sol#29) lacks a zero-check on :
+		- booster = _booster (contracts/helpers/convex/ConvexV1_StakedPositionToken.sol#38)
+InfinifiUnwindingGateway.constructor(address)._infinifiGateway (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#42) lacks a zero-check on :
+		- infinifiGateway = _infinifiGateway (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#43)
+InfinifiUnwindingPhantomToken.constructor(address)._infinifiUnwindingGateway (contracts/helpers/infinifi/InfinifiUnwindingPhantomToken.sol#28) lacks a zero-check on :
+		- infinifiUnwindingGateway = _infinifiUnwindingGateway (contracts/helpers/infinifi/InfinifiUnwindingPhantomToken.sol#36)
+LidoV1Gateway.constructor(address,address)._weth (contracts/helpers/lido/LidoV1_WETHGateway.sol#30) lacks a zero-check on :
+		- weth = _weth (contracts/helpers/lido/LidoV1_WETHGateway.sol#34)
+LidoV1Gateway.constructor(address,address)._stETH (contracts/helpers/lido/LidoV1_WETHGateway.sol#30) lacks a zero-check on :
+		- stETH = _stETH (contracts/helpers/lido/LidoV1_WETHGateway.sol#35)
+MellowWithdrawalPhantomToken.constructor(address,address,address)._multiVault (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#34) lacks a zero-check on :
+		- multiVault = _multiVault (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#44)
+MellowWithdrawalPhantomToken.constructor(address,address,address)._claimer (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#34) lacks a zero-check on :
+		- claimer = _claimer (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#45)
+MidasRedemptionVaultGateway.constructor(address)._midasRedemptionVault (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#31) lacks a zero-check on :
+		- midasRedemptionVault = _midasRedemptionVault (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#32)
+		- mToken = IMidasRedemptionVault(_midasRedemptionVault).mToken() (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#33)
+MidasRedemptionVaultPhantomToken.constructor(address,address)._gateway (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#26) lacks a zero-check on :
+		- gateway = _gateway (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#42)
+MidasRedemptionVaultPhantomToken.constructor(address,address)._tokenOut (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#26) lacks a zero-check on :
+		- tokenOut = _tokenOut (contracts/helpers/midas/MidasRedemptionVaultPhantomToken.sol#43)
+SecuritizeLiquidator.constructor(address)._securitizeRWAFactory (contracts/helpers/securitize/SecuritizeLiquidator.sol#46) lacks a zero-check on :
+		- securitizeRWAFactory = _securitizeRWAFactory (contracts/helpers/securitize/SecuritizeLiquidator.sol#47)
+SecuritizeRedeemer.constructor(address,address,address,address)._dsToken (contracts/helpers/securitize/SecuritizeRedeemer.sol#73) lacks a zero-check on :
+		- dsToken = _dsToken (contracts/helpers/securitize/SecuritizeRedeemer.sol#75)
+SecuritizeRedeemer.constructor(address,address,address,address)._stableCoinToken (contracts/helpers/securitize/SecuritizeRedeemer.sol#73) lacks a zero-check on :
+		- stableCoinToken = _stableCoinToken (contracts/helpers/securitize/SecuritizeRedeemer.sol#76)
+SecuritizeRedeemer.constructor(address,address,address,address)._redemptionAccount (contracts/helpers/securitize/SecuritizeRedeemer.sol#73) lacks a zero-check on :
+		- redemptionAccount = _redemptionAccount (contracts/helpers/securitize/SecuritizeRedeemer.sol#77)
+SecuritizeRedeemer.constructor(address,address,address,address)._navProvider (contracts/helpers/securitize/SecuritizeRedeemer.sol#73) lacks a zero-check on :
+		- navProvider = _navProvider (contracts/helpers/securitize/SecuritizeRedeemer.sol#78)
+SecuritizeRedeemer.setAccount(address)._account (contracts/helpers/securitize/SecuritizeRedeemer.sol#85) lacks a zero-check on :
+		- account = _account (contracts/helpers/securitize/SecuritizeRedeemer.sol#86)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._dsToken (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#48) lacks a zero-check on :
+		- dsToken = _dsToken (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#56)
+		- masterRedeemer = address(new SecuritizeRedeemer(_dsToken,_stableCoinToken,_redemptionAccount,_navProvider)) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#63)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._stableCoinToken (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#49) lacks a zero-check on :
+		- stableCoinToken = _stableCoinToken (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#57)
+		- masterRedeemer = address(new SecuritizeRedeemer(_dsToken,_stableCoinToken,_redemptionAccount,_navProvider)) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#63)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._redemptionAccount (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#50) lacks a zero-check on :
+		- redemptionAccount = _redemptionAccount (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#58)
+		- masterRedeemer = address(new SecuritizeRedeemer(_dsToken,_stableCoinToken,_redemptionAccount,_navProvider)) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#63)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._securitizeWhitelister (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#51) lacks a zero-check on :
+		- securitizeWhitelister = _securitizeWhitelister (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#59)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._transferMaster (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#52) lacks a zero-check on :
+		- transferMaster = _transferMaster (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#60)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._navProvider (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#53) lacks a zero-check on :
+		- navProvider = _navProvider (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#61)
+		- masterRedeemer = address(new SecuritizeRedeemer(_dsToken,_stableCoinToken,_redemptionAccount,_navProvider)) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#63)
+SecuritizeRedemptionGateway.constructor(address,address,address,address,address,address,address)._registryService (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#54) lacks a zero-check on :
+		- registryService = _registryService (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#62)
+SecuritizeRedemptionPhantomToken.constructor(address)._redemptionGateway (contracts/helpers/securitize/SecuritizeRedemptionPhantomToken.sol#26) lacks a zero-check on :
+		- redemptionGateway = _redemptionGateway (contracts/helpers/securitize/SecuritizeRedemptionPhantomToken.sol#44)
+		- stableCoinToken = ISecuritizeRedemptionGateway(_redemptionGateway).stableCoinToken() (contracts/helpers/securitize/SecuritizeRedemptionPhantomToken.sol#45)
+StakingRewardsPhantomToken.constructor(address)._pool (contracts/helpers/sky/StakingRewardsPhantomToken.sol#24) lacks a zero-check on :
+		- pool = _pool (contracts/helpers/sky/StakingRewardsPhantomToken.sol#36)
+UniswapV4Gateway.constructor(address,address,address)._universalRouter (contracts/helpers/uniswap/UniswapV4Gateway.sol#40) lacks a zero-check on :
+		- universalRouter = _universalRouter (contracts/helpers/uniswap/UniswapV4Gateway.sol#41)
+		- poolManager = IUniversalRouter(_universalRouter).poolManager() (contracts/helpers/uniswap/UniswapV4Gateway.sol#42)
+UniswapV4Gateway.constructor(address,address,address)._permit2 (contracts/helpers/uniswap/UniswapV4Gateway.sol#40) lacks a zero-check on :
+		- permit2 = _permit2 (contracts/helpers/uniswap/UniswapV4Gateway.sol#43)
+UniswapV4Gateway.constructor(address,address,address)._weth (contracts/helpers/uniswap/UniswapV4Gateway.sol#40) lacks a zero-check on :
+		- weth = _weth (contracts/helpers/uniswap/UniswapV4Gateway.sol#44)
+UpshiftVaultGateway.constructor(address)._upshiftVault (contracts/helpers/upshift/UpshiftVaultGateway.sol#33) lacks a zero-check on :
+		- upshiftVault = _upshiftVault (contracts/helpers/upshift/UpshiftVaultGateway.sol#34)
+		- asset = IERC4626(_upshiftVault).asset() (contracts/helpers/upshift/UpshiftVaultGateway.sol#35)
+UpshiftVaultWithdrawalPhantomToken.constructor(address,address)._vault (contracts/helpers/upshift/UpshiftVaultWithdrawalPhantomToken.sol#27) lacks a zero-check on :
+		- vault = _vault (contracts/helpers/upshift/UpshiftVaultWithdrawalPhantomToken.sol#35)
+UpshiftVaultWithdrawalPhantomToken.constructor(address,address)._gateway (contracts/helpers/upshift/UpshiftVaultWithdrawalPhantomToken.sol#27) lacks a zero-check on :
+		- gateway = _gateway (contracts/helpers/upshift/UpshiftVaultWithdrawalPhantomToken.sol#36)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: calls-loop
+BalancerV3RouterGateway._transferTokenIn(IERC20,uint256) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#144-150) has external calls inside a loop: balanceBefore = token.balanceOf(address(this)) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#145)
+	Calls stack containing the loop:
+		BalancerV3RouterGateway.addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes)
+BalancerV3RouterGateway._transferTokenIn(IERC20,uint256) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#144-150) has external calls inside a loop: token.balanceOf(address(this)) - balanceBefore (contracts/helpers/balancer/BalancerV3RouterGateway.sol#149)
+	Calls stack containing the loop:
+		BalancerV3RouterGateway.addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes)
+BalancerV3RouterGateway.addLiquidityUnbalanced(address,uint256[],uint256,bool,bytes) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#78-109) has external calls inside a loop: IPermit2(permit2).approve(address(tokens[i]),balancerV3Router,uint160(exactAmountsIn[i]),uint48(block.timestamp)) (contracts/helpers/balancer/BalancerV3RouterGateway.sol#93-95)
+MellowWithdrawalPhantomToken.balanceOf(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#50-61) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#54)
+MellowWithdrawalPhantomToken.balanceOf(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#50-61) has external calls inside a loop: balance += IMellowWithdrawalQueue(subvault.withdrawalQueue).pendingAssetsOf(account) + IMellowWithdrawalQueue(subvault.withdrawalQueue).claimableAssetsOf(account) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#58-59)
+MellowWithdrawalPhantomToken.setClaimer(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#73-90) has external calls inside a loop: subvault = IMellowMultiVault(multiVault).subvaultAt(i) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#78)
+MellowWithdrawalPhantomToken.setClaimer(address) (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#73-90) has external calls inside a loop: queueClaimer = IMellowWithdrawalQueue(subvault.withdrawalQueue).claimer() (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#82)
+SecuritizeLiquidator._calcCollateralAndLiquidityValues(address,address,address,address,address[],uint16) (contracts/helpers/securitize/SecuritizeLiquidator.sol#117-150) has external calls inside a loop: stablecoinAmount = IERC20(stableCoinToken).balanceOf(redeemers[i]) (contracts/helpers/securitize/SecuritizeLiquidator.sol#129)
+	Calls stack containing the loop:
+		SecuritizeLiquidator.liquidatePendingRedemption(address,address,PriceUpdate[],bytes)
+SecuritizeLiquidator._calcCollateralAndLiquidityValues(address,address,address,address,address[],uint16) (contracts/helpers/securitize/SecuritizeLiquidator.sol#117-150) has external calls inside a loop: redemptionValue = SecuritizeRedeemer(redeemers[i]).getCurrentRedemptionValue() (contracts/helpers/securitize/SecuritizeLiquidator.sol#130)
+	Calls stack containing the loop:
+		SecuritizeLiquidator.liquidatePendingRedemption(address,address,PriceUpdate[],bytes)
+SecuritizeRedemptionGateway.claim(address[]) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#97-106) has external calls inside a loop: SecuritizeRedeemer(redeemers[i]).claim() (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#103)
+SecuritizeRedemptionGateway.getRedemptionAmount(address) (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#110-115) has external calls inside a loop: redemptionAmount += SecuritizeRedeemer(redeemers[i]).getRedemptionAmount() (contracts/helpers/securitize/SecuritizeRedemptionGateway.sol#113)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Detector: reentrancy-benign
+Reentrancy in SecuritizeRedeemer.claim() (contracts/helpers/securitize/SecuritizeRedeemer.sol#97-101):
+	External calls:
+	- IERC20(stableCoinToken).safeTransfer(account,balance) (contracts/helpers/securitize/SecuritizeRedeemer.sol#99)
+	State variables written after the call(s):
+	- pendingDsTokenAmount = 0 (contracts/helpers/securitize/SecuritizeRedeemer.sol#100)
+Reentrancy in SecuritizeLiquidator.liquidatePendingRedemption(address,address,PriceUpdate[],bytes) (contracts/helpers/securitize/SecuritizeLiquidator.sol#50-115):
+	External calls:
+	- _applyPriceUpdates(creditFacade,priceUpdates) (contracts/helpers/securitize/SecuritizeLiquidator.sol#72)
+		- IPriceFeedStore(priceFeedStore).updatePrices(priceUpdates) (contracts/helpers/securitize/SecuritizeLiquidator.sol#211)
+	State variables written after the call(s):
+	- isTransferAllowed = true (contracts/helpers/securitize/SecuritizeLiquidator.sol#112)
+Reentrancy in SecuritizeLiquidator.liquidatePendingRedemption(address,address,PriceUpdate[],bytes) (contracts/helpers/securitize/SecuritizeLiquidator.sol#50-115):
+	External calls:
+	- _applyPriceUpdates(creditFacade,priceUpdates) (contracts/helpers/securitize/SecuritizeLiquidator.sol#72)
+		- IPriceFeedStore(priceFeedStore).updatePrices(priceUpdates) (contracts/helpers/securitize/SecuritizeLiquidator.sol#211)
+	- ICreditFacadeV3(creditFacade).liquidateCreditAccount(creditAccount,creditAccount,calls,lossPolicyData) (contracts/helpers/securitize/SecuritizeLiquidator.sol#113)
+	State variables written after the call(s):
+	- isTransferAllowed = false (contracts/helpers/securitize/SecuritizeLiquidator.sol#114)
+Reentrancy in SecuritizeRedeemer.redeem(uint256) (contracts/helpers/securitize/SecuritizeRedeemer.sol#89-95):
+	External calls:
+	- IERC20(dsToken).safeTransfer(redemptionAccount,dsTokenAmount) (contracts/helpers/securitize/SecuritizeRedeemer.sol#90)
+	State variables written after the call(s):
+	- pendingDsTokenAmount = dsTokenAmount (contracts/helpers/securitize/SecuritizeRedeemer.sol#93)
+	- startingNavRate = ISecuritizeNAVProvider(navProvider).rate() (contracts/helpers/securitize/SecuritizeRedeemer.sol#92)
+	- startingTimestamp = block.timestamp (contracts/helpers/securitize/SecuritizeRedeemer.sol#91)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Detector: timestamp
+InfinifiUnwindingGateway.startUnwinding(uint256,uint32) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#49-69) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp == lastUnwindingTimestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#52)
+InfinifiUnwindingGateway.withdraw(uint256) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#71-101) uses timestamp for comparisons
+	Dangerous comparisons:
+	- userUnwindingData.unwindingTimestamp == 0 (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#73)
+	- block.timestamp < claimableTimestamp (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#77)
+	- pendingAssets < amount (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#87)
+	- userUnwindingData.unclaimedAssets <= 1 (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#92)
+InfinifiUnwindingGateway._getPendingAssets(UserUnwindingData) (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#111-117) uses timestamp for comparisons
+	Dangerous comparisons:
+	- userUnwindingData.unwindingTimestamp == 0 (contracts/helpers/infinifi/InfinifiUnwindingGateway.sol#112)
+MidasRedemptionVaultGateway.withdraw(uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#86-133) uses timestamp for comparisons
+	Dangerous comparisons:
+	- amount > availableAmount (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#122)
+	- amount == availableAmount (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#126)
+MidasRedemptionVaultGateway.pendingTokenOutAmount(address,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#139-158) uses timestamp for comparisons
+	Dangerous comparisons:
+	- sender != address(this) || requestTokenOut != tokenOut (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#149)
+	- pending.remainder > 0 (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#153)
+MidasRedemptionVaultGateway.clearCancelledRequest(address,uint256) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#180-204) uses timestamp for comparisons
+	Dangerous comparisons:
+	- status != 2 || pending.isManuallyCleared (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#190)
+	- amount < minAmount (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#196)
+MidasRedemptionVaultGateway._calculateTokenOutAmount(uint256,uint256,uint256,address) (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#212-225) uses timestamp for comparisons
+	Dangerous comparisons:
+	- tokenUnit == WAD (contracts/helpers/midas/MidasRedemptionVaultGateway.sol#222)
+UpshiftVaultGateway.claim(uint256) (contracts/helpers/upshift/UpshiftVaultGateway.sol#69-95) uses timestamp for comparisons
+	Dangerous comparisons:
+	- pendingRedeem.claimableTimestamp > block.timestamp (contracts/helpers/upshift/UpshiftVaultGateway.sol#80)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: solc-version
+Version constraint ^0.8.10 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- DataLocationChangeInInternalOverride
+	- NestedCalldataArrayAbiReencodingSizeValidation.
+It is used by:
+	- ^0.8.10 (contracts/helpers/PhantomERC20.sol#4)
+	- ^0.8.10 (contracts/helpers/curve/CurveV1_stETHGateway.sol#4)
+	- ^0.8.10 (contracts/integrations/convex/IBaseRewardPool.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/IBooster.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePoolStETH.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_2.sol#2)
+	- ^0.8.10 (contracts/integrations/lido/IstETH.sol#4)
+	- ^0.8.10 (contracts/integrations/upshift/IUpshiftVault.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: missing-inheritance
+FluidDexETHGateway (contracts/helpers/fluid/FluidDexETHGateway.sol#18-128) should inherit from IFluidDex (contracts/integrations/fluid/IFluidDex.sol#29-36)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+
+Detector: naming-convention
+Parameter CurveV1StETHPoolGateway.exchange(int128,int128,uint256,uint256).min_dy (contracts/helpers/curve/CurveV1_stETHGateway.sol#66) is not in mixedCase
+Function CurveV1StETHPoolGateway.add_liquidity(uint256[2],uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#95-108) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.add_liquidity(uint256[2],uint256).min_mint_amount (contracts/helpers/curve/CurveV1_stETHGateway.sol#95) is not in mixedCase
+Function CurveV1StETHPoolGateway.remove_liquidity(uint256,uint256[2]) (contracts/helpers/curve/CurveV1_stETHGateway.sol#117-127) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.remove_liquidity(uint256,uint256[2]).min_amounts (contracts/helpers/curve/CurveV1_stETHGateway.sol#117) is not in mixedCase
+Function CurveV1StETHPoolGateway.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#137-148) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.remove_liquidity_one_coin(uint256,int128,uint256)._token_amount (contracts/helpers/curve/CurveV1_stETHGateway.sol#137) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.remove_liquidity_one_coin(uint256,int128,uint256).min_amount (contracts/helpers/curve/CurveV1_stETHGateway.sol#137) is not in mixedCase
+Function CurveV1StETHPoolGateway.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#150-152) is not in mixedCase
+Function CurveV1StETHPoolGateway.remove_liquidity_imbalance(uint256[2],uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#161-186) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.remove_liquidity_imbalance(uint256[2],uint256).max_burn_amount (contracts/helpers/curve/CurveV1_stETHGateway.sol#161) is not in mixedCase
+Function CurveV1StETHPoolGateway.exchange_underlying(int128,int128,uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#189-191) is not in mixedCase
+Function CurveV1StETHPoolGateway.exchange_underlying(uint256,uint256,uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#193-195) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_dy_underlying(int128,int128,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#198-200) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_dy_underlying(uint256,uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#202-204) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_dy(int128,int128,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#210-212) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_dy(uint256,uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#214-216) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_virtual_price() (contracts/helpers/curve/CurveV1_stETHGateway.sol#219-221) is not in mixedCase
+Function CurveV1StETHPoolGateway.virtual_price() (contracts/helpers/curve/CurveV1_stETHGateway.sol#224-226) is not in mixedCase
+Function CurveV1StETHPoolGateway.underlying_coins(uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#251-253) is not in mixedCase
+Function CurveV1StETHPoolGateway.underlying_coins(int128) (contracts/helpers/curve/CurveV1_stETHGateway.sol#256-258) is not in mixedCase
+Function CurveV1StETHPoolGateway.A() (contracts/helpers/curve/CurveV1_stETHGateway.sol#271-273) is not in mixedCase
+Function CurveV1StETHPoolGateway.A_precise() (contracts/helpers/curve/CurveV1_stETHGateway.sol#276-278) is not in mixedCase
+Function CurveV1StETHPoolGateway.calc_withdraw_one_coin(uint256,int128) (contracts/helpers/curve/CurveV1_stETHGateway.sol#283-285) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.calc_withdraw_one_coin(uint256,int128)._burn_amount (contracts/helpers/curve/CurveV1_stETHGateway.sol#283) is not in mixedCase
+Function CurveV1StETHPoolGateway.calc_withdraw_one_coin(uint256,uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#287-289) is not in mixedCase
+Function CurveV1StETHPoolGateway.admin_balances(uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#293-295) is not in mixedCase
+Function CurveV1StETHPoolGateway.admin_fee() (contracts/helpers/curve/CurveV1_stETHGateway.sol#308-310) is not in mixedCase
+Function CurveV1StETHPoolGateway.block_timestamp_last() (contracts/helpers/curve/CurveV1_stETHGateway.sol#313-315) is not in mixedCase
+Function CurveV1StETHPoolGateway.initial_A() (contracts/helpers/curve/CurveV1_stETHGateway.sol#318-320) is not in mixedCase
+Function CurveV1StETHPoolGateway.future_A() (contracts/helpers/curve/CurveV1_stETHGateway.sol#323-325) is not in mixedCase
+Function CurveV1StETHPoolGateway.initial_A_time() (contracts/helpers/curve/CurveV1_stETHGateway.sol#328-330) is not in mixedCase
+Function CurveV1StETHPoolGateway.future_A_time() (contracts/helpers/curve/CurveV1_stETHGateway.sol#333-335) is not in mixedCase
+Function CurveV1StETHPoolGateway.mid_fee() (contracts/helpers/curve/CurveV1_stETHGateway.sol#367-369) is not in mixedCase
+Function CurveV1StETHPoolGateway.calc_token_amount(uint256[2],bool) (contracts/helpers/curve/CurveV1_stETHGateway.sol#374-376) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.calc_token_amount(uint256[2],bool)._amounts (contracts/helpers/curve/CurveV1_stETHGateway.sol#374) is not in mixedCase
+Parameter CurveV1StETHPoolGateway.calc_token_amount(uint256[2],bool)._is_deposit (contracts/helpers/curve/CurveV1_stETHGateway.sol#374) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_twap_balances(uint256[2],uint256[2],uint256) (contracts/helpers/curve/CurveV1_stETHGateway.sol#379-385) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_balances() (contracts/helpers/curve/CurveV1_stETHGateway.sol#388-390) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_previous_balances() (contracts/helpers/curve/CurveV1_stETHGateway.sol#393-395) is not in mixedCase
+Function CurveV1StETHPoolGateway.get_price_cumulative_last() (contracts/helpers/curve/CurveV1_stETHGateway.sol#398-400) is not in mixedCase
+Variable CurveV1StETHPoolGateway.lp_token (contracts/helpers/curve/CurveV1_stETHGateway.sol#38) is not in mixedCase
+Parameter LidoV1Gateway.submit(uint256,address)._referral (contracts/helpers/lido/LidoV1_WETHGateway.sol#46) is not in mixedCase
+Parameter MellowWithdrawalPhantomToken.setClaimer(address)._claimer (contracts/helpers/mellow/MellowWithdrawalPhantomToken.sol#73) is not in mixedCase
+Parameter SecuritizeRedeemer.setAccount(address)._account (contracts/helpers/securitize/SecuritizeRedeemer.sol#85) is not in mixedCase
+Function ICurvePool.underlying_coins(uint256) (contracts/integrations/curve/ICurvePool.sol#7) is not in mixedCase
+Function ICurvePool.underlying_coins(int128) (contracts/integrations/curve/ICurvePool.sol#13) is not in mixedCase
+Parameter ICurvePool.exchange(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#17) is not in mixedCase
+Parameter ICurvePool.exchange(uint256,uint256,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#19) is not in mixedCase
+Function ICurvePool.exchange_underlying(int128,int128,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#21) is not in mixedCase
+Parameter ICurvePool.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#21) is not in mixedCase
+Function ICurvePool.exchange_underlying(uint256,uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#23) is not in mixedCase
+Parameter ICurvePool.exchange_underlying(uint256,uint256,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#23) is not in mixedCase
+Function ICurvePool.get_dy_underlying(int128,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#25) is not in mixedCase
+Function ICurvePool.get_dy_underlying(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#27) is not in mixedCase
+Function ICurvePool.get_dy(int128,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#29) is not in mixedCase
+Function ICurvePool.get_dy(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#31) is not in mixedCase
+Function ICurvePool.get_virtual_price() (contracts/integrations/curve/ICurvePool.sol#33) is not in mixedCase
+Function ICurvePool.virtual_price() (contracts/integrations/curve/ICurvePool.sol#35) is not in mixedCase
+Function ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256)._token_amount (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256).min_amount (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Function ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256)._token_amount (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256).min_amount (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Function ICurvePool.A() (contracts/integrations/curve/ICurvePool.sol#43) is not in mixedCase
+Function ICurvePool.A_precise() (contracts/integrations/curve/ICurvePool.sol#45) is not in mixedCase
+Function ICurvePool.calc_withdraw_one_coin(uint256,int128) (contracts/integrations/curve/ICurvePool.sol#47) is not in mixedCase
+Parameter ICurvePool.calc_withdraw_one_coin(uint256,int128)._burn_amount (contracts/integrations/curve/ICurvePool.sol#47) is not in mixedCase
+Function ICurvePool.calc_withdraw_one_coin(uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#49) is not in mixedCase
+Parameter ICurvePool.calc_withdraw_one_coin(uint256,uint256)._burn_amount (contracts/integrations/curve/ICurvePool.sol#49) is not in mixedCase
+Function ICurvePool.admin_balances(uint256) (contracts/integrations/curve/ICurvePool.sol#51) is not in mixedCase
+Function ICurvePool.admin_fee() (contracts/integrations/curve/ICurvePool.sol#57) is not in mixedCase
+Function ICurvePool.block_timestamp_last() (contracts/integrations/curve/ICurvePool.sol#59) is not in mixedCase
+Function ICurvePool.initial_A() (contracts/integrations/curve/ICurvePool.sol#61) is not in mixedCase
+Function ICurvePool.future_A() (contracts/integrations/curve/ICurvePool.sol#63) is not in mixedCase
+Function ICurvePool.initial_A_time() (contracts/integrations/curve/ICurvePool.sol#65) is not in mixedCase
+Function ICurvePool.future_A_time() (contracts/integrations/curve/ICurvePool.sol#67) is not in mixedCase
+Function ICurvePool.mid_fee() (contracts/integrations/curve/ICurvePool.sol#69) is not in mixedCase
+Parameter ICurvePoolStETH.exchange(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePoolStETH.sol#11) is not in mixedCase
+Function ICurvePoolStETH.exchange_underlying(int128,int128,uint256,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#13) is not in mixedCase
+Parameter ICurvePoolStETH.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePoolStETH.sol#13) is not in mixedCase
+Function ICurvePoolStETH.add_liquidity(uint256[2],uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#15) is not in mixedCase
+Parameter ICurvePoolStETH.add_liquidity(uint256[2],uint256).min_mint_amount (contracts/integrations/curve/ICurvePoolStETH.sol#15) is not in mixedCase
+Function ICurvePoolStETH.remove_liquidity(uint256,uint256[2]) (contracts/integrations/curve/ICurvePoolStETH.sol#17) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity(uint256,uint256[2]).min_amounts (contracts/integrations/curve/ICurvePoolStETH.sol#17) is not in mixedCase
+Function ICurvePoolStETH.get_dy_underlying(int128,int128,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#19) is not in mixedCase
+Function ICurvePoolStETH.get_dy(int128,int128,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#21) is not in mixedCase
+Function ICurvePoolStETH.get_virtual_price() (contracts/integrations/curve/ICurvePoolStETH.sol#23) is not in mixedCase
+Function ICurvePoolStETH.virtual_price() (contracts/integrations/curve/ICurvePoolStETH.sol#25) is not in mixedCase
+Function ICurvePoolStETH.lp_token() (contracts/integrations/curve/ICurvePoolStETH.sol#27) is not in mixedCase
+Function ICurvePoolStETH.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#29) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity_one_coin(uint256,int128,uint256)._token_amount (contracts/integrations/curve/ICurvePoolStETH.sol#29) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity_one_coin(uint256,int128,uint256).min_amount (contracts/integrations/curve/ICurvePoolStETH.sol#29) is not in mixedCase
+Function ICurvePoolStETH.remove_liquidity_imbalance(uint256[2],uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#31) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity_imbalance(uint256[2],uint256).max_burn_amount (contracts/integrations/curve/ICurvePoolStETH.sol#31) is not in mixedCase
+Function ICurvePoolStETH.calc_token_amount(uint256[2],bool) (contracts/integrations/curve/ICurvePoolStETH.sol#33) is not in mixedCase
+Parameter ICurvePoolStETH.calc_token_amount(uint256[2],bool)._is_deposit (contracts/integrations/curve/ICurvePoolStETH.sol#33) is not in mixedCase
+Function ICurvePoolStETH.A() (contracts/integrations/curve/ICurvePoolStETH.sol#35) is not in mixedCase
+Function ICurvePoolStETH.A_precise() (contracts/integrations/curve/ICurvePoolStETH.sol#37) is not in mixedCase
+Function ICurvePoolStETH.calc_withdraw_one_coin(uint256,int128) (contracts/integrations/curve/ICurvePoolStETH.sol#39) is not in mixedCase
+Parameter ICurvePoolStETH.calc_withdraw_one_coin(uint256,int128)._burn_amount (contracts/integrations/curve/ICurvePoolStETH.sol#39) is not in mixedCase
+Function ICurvePoolStETH.admin_balances(uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#41) is not in mixedCase
+Function ICurvePoolStETH.admin_fee() (contracts/integrations/curve/ICurvePoolStETH.sol#47) is not in mixedCase
+Function ICurvePoolStETH.block_timestamp_last() (contracts/integrations/curve/ICurvePoolStETH.sol#49) is not in mixedCase
+Function ICurvePoolStETH.initial_A() (contracts/integrations/curve/ICurvePoolStETH.sol#51) is not in mixedCase
+Function ICurvePoolStETH.future_A() (contracts/integrations/curve/ICurvePoolStETH.sol#53) is not in mixedCase
+Function ICurvePoolStETH.initial_A_time() (contracts/integrations/curve/ICurvePoolStETH.sol#55) is not in mixedCase
+Function ICurvePoolStETH.future_A_time() (contracts/integrations/curve/ICurvePoolStETH.sol#57) is not in mixedCase
+Function ICurvePool2Assets.add_liquidity(uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#11) is not in mixedCase
+Parameter ICurvePool2Assets.add_liquidity(uint256[2],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_2.sol#11) is not in mixedCase
+Function ICurvePool2Assets.remove_liquidity(uint256,uint256[2]) (contracts/integrations/curve/ICurvePool_2.sol#13) is not in mixedCase
+Parameter ICurvePool2Assets.remove_liquidity(uint256,uint256[2]).min_amounts (contracts/integrations/curve/ICurvePool_2.sol#13) is not in mixedCase
+Function ICurvePool2Assets.remove_liquidity_imbalance(uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#15) is not in mixedCase
+Parameter ICurvePool2Assets.remove_liquidity_imbalance(uint256[2],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_2.sol#15) is not in mixedCase
+Function ICurvePool2Assets.calc_token_amount(uint256[2],bool) (contracts/integrations/curve/ICurvePool_2.sol#17) is not in mixedCase
+Parameter ICurvePool2Assets.calc_token_amount(uint256[2],bool)._is_deposit (contracts/integrations/curve/ICurvePool_2.sol#17) is not in mixedCase
+Function ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#19-23) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._first_balances (contracts/integrations/curve/ICurvePool_2.sol#20) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._last_balances (contracts/integrations/curve/ICurvePool_2.sol#21) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_2.sol#22) is not in mixedCase
+Function ICurvePool2Assets.get_balances() (contracts/integrations/curve/ICurvePool_2.sol#25) is not in mixedCase
+Function ICurvePool2Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_2.sol#27) is not in mixedCase
+Function ICurvePool2Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_2.sol#29) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+/workspaces/gearbox-audit/source/integrations-v3 analyzed (99 contracts with 102 detectors), 229 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/equivalence/CreditSuiteEquivalenceTest.t.sol:CreditSuiteEquivalenceTest
+[PASS] test_CSE_01_CreditSuite_equivalence() (gas: 7165)
+Logs:
+  MarketCompressor or DataCompressor not set, or not a contract. Skipping credit suite equivalence test.
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 559.24µs (158.34µs CPU time)
+
+Ran 1 test suite in 41.03ms (559.24µs CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)

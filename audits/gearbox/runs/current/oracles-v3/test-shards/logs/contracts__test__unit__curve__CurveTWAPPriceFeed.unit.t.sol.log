@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/unit/curve/CurveTWAPPriceFeed.unit.t.sol:CurveTWAPPriceFeedUnitTest
+[PASS] test_U_CTWAP_1_price_feed_works_as_expected() (gas: 85200)
+[PASS] test_U_CTWAP_2_price_feed_handles_exchange_rate_bounds() (gas: 59747)
+[PASS] test_U_CTWAP_3_constructor_validates_bounds() (gas: 46481)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 5.52ms (571.20µs CPU time)
+
+Ran 1 test suite in 27.46ms (5.52ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

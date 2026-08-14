@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/unit/helpers/fluid/FluidDexETHGateway.unit.t.sol:FluidDexETHGatewayTest
+[PASS] test_U_FDEXG_01_constructor_works_as_expected() (gas: 1495648)
+[PASS] test_U_FDEXG_02_constructor_reverts_on_zero_addresses() (gas: 75747)
+[PASS] test_U_FDEXG_03_constructor_reverts_when_pool_doesnt_contain_eth() (gas: 2381761)
+[PASS] test_U_FDEXG_04_constantsView_returns_correct_values() (gas: 19698)
+[PASS] test_U_FDEXG_05_swapIn_works_for_weth_to_token() (gas: 90810)
+[PASS] test_U_FDEXG_06_swapIn_works_for_token_to_weth() (gas: 118529)
+[PASS] test_U_FDEXG_07_swapIn_works_with_eth_as_token1() (gas: 1573091)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 4.54ms (1.36ms CPU time)
+
+Ran 1 test suite in 23.74ms (4.54ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

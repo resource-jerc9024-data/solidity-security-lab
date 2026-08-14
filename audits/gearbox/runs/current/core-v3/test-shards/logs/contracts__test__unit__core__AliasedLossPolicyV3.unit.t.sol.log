@@ -1,0 +1,17 @@
+No files changed, compilation skipped
+
+Ran 11 tests for contracts/test/unit/core/AliasedLossPolicyV3.unit.t.sol:AliasedLossPolicyV3UnitTest
+[PASS] test_U_ALP_01_constructor_works_correctly() (gas: 25672)
+[PASS] test_U_ALP_02_setAccessMode_and_setChecksEnabled_work_correctly() (gas: 45254)
+[PASS] test_U_ALP_03_setAliasPriceFeed_works_correctly() (gas: 201452)
+[PASS] test_U_ALP_04_isLiquidatableWithLoss_works_correctly_in_different_modes() (gas: 123850)
+[PASS] test_U_ALP_05_isLiquidatableWithLoss_calls_updatePrices_if_needed() (gas: 57206)
+[PASS] test_U_ALP_06_getRequiredAliasPriceFeeds_works_correctly() (gas: 1964625)
+[PASS] test_U_ALP_07_adjustForAliases_works_correctly() (gas: 1179610)
+[PASS] test_U_ALP_08_getSharedInfo_works_correctly() (gas: 38253)
+[PASS] test_U_ALP_09_getTokenInfo_works_correctly() (gas: 205705)
+[PASS] test_U_ALP_10_getWeightedValueUSD_works_correctly() (gas: 48717)
+[PASS] test_U_ALP_11_convertToUSDAlias_works_correctly() (gas: 27954)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 11.03ms (4.82ms CPU time)
+
+Ran 1 test suite in 29.40ms (11.03ms CPU time): 11 tests passed, 0 failed, 0 skipped (11 total tests)

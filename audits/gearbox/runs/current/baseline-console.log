@@ -1,0 +1,29 @@
+Running permissionless production-build
+permissionless production-build finished with exit code 0
+Running permissionless test-shards
+permissionless test-shards finished with exit code 0
+Running core-v3 production-build
+core-v3 production-build finished with exit code 0
+Running core-v3 test-shards
+core-v3 test-shards finished with exit code 0
+Running oracles-v3 dependencies
+oracles-v3 dependencies finished with exit code 0
+Running oracles-v3 production-build
+oracles-v3 production-build finished with exit code 0
+Running oracles-v3 test-shards
+oracles-v3 test-shards finished with exit code 0
+Running integrations-v3 production-build
+integrations-v3 production-build finished with exit code 0
+Running integrations-v3 test-shards
+integrations-v3 test-shards finished with exit code 1
+Running bots-v3 production-build
+bots-v3 production-build finished with exit code 0
+Running bots-v3 test-shards
+bots-v3 test-shards finished with exit code 0
+Running periphery-v3 dependencies
+periphery-v3 dependencies finished with exit code 0
+Running periphery-v3 production-build
+periphery-v3 production-build finished with exit code 0
+Running periphery-v3 test-shards
+periphery-v3 test-shards finished with exit code 0
+Gearbox baseline complete. Review /workspaces/gearbox-audit/audits/gearbox/runs/current/status.tsv

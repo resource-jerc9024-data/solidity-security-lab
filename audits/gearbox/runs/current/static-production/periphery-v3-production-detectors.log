@@ -1,0 +1,263 @@
+Function not found getCreditManagers
+Impossible to generate IR for MultiPause._pauseMarket (contracts/emergency/MultiPause.sol#85-97):
+ 'NoneType' object has no attribute 'type'
+Function not found isKnownToken
+Impossible to generate IR for AddressValidation.isKnownToken (contracts/libraries/AddressValidation.sol#82-85):
+ 'NoneType' object has no attribute 'type'
+
+Detector: arbitrary-send-erc20
+TreasuryLiquidator._transferUnderlying(address,address,uint256) (contracts/emergency/TreasuryLiquidator.sol#178-189) uses arbitrary from in transferFrom: IERC20(underlying).safeTransferFrom(treasury,address(this),amount) (contracts/emergency/TreasuryLiquidator.sol#187)
+MonopolizedOnDemandLP.deposit(address,address,uint256) (contracts/rwa/MonopolizedOnDemandLP.sol#107-114) uses arbitrary from in transferFrom: ERC20(unwrapped).safeTransferFrom(_DEPOSITOR,address(this),underlyingAmount) (contracts/rwa/MonopolizedOnDemandLP.sol#111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#arbitrary-from-in-transferfrom
+
+Detector: reentrancy-no-eth
+Reentrancy in SecuritizeRWAFactory.openCreditAccount(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[]) (contracts/rwa/SecuritizeRWAFactory.sol#161-192):
+	External calls:
+	- _DEGEN_NFT.mint(precomputeWalletAddress(creditManager,msg.sender)) (contracts/rwa/SecuritizeRWAFactory.sol#175)
+	State variables written after the call(s):
+	- _investorInfo[msg.sender].nonce ++ (contracts/rwa/SecuritizeRWAFactory.sol#179)
+	SecuritizeRWAFactory._investorInfo (contracts/rwa/SecuritizeRWAFactory.sol#59) can be used in cross function reentrancies:
+	- SecuritizeRWAFactory._getSalt(address) (contracts/rwa/SecuritizeRWAFactory.sol#308-312)
+	- SecuritizeRWAFactory._transferCreditAccount(address,address,address) (contracts/rwa/SecuritizeRWAFactory.sol#350-356)
+	- SecuritizeRWAFactory.getCreditAccounts(address) (contracts/rwa/SecuritizeRWAFactory.sol#149-151)
+	- SecuritizeRWAFactory.openCreditAccount(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[]) (contracts/rwa/SecuritizeRWAFactory.sol#161-192)
+	- SecuritizeRWAFactory.setAllCreditAccountsFrozenStatus(address,bool) (contracts/rwa/SecuritizeRWAFactory.sol#226-233)
+	- SecuritizeRWAFactory.setAllCreditAccountsFrozenStatus(address,address,bool) (contracts/rwa/SecuritizeRWAFactory.sol#235-247)
+	- SecuritizeRWAFactory.transferAllCreditAccounts(address,address) (contracts/rwa/SecuritizeRWAFactory.sol#264-277)
+	- SecuritizeRWAFactory.transferAllCreditAccounts(address,address,address) (contracts/rwa/SecuritizeRWAFactory.sol#280-294)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Detector: unused-return
+TreasuryLiquidator.partiallyLiquidateFromTreasury(address,address,address,uint256,PriceUpdate[],address) (contracts/emergency/TreasuryLiquidator.sol#139-162) ignores return value by ICreditFacadeV3(creditFacade).partiallyLiquidateCreditAccount(creditAccount,token,repaidAmount,minSeizedAmount,treasury,priceUpdates) (contracts/emergency/TreasuryLiquidator.sol#157-159)
+TreasuryLiquidator._transferUnderlying(address,address,uint256) (contracts/emergency/TreasuryLiquidator.sol#178-189) ignores return value by IERC4626(wrappedUnderlying).withdraw(amount,address(this),treasury) (contracts/emergency/TreasuryLiquidator.sol#183)
+AccountMigratorBot.migrate(MigrationParams) (contracts/migration/AccountMigratorBot.sol#118-130) ignores return value by ICreditFacadeV3(targetCreditFacade).openCreditAccount(params.accountOwner,calls,0) (contracts/migration/AccountMigratorBot.sol#129)
+AccountMigratorBot._validateParameters(address,MigrationParams) (contracts/migration/AccountMigratorBot.sol#437-527) ignores return value by ICreditManagerV3(sourceCreditManager).getTokenMaskOrRevert(params.migratedCollaterals[i].collateral) (contracts/migration/AccountMigratorBot.sol#442-445)
+AccountMigratorBot.setPhantomTokenOverride(address,address,address,bytes) (contracts/migration/AccountMigratorBot.sol#576-586) ignores return value by _overridenPhantomTokens.add(phantomToken) (contracts/migration/AccountMigratorBot.sol#585)
+LiquidityMigrator.migrate(address,uint256) (contracts/migration/LiquidityMigrator.sol#54-61) ignores return value by IERC4626(poolTo).deposit(assetsAmount,user) (contracts/migration/LiquidityMigrator.sol#58)
+MonopolizedOnDemandLP._deposit(address,uint256,address) (contracts/rwa/MonopolizedOnDemandLP.sol#146-148) ignores return value by ERC4626(vault).deposit(assets,receiver) (contracts/rwa/MonopolizedOnDemandLP.sol#147)
+MonopolizedOnDemandLP._withdraw(address,uint256,address) (contracts/rwa/MonopolizedOnDemandLP.sol#150-152) ignores return value by ERC4626(vault).withdraw(assets,receiver,address(this)) (contracts/rwa/MonopolizedOnDemandLP.sol#151)
+SecuritizeDegenNFT.addRegistrar(address) (contracts/rwa/SecuritizeDegenNFT.sol#175-183) ignores return value by _tokensSet.add(token) (contracts/rwa/SecuritizeDegenNFT.sol#180)
+SecuritizeRWAFactory.openCreditAccount(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[]) (contracts/rwa/SecuritizeRWAFactory.sol#161-192) ignores return value by _investorInfo[msg.sender].creditAccounts.add(creditAccount) (contracts/rwa/SecuritizeRWAFactory.sol#180)
+SecuritizeRWAFactory._registerCreditAccount(address,address,address[]) (contracts/rwa/SecuritizeRWAFactory.sol#332-338) ignores return value by ICreditManagerV3(creditManager).getTokenMaskOrRevert(tokens[i]) (contracts/rwa/SecuritizeRWAFactory.sol#335)
+SecuritizeRWAFactory._transferCreditAccount(address,address,address) (contracts/rwa/SecuritizeRWAFactory.sol#350-356) ignores return value by _investorInfo[oldInvestor].creditAccounts.remove(creditAccount) (contracts/rwa/SecuritizeRWAFactory.sol#354)
+SecuritizeRWAFactory._transferCreditAccount(address,address,address) (contracts/rwa/SecuritizeRWAFactory.sol#350-356) ignores return value by _investorInfo[newInvestor].creditAccounts.add(creditAccount) (contracts/rwa/SecuritizeRWAFactory.sol#355)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: missing-zero-check
+MultiPause.constructor(address).marketConfigurator_ (contracts/emergency/MultiPause.sol#33) lacks a zero-check on :
+		- marketConfigurator = marketConfigurator_ (contracts/emergency/MultiPause.sol#37)
+TreasuryLiquidator.constructor(address,address)._treasury (contracts/emergency/TreasuryLiquidator.sol#93) lacks a zero-check on :
+		- treasury = _treasury (contracts/emergency/TreasuryLiquidator.sol#97)
+TreasuryLiquidator.constructor(address,address)._marketConfigurator (contracts/emergency/TreasuryLiquidator.sol#93) lacks a zero-check on :
+		- marketConfigurator = _marketConfigurator (contracts/emergency/TreasuryLiquidator.sol#98)
+AccountMigratorBot.constructor(address,address,address)._mcFactory (contracts/migration/AccountMigratorBot.sol#84) lacks a zero-check on :
+		- mcFactory = _mcFactory (contracts/migration/AccountMigratorBot.sol#86)
+AccountMigratorBot.constructor(address,address,address)._contractsRegisterOld (contracts/migration/AccountMigratorBot.sol#84) lacks a zero-check on :
+		- contractsRegisterOld = _contractsRegisterOld (contracts/migration/AccountMigratorBot.sol#87)
+LiquidityMigrator.constructor(address,address,address)._poolFrom (contracts/migration/LiquidityMigrator.sol#36) lacks a zero-check on :
+		- poolFrom = _poolFrom (contracts/migration/LiquidityMigrator.sol#38)
+LiquidityMigrator.constructor(address,address,address)._poolTo (contracts/migration/LiquidityMigrator.sol#36) lacks a zero-check on :
+		- poolTo = _poolTo (contracts/migration/LiquidityMigrator.sol#39)
+MonopolizedOnDemandLP.constructor(IAddressProvider,IMarketConfigurator,address).depositor (contracts/rwa/MonopolizedOnDemandLP.sol#39) lacks a zero-check on :
+		- _DEPOSITOR = depositor (contracts/rwa/MonopolizedOnDemandLP.sol#45)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: calls-loop
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: paused = IPausable(target).paused() (contracts/emergency/MultiPause.sol#116-118)
+	Calls stack containing the loop:
+		MultiPause.pauseContracts(address[])
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: IPausable(target).pause{gas: 30_000}() (contracts/emergency/MultiPause.sol#117)
+	Calls stack containing the loop:
+		MultiPause.pauseContracts(address[])
+MultiPause._pauseMarket(address) (contracts/emergency/MultiPause.sol#85-97) has external calls inside a loop: factories = IMarketConfigurator(marketConfigurator).getMarketFactories(pool) (contracts/emergency/MultiPause.sol#86)
+	Calls stack containing the loop:
+		MultiPause.pauseAllContracts()
+MultiPause._pauseFactoryTargets(address,address) (contracts/emergency/MultiPause.sol#106-112) has external calls inside a loop: targets = IMarketConfigurator(marketConfigurator).getFactoryTargets(factory,suite) (contracts/emergency/MultiPause.sol#107)
+	Calls stack containing the loop:
+		MultiPause.pauseAllContracts()
+		MultiPause._pauseMarket(address)
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: paused = IPausable(target).paused() (contracts/emergency/MultiPause.sol#116-118)
+	Calls stack containing the loop:
+		MultiPause.pauseAllContracts()
+		MultiPause._pauseMarket(address)
+		MultiPause._pauseFactoryTargets(address,address)
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: IPausable(target).pause{gas: 30_000}() (contracts/emergency/MultiPause.sol#117)
+	Calls stack containing the loop:
+		MultiPause.pauseAllContracts()
+		MultiPause._pauseMarket(address)
+		MultiPause._pauseFactoryTargets(address,address)
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: paused = IPausable(target).paused() (contracts/emergency/MultiPause.sol#116-118)
+	Calls stack containing the loop:
+		MultiPause.pauseMarket(address)
+		MultiPause._pauseMarket(address)
+		MultiPause._pauseFactoryTargets(address,address)
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: IPausable(target).pause{gas: 30_000}() (contracts/emergency/MultiPause.sol#117)
+	Calls stack containing the loop:
+		MultiPause.pauseMarket(address)
+		MultiPause._pauseMarket(address)
+		MultiPause._pauseFactoryTargets(address,address)
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: paused = IPausable(target).paused() (contracts/emergency/MultiPause.sol#116-118)
+	Calls stack containing the loop:
+		MultiPause.pauseCreditSuite(address)
+		MultiPause._pauseCreditSuite(address)
+		MultiPause._pauseFactoryTargets(address,address)
+MultiPause._pause(address) (contracts/emergency/MultiPause.sol#115-119) has external calls inside a loop: IPausable(target).pause{gas: 30_000}() (contracts/emergency/MultiPause.sol#117)
+	Calls stack containing the loop:
+		MultiPause.pauseCreditSuite(address)
+		MultiPause._pauseCreditSuite(address)
+		MultiPause._pauseFactoryTargets(address,address)
+AccountMigratorBot._validateParameters(address,MigrationParams) (contracts/migration/AccountMigratorBot.sol#437-527) has external calls inside a loop: ICreditManagerV3(sourceCreditManager).getTokenMaskOrRevert(params.migratedCollaterals[i].collateral) (contracts/migration/AccountMigratorBot.sol#442-445)
+	Calls stack containing the loop:
+		AccountMigratorBot.migrateCreditAccount(MigrationParams,PriceUpdate[])
+AccountMigratorBot._getPhantomTokenWithdrawalCall(address,address,uint256) (contracts/migration/AccountMigratorBot.sol#369-386) has external calls inside a loop: adapter = ICreditManagerV3(creditManager).contractToAdapter(target) (contracts/migration/AccountMigratorBot.sol#378)
+	Calls stack containing the loop:
+		AccountMigratorBot.migrateCreditAccount(MigrationParams,PriceUpdate[])
+		AccountMigratorBot._getClosingMultiCalls(address,address,MigrationParams)
+AccountMigratorBot._transferCollaterals(MigrationParams) (contracts/migration/AccountMigratorBot.sol#133-154) has external calls inside a loop: balances[i] = IERC20(token).balanceOf(msg.sender) (contracts/migration/AccountMigratorBot.sol#143)
+	Calls stack containing the loop:
+		AccountMigratorBot.migrate(MigrationParams)
+AccountMigratorBot._getPhantomTokenDepositCall(address,address,uint256) (contracts/migration/AccountMigratorBot.sol#349-366) has external calls inside a loop: adapter = ICreditManagerV3(creditManager).contractToAdapter(target) (contracts/migration/AccountMigratorBot.sol#360)
+	Calls stack containing the loop:
+		AccountMigratorBot.migrate(MigrationParams)
+		AccountMigratorBot._getOpeningMultiCalls(address,MigrationParams,uint256[])
+MonopolizedOnDemandLP._getAsset(address) (contracts/rwa/MonopolizedOnDemandLP.sol#142-144) has external calls inside a loop: ERC4626(vault).asset() (contracts/rwa/MonopolizedOnDemandLP.sol#143)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.serialize()
+		MonopolizedOnDemandLP.getPools()
+		MonopolizedOnDemandLP._getUnderlyingTokens(address)
+MonopolizedOnDemandLP._getBalance(address,address) (contracts/rwa/MonopolizedOnDemandLP.sol#138-140) has external calls inside a loop: ERC20(token).balanceOf(account) (contracts/rwa/MonopolizedOnDemandLP.sol#139)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.serialize()
+		MonopolizedOnDemandLP.getPools()
+		MonopolizedOnDemandLP.depositAllowance(address)
+MonopolizedOnDemandLP.depositAllowance(address) (contracts/rwa/MonopolizedOnDemandLP.sol#100-104) has external calls inside a loop: Math.min(_getBalance(unwrapped,_DEPOSITOR),ERC20(unwrapped).allowance(_DEPOSITOR,address(this))) (contracts/rwa/MonopolizedOnDemandLP.sol#103)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.serialize()
+		MonopolizedOnDemandLP.getPools()
+MonopolizedOnDemandLP.claimableAmount(address) (contracts/rwa/MonopolizedOnDemandLP.sol#116-119) has external calls inside a loop: ERC4626(pool).maxWithdraw(address(this)) (contracts/rwa/MonopolizedOnDemandLP.sol#118)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.serialize()
+		MonopolizedOnDemandLP.getPools()
+MonopolizedOnDemandLP._getAsset(address) (contracts/rwa/MonopolizedOnDemandLP.sol#142-144) has external calls inside a loop: ERC4626(vault).asset() (contracts/rwa/MonopolizedOnDemandLP.sol#143)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.getPools()
+		MonopolizedOnDemandLP._getUnderlyingTokens(address)
+MonopolizedOnDemandLP._getBalance(address,address) (contracts/rwa/MonopolizedOnDemandLP.sol#138-140) has external calls inside a loop: ERC20(token).balanceOf(account) (contracts/rwa/MonopolizedOnDemandLP.sol#139)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.getPools()
+		MonopolizedOnDemandLP.depositAllowance(address)
+MonopolizedOnDemandLP.depositAllowance(address) (contracts/rwa/MonopolizedOnDemandLP.sol#100-104) has external calls inside a loop: Math.min(_getBalance(unwrapped,_DEPOSITOR),ERC20(unwrapped).allowance(_DEPOSITOR,address(this))) (contracts/rwa/MonopolizedOnDemandLP.sol#103)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.getPools()
+MonopolizedOnDemandLP.claimableAmount(address) (contracts/rwa/MonopolizedOnDemandLP.sol#116-119) has external calls inside a loop: ERC4626(pool).maxWithdraw(address(this)) (contracts/rwa/MonopolizedOnDemandLP.sol#118)
+	Calls stack containing the loop:
+		MonopolizedOnDemandLP.getPools()
+SecuritizeDegenNFT._isRegistered(address,address,address) (contracts/rwa/SecuritizeDegenNFT.sol#215-217) has external calls inside a loop: IVaultRegistrar(registrar).isRegistered(vault,investor) (contracts/rwa/SecuritizeDegenNFT.sol#216)
+	Calls stack containing the loop:
+		SecuritizeDegenNFT.registerCreditAccount(address,address[])
+SecuritizeDegenNFT._registerVault(address,address,address,ISecuritizeDegenNFT.Signature) (contracts/rwa/SecuritizeDegenNFT.sol#219-221) has external calls inside a loop: IVaultRegistrar(registrar).registerVault(vault,investor,signature.deadline,signature.signature) (contracts/rwa/SecuritizeDegenNFT.sol#220)
+	Calls stack containing the loop:
+		SecuritizeDegenNFT.registerCreditAccount(address,address[])
+SecuritizeRWAFactory._registerCreditAccount(address,address,address[]) (contracts/rwa/SecuritizeRWAFactory.sol#332-338) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(tokens[i]) (contracts/rwa/SecuritizeRWAFactory.sol#335)
+	Calls stack containing the loop:
+		SecuritizeRWAFactory.openCreditAccount(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[])
+SecuritizeRWAFactory._registerCreditAccount(address,address,address[]) (contracts/rwa/SecuritizeRWAFactory.sol#332-338) has external calls inside a loop: ICreditManagerV3(creditManager).getTokenMaskOrRevert(tokens[i]) (contracts/rwa/SecuritizeRWAFactory.sol#335)
+	Calls stack containing the loop:
+		SecuritizeRWAFactory.multicall(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[])
+SecuritizeRWAFactory._getCreditManager(address) (contracts/rwa/SecuritizeRWAFactory.sol#322-324) has external calls inside a loop: ICreditAccountV3(creditAccount).creditManager() (contracts/rwa/SecuritizeRWAFactory.sol#323)
+	Calls stack containing the loop:
+		SecuritizeRWAFactory.setAllCreditAccountsFrozenStatus(address,address,bool)
+SecuritizeRWAFactory._getCreditManager(address) (contracts/rwa/SecuritizeRWAFactory.sol#322-324) has external calls inside a loop: ICreditAccountV3(creditAccount).creditManager() (contracts/rwa/SecuritizeRWAFactory.sol#323)
+	Calls stack containing the loop:
+		SecuritizeRWAFactory.transferAllCreditAccounts(address,address,address)
+SecuritizeWallet.multicall(MultiCall[]) (contracts/rwa/SecuritizeWallet.sol#65-85) has external calls inside a loop: IERC20Permit(token_scope_0).permit(investor,address(this),amount_scope_1,deadline,v,r,s) (contracts/rwa/SecuritizeWallet.sol#75)
+SecuritizeWallet.multicall(MultiCall[]) (contracts/rwa/SecuritizeWallet.sol#65-85) has external calls inside a loop: _UNDERLYING.beforeTokenBorrow(_CREDIT_ACCOUNT,amount_scope_2) (contracts/rwa/SecuritizeWallet.sol#79)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Detector: reentrancy-benign
+Reentrancy in AccountMigratorBot.migrateCreditAccount(MigrationParams,PriceUpdate[]) (contracts/migration/AccountMigratorBot.sol#95-114):
+	External calls:
+	- _applyPriceUpdates(params.targetCreditManager,priceUpdates) (contracts/migration/AccountMigratorBot.sol#103)
+		- IPriceFeedStore(priceFeedStore).updatePrices(priceUpdates) (contracts/migration/AccountMigratorBot.sol#416)
+	- _unlockAdapter(params.sourceCreditAccount,adapter) (contracts/migration/AccountMigratorBot.sol#111)
+		- IAccountMigratorAdapter(adapter).unlock() (contracts/migration/AccountMigratorBot.sol#422)
+	State variables written after the call(s):
+	- _unlockAdapter(params.sourceCreditAccount,adapter) (contracts/migration/AccountMigratorBot.sol#111)
+		- activeCreditAccount = creditAccount (contracts/migration/AccountMigratorBot.sol#421)
+Reentrancy in AccountMigratorBot.migrateCreditAccount(MigrationParams,PriceUpdate[]) (contracts/migration/AccountMigratorBot.sol#95-114):
+	External calls:
+	- _applyPriceUpdates(params.targetCreditManager,priceUpdates) (contracts/migration/AccountMigratorBot.sol#103)
+		- IPriceFeedStore(priceFeedStore).updatePrices(priceUpdates) (contracts/migration/AccountMigratorBot.sol#416)
+	- _unlockAdapter(params.sourceCreditAccount,adapter) (contracts/migration/AccountMigratorBot.sol#111)
+		- IAccountMigratorAdapter(adapter).unlock() (contracts/migration/AccountMigratorBot.sol#422)
+	- ICreditFacadeV3(creditFacade).botMulticall(params.sourceCreditAccount,calls) (contracts/migration/AccountMigratorBot.sol#112)
+	- _lockAdapter(adapter) (contracts/migration/AccountMigratorBot.sol#113)
+		- IAccountMigratorAdapter(adapter).lock() (contracts/migration/AccountMigratorBot.sol#428)
+	State variables written after the call(s):
+	- _lockAdapter(adapter) (contracts/migration/AccountMigratorBot.sol#113)
+		- activeCreditAccount = INACTIVE_CREDIT_ACCOUNT_ADDRESS (contracts/migration/AccountMigratorBot.sol#427)
+Reentrancy in SecuritizeRWAFactory.openCreditAccount(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[]) (contracts/rwa/SecuritizeRWAFactory.sol#161-192):
+	External calls:
+	- _DEGEN_NFT.mint(precomputeWalletAddress(creditManager,msg.sender)) (contracts/rwa/SecuritizeRWAFactory.sol#175)
+	State variables written after the call(s):
+	- _creditAccountInfo[creditAccount].wallet = wallet (contracts/rwa/SecuritizeRWAFactory.sol#181)
+	- _creditAccountInfo[creditAccount].investor = msg.sender (contracts/rwa/SecuritizeRWAFactory.sol#182)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Detector: reentrancy-events
+Reentrancy in LiquidityMigrator.migrate(address,uint256) (contracts/migration/LiquidityMigrator.sol#54-61):
+	External calls:
+	- assetsAmount = IERC4626(poolFrom).redeem(amount,address(this),user) (contracts/migration/LiquidityMigrator.sol#56)
+	- IERC4626(poolTo).deposit(assetsAmount,user) (contracts/migration/LiquidityMigrator.sol#58)
+	Event emitted after the call(s):
+	- Migrate(user,assetsAmount) (contracts/migration/LiquidityMigrator.sol#60)
+Reentrancy in SecuritizeRWAFactory.openCreditAccount(address,MultiCall[],address[],ISecuritizeDegenNFT.RegisterMessage[]) (contracts/rwa/SecuritizeRWAFactory.sol#161-192):
+	External calls:
+	- _DEGEN_NFT.mint(precomputeWalletAddress(creditManager,msg.sender)) (contracts/rwa/SecuritizeRWAFactory.sol#175)
+	Event emitted after the call(s):
+	- OpenRWACreditAccount(creditAccount,wallet,msg.sender) (contracts/rwa/SecuritizeRWAFactory.sol#183)
+Reentrancy in TreasuryLiquidator.partiallyLiquidateFromTreasury(address,address,address,uint256,PriceUpdate[],address) (contracts/emergency/TreasuryLiquidator.sol#139-162):
+	External calls:
+	- _transferUnderlying(underlying,wrappedUnderlying,repaidAmount) (contracts/emergency/TreasuryLiquidator.sol#151)
+		- IERC4626(wrappedUnderlying).withdraw(amount,address(this),treasury) (contracts/emergency/TreasuryLiquidator.sol#183)
+	- ICreditFacadeV3(creditFacade).partiallyLiquidateCreditAccount(creditAccount,token,repaidAmount,minSeizedAmount,treasury,priceUpdates) (contracts/emergency/TreasuryLiquidator.sol#157-159)
+	Event emitted after the call(s):
+	- PartiallyLiquidateFromTreasury(creditFacade,creditAccount,msg.sender) (contracts/emergency/TreasuryLiquidator.sol#161)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Detector: cyclomatic-complexity
+AccountMigratorBot._getOpeningMultiCalls(address,MigrationParams,uint256[]) (contracts/migration/AccountMigratorBot.sol#250-329) has a high cyclomatic complexity (12).
+AccountMigratorBot._validateParameters(address,MigrationParams) (contracts/migration/AccountMigratorBot.sol#437-527) has a high cyclomatic complexity (24).
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cyclomatic-complexity
+
+Detector: missing-inheritance
+AccountMigratorAdapterV30 (contracts/migration/AccountMigratorAdapterV30.sol#10-39) should inherit from IAccountMigratorAdapter (contracts/interfaces/IAccountMigratorBot.sol#30-34)
+AccountMigratorAdapterV31 (contracts/migration/AccountMigratorAdapterV31.sol#10-23) should inherit from IAccountMigratorAdapter (contracts/interfaces/IAccountMigratorBot.sol#30-34)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+
+Detector: naming-convention
+Variable DefaultRWAUnderlying._FACTORY (contracts/rwa/DefaultRWAUnderlying.sol#26) is not in mixedCase
+Variable MonopolizedOnDemandLP._ADDRESS_PROVIDER (contracts/rwa/MonopolizedOnDemandLP.sol#33) is not in mixedCase
+Variable MonopolizedOnDemandLP._MARKET_CONFIGURATOR (contracts/rwa/MonopolizedOnDemandLP.sol#34) is not in mixedCase
+Variable MonopolizedOnDemandLP._DEPOSITOR (contracts/rwa/MonopolizedOnDemandLP.sol#35) is not in mixedCase
+Variable OnDemandRWAUnderlying._ADDRESS_PROVIDER (contracts/rwa/OnDemandRWAUnderlying.sol#40) is not in mixedCase
+Variable OnDemandRWAUnderlying._FACTORY (contracts/rwa/OnDemandRWAUnderlying.sol#41) is not in mixedCase
+Variable OnDemandRWAUnderlying._LIQUIDITY_PROVIDER (contracts/rwa/OnDemandRWAUnderlying.sol#42) is not in mixedCase
+Variable OnDemandRWAUnderlying._MARKET_CONFIGURATOR (contracts/rwa/OnDemandRWAUnderlying.sol#43) is not in mixedCase
+Variable SecuritizeDegenNFT._ADDRESS_PROVIDER (contracts/rwa/SecuritizeDegenNFT.sol#34) is not in mixedCase
+Variable SecuritizeDegenNFT._FACTORY (contracts/rwa/SecuritizeDegenNFT.sol#35) is not in mixedCase
+Variable SecuritizeRWAFactory._ADDRESS_PROVIDER (contracts/rwa/SecuritizeRWAFactory.sol#55) is not in mixedCase
+Variable SecuritizeRWAFactory._DEGEN_NFT (contracts/rwa/SecuritizeRWAFactory.sol#56) is not in mixedCase
+Variable SecuritizeWallet._FACTORY (contracts/rwa/SecuritizeWallet.sol#23) is not in mixedCase
+Variable SecuritizeWallet._UNDERLYING (contracts/rwa/SecuritizeWallet.sol#24) is not in mixedCase
+Variable SecuritizeWallet._CREDIT_MANAGER (contracts/rwa/SecuritizeWallet.sol#25) is not in mixedCase
+Variable SecuritizeWallet._CREDIT_ACCOUNT (contracts/rwa/SecuritizeWallet.sol#26) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: too-many-digits
+SecuritizeRWAFactory._getWalletBytecode(address) (contracts/rwa/SecuritizeRWAFactory.sol#314-316) uses literals with too many digits:
+	- abi.encodePacked(type()(SecuritizeWallet).creationCode,abi.encode(address(this),creditManager)) (contracts/rwa/SecuritizeRWAFactory.sol#315)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+/workspaces/gearbox-audit/source/periphery-v3 analyzed (107 contracts with 102 detectors), 81 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

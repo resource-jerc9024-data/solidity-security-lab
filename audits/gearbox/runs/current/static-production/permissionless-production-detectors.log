@@ -1,0 +1,348 @@
+Missing function Variable not found: PriceFeedIsNotKnownException(address) (context PriceFeedStore contracts/instance/PriceFeedStore.sol#32-314 (1 - 2))
+Missing function Variable not found: CreateRole(bytes32) (context ACL contracts/market/ACL.sol#13-70 (1 - 2))
+Function not found zeroPriceFeed
+Impossible to generate IR for PriceOracleFactory.constructor (contracts/factories/PriceOracleFactory.sol#46-49):
+ 'NoneType' object has no attribute 'type'
+Function not found getAllowanceTimestamp
+Impossible to generate IR for PriceOracleFactory.emergencyConfigure (contracts/factories/PriceOracleFactory.sol#165-184):
+ 'NoneType' object has no attribute 'type'
+Function not found isAllowedPriceFeed
+Impossible to generate IR for PriceOracleFactory._setPriceFeed (contracts/factories/PriceOracleFactory.sol#219-233):
+ 'NoneType' object has no attribute 'type'
+Function not found grantRole
+Impossible to generate IR for MarketConfigurator.constructor (contracts/market/MarketConfigurator.sol#151-202):
+ 'NoneType' object has no attribute 'type'
+Function not found grantRole
+Impossible to generate IR for MarketConfigurator._grantRole (contracts/market/MarketConfigurator.sol#964-966):
+ 'NoneType' object has no attribute 'type'
+Function not found revokeRole
+Impossible to generate IR for MarketConfigurator._revokeRole (contracts/market/MarketConfigurator.sol#970-972):
+ 'NoneType' object has no attribute 'type'
+
+Detector: arbitrary-send-eth
+Governor._performAction(address,uint256,string,bytes,uint256,IGovernor.TxAction) (contracts/market/Governor.sol#266-279) sends eth to arbitrary user
+	Dangerous calls:
+	- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#functions-that-send-ether-to-arbitrary-destinations
+
+Detector: encode-packed-collision
+BytecodeRepository.computeAddress(bytes32,uint256,bytes,bytes32,address) (contracts/global/BytecodeRepository.sol#151-164) calls abi.encodePacked() with multiple dynamic arguments:
+	- bytecodeWithParams = abi.encodePacked(initCode,constructorParams) (contracts/global/BytecodeRepository.sol#162)
+BytecodeRepository.deploy(bytes32,uint256,bytes,bytes32) (contracts/global/BytecodeRepository.sol#174-200) calls abi.encodePacked() with multiple dynamic arguments:
+	- bytecodeWithParams = abi.encodePacked(initCode,constructorParams) (contracts/global/BytecodeRepository.sol#187)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#abi-encodePacked-collision
+
+Detector: reentrancy-eth
+Reentrancy in Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction) (contracts/market/Governor.sol#242-263):
+	External calls:
+	- _performAction(tx_.target,tx_.value,tx_.signature,tx_.data,tx_.eta,action) (contracts/market/Governor.sol#258)
+		- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+		- ITimeLock(timeLock).cancelTransaction(target,value,signature,data,eta) (contracts/market/Governor.sol#277)
+	External calls sending eth:
+	- _performAction(tx_.target,tx_.value,tx_.signature,tx_.data,tx_.eta,action) (contracts/market/Governor.sol#258)
+		- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+	State variables written after the call(s):
+	- delete batchInfo[batchBlock] (contracts/market/Governor.sol#262)
+	Governor.batchInfo (contracts/market/Governor.sol#43) can be used in cross function reentrancies:
+	- Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction) (contracts/market/Governor.sol#242-263)
+	- Governor.batchInfo (contracts/market/Governor.sol#43)
+	- Governor.queueTransaction(address,uint256,string,bytes,uint256) (contracts/market/Governor.sol#108-128)
+	- Governor.startBatch(uint80) (contracts/market/Governor.sol#131-135)
+	- delete batchedTxInfo[txHash] (contracts/market/Governor.sol#259)
+	Governor.batchedTxInfo (contracts/market/Governor.sol#46) can be used in cross function reentrancies:
+	- Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction) (contracts/market/Governor.sol#242-263)
+	- Governor._transactionAction(address,uint256,string,bytes,uint256,IGovernor.TxAction) (contracts/market/Governor.sol#228-239)
+	- Governor.batchedTxInfo (contracts/market/Governor.sol#46)
+	- Governor.queueTransaction(address,uint256,string,bytes,uint256) (contracts/market/Governor.sol#108-128)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+
+Detector: uninitialized-state
+BytecodeRepository._auditReports (contracts/global/BytecodeRepository.sol#64) is never initialized. It is used in:
+	- BytecodeRepository.isBytecodeAudited(bytes32) (contracts/global/BytecodeRepository.sol#292-299)
+	- BytecodeRepository.getAuditReports(bytes32) (contracts/global/BytecodeRepository.sol#302-304)
+	- BytecodeRepository.getAuditReport(bytes32,uint256) (contracts/global/BytecodeRepository.sol#307-309)
+	- BytecodeRepository.getNumAuditReports(bytes32) (contracts/global/BytecodeRepository.sol#312-314)
+	- BytecodeRepository.submitAuditReport(bytes32,AuditReport) (contracts/global/BytecodeRepository.sol#319-336)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-state-variables
+
+Detector: reentrancy-no-eth
+Reentrancy in InstanceManager.acceptGovernance() (contracts/instance/InstanceManager.sol#180-184):
+	External calls:
+	- _setAddress(AP_CROSS_CHAIN_GOVERNANCE,msg.sender,false) (contracts/instance/InstanceManager.sol#181)
+		- AddressProvider(addressProvider).setAddress(key,value,saveVersion) (contracts/instance/InstanceManager.sol#197)
+	State variables written after the call(s):
+	- pendingGovernance = address(0) (contracts/instance/InstanceManager.sol#182)
+	InstanceManager.pendingGovernance (contracts/instance/InstanceManager.sol#58) can be used in cross function reentrancies:
+	- InstanceManager.acceptGovernance() (contracts/instance/InstanceManager.sol#180-184)
+	- InstanceManager.onlyPendingGovernance() (contracts/instance/InstanceManager.sol#69-72)
+	- InstanceManager.pendingGovernance (contracts/instance/InstanceManager.sol#58)
+	- InstanceManager.setPendingGovernance(address) (contracts/instance/InstanceManager.sol#173-176)
+Reentrancy in InstanceManager.activate(address,address,address,address) (contracts/instance/InstanceManager.sol#115-127):
+	External calls:
+	- _setAddress(AP_TREASURY,treasury,false) (contracts/instance/InstanceManager.sol#123)
+		- AddressProvider(addressProvider).setAddress(key,value,saveVersion) (contracts/instance/InstanceManager.sol#197)
+	- _setAddress(AP_WETH_TOKEN,weth,false) (contracts/instance/InstanceManager.sol#124)
+		- AddressProvider(addressProvider).setAddress(key,value,saveVersion) (contracts/instance/InstanceManager.sol#197)
+	- _setAddress(AP_GEAR_TOKEN,gear,false) (contracts/instance/InstanceManager.sol#125)
+		- AddressProvider(addressProvider).setAddress(key,value,saveVersion) (contracts/instance/InstanceManager.sol#197)
+	State variables written after the call(s):
+	- isActivated = true (contracts/instance/InstanceManager.sol#126)
+	InstanceManager.isActivated (contracts/instance/InstanceManager.sol#55) can be used in cross function reentrancies:
+	- InstanceManager.activate(address,address,address,address) (contracts/instance/InstanceManager.sol#115-127)
+	- InstanceManager.isActivated (contracts/instance/InstanceManager.sol#55)
+Reentrancy in TreasurySplitter.configure(bytes) (contracts/market/TreasurySplitter.sol#143-176):
+	External calls:
+	- Address.functionCall(address(this),callData) (contracts/market/TreasurySplitter.sol#171)
+	State variables written after the call(s):
+	- _proposal.confirmedByAdmin = false (contracts/market/TreasurySplitter.sol#172)
+	TreasurySplitter._proposals (contracts/market/TreasurySplitter.sol#48) can be used in cross function reentrancies:
+	- TreasurySplitter.activeProposals() (contracts/market/TreasurySplitter.sol#98-108)
+	- TreasurySplitter.cancelConfigure(bytes) (contracts/market/TreasurySplitter.sol#179-187)
+	- TreasurySplitter.configure(bytes) (contracts/market/TreasurySplitter.sol#143-176)
+	- TreasurySplitter.getProposal(bytes32) (contracts/market/TreasurySplitter.sol#93-95)
+	- _proposal.confirmedByTreasuryProxy = false (contracts/market/TreasurySplitter.sol#173)
+	TreasurySplitter._proposals (contracts/market/TreasurySplitter.sol#48) can be used in cross function reentrancies:
+	- TreasurySplitter.activeProposals() (contracts/market/TreasurySplitter.sol#98-108)
+	- TreasurySplitter.cancelConfigure(bytes) (contracts/market/TreasurySplitter.sol#179-187)
+	- TreasurySplitter.configure(bytes) (contracts/market/TreasurySplitter.sol#143-176)
+	- TreasurySplitter.getProposal(bytes32) (contracts/market/TreasurySplitter.sol#93-95)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+
+Detector: uninitialized-local
+AddressProvider.getAllEntries().numEntries (contracts/instance/AddressProvider.sol#77) is a local variable never initialized
+AddressProvider.getAllEntries().idx (contracts/instance/AddressProvider.sol#83) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Detector: unused-return
+AbstractMarketFactory._quota(address,address) (contracts/factories/AbstractMarketFactory.sol#94-96) ignores return value by (None,None,None,quota,None,None) = IPoolQuotaKeeperV3(quotaKeeper).getTokenQuotaParams(token) (contracts/factories/AbstractMarketFactory.sol#95)
+PoolFactory.deployPool(address,string,string) (contracts/factories/PoolFactory.sol#52-75) ignores return value by IPoolV3(pool).deposit(1e5,address(0xdead)) (contracts/factories/PoolFactory.sol#65)
+PriceOracleFactory._revertOnZeroPriceFeed(address,address) (contracts/factories/PriceOracleFactory.sol#201-204) ignores return value by (None,answer,None,None,None) = IPriceFeed(priceFeed).latestRoundData() (contracts/factories/PriceOracleFactory.sol#202)
+BytecodeRepository.deploy(bytes32,uint256,bytes,bytes32) (contracts/global/BytecodeRepository.sol#174-200) ignores return value by Create2.deploy(0,uniqueSalt,bytecodeWithParams) (contracts/global/BytecodeRepository.sol#191)
+BytecodeRepository.removePublicContractType(bytes32) (contracts/global/BytecodeRepository.sol#398-419) ignores return value by info.versionsSet.remove(ver) (contracts/global/BytecodeRepository.sol#411)
+BytecodeRepository._updateVersionInfo(bytes32,uint256) (contracts/global/BytecodeRepository.sol#591-599) ignores return value by info.versionsSet.add(ver) (contracts/global/BytecodeRepository.sol#598)
+CrossChainMultisig._executeBatch(CrossChainCall[],bytes32) (contracts/global/CrossChainMultisig.sol#270-281) ignores return value by calls[i].target.functionCall(calls[i].callData,Call execution failed) (contracts/global/CrossChainMultisig.sol#276)
+AddressProvider.setAddress(bytes32,address,bool) (contracts/instance/AddressProvider.sol#128-149) ignores return value by _keysSet.add(key) (contracts/instance/AddressProvider.sol#137)
+AddressProvider.setAddress(bytes32,address,bool) (contracts/instance/AddressProvider.sol#128-149) ignores return value by info.versionsSet.add(ver) (contracts/instance/AddressProvider.sol#139)
+InstanceManager.configureGlobal(address,bytes) (contracts/instance/InstanceManager.sol#157-159) ignores return value by ProxyCall(crossChainGovernanceProxy).proxyCall(target,data) (contracts/instance/InstanceManager.sol#158)
+InstanceManager.configureLocal(address,bytes) (contracts/instance/InstanceManager.sol#162-164) ignores return value by ProxyCall(instanceManagerProxy).proxyCall(target,data) (contracts/instance/InstanceManager.sol#163)
+InstanceManager.configureTreasury(address,bytes) (contracts/instance/InstanceManager.sol#167-169) ignores return value by ProxyCall(treasuryProxy).proxyCall(target,data) (contracts/instance/InstanceManager.sol#168)
+MarketConfiguratorFactory.createMarketConfigurator(address,address,string,bool) (contracts/instance/MarketConfiguratorFactory.sol#99-116) ignores return value by _registeredMarketConfiguratorsSet.add(marketConfigurator) (contracts/instance/MarketConfiguratorFactory.sol#114)
+Governor.queueTransaction(address,uint256,string,bytes,uint256) (contracts/market/Governor.sol#108-128) ignores return value by ITimeLock(timeLock).queueTransaction(target,value,signature,data,eta) (contracts/market/Governor.sol#127)
+MarketConfigurator._authorizeFactory(address,address,address) (contracts/market/MarketConfigurator.sol#1023-1027) ignores return value by _factoryTargets[factory][suite].add(target) (contracts/market/MarketConfigurator.sol#1025)
+MarketConfigurator._unauthorizeFactory(address,address,address) (contracts/market/MarketConfigurator.sol#1030-1034) ignores return value by _factoryTargets[factory][suite].remove(target) (contracts/market/MarketConfigurator.sol#1032)
+MarketConfigurator._migrateFactoryTargets(address,address,address) (contracts/market/MarketConfigurator.sol#1037-1048) ignores return value by _factoryTargets[oldFactory][suite].remove(target) (contracts/market/MarketConfigurator.sol#1042)
+MarketConfigurator._migrateFactoryTargets(address,address,address) (contracts/market/MarketConfigurator.sol#1037-1048) ignores return value by _factoryTargets[newFactory][suite].add(target) (contracts/market/MarketConfigurator.sol#1043)
+MarketConfigurator._executeHook(address,Call[]) (contracts/market/MarketConfigurator.sol#1076-1085) ignores return value by target.functionCall(callData) (contracts/market/MarketConfigurator.sol#1082)
+TreasurySplitter.configure(bytes) (contracts/market/TreasurySplitter.sol#143-176) ignores return value by _activeProposals.add(callDataHash) (contracts/market/TreasurySplitter.sol#160)
+TreasurySplitter.configure(bytes) (contracts/market/TreasurySplitter.sol#143-176) ignores return value by Address.functionCall(address(this),callData) (contracts/market/TreasurySplitter.sol#171)
+TreasurySplitter.configure(bytes) (contracts/market/TreasurySplitter.sol#143-176) ignores return value by _activeProposals.remove(callDataHash) (contracts/market/TreasurySplitter.sol#174)
+TreasurySplitter.cancelConfigure(bytes) (contracts/market/TreasurySplitter.sol#179-187) ignores return value by _activeProposals.remove(callDataHash) (contracts/market/TreasurySplitter.sol#186)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+
+Detector: shadowing-local
+ITreasurySplitter.setTokenSplit(address,address[],uint16[],bool).distribute (contracts/interfaces/ITreasurySplitter.sol#89) shadows:
+	- ITreasurySplitter.distribute(address) (contracts/interfaces/ITreasurySplitter.sol#77) (function)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#local-variable-shadowing
+
+Detector: events-maths
+DefaultDegenNFT.mint(address,uint256) (contracts/helpers/DefaultDegenNFT.sol#68-77) should emit an event for: 
+	- totalSupply += amount (contracts/helpers/DefaultDegenNFT.sol#76) 
+DefaultDegenNFT.burn(address,uint256) (contracts/helpers/DefaultDegenNFT.sol#79-88) should emit an event for: 
+	- totalSupply -= amount (contracts/helpers/DefaultDegenNFT.sol#87) 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-events-arithmetic
+
+Detector: missing-zero-check
+DefaultDegenNFT.constructor(address,string,string).marketConfigurator_ (contracts/helpers/DefaultDegenNFT.sol#49) lacks a zero-check on :
+		- marketConfigurator = marketConfigurator_ (contracts/helpers/DefaultDegenNFT.sol#50)
+		- contractsRegister = IMarketConfigurator(marketConfigurator_).contractsRegister() (contracts/helpers/DefaultDegenNFT.sol#51)
+InstanceManager.setPendingGovernance(address).newGovernance (contracts/instance/InstanceManager.sol#173) lacks a zero-check on :
+		- pendingGovernance = newGovernance (contracts/instance/InstanceManager.sol#174)
+MarketConfigurator.constructor(address,address,address,address,string,bool).admin_ (contracts/market/MarketConfigurator.sol#153) lacks a zero-check on :
+		- admin = admin_ (contracts/market/MarketConfigurator.sol#168)
+MarketConfigurator.constructor(address,address,address,address,string,bool).emergencyAdmin_ (contracts/market/MarketConfigurator.sol#154) lacks a zero-check on :
+		- emergencyAdmin = emergencyAdmin_ (contracts/market/MarketConfigurator.sol#170)
+TimeLock.constructor(address,uint256).admin_ (contracts/market/TimeLock.sol#28) lacks a zero-check on :
+		- admin = admin_ (contracts/market/TimeLock.sol#31)
+TimeLock.executeTransaction(address,uint256,string,bytes,uint256).target (contracts/market/TimeLock.sol#69) lacks a zero-check on :
+		- (success,returnData) = target.call{value: value}(callData) (contracts/market/TimeLock.sol#90)
+TreasurySplitter.constructor(address,address,address).admin_ (contracts/market/TreasurySplitter.sol#63) lacks a zero-check on :
+		- admin = admin_ (contracts/market/TreasurySplitter.sol#64)
+TreasurySplitter.constructor(address,address,address).addressProvider_ (contracts/market/TreasurySplitter.sol#63) lacks a zero-check on :
+		- treasuryProxy = IAddressProvider(addressProvider_).getAddressOrRevert(AP_TREASURY_PROXY,NO_VERSION_CONTROL) (contracts/market/TreasurySplitter.sol#66)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+
+Detector: calls-loop
+PriceOracleFactory._getPriceFeed(address,address,bool) (contracts/factories/PriceOracleFactory.sol#206-217) has external calls inside a loop: IPriceOracleV3(priceOracle).version() < 3_10 (contracts/factories/PriceOracleFactory.sol#207)
+	Calls stack containing the loop:
+		PriceOracleFactory.onUpdatePriceOracle(address,address,address)
+PriceOracleFactory._getPriceFeed(address,address,bool) (contracts/factories/PriceOracleFactory.sol#206-217) has external calls inside a loop: priceFeed = IPriceOracleLegacy(priceOracle).priceFeedsRaw(token,reserve) (contracts/factories/PriceOracleFactory.sol#208-212)
+	Calls stack containing the loop:
+		PriceOracleFactory.onUpdatePriceOracle(address,address,address)
+PriceOracleFactory._getPriceFeed(address,address,bool) (contracts/factories/PriceOracleFactory.sol#206-217) has external calls inside a loop: IPriceOracleV3(priceOracle).reservePriceFeeds(token) (contracts/factories/PriceOracleFactory.sol#214-216)
+	Calls stack containing the loop:
+		PriceOracleFactory.onUpdatePriceOracle(address,address,address)
+PriceOracleFactory._getPriceFeed(address,address,bool) (contracts/factories/PriceOracleFactory.sol#206-217) has external calls inside a loop: IPriceOracleV3(priceOracle).priceFeeds(token) (contracts/factories/PriceOracleFactory.sol#214-216)
+	Calls stack containing the loop:
+		PriceOracleFactory.onUpdatePriceOracle(address,address,address)
+ContractsRegister._pool(address) (contracts/market/ContractsRegister.sol#239-241) has external calls inside a loop: ICreditManagerV3(creditManager).pool() (contracts/market/ContractsRegister.sol#240)
+	Calls stack containing the loop:
+		ContractsRegister.shutdownMarket(address)
+		ContractsRegister._getNumConnectedCreditManagers(address,EnumerableSet.AddressSet)
+ContractsRegister._pool(address) (contracts/market/ContractsRegister.sol#239-241) has external calls inside a loop: ICreditManagerV3(creditManager).pool() (contracts/market/ContractsRegister.sol#240)
+	Calls stack containing the loop:
+		ContractsRegister.getCreditManagers(address)
+		ContractsRegister._getConnectedCreditManagers(address,EnumerableSet.AddressSet)
+ContractsRegister._pool(address) (contracts/market/ContractsRegister.sol#239-241) has external calls inside a loop: ICreditManagerV3(creditManager).pool() (contracts/market/ContractsRegister.sol#240)
+	Calls stack containing the loop:
+		ContractsRegister.getShutdownCreditManagers(address)
+		ContractsRegister._getConnectedCreditManagers(address,EnumerableSet.AddressSet)
+Governor._performAction(address,uint256,string,bytes,uint256,IGovernor.TxAction) (contracts/market/Governor.sol#266-279) has external calls inside a loop: result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+	Calls stack containing the loop:
+		Governor.executeBatch(IGovernor.TxParams[])
+		Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction)
+Governor._performAction(address,uint256,string,bytes,uint256,IGovernor.TxAction) (contracts/market/Governor.sol#266-279) has external calls inside a loop: ITimeLock(timeLock).cancelTransaction(target,value,signature,data,eta) (contracts/market/Governor.sol#277)
+	Calls stack containing the loop:
+		Governor.executeBatch(IGovernor.TxParams[])
+		Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction)
+Governor._performAction(address,uint256,string,bytes,uint256,IGovernor.TxAction) (contracts/market/Governor.sol#266-279) has external calls inside a loop: result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+	Calls stack containing the loop:
+		Governor.cancelBatch(IGovernor.TxParams[])
+		Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction)
+Governor._performAction(address,uint256,string,bytes,uint256,IGovernor.TxAction) (contracts/market/Governor.sol#266-279) has external calls inside a loop: ITimeLock(timeLock).cancelTransaction(target,value,signature,data,eta) (contracts/market/Governor.sol#277)
+	Calls stack containing the loop:
+		Governor.cancelBatch(IGovernor.TxParams[])
+		Governor._batchAction(IGovernor.TxParams[],IGovernor.TxAction)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+
+Detector: reentrancy-benign
+Reentrancy in CrossChainMultisig._executeBatch(CrossChainCall[],bytes32) (contracts/global/CrossChainMultisig.sol#270-281):
+	External calls:
+	- calls[i].target.functionCall(calls[i].callData,Call execution failed) (contracts/global/CrossChainMultisig.sol#276)
+	State variables written after the call(s):
+	- _executedBatchHashes.push(batchHash) (contracts/global/CrossChainMultisig.sol#279)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Detector: reentrancy-events
+Reentrancy in TreasurySplitter._distribute(address) (contracts/market/TreasurySplitter.sol#117-140):
+	External calls:
+	- IERC20(token).safeTransfer(receiver,proportion * balanceDiff / PERCENTAGE_FACTOR) (contracts/market/TreasurySplitter.sol#135)
+	Event emitted after the call(s):
+	- DistributeToken(token,balanceDiff) (contracts/market/TreasurySplitter.sol#139)
+Reentrancy in MarketConfigurator._executeHook(address,Call[]) (contracts/market/MarketConfigurator.sol#1076-1085):
+	External calls:
+	- target.functionCall(callData) (contracts/market/MarketConfigurator.sol#1082)
+	Event emitted after the call(s):
+	- ExecuteHook(target,callData) (contracts/market/MarketConfigurator.sol#1083)
+Reentrancy in InstanceManager.acceptGovernance() (contracts/instance/InstanceManager.sol#180-184):
+	External calls:
+	- _setAddress(AP_CROSS_CHAIN_GOVERNANCE,msg.sender,false) (contracts/instance/InstanceManager.sol#181)
+		- AddressProvider(addressProvider).setAddress(key,value,saveVersion) (contracts/instance/InstanceManager.sol#197)
+	Event emitted after the call(s):
+	- AcceptGovernance(msg.sender) (contracts/instance/InstanceManager.sol#183)
+Reentrancy in Governor.cancelBatch(IGovernor.TxParams[]) (contracts/market/Governor.sol#166-169):
+	External calls:
+	- batchBlock = _batchAction(txs,TxAction.Cancel) (contracts/market/Governor.sol#167)
+		- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+		- ITimeLock(timeLock).cancelTransaction(target,value,signature,data,eta) (contracts/market/Governor.sol#277)
+	External calls sending eth:
+	- batchBlock = _batchAction(txs,TxAction.Cancel) (contracts/market/Governor.sol#167)
+		- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+	Event emitted after the call(s):
+	- CancelBatch(msg.sender,batchBlock) (contracts/market/Governor.sol#168)
+Reentrancy in MarketConfiguratorFactory.createMarketConfigurator(address,address,string,bool) (contracts/instance/MarketConfiguratorFactory.sol#99-116):
+	External calls:
+	- marketConfigurator = _deployLatestPatch({contractType:AP_MARKET_CONFIGURATOR,minorVersion:3_10,constructorParams:abi.encode(addressProvider,msg.sender,emergencyAdmin,adminFeeTreasury,curatorName,deployGovernor),salt:bytes32(bytes20(msg.sender))}) (contracts/instance/MarketConfiguratorFactory.sol#105-112)
+		- IBytecodeRepository(bytecodeRepository).deploy(contractType,version,constructorParams,salt) (contracts/traits/DeployerTrait.sol#43)
+	Event emitted after the call(s):
+	- CreateMarketConfigurator(marketConfigurator,curatorName) (contracts/instance/MarketConfiguratorFactory.sol#115)
+Reentrancy in Governor.executeBatch(IGovernor.TxParams[]) (contracts/market/Governor.sol#149-152):
+	External calls:
+	- batchBlock = _batchAction(txs,TxAction.Execute) (contracts/market/Governor.sol#150)
+		- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+		- ITimeLock(timeLock).cancelTransaction(target,value,signature,data,eta) (contracts/market/Governor.sol#277)
+	External calls sending eth:
+	- batchBlock = _batchAction(txs,TxAction.Execute) (contracts/market/Governor.sol#150)
+		- result = ITimeLock(timeLock).executeTransaction{value: value}(target,value,signature,data,eta) (contracts/market/Governor.sol#275)
+	Event emitted after the call(s):
+	- ExecuteBatch(msg.sender,batchBlock) (contracts/market/Governor.sol#151)
+Reentrancy in TimeLock.executeTransaction(address,uint256,string,bytes,uint256) (contracts/market/TimeLock.sol#69-96):
+	External calls:
+	- (success,returnData) = target.call{value: value}(callData) (contracts/market/TimeLock.sol#90)
+	Event emitted after the call(s):
+	- ExecuteTransaction(txHash,target,value,signature,data,eta) (contracts/market/TimeLock.sol#93)
+Reentrancy in TreasurySplitter.withdrawToken(address,address,uint256) (contracts/market/TreasurySplitter.sol#243-247):
+	External calls:
+	- IERC20(token).safeTransfer(to,amount) (contracts/market/TreasurySplitter.sol#244)
+	Event emitted after the call(s):
+	- WithdrawToken(token,to,amount) (contracts/market/TreasurySplitter.sol#246)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-4
+
+Detector: timestamp
+TimeLock.queueTransaction(address,uint256,string,bytes,uint256) (contracts/market/TimeLock.sol#44-56) uses timestamp for comparisons
+	Dangerous comparisons:
+	- eta < block.timestamp + delay (contracts/market/TimeLock.sol#49)
+TimeLock.executeTransaction(address,uint256,string,bytes,uint256) (contracts/market/TimeLock.sol#69-96) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp < eta (contracts/market/TimeLock.sol#77)
+	- block.timestamp > eta + GRACE_PERIOD (contracts/market/TimeLock.sol#78)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Detector: assembly
+PriceOracleFactory.onUpdatePriceOracle(address,address,address) (contracts/factories/PriceOracleFactory.sol#101-128) uses assembly
+	- INLINE ASM (contracts/factories/PriceOracleFactory.sol#125-127)
+ContractsRegister._getConnectedCreditManagers(address,EnumerableSet.AddressSet) (contracts/market/ContractsRegister.sol#221-236) uses assembly
+	- INLINE ASM (contracts/market/ContractsRegister.sol#233-235)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Detector: dead-code
+MarketConfigurator._registeredCreditManagers() (contracts/market/MarketConfigurator.sol#1088-1090) is never used and should be removed
+PriceOracleFactory._setPriceFeedCall(address,address,address,uint32) (contracts/factories/PriceOracleFactory.sol#235-241) is never used and should be removed
+PriceOracleFactory._setReservePriceFeedCall(address,address,address,uint32) (contracts/factories/PriceOracleFactory.sol#243-250) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Detector: low-level-calls
+Low level call in TimeLock.executeTransaction(address,uint256,string,bytes,uint256) (contracts/market/TimeLock.sol#69-96):
+	- (success,returnData) = target.call{value: value}(callData) (contracts/market/TimeLock.sol#90)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+
+Detector: missing-inheritance
+ACL (contracts/market/ACL.sol#13-70) should inherit from IACL (contracts/interfaces/IACL.sol#9-20)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-inheritance
+
+Detector: naming-convention
+Function IBytecodeRepository.BYTECODE_TYPEHASH() (contracts/interfaces/IBytecodeRepository.sol#74) is not in mixedCase
+Function IBytecodeRepository.AUDIT_REPORT_TYPEHASH() (contracts/interfaces/IBytecodeRepository.sol#75) is not in mixedCase
+Function ICrossChainMultisig.CROSS_CHAIN_CALL_TYPEHASH() (contracts/interfaces/ICrossChainMultisig.sol#46) is not in mixedCase
+Function ICrossChainMultisig.BATCH_TYPEHASH() (contracts/interfaces/ICrossChainMultisig.sol#47) is not in mixedCase
+Function ICrossChainMultisig.COMPACT_BATCH_TYPEHASH() (contracts/interfaces/ICrossChainMultisig.sol#48) is not in mixedCase
+Function ICrossChainMultisig.RECOVERY_MODE_TYPEHASH() (contracts/interfaces/ICrossChainMultisig.sol#49) is not in mixedCase
+Function ITimeLock.GRACE_PERIOD() (contracts/interfaces/ITimeLock.sol#50) is not in mixedCase
+Function ITimeLock.MINIMUM_DELAY() (contracts/interfaces/ITimeLock.sol#52) is not in mixedCase
+Function ITimeLock.MAXIMUM_DELAY() (contracts/interfaces/ITimeLock.sol#54) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: unimplemented-functions
+InstanceManager (contracts/instance/InstanceManager.sol#29-234) does not implement functions:
+	- IInstanceManager.owner() (contracts/interfaces/IInstanceManager.sol#36)
+ACL (contracts/market/ACL.sol#13-70) does not implement functions:
+	- ACL.revokeRole(bytes32,address) (contracts/market/ACL.sol#67-69)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+Detector: unused-state
+PriceFeedStore._knownTokens (contracts/instance/PriceFeedStore.sol#56) is never used in PriceFeedStore (contracts/instance/PriceFeedStore.sol#32-314)
+PriceFeedStore._updatablePriceFeeds (contracts/instance/PriceFeedStore.sol#59) is never used in PriceFeedStore (contracts/instance/PriceFeedStore.sol#32-314)
+PriceFeedStore._allowanceTimestamps (contracts/instance/PriceFeedStore.sol#65) is never used in PriceFeedStore (contracts/instance/PriceFeedStore.sol#32-314)
+PriceFeedStore._priceFeedInfo (contracts/instance/PriceFeedStore.sol#68) is never used in PriceFeedStore (contracts/instance/PriceFeedStore.sol#32-314)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+
+Detector: constable-states
+EIP712Mainnet._nameFallback (contracts/helpers/EIP712Mainnet.sol#50) should be constant 
+EIP712Mainnet._versionFallback (contracts/helpers/EIP712Mainnet.sol#51) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+
+Detector: immutable-states
+ConstantPriceFeed.descriptionTicker (contracts/helpers/ConstantPriceFeed.sol#33) should be immutable 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+/workspaces/gearbox-audit/source/permissionless analyzed (133 contracts with 102 detectors), 91 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/unit/adapters/balancer/BalancerV3RouterAdapter.unit.t.sol:BalancerV3RouterAdapterUnitTest
+[PASS] test_U_BAL3_01_constructor_works_as_expected() (gas: 11065)
+[PASS] test_U_BAL3_02_wrapper_functions_revert_on_wrong_caller() (gas: 65284)
+[PASS] test_U_BAL3_03_swapSingleTokenExactIn_works_as_expected() (gas: 62587)
+[PASS] test_U_BAL3_04_swapSingleTokenDiffIn_works_as_expected() (gas: 531003)
+[PASS] test_U_BAL3_05_addLiquidityUnbalanced_works_as_expected() (gas: 94194)
+[PASS] test_U_BAL3_06_addLiquidityUnbalancedDiff_works_as_expected() (gas: 950786)
+[PASS] test_U_BAL3_07_removeLiquiditySingleTokenExactIn_works_as_expected() (gas: 59445)
+[PASS] test_U_BAL3_08_removeLiquiditySingleTokenDiff_works_as_expected() (gas: 228248)
+[PASS] test_U_BAL3_09_pool_configuration_works_as_expected() (gas: 337438)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 17.55ms (11.14ms CPU time)
+
+Ran 1 test suite in 35.78ms (17.55ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

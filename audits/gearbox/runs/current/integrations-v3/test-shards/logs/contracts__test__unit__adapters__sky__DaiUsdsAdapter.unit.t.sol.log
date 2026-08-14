@@ -1,0 +1,12 @@
+No files changed, compilation skipped
+
+Ran 6 tests for contracts/test/unit/adapters/sky/DaiUsdsAdapter.unit.t.sol:DaiUsdsAdapterUnitTest
+[PASS] test_U_DUSDS_01_constructor_works_as_expected() (gas: 617759)
+[PASS] test_U_DUSDS_02_wrapper_functions_revert_on_wrong_caller() (gas: 37234)
+[PASS] test_U_DUSDS_03_daiToUsds_works_as_expected() (gas: 45379)
+[PASS] test_U_DUSDS_04_daiToUsdsDiff_works_as_expected() (gas: 495452)
+[PASS] test_U_DUSDS_05_usdsToDai_works_as_expected() (gas: 45449)
+[PASS] test_U_DUSDS_06_usdsToDaiDiff_works_as_expected() (gas: 495400)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 6.65ms (3.17ms CPU time)
+
+Ran 1 test suite in 23.52ms (6.65ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)

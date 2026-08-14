@@ -1,0 +1,17 @@
+No files changed, compilation skipped
+
+Ran 11 tests for contracts/test/unit/adapters/convex/ConvexV1BaseRewardPoolAdapter.unit.t.sol:ConvexV1BaseRewardPoolAdapterUnitTest
+[PASS] test_U_CVX1R_01_constructor_works_as_expected() (gas: 958773)
+[PASS] test_U_CVX1R_02_extra_rewards_are_handled_correctly() (gas: 3690398)
+[PASS] test_U_CVX1R_03_wrapper_functions_revert_on_wrong_caller() (gas: 72216)
+[PASS] test_U_CVX1R_04_stake_works_as_expected() (gas: 39239)
+[PASS] test_U_CVX1R_05_stakeDiff_works_as_expected() (gas: 495120)
+[PASS] test_U_CVX1R_06_getReward_works_as_expected() (gas: 26305)
+[PASS] test_U_CVX1R_07_withdraw_works_as_expected() (gas: 38752)
+[PASS] test_U_CVX1R_08_withdrawDiff_works_as_expected() (gas: 499165)
+[PASS] test_U_CVX1R_09_withdrawAndUnwrap_works_as_expected() (gas: 38752)
+[PASS] test_U_CVX1R_10_withdrawDiffAndUnwrap_works_as_expected() (gas: 499054)
+[PASS] test_U_CVX1R_11_withdrawPhantomToken_works_as_expected() (gas: 37358)
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 10.05ms (6.14ms CPU time)
+
+Ran 1 test suite in 26.71ms (10.05ms CPU time): 11 tests passed, 0 failed, 0 skipped (11 total tests)

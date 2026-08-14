@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/ACL.unit.t.sol:ACLUnitTest
+[PASS] test_U_ACL_01_constructor_works_correctly() (gas: 14706)
+[PASS] test_U_ACL_02_grantRole_works_correctly() (gas: 340557)
+[PASS] test_U_ACL_03_revokeRole_works_correctly() (gas: 267984)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.76ms (614.25µs CPU time)
+
+Ran 1 test suite in 19.84ms (1.76ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/unit/core/BotListV3.unit.t.sol:BotListV3UnitTest
+[PASS] test_U_BL_01_setBotPermissions_works_correctly() (gas: 242340)
+[PASS] test_U_BL_02_eraseAllBotPermissions_works_correctly() (gas: 223625)
+[PASS] test_U_BL_03_setBotPermissions_cannot_activate_more_bots_than_max() (gas: 1352865)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 7.32ms (1.22ms CPU time)
+
+Ran 1 test suite in 23.58ms (7.32ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

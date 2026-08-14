@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/adapters/curve/CurveV1Adapter4Assets.unit.t.sol:CurveV1Adapter4AssetsUnitTest
+[PASS] test_U_CRV4_01_wrapper_functions_revert_on_wrong_caller() (gas: 30821)
+[PASS] test_U_CRV4_02_add_liquidity_works_as_expected() (gas: 80506)
+[PASS] test_U_CRV4_03_remove_liquidity_works_as_expected() (gas: 28507)
+[PASS] test_U_CRV4_04_remove_liquidity_imbalance_works_as_expected() (gas: 28484)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 4.55ms (603.74µs CPU time)
+
+Ran 1 test suite in 21.78ms (4.55ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

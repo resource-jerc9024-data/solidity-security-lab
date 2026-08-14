@@ -1,0 +1,11 @@
+No files changed, compilation skipped
+
+Ran 5 tests for contracts/test/unit/libraries/BalancesLogic.unit.t.sol:BalancesLogicUnitTest
+[PASS] test_U_BLL_01_checkBalance_works_correctly(uint128[16],uint128,bool) (runs: 256, μ: 55807, ~: 55818)
+[PASS] test_U_BLL_02_storeBalances_with_deltas_works_correctly(uint128[16],int128[16],uint256) (runs: 256, μ: 420547, ~: 414808)
+[PASS] test_U_BLL_03_compareBalances_without_tokens_mask_works_correctly(uint128[16],uint128[16],uint256,bool) (runs: 256, μ: 402198, ~: 398687)
+[PASS] test_U_BLL_04_storeBalances_with_tokens_mask_works_correctly(uint128[16],uint256) (runs: 256, μ: 788881, ~: 789151)
+[PASS] test_U_BLL_05_compareBalances_with_tokens_mask_works_correctly(uint128[16],uint128[16],uint256,bool) (runs: 256, μ: 847839, ~: 847499)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 1.94s (1.94s CPU time)
+
+Ran 1 test suite in 1.94s (1.94s CPU time): 5 tests passed, 0 failed, 0 skipped (5 total tests)

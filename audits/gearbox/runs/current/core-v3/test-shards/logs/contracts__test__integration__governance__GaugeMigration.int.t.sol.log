@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/integration/governance/GaugeMigration.int.t.sol:GaugeMigrationIntegrationTest
+[PASS] test_I_GAM_01_gauge_migration_works_as_expected() (gas: 1917347)
+[PASS] test_I_GAM_02_gaude_and_staking_migration_works_as_expected() (gas: 3863579)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 13.35ms (4.95ms CPU time)
+
+Ran 1 test suite in 23.77ms (13.35ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

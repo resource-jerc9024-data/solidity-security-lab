@@ -1,0 +1,29 @@
+Running shard contracts/test/live/PricePrinter.t.sol
+contracts/test/live/PricePrinter.t.sol finished with exit code 0
+Running shard contracts/test/unit/BoundedPriceFeed.unit.t.sol
+contracts/test/unit/BoundedPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/CompositePriceFeed.unit.t.sol
+contracts/test/unit/CompositePriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/ConstantPriceFeed.unit.t.sol
+contracts/test/unit/ConstantPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/LPPriceFeed.unit.t.sol
+contracts/test/unit/LPPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/SingleAssetLPPriceFeed.unit.t.sol
+contracts/test/unit/SingleAssetLPPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/ZeroPriceFeed.unit.t.sol
+contracts/test/unit/ZeroPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/curve/CurveCryptoLPPriceFeed.unit.t.sol
+contracts/test/unit/curve/CurveCryptoLPPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/curve/CurveStableLPPriceFeed.unit.t.sol
+contracts/test/unit/curve/CurveStableLPPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/curve/CurveTWAPPriceFeed.unit.t.sol
+contracts/test/unit/curve/CurveTWAPPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/erc4626/ERC4626PriceFeed.unit.t.sol
+contracts/test/unit/erc4626/ERC4626PriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/lido/WstETHPriceFeed.unit.t.sol
+contracts/test/unit/lido/WstETHPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/updatable/PythPriceFeed.unit.t.sol
+contracts/test/unit/updatable/PythPriceFeed.unit.t.sol finished with exit code 0
+Running shard contracts/test/unit/updatable/RedstonePriceFeed.unit.t.sol
+contracts/test/unit/updatable/RedstonePriceFeed.unit.t.sol finished with exit code 0
+Sharded tests complete: 14 files, 0 non-zero exits.

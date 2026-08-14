@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/unit/CompositePriceFeed.unit.t.sol:CompositePriceFeedUnitTest
+[PASS] test_U_CPF_01_constructor_works_as_expected() (gas: 529628)
+[PASS] test_U_CPF_02_price_feed_has_correct_metadata() (gas: 17232)
+[PASS] test_U_CPF_03_latestRoundData_works_as_expected() (gas: 78348)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.43ms (631.83µs CPU time)
+
+Ran 1 test suite in 19.36ms (1.43ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

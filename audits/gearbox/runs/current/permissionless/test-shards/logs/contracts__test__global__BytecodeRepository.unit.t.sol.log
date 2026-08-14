@@ -1,0 +1,28 @@
+No files changed, compilation skipped
+
+Ran 22 tests for contracts/test/global/BytecodeRepository.unit.t.sol:BytecodeRepositoryUnitTest
+[PASS] test_U_BCR_01_setup_is_correct() (gas: 80825)
+[PASS] test_U_BCR_02_deploy_works_correctly() (gas: 142346)
+[PASS] test_U_BCR_03_deploy_reverts_for_non_allowed_bytecode() (gas: 12417)
+[PASS] test_U_BCR_04_deploy_reverts_for_forbidden_init_code() (gas: 48370)
+[PASS] test_U_BCR_05_deploy_reverts_for_wrong_contract_type_or_version() (gas: 181112)
+[PASS] test_U_BCR_06_uploadBytecode_works_correctly() (gas: 13262817)
+[PASS] test_U_BCR_07_uploadBytecode_reverts_for_invalid_contract_type_or_version() (gas: 98657)
+[PASS] test_U_BCR_08_uploadBytecode_reverts_if_allowed_bytecode_exists_for_type_and_version() (gas: 45966)
+[PASS] test_U_BCR_09_uploadBytecode_reverts_for_invalid_author_or_signature() (gas: 72006)
+[PASS] test_U_BCR_10_uploadBytecode_allows_non_author_to_upload_only_outside_mainnet() (gas: 424210)
+[PASS] test_U_BCR_11_submitAuditReport_works_correctly() (gas: 973265)
+[PASS] test_U_BCR_12_submitAuditReport_reverts_for_non_uploaded_bytecode() (gas: 25315)
+[PASS] test_U_BCR_13_submitAuditReport_reverts_for_invalid_auditor_or_signature() (gas: 452187)
+[PASS] test_U_BCR_14_allowSystemContract_works_correctly() (gas: 762049)
+[PASS] test_U_BCR_15_allowSystemContract_correctly_handles_domain() (gas: 1482206)
+[PASS] test_U_BCR_16_allowPublicContract_works_correctly() (gas: 756427)
+[PASS] test_U_BCR_17_allowPublicContract_correctly_handles_domain_and_owner() (gas: 2079594)
+[PASS] test_U_BCR_18_allowContract_works_correctly() (gas: 529389)
+[PASS] test_U_BCR_19_removePublicContractType_works_correctly() (gas: 415216)
+[PASS] test_U_BCR_20_auditor_management_works_correctly() (gas: 131327)
+[PASS] test_U_BCR_21_domain_management_works_correctly() (gas: 82722)
+[PASS] test_U_BCR_22_token_specific_postfix_management_works_correctly() (gas: 40977)
+Suite result: ok. 22 passed; 0 failed; 0 skipped; finished in 50.93ms (43.80ms CPU time)
+
+Ran 1 test suite in 52.61ms (50.93ms CPU time): 22 tests passed, 0 failed, 0 skipped (22 total tests)

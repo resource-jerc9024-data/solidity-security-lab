@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/unit/adapters/fluid/FluidDexAdapter.unit.t.sol:FluidDexAdapterUnitTest
+[PASS] test_U_FDEX_01_constructor_works_as_expected() (gas: 595360)
+[PASS] test_U_FDEX_02_wrapper_functions_revert_on_wrong_caller() (gas: 21723)
+[PASS] test_U_FDEX_03_swapIn_works_as_expected_0to1() (gas: 46151)
+[PASS] test_U_FDEX_04_swapIn_works_as_expected_1to0() (gas: 46137)
+[PASS] test_U_FDEX_05_swapInDiff_works_as_expected_0to1() (gas: 497582)
+[PASS] test_U_FDEX_06_swapInDiff_works_as_expected_1to0() (gas: 497621)
+[PASS] test_U_FDEX_07_swapInDiff_returns_false_if_balance_too_low() (gas: 195920)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 6.80ms (3.75ms CPU time)
+
+Ran 1 test suite in 23.84ms (6.80ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

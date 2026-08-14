@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/unit/adapters/traderjoe/TraderJoeRouterAdapter.unit.t.sol:TraderJoeRouterAdapterUnitTest
+[PASS] test_U_TJ_01_constructor_works_as_expected() (gas: 11042)
+[PASS] test_U_TJ_02_wrapper_functions_revert_on_wrong_caller() (gas: 40490)
+[PASS] test_U_TJ_03_swapExactTokensForTokens_works_as_expected() (gas: 75616)
+[PASS] test_U_TJ_04_swapExactTokensForTokensSupportingFeeOnTransferTokens_works_as_expected() (gas: 75505)
+[PASS] test_U_TJ_05_swapDiffTokensForTokens_works_as_expected() (gas: 544791)
+[PASS] test_U_TJ_06_swapDiffTokensForTokensSupportingFeeOnTransferTokens_works_as_expected() (gas: 544694)
+[PASS] test_U_TJ_07_setPoolStatusBatch_works_as_expected() (gas: 247886)
+[PASS] test_U_TJ_08_validatePath_works_as_expected() (gas: 232077)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 9.57ms (5.33ms CPU time)
+
+Ran 1 test suite in 24.09ms (9.57ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

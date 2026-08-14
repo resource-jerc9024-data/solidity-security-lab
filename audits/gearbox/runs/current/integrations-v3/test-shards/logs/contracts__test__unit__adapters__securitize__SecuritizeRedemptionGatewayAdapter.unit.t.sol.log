@@ -1,0 +1,16 @@
+No files changed, compilation skipped
+
+Ran 10 tests for contracts/test/unit/adapters/securitize/SecuritizeRedemptionGatewayAdapter.unit.t.sol:SecuritizeRedemptionGatewayAdapterUnitTest
+[PASS] test_U_SRG_A_01_constructor_works_as_expected() (gas: 690037)
+[PASS] test_U_SRG_A_02_wrapper_functions_revert_on_wrong_caller() (gas: 58096)
+[PASS] test_U_SRG_A_03_redeem_works_as_expected() (gas: 39114)
+[PASS] test_U_SRG_A_04_redeemDiff_returns_false_when_nothing_to_redeem() (gas: 189905)
+[PASS] test_U_SRG_A_05_redeemDiff_works_as_expected() (gas: 206793)
+[PASS] test_U_SRG_A_06_claim_works_as_expected() (gas: 32071)
+[PASS] test_U_SRG_A_07_transferRedeemer_works_as_expected() (gas: 30319)
+[PASS] test_U_SRG_A_08_withdrawPhantomToken_reverts() (gas: 16424)
+[PASS] test_U_SRG_A_09_depositPhantomToken_reverts() (gas: 16389)
+[PASS] test_U_SRG_A_10_serialize_works_as_expected() (gas: 19156)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 8.79ms (2.71ms CPU time)
+
+Ran 1 test suite in 23.81ms (8.79ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

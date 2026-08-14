@@ -1,0 +1,34 @@
+No files changed, compilation skipped
+
+Ran 24 tests for contracts/test/global/CrossChainMultisig.unit.t.sol:CrossChainMultisigTest
+[PASS] test_U_CCM_01_InitialState() (gas: 2959163)
+[PASS] test_U_CCM_02_AccessModifiers() (gas: 38721)
+[PASS] test_U_CCM_03_SubmitBatch() (gas: 233008)
+[PASS] test_U_CCM_04_revert_on_invalid_prev_hash() (gas: 92528)
+[PASS] test_U_CCM_05_revert_on_empty_calls() (gas: 89819)
+[PASS] test_U_CCM_06_SignBatch() (gas: 365518)
+Logs:
+  0xB4B5c5f5Ae67A4b37785895E34953B1B70c56bF5
+  0x0d71508453b5b0d6c391f72c6567d7e91ea09bff27f9ff40b9b7eafdaa844e54
+
+[PASS] test_U_CCM_07_SignBatchInvalidSignature() (gas: 216137)
+[PASS] test_U_CCM_08_SignBatchNonExistentBatch() (gas: 66143)
+[PASS] test_U_CCM_09_SignBatchDuplicateSigner() (gas: 464082)
+[PASS] test_U_CCM_10_SignAndExecuteProposal() (gas: 548427)
+[PASS] test_U_CCM_11_BatchValidation() (gas: 58973)
+[PASS] test_U_CCM_12_VerifyBatchValidCalls() (gas: 14284)
+[PASS] test_U_CCM_13_VerifySignaturesEmptyArray() (gas: 6583)
+[PASS] test_U_CCM_14_VerifySignaturesValidSignatures() (gas: 236678)
+[PASS] test_U_CCM_15_VerifySignaturesInvalidSignatures() (gas: 236629)
+[PASS] test_U_CCM_16_VerifySignaturesDuplicateSigner() (gas: 237634)
+[PASS] test_U_CCM_17_VerifySignaturesNonSigner() (gas: 234511)
+[PASS] test_U_CCM_18_VerifySignaturesMalformedSignature() (gas: 22025)
+[PASS] test_U_CCM_19_CannotReduceSignersBelowThreshold() (gas: 40081)
+[PASS] test_U_CCM_20_EnableRecoveryMode() (gas: 128062)
+[PASS] test_U_CCM_21_RecoveryModeSkipsExecution() (gas: 195087)
+[PASS] test_U_CCM_22_DisableRecoveryMode() (gas: 182771)
+[PASS] test_U_CCM_23_EnableRecoveryModeOnMainnet() (gas: 20522)
+[PASS] test_U_CCM_24_EnableRecoveryModeWrongChain() (gas: 25639)
+Suite result: ok. 24 passed; 0 failed; 0 skipped; finished in 21.32ms (18.30ms CPU time)
+
+Ran 1 test suite in 24.68ms (21.32ms CPU time): 24 tests passed, 0 failed, 0 skipped (24 total tests)

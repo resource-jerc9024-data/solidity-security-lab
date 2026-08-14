@@ -1,0 +1,19 @@
+No files changed, compilation skipped
+
+Ran 13 tests for contracts/test/unit/adapters/camelot/CamelotV3Adapter.unit.t.sol:CamelotV3AdapterUnitTest
+[PASS] test_U_CAMV3_01_constructor_works_as_expected() (gas: 11064)
+[PASS] test_U_CAMV3_02A_functions_revert_on_non_allowed_pool() (gas: 68611)
+[PASS] test_U_CAMV3_02_wrapper_functions_revert_on_wrong_caller() (gas: 75630)
+[PASS] test_U_CAMV3_03A_exactInputSingleSupportingFeeOnTransferTokens_works_as_expected() (gas: 53302)
+[PASS] test_U_CAMV3_03_exactInputSingle_works_as_expected() (gas: 53301)
+[PASS] test_U_CAMV3_04A_exactDiffInputSingleSupportingFeeOnTransferTokens_works_as_expected() (gas: 509959)
+[PASS] test_U_CAMV3_04_exactDiffInputSingle_works_as_expected() (gas: 509964)
+[PASS] test_U_CAMV3_05_exactInput_works_as_expected() (gas: 73455)
+[PASS] test_U_CAMV3_06_exactDiffInput_works_as_expected() (gas: 540945)
+[PASS] test_U_CAMV3_07_exactOutputSingle_works_as_expected() (gas: 53737)
+[PASS] test_U_CAMV3_08_exactOutput_works_as_expected() (gas: 73565)
+[PASS] test_U_CAMV3_09_setPoolStatusBatch_works_as_expected() (gas: 125237)
+[PASS] test_U_CAMV3_10_validatePath_works_as_expected() (gas: 399391)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 16.36ms (7.78ms CPU time)
+
+Ran 1 test suite in 48.51ms (16.36ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)

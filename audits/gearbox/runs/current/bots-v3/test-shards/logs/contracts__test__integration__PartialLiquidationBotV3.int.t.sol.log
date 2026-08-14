@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/integration/PartialLiquidationBotV3.int.t.sol:PartialLiquidationBotV3IntegrationTest
+[PASS] test_I_PL_01_setup_is_correct() (gas: 94619811)
+[PASS] test_I_PL_02_partiallyLiquidate_sanitizes_inputs() (gas: 94666772)
+[PASS] test_I_PL_03_partiallyLiquidate_works_as_expected() (gas: 95100284)
+[PASS] test_I_PL_04_partiallyLiquidate_reverts_on_inadequate_amounts() (gas: 95088741)
+[PASS] test_I_PL_05_partiallyLiquidate_does_not_steal_underlying_from_account() (gas: 94968213)
+[PASS] test_I_PL_06_partiallyLiquidate_works_as_expected_with_non_default_params() (gas: 95341493)
+[PASS] test_I_PL_07_partiallyLiquidate_works_as_expected_with_phantom_collateral() (gas: 96652898)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 112.31ms (107.48ms CPU time)
+
+Ran 1 test suite in 113.57ms (112.31ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

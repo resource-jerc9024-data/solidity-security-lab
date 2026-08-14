@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/TreasurySplitter.unit.t.sol:TreasurySplitterTest
+[PASS] test_TRS_01_constructor() (gas: 26617)
+[PASS] test_TRS_02_distribute() (gas: 269715)
+[PASS] test_TRS_03_configure() (gas: 706860)
+[PASS] test_TRS_04_setTokenInsuranceAmount() (gas: 34422)
+[PASS] test_TRS_05_setTokenSplit() (gas: 287694)
+[PASS] test_TRS_06_setDefaultSplit() (gas: 63186)
+[PASS] test_TRS_07_withdrawToken() (gas: 107015)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 5.72ms (1.80ms CPU time)
+
+Ran 1 test suite in 23.71ms (5.72ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

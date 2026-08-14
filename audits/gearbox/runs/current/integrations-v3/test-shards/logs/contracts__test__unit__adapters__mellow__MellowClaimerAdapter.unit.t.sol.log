@@ -1,0 +1,16 @@
+No files changed, compilation skipped
+
+Ran 10 tests for contracts/test/unit/adapters/mellow/MellowClaimerAdapter.unit.t.sol:MellowClaimerAdapterUnitTest
+[PASS] test_U_MCA_01_constructor_works_as_expected() (gas: 1570631)
+[PASS] test_U_MCA_02_wrapper_functions_revert_on_wrong_caller() (gas: 43946)
+[PASS] test_U_MCA_03_multiAccept_works_as_expected() (gas: 168628)
+[PASS] test_U_MCA_04_multiAcceptAndClaim_works_as_expected() (gas: 343568)
+[PASS] test_U_MCA_05_withdrawPhantomToken_works_as_expected() (gas: 330968)
+[PASS] test_U_MCA_06_depositPhantomToken_reverts_as_expected() (gas: 18525)
+[PASS] test_U_MCA_07A_getUserSubvaultIndices_works_as_expected() (gas: 21492)
+[PASS] test_U_MCA_07_getMultiVaultSubvaultIndices_works_as_expected() (gas: 19293)
+[PASS] test_U_MCA_08_setMultivaultStatusBatch_works_as_expected() (gas: 223791)
+[PASS] test_U_MCA_09_serialize_works_as_expected() (gas: 236869)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 7.14ms (3.20ms CPU time)
+
+Ran 1 test suite in 30.44ms (7.14ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

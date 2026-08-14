@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/adapters/lido/LidoV1Adapter.unit.t.sol:LidoV1AdapterUnitTest
+[PASS] test_U_LDO1_01_constructor_works_as_expected() (gas: 551052)
+[PASS] test_U_LDO1_02_wrapper_functions_revert_on_wrong_caller() (gas: 21251)
+[PASS] test_U_LDO1_03_submit_works_as_expected() (gas: 41423)
+[PASS] test_U_LDO1_04_submitDiff_works_as_expected() (gas: 498522)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 8.93ms (1.77ms CPU time)
+
+Ran 1 test suite in 32.22ms (8.93ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

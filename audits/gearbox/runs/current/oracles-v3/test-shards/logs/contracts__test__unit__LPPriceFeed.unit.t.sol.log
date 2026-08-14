@@ -1,0 +1,11 @@
+No files changed, compilation skipped
+
+Ran 5 tests for contracts/test/unit/LPPriceFeed.unit.t.sol:LPPriceFeedUnitTest
+[PASS] test_U_LPPF_01_constructor_works_as_expected() (gas: 132350)
+[PASS] test_U_LPPF_02_price_feed_has_correct_metadata() (gas: 20171)
+[PASS] test_U_LPPF_03_latestRoundData_works_as_expected() (gas: 133287)
+[PASS] test_U_LPPF_04_upperBound_works_as_expected() (gas: 38146)
+[PASS] test_U_LPPF_06_setLimiter_works_as_expected() (gas: 75547)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 2.05ms (646.08µs CPU time)
+
+Ran 1 test suite in 17.99ms (2.05ms CPU time): 5 tests passed, 0 failed, 0 skipped (5 total tests)

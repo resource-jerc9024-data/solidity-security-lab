@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/configuration/PriceOracleConfiguration.unit.t.sol:PriceOracleConfigurationUnitTest
+[PASS] test_PO_01_setPriceFeed() (gas: 544092)
+[PASS] test_PO_02_setReservePriceFeed() (gas: 518523)
+[PASS] test_PO_03_emergency_setPriceFeed() (gas: 308280)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 86.01ms (2.78ms CPU time)
+
+Ran 1 test suite in 88.55ms (86.01ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

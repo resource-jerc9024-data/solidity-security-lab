@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 8 tests for contracts/test/unit/adapters/upshift/UpshiftVaultAdapter.unit.t.sol:UpshiftVaultAdapterUnitTest
+[PASS] test_U_UV_01_constructor_works_as_expected() (gas: 857517)
+[PASS] test_U_UV_02_wrapper_functions_revert_on_wrong_caller() (gas: 37368)
+[PASS] test_U_UV_03_direct_withdraw_redeem_revert() (gas: 30545)
+[PASS] test_U_UV_04_requestRedeem_works_as_expected() (gas: 39096)
+[PASS] test_U_UV_05_claim_works_as_expected() (gas: 26573)
+[PASS] test_U_UV_06_withdrawPhantomToken_works_as_expected() (gas: 37009)
+[PASS] test_U_UV_07_depositPhantomToken_reverts() (gas: 18537)
+[PASS] test_U_UV_08_requestRedeemDiff_works_as_expected() (gas: 494871)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 5.09ms (2.12ms CPU time)
+
+Ran 1 test suite in 27.60ms (5.09ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

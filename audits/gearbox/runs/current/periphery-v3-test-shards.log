@@ -1,0 +1,21 @@
+Running shard contracts/test/TreasuryLiquidator.int.t.sol
+contracts/test/TreasuryLiquidator.int.t.sol finished with exit code 0
+Running shard contracts/test/attach/securitize/SecuritizeDefaultLiquidity.attach.t.sol
+contracts/test/attach/securitize/SecuritizeDefaultLiquidity.attach.t.sol finished with exit code 0
+Running shard contracts/test/attach/securitize/SecuritizeOnDemandLiquidity.attach.t.sol
+contracts/test/attach/securitize/SecuritizeOnDemandLiquidity.attach.t.sol finished with exit code 0
+Running shard contracts/test/equivalence/CreditAccountsEquivalenceTest.t.sol
+contracts/test/equivalence/CreditAccountsEquivalenceTest.t.sol finished with exit code 0
+Running shard contracts/test/equivalence/CreditSuiteEquivalenceTest.t.sol
+contracts/test/equivalence/CreditSuiteEquivalenceTest.t.sol finished with exit code 0
+Running shard contracts/test/equivalence/GaugeEquivalenceTest.t.sol
+contracts/test/equivalence/GaugeEquivalenceTest.t.sol finished with exit code 0
+Running shard contracts/test/equivalence/PoolsEquivalenceTest.t.sol
+contracts/test/equivalence/PoolsEquivalenceTest.t.sol finished with exit code 0
+Running shard contracts/test/migration/CloneMigrationTest.t.sol
+contracts/test/migration/CloneMigrationTest.t.sol finished with exit code 0
+Running shard contracts/test/migration/ForkMigrationTest.t.sol
+contracts/test/migration/ForkMigrationTest.t.sol finished with exit code 0
+Running shard node_modules/.pnpm/ds-test@https+++codeload.github.com+dapphub+ds-test+tar.gz+e282159d5170298eb2455a6c05280ab5a73a4ef0/node_modules/ds-test/src/test.t.sol
+node_modules/.pnpm/ds-test@https+++codeload.github.com+dapphub+ds-test+tar.gz+e282159d5170298eb2455a6c05280ab5a73a4ef0/node_modules/ds-test/src/test.t.sol finished with exit code 0
+Sharded tests complete: 10 files, 0 non-zero exits.

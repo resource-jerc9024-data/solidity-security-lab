@@ -1,0 +1,285 @@
+
+Detector: assembly
+BytesLib.toAddress(bytes,uint256) (contracts/integrations/uniswap/BytesLib.sol#12-21) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#16-18)
+BytesLib.toUint24(bytes,uint256) (contracts/integrations/uniswap/BytesLib.sol#23-33) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#28-30)
+BytesLib.concat(bytes,bytes) (contracts/integrations/uniswap/BytesLib.sol#35-103) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#38-100)
+BytesLib.slice(bytes,uint256,uint256) (contracts/integrations/uniswap/BytesLib.sol#105-162) uses assembly
+	- INLINE ASM (contracts/integrations/uniswap/BytesLib.sol#111-159)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+
+Detector: solc-version
+Version constraint ^0.8.10 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- VerbatimInvalidDeduplication
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- DataLocationChangeInInternalOverride
+	- NestedCalldataArrayAbiReencodingSizeValidation.
+It is used by:
+	- ^0.8.10 (contracts/integrations/TokenType.sol#4)
+	- ^0.8.10 (contracts/integrations/compound/ICErc20.sol#2)
+	- ^0.8.10 (contracts/integrations/compound/ICEther.sol#2)
+	- ^0.8.10 (contracts/integrations/compound/ICToken.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/IBaseRewardPool.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/IBooster.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/IConvexToken.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/IRewards.sol#2)
+	- ^0.8.10 (contracts/integrations/convex/Interfaces.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICRVToken.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePoolStETH.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_2.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_3.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_4.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurvePool_StableNG.sol#2)
+	- ^0.8.10 (contracts/integrations/curve/ICurveRegistry.sol#2)
+	- ^0.8.10 (contracts/integrations/lido/IstETH.sol#4)
+	- ^0.8.10 (contracts/integrations/lido/IwstETH.sol#4)
+	- ^0.8.10 (contracts/integrations/traderjoe/ITraderJoeRouter.sol#3)
+	- ^0.8.10 (contracts/integrations/upshift/IUpshiftVault.sol#2)
+Version constraint >=0.7.5 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- FullInlinerNonExpressionSplitArgumentEvaluationOrder
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- DataLocationChangeInInternalOverride
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- SignedImmutables
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching.
+It is used by:
+	- >=0.7.5 (contracts/integrations/camelot/ICamelotV3Router.sol#2)
+	- >=0.7.5 (contracts/integrations/uniswap/IQuoter.sol#2)
+	- >=0.7.5 (contracts/integrations/uniswap/IUniswapV3.sol#2)
+Version constraint >=0.5.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- DirtyBytesArrayToStorage
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- privateCanBeOverridden
+	- SignedArrayStorageCopy
+	- ABIEncoderV2StorageArrayWithMultiSlotElement
+	- DynamicConstructorArgumentsClippedABIV2
+	- UninitializedFunctionPointerInConstructor
+	- IncorrectEventSignatureInLibraries
+	- ABIEncoderV2PackedStorage.
+It is used by:
+	- >=0.5.0 (contracts/integrations/external/IERC20PermitAllowed.sol#2)
+	- >=0.5.0 (contracts/integrations/uniswap/IUniswapV3SwapCallback.sol#2)
+Version constraint >=0.8.0<0.9.0 is too complex.
+It is used by:
+	- >=0.8.0<0.9.0 (contracts/integrations/uniswap/BytesLib.sol#9)
+Version constraint >=0.6.2 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- MissingSideEffectsOnSelectorAccess
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- MissingEscapingInFormatting
+	- ArraySliceDynamicallyEncodedBaseType
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow.
+It is used by:
+	- >=0.6.2 (contracts/integrations/uniswap/IUniswapV2Router01.sol#2)
+	- >=0.6.2 (contracts/integrations/uniswap/IUniswapV2Router02.sol#2)
+Version constraint >=0.6.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)
+	- AbiReencodingHeadOverflowWithStaticArrayCleanup
+	- DirtyBytesArrayToStorage
+	- NestedCalldataArrayAbiReencodingSizeValidation
+	- ABIDecodeTwoDimensionalArrayMemory
+	- KeccakCaching
+	- EmptyByteArrayCopy
+	- DynamicArrayCleanup
+	- MissingEscapingInFormatting
+	- ArraySliceDynamicallyEncodedBaseType
+	- ImplicitConstructorCallvalueCheck
+	- TupleAssignmentMultiStackSlotComponents
+	- MemoryArrayCreationOverflow
+	- YulOptimizerRedundantAssignmentBreakContinue.
+It is used by:
+	- >=0.6.0 (contracts/integrations/uniswap/Path.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+
+Detector: naming-convention
+Function IAToken.UNDERLYING_ASSET_ADDRESS() (contracts/integrations/aave/IAToken.sol#13) is not in mixedCase
+Function IAToken.POOL() (contracts/integrations/aave/IAToken.sol#19) is not in mixedCase
+Function IConvexToken.EMISSIONS_MAX_SUPPLY() (contracts/integrations/convex/IConvexToken.sol#13) is not in mixedCase
+Function ICurveGaugeV3.claim_rewards() (contracts/integrations/convex/Interfaces.sol#12) is not in mixedCase
+Function ICurveGaugeV3.reward_tokens(uint256) (contracts/integrations/convex/Interfaces.sol#14) is not in mixedCase
+Function ICurveGaugeV3.rewarded_token() (contracts/integrations/convex/Interfaces.sol#16) is not in mixedCase
+Function ICurveGaugeV3.lp_token() (contracts/integrations/convex/Interfaces.sol#18) is not in mixedCase
+Function ICurveVoteEscrow.create_lock(uint256,uint256) (contracts/integrations/convex/Interfaces.sol#22) is not in mixedCase
+Function ICurveVoteEscrow.increase_amount(uint256) (contracts/integrations/convex/Interfaces.sol#24) is not in mixedCase
+Function ICurveVoteEscrow.increase_unlock_time(uint256) (contracts/integrations/convex/Interfaces.sol#26) is not in mixedCase
+Function ICurveVoteEscrow.smart_wallet_checker() (contracts/integrations/convex/Interfaces.sol#30) is not in mixedCase
+Function IVoting.vote_for_gauge_weights(address,uint256) (contracts/integrations/convex/Interfaces.sol#45) is not in mixedCase
+Function IRegistry.get_registry() (contracts/integrations/convex/Interfaces.sol#53) is not in mixedCase
+Function IRegistry.get_address(uint256) (contracts/integrations/convex/Interfaces.sol#55) is not in mixedCase
+Function IRegistry.gauge_controller() (contracts/integrations/convex/Interfaces.sol#57) is not in mixedCase
+Function IRegistry.get_lp_token(address) (contracts/integrations/convex/Interfaces.sol#59) is not in mixedCase
+Function IRegistry.get_gauges(address) (contracts/integrations/convex/Interfaces.sol#61) is not in mixedCase
+Function IRewardFactory.CreateCrvRewards(uint256,address) (contracts/integrations/convex/Interfaces.sol#178) is not in mixedCase
+Function IRewardFactory.CreateTokenRewards(address,address,address) (contracts/integrations/convex/Interfaces.sol#180) is not in mixedCase
+Function IStashFactory.CreateStash(uint256,address,address,uint256) (contracts/integrations/convex/Interfaces.sol#190) is not in mixedCase
+Function ITokenFactory.CreateDepositToken(address) (contracts/integrations/convex/Interfaces.sol#194) is not in mixedCase
+Function ICRVToken.set_minter(address) (contracts/integrations/curve/ICRVToken.sol#7) is not in mixedCase
+Function ICurvePool.underlying_coins(uint256) (contracts/integrations/curve/ICurvePool.sol#7) is not in mixedCase
+Function ICurvePool.underlying_coins(int128) (contracts/integrations/curve/ICurvePool.sol#13) is not in mixedCase
+Parameter ICurvePool.exchange(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#17) is not in mixedCase
+Parameter ICurvePool.exchange(uint256,uint256,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#19) is not in mixedCase
+Function ICurvePool.exchange_underlying(int128,int128,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#21) is not in mixedCase
+Parameter ICurvePool.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#21) is not in mixedCase
+Function ICurvePool.exchange_underlying(uint256,uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#23) is not in mixedCase
+Parameter ICurvePool.exchange_underlying(uint256,uint256,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePool.sol#23) is not in mixedCase
+Function ICurvePool.get_dy_underlying(int128,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#25) is not in mixedCase
+Function ICurvePool.get_dy_underlying(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#27) is not in mixedCase
+Function ICurvePool.get_dy(int128,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#29) is not in mixedCase
+Function ICurvePool.get_dy(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#31) is not in mixedCase
+Function ICurvePool.get_virtual_price() (contracts/integrations/curve/ICurvePool.sol#33) is not in mixedCase
+Function ICurvePool.virtual_price() (contracts/integrations/curve/ICurvePool.sol#35) is not in mixedCase
+Function ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256)._token_amount (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,int128,uint256).min_amount (contracts/integrations/curve/ICurvePool.sol#39) is not in mixedCase
+Function ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256)._token_amount (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Parameter ICurvePool.remove_liquidity_one_coin(uint256,uint256,uint256).min_amount (contracts/integrations/curve/ICurvePool.sol#41) is not in mixedCase
+Function ICurvePool.A() (contracts/integrations/curve/ICurvePool.sol#43) is not in mixedCase
+Function ICurvePool.A_precise() (contracts/integrations/curve/ICurvePool.sol#45) is not in mixedCase
+Function ICurvePool.calc_withdraw_one_coin(uint256,int128) (contracts/integrations/curve/ICurvePool.sol#47) is not in mixedCase
+Parameter ICurvePool.calc_withdraw_one_coin(uint256,int128)._burn_amount (contracts/integrations/curve/ICurvePool.sol#47) is not in mixedCase
+Function ICurvePool.calc_withdraw_one_coin(uint256,uint256) (contracts/integrations/curve/ICurvePool.sol#49) is not in mixedCase
+Parameter ICurvePool.calc_withdraw_one_coin(uint256,uint256)._burn_amount (contracts/integrations/curve/ICurvePool.sol#49) is not in mixedCase
+Function ICurvePool.admin_balances(uint256) (contracts/integrations/curve/ICurvePool.sol#51) is not in mixedCase
+Function ICurvePool.admin_fee() (contracts/integrations/curve/ICurvePool.sol#57) is not in mixedCase
+Function ICurvePool.block_timestamp_last() (contracts/integrations/curve/ICurvePool.sol#59) is not in mixedCase
+Function ICurvePool.initial_A() (contracts/integrations/curve/ICurvePool.sol#61) is not in mixedCase
+Function ICurvePool.future_A() (contracts/integrations/curve/ICurvePool.sol#63) is not in mixedCase
+Function ICurvePool.initial_A_time() (contracts/integrations/curve/ICurvePool.sol#65) is not in mixedCase
+Function ICurvePool.future_A_time() (contracts/integrations/curve/ICurvePool.sol#67) is not in mixedCase
+Function ICurvePool.mid_fee() (contracts/integrations/curve/ICurvePool.sol#69) is not in mixedCase
+Parameter ICurvePoolStETH.exchange(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePoolStETH.sol#11) is not in mixedCase
+Function ICurvePoolStETH.exchange_underlying(int128,int128,uint256,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#13) is not in mixedCase
+Parameter ICurvePoolStETH.exchange_underlying(int128,int128,uint256,uint256).min_dy (contracts/integrations/curve/ICurvePoolStETH.sol#13) is not in mixedCase
+Function ICurvePoolStETH.add_liquidity(uint256[2],uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#15) is not in mixedCase
+Parameter ICurvePoolStETH.add_liquidity(uint256[2],uint256).min_mint_amount (contracts/integrations/curve/ICurvePoolStETH.sol#15) is not in mixedCase
+Function ICurvePoolStETH.remove_liquidity(uint256,uint256[2]) (contracts/integrations/curve/ICurvePoolStETH.sol#17) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity(uint256,uint256[2]).min_amounts (contracts/integrations/curve/ICurvePoolStETH.sol#17) is not in mixedCase
+Function ICurvePoolStETH.get_dy_underlying(int128,int128,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#19) is not in mixedCase
+Function ICurvePoolStETH.get_dy(int128,int128,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#21) is not in mixedCase
+Function ICurvePoolStETH.get_virtual_price() (contracts/integrations/curve/ICurvePoolStETH.sol#23) is not in mixedCase
+Function ICurvePoolStETH.virtual_price() (contracts/integrations/curve/ICurvePoolStETH.sol#25) is not in mixedCase
+Function ICurvePoolStETH.lp_token() (contracts/integrations/curve/ICurvePoolStETH.sol#27) is not in mixedCase
+Function ICurvePoolStETH.remove_liquidity_one_coin(uint256,int128,uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#29) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity_one_coin(uint256,int128,uint256)._token_amount (contracts/integrations/curve/ICurvePoolStETH.sol#29) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity_one_coin(uint256,int128,uint256).min_amount (contracts/integrations/curve/ICurvePoolStETH.sol#29) is not in mixedCase
+Function ICurvePoolStETH.remove_liquidity_imbalance(uint256[2],uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#31) is not in mixedCase
+Parameter ICurvePoolStETH.remove_liquidity_imbalance(uint256[2],uint256).max_burn_amount (contracts/integrations/curve/ICurvePoolStETH.sol#31) is not in mixedCase
+Function ICurvePoolStETH.calc_token_amount(uint256[2],bool) (contracts/integrations/curve/ICurvePoolStETH.sol#33) is not in mixedCase
+Parameter ICurvePoolStETH.calc_token_amount(uint256[2],bool)._is_deposit (contracts/integrations/curve/ICurvePoolStETH.sol#33) is not in mixedCase
+Function ICurvePoolStETH.A() (contracts/integrations/curve/ICurvePoolStETH.sol#35) is not in mixedCase
+Function ICurvePoolStETH.A_precise() (contracts/integrations/curve/ICurvePoolStETH.sol#37) is not in mixedCase
+Function ICurvePoolStETH.calc_withdraw_one_coin(uint256,int128) (contracts/integrations/curve/ICurvePoolStETH.sol#39) is not in mixedCase
+Parameter ICurvePoolStETH.calc_withdraw_one_coin(uint256,int128)._burn_amount (contracts/integrations/curve/ICurvePoolStETH.sol#39) is not in mixedCase
+Function ICurvePoolStETH.admin_balances(uint256) (contracts/integrations/curve/ICurvePoolStETH.sol#41) is not in mixedCase
+Function ICurvePoolStETH.admin_fee() (contracts/integrations/curve/ICurvePoolStETH.sol#47) is not in mixedCase
+Function ICurvePoolStETH.block_timestamp_last() (contracts/integrations/curve/ICurvePoolStETH.sol#49) is not in mixedCase
+Function ICurvePoolStETH.initial_A() (contracts/integrations/curve/ICurvePoolStETH.sol#51) is not in mixedCase
+Function ICurvePoolStETH.future_A() (contracts/integrations/curve/ICurvePoolStETH.sol#53) is not in mixedCase
+Function ICurvePoolStETH.initial_A_time() (contracts/integrations/curve/ICurvePoolStETH.sol#55) is not in mixedCase
+Function ICurvePoolStETH.future_A_time() (contracts/integrations/curve/ICurvePoolStETH.sol#57) is not in mixedCase
+Function ICurvePool2Assets.add_liquidity(uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#11) is not in mixedCase
+Parameter ICurvePool2Assets.add_liquidity(uint256[2],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_2.sol#11) is not in mixedCase
+Function ICurvePool2Assets.remove_liquidity(uint256,uint256[2]) (contracts/integrations/curve/ICurvePool_2.sol#13) is not in mixedCase
+Parameter ICurvePool2Assets.remove_liquidity(uint256,uint256[2]).min_amounts (contracts/integrations/curve/ICurvePool_2.sol#13) is not in mixedCase
+Function ICurvePool2Assets.remove_liquidity_imbalance(uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#15) is not in mixedCase
+Parameter ICurvePool2Assets.remove_liquidity_imbalance(uint256[2],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_2.sol#15) is not in mixedCase
+Function ICurvePool2Assets.calc_token_amount(uint256[2],bool) (contracts/integrations/curve/ICurvePool_2.sol#17) is not in mixedCase
+Parameter ICurvePool2Assets.calc_token_amount(uint256[2],bool)._is_deposit (contracts/integrations/curve/ICurvePool_2.sol#17) is not in mixedCase
+Function ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256) (contracts/integrations/curve/ICurvePool_2.sol#19-23) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._first_balances (contracts/integrations/curve/ICurvePool_2.sol#20) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._last_balances (contracts/integrations/curve/ICurvePool_2.sol#21) is not in mixedCase
+Parameter ICurvePool2Assets.get_twap_balances(uint256[2],uint256[2],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_2.sol#22) is not in mixedCase
+Function ICurvePool2Assets.get_balances() (contracts/integrations/curve/ICurvePool_2.sol#25) is not in mixedCase
+Function ICurvePool2Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_2.sol#27) is not in mixedCase
+Function ICurvePool2Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_2.sol#29) is not in mixedCase
+Function ICurvePool3Assets.add_liquidity(uint256[3],uint256) (contracts/integrations/curve/ICurvePool_3.sol#11) is not in mixedCase
+Parameter ICurvePool3Assets.add_liquidity(uint256[3],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_3.sol#11) is not in mixedCase
+Function ICurvePool3Assets.remove_liquidity(uint256,uint256[3]) (contracts/integrations/curve/ICurvePool_3.sol#13) is not in mixedCase
+Parameter ICurvePool3Assets.remove_liquidity(uint256,uint256[3]).min_amounts (contracts/integrations/curve/ICurvePool_3.sol#13) is not in mixedCase
+Function ICurvePool3Assets.remove_liquidity_imbalance(uint256[3],uint256) (contracts/integrations/curve/ICurvePool_3.sol#15) is not in mixedCase
+Parameter ICurvePool3Assets.remove_liquidity_imbalance(uint256[3],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_3.sol#15) is not in mixedCase
+Function ICurvePool3Assets.calc_token_amount(uint256[3],bool) (contracts/integrations/curve/ICurvePool_3.sol#17) is not in mixedCase
+Parameter ICurvePool3Assets.calc_token_amount(uint256[3],bool)._is_deposit (contracts/integrations/curve/ICurvePool_3.sol#17) is not in mixedCase
+Function ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256) (contracts/integrations/curve/ICurvePool_3.sol#19-23) is not in mixedCase
+Parameter ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256)._first_balances (contracts/integrations/curve/ICurvePool_3.sol#20) is not in mixedCase
+Parameter ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256)._last_balances (contracts/integrations/curve/ICurvePool_3.sol#21) is not in mixedCase
+Parameter ICurvePool3Assets.get_twap_balances(uint256[3],uint256[3],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_3.sol#22) is not in mixedCase
+Function ICurvePool3Assets.get_balances() (contracts/integrations/curve/ICurvePool_3.sol#25) is not in mixedCase
+Function ICurvePool3Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_3.sol#27) is not in mixedCase
+Function ICurvePool3Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_3.sol#29) is not in mixedCase
+Function ICurvePool4Assets.add_liquidity(uint256[4],uint256) (contracts/integrations/curve/ICurvePool_4.sol#11) is not in mixedCase
+Parameter ICurvePool4Assets.add_liquidity(uint256[4],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_4.sol#11) is not in mixedCase
+Function ICurvePool4Assets.remove_liquidity(uint256,uint256[4]) (contracts/integrations/curve/ICurvePool_4.sol#13) is not in mixedCase
+Parameter ICurvePool4Assets.remove_liquidity(uint256,uint256[4]).min_amounts (contracts/integrations/curve/ICurvePool_4.sol#13) is not in mixedCase
+Function ICurvePool4Assets.remove_liquidity_imbalance(uint256[4],uint256) (contracts/integrations/curve/ICurvePool_4.sol#15) is not in mixedCase
+Parameter ICurvePool4Assets.remove_liquidity_imbalance(uint256[4],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_4.sol#15) is not in mixedCase
+Function ICurvePool4Assets.calc_token_amount(uint256[4],bool) (contracts/integrations/curve/ICurvePool_4.sol#17) is not in mixedCase
+Parameter ICurvePool4Assets.calc_token_amount(uint256[4],bool)._is_deposit (contracts/integrations/curve/ICurvePool_4.sol#17) is not in mixedCase
+Function ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256) (contracts/integrations/curve/ICurvePool_4.sol#19-23) is not in mixedCase
+Parameter ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256)._first_balances (contracts/integrations/curve/ICurvePool_4.sol#20) is not in mixedCase
+Parameter ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256)._last_balances (contracts/integrations/curve/ICurvePool_4.sol#21) is not in mixedCase
+Parameter ICurvePool4Assets.get_twap_balances(uint256[4],uint256[4],uint256)._time_elapsed (contracts/integrations/curve/ICurvePool_4.sol#22) is not in mixedCase
+Function ICurvePool4Assets.get_balances() (contracts/integrations/curve/ICurvePool_4.sol#25) is not in mixedCase
+Function ICurvePool4Assets.get_previous_balances() (contracts/integrations/curve/ICurvePool_4.sol#27) is not in mixedCase
+Function ICurvePool4Assets.get_price_cumulative_last() (contracts/integrations/curve/ICurvePool_4.sol#29) is not in mixedCase
+Function ICurvePoolStableNG.add_liquidity(uint256[],uint256) (contracts/integrations/curve/ICurvePool_StableNG.sol#9) is not in mixedCase
+Parameter ICurvePoolStableNG.add_liquidity(uint256[],uint256).min_mint_amount (contracts/integrations/curve/ICurvePool_StableNG.sol#9) is not in mixedCase
+Function ICurvePoolStableNG.remove_liquidity(uint256,uint256[]) (contracts/integrations/curve/ICurvePool_StableNG.sol#11) is not in mixedCase
+Parameter ICurvePoolStableNG.remove_liquidity(uint256,uint256[]).min_amounts (contracts/integrations/curve/ICurvePool_StableNG.sol#11) is not in mixedCase
+Function ICurvePoolStableNG.remove_liquidity_imbalance(uint256[],uint256) (contracts/integrations/curve/ICurvePool_StableNG.sol#13) is not in mixedCase
+Parameter ICurvePoolStableNG.remove_liquidity_imbalance(uint256[],uint256).max_burn_amount (contracts/integrations/curve/ICurvePool_StableNG.sol#13) is not in mixedCase
+Function ICurvePoolStableNG.calc_token_amount(uint256[],bool) (contracts/integrations/curve/ICurvePool_StableNG.sol#15) is not in mixedCase
+Parameter ICurvePoolStableNG.calc_token_amount(uint256[],bool)._is_deposit (contracts/integrations/curve/ICurvePool_StableNG.sol#15) is not in mixedCase
+Function ICurvePoolStableNG.get_balances() (contracts/integrations/curve/ICurvePool_StableNG.sol#17) is not in mixedCase
+Function ICurvePoolStableNG.N_COINS() (contracts/integrations/curve/ICurvePool_StableNG.sol#19) is not in mixedCase
+Function ICurveRegistry.get_pool_from_lp_token(address) (contracts/integrations/curve/ICurveRegistry.sol#5) is not in mixedCase
+Function ICurveRegistry.get_n_coins(address) (contracts/integrations/curve/ICurveRegistry.sol#7) is not in mixedCase
+Function ICurveRegistry.get_lp_token(address) (contracts/integrations/curve/ICurveRegistry.sol#9) is not in mixedCase
+Function ILidoWithdrawalQueue.STETH() (contracts/integrations/lido/ILidoWithdrawalQueue.sol#44) is not in mixedCase
+Function ILidoWithdrawalQueue.WSTETH() (contracts/integrations/lido/ILidoWithdrawalQueue.sol#46) is not in mixedCase
+Function IMellowWrapper.WETH() (contracts/integrations/mellow/IMellowWrapper.sol#9) is not in mixedCase
+Parameter IPendleRouter.redeemPyToToken(address,address,uint256,TokenOutput).YT (contracts/integrations/pendle/IPendleRouter.sol#100) is not in mixedCase
+Function IYToken.PT() (contracts/integrations/pendle/IPendleRouter.sol#127) is not in mixedCase
+Function IPToken.YT() (contracts/integrations/pendle/IPendleRouter.sol#133) is not in mixedCase
+Parameter BytesLib.toAddress(bytes,uint256)._bytes (contracts/integrations/uniswap/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.toAddress(bytes,uint256)._start (contracts/integrations/uniswap/BytesLib.sol#12) is not in mixedCase
+Parameter BytesLib.toUint24(bytes,uint256)._bytes (contracts/integrations/uniswap/BytesLib.sol#23) is not in mixedCase
+Parameter BytesLib.toUint24(bytes,uint256)._start (contracts/integrations/uniswap/BytesLib.sol#23) is not in mixedCase
+Parameter BytesLib.concat(bytes,bytes)._preBytes (contracts/integrations/uniswap/BytesLib.sol#35) is not in mixedCase
+Parameter BytesLib.concat(bytes,bytes)._postBytes (contracts/integrations/uniswap/BytesLib.sol#35) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._bytes (contracts/integrations/uniswap/BytesLib.sol#105) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._start (contracts/integrations/uniswap/BytesLib.sol#105) is not in mixedCase
+Parameter BytesLib.slice(bytes,uint256,uint256)._length (contracts/integrations/uniswap/BytesLib.sol#105) is not in mixedCase
+Function IUniswapV2Router01.WETH() (contracts/integrations/uniswap/IUniswapV2Router01.sol#7) is not in mixedCase
+Function IUniswapV2Router02.WETH() (contracts/integrations/uniswap/IUniswapV2Router02.sol#54) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Detector: too-many-digits
+BytesLib.toAddress(bytes,uint256) (contracts/integrations/uniswap/BytesLib.sol#12-21) uses literals with too many digits:
+	- tempAddress = mload(uint256)(_bytes + 0x20 + _start) / 0x1000000000000000000000000 (contracts/integrations/uniswap/BytesLib.sol#17)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#too-many-digits
+/workspaces/gearbox-audit/source/integrations-v3 analyzed (92 contracts with 102 detectors), 172 result(s) found
+--ignore-compile used, if something goes wrong, consider removing the ignore compile flag
+'forge config --json' running

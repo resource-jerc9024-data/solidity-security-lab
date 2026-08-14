@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for contracts/test/integration/credit/Quotas.int.t.sol:QuotasIntegrationTest
+[PASS] test_I_CMQ_03_updateQuotas_works_correctly() (gas: 82890832)
+[PASS] test_I_CMQ_04_quotas_are_handled_correctly_at_repayment_partial_case() (gas: 83039308)
+[PASS] test_I_CMQ_05_quotas_are_handled_correctly_at_repayment_full_case() (gas: 83039269)
+[PASS] test_I_CMQ_06_quotas_are_disabled_on_close_account_and_all_quota_fees_are_repaid() (gas: 82880638)
+[PASS] test_I_CMQ_07_calcDebtAndCollateral_correctly_includes_quota_interest(uint96,uint96) (runs: 256, μ: 82893904, ~: 82882370)
+[PASS] test_I_CMQ_08_creditManager_triggers_limit_zeroing_on_loss() (gas: 82874677)
+[PASS] test_I_CMQ_09_updateQuotas_with_positive_value_reverts_on_zero_debt() (gas: 82580402)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 3.68s (3.68s CPU time)
+
+Ran 1 test suite in 3.68s (3.68s CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

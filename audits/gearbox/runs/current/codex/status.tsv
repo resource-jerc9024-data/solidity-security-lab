@@ -1,0 +1,7 @@
+pass	exit_code	started_utc	finished_utc
+01-credit-pool-liquidation	0	2026-08-14T15:38:56Z	2026-08-14T15:40:09Z
+02-permissionless-governance-deployment	0	2026-08-14T15:40:09Z	2026-08-14T15:42:10Z
+03-oracles-health-pricing	0	2026-08-14T15:42:10Z	2026-08-14T15:43:29Z
+04-adapters-external-calls	0	2026-08-14T15:43:29Z	2026-08-14T15:44:56Z
+05-bots-emergency-migration	0	2026-08-14T15:44:56Z	2026-08-14T15:47:04Z
+06-cross-repository-synthesis	0	2026-08-14T15:47:04Z	2026-08-14T15:50:12Z

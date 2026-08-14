@@ -1,0 +1,10 @@
+No files changed, compilation skipped
+
+Ran 4 tests for contracts/test/unit/ConstantPriceFeed.unit.t.sol:ConstantPriceFeedUnitTest
+[PASS] test_U_CPF_1_initialization() (gas: 21282)
+[PASS] test_U_CPF_2_latestRoundData() (gas: 14267)
+[PASS] test_U_CPF_3_serialize() (gas: 11824)
+[PASS] test_U_CPF_4_constructor_validation() (gas: 69796)
+Suite result: ok. 4 passed; 0 failed; 0 skipped; finished in 1.19ms (301.76µs CPU time)
+
+Ran 1 test suite in 14.71ms (1.19ms CPU time): 4 tests passed, 0 failed, 0 skipped (4 total tests)

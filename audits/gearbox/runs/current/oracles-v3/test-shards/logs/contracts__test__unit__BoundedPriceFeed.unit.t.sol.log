@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/unit/BoundedPriceFeed.unit.t.sol:BoundedPriceFeedUnitTest
+[PASS] test_U_BPF_01_constructor_works_as_expected() (gas: 514468)
+[PASS] test_U_BPF_02_price_feed_has_correct_metadata() (gas: 16150)
+[PASS] test_U_BPF_03_latestRoundData_works_as_expected() (gas: 43226)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 1.54ms (716.26µs CPU time)
+
+Ran 1 test suite in 19.58ms (1.54ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

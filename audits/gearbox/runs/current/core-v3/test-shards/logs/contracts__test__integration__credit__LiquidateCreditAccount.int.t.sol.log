@@ -1,0 +1,11 @@
+No files changed, compilation skipped
+
+Ran 5 tests for contracts/test/integration/credit/LiquidateCreditAccount.int.t.sol:LiquidateCreditAccountIntegrationTest
+[PASS] test_I_LCA_01_liquidateCreditAccount_reverts_if_credit_account_not_exists() (gas: 82237467)
+[PASS] test_I_LCA_02_liquidateCreditAccount_reverts_if_hf_is_greater_than_1() (gas: 82734208)
+[PASS] test_I_LCA_03_liquidateCreditAccount_executes_needed_calls() (gas: 83674083)
+[PASS] test_I_LCA_04_liquidateCreditAccount_prohibits_borrowing_on_loss() (gas: 83500302)
+[PASS] test_I_LCA_06_liquidateCreditAccount_reverts_on_internal_call_in_multicall_on_closure() (gas: 82803581)
+Suite result: ok. 5 passed; 0 failed; 0 skipped; finished in 81.42ms (73.42ms CPU time)
+
+Ran 1 test suite in 84.17ms (81.42ms CPU time): 5 tests passed, 0 failed, 0 skipped (5 total tests)

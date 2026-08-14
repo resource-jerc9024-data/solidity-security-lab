@@ -1,0 +1,14 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/gas/ArrayAlloc.gas.t.sol:ArrayAllocGasTest
+[PASS] test_G_AA_01_array_of_tuples_allocation_gas_usage() (gas: 336748)
+Logs:
+  allocate_array_of_tupls: 333224
+
+[PASS] test_G_AA_02_tuple_of_arrays_allocation_gas_usage() (gas: 240784)
+Logs:
+  allocate_tuple_of_arrays: 237310
+
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 8.06ms (7.72ms CPU time)
+
+Ran 1 test suite in 44.28ms (8.06ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

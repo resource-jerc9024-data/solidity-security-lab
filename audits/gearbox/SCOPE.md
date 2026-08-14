@@ -19,7 +19,7 @@ Exact commits must be captured from clean local checkouts before analysis begins
 | https://github.com/Gearbox-protocol/oracles-v3 | `contracts/`, excluding `contracts/test/` | `287739a0d85d4c1a2ad15b8aebcc2fcb4db0af4d` (`main`) |
 | https://github.com/Gearbox-protocol/integrations-v3 | `contracts/`, excluding `contracts/test/` | `39e70f05e09ef4224febb3a8c9890afe48adbec9` (`main`) |
 | https://github.com/Gearbox-protocol/bots-v3 | `contracts/bots/` | `ebec19d2396a1abcf69e6496a193abb7a9f5c027` (`main`) |
-| https://github.com/Gearbox-protocol/periphery-v3 | `contracts/emergency/`, `contracts/kyc/`, and `contracts/migration/`, excluding contracts whose names contain `Previewer` | `2a63cf27b458c9c3b7824086da32f9dd6ee73613` (`main`) |
+| https://github.com/Gearbox-protocol/periphery-v3 | `contracts/emergency/`, `contracts/kyc/`, and `contracts/migration/`, excluding contracts whose names contain `Previewer`; the pinned tree has no `contracts/kyc/` directory, and `contracts/rwa/` is not silently substituted | `2a63cf27b458c9c3b7824086da32f9dd6ee73613` (`main`) |
 
 Gearbox's canonical V3.1 scope says the whole listed codebase matters, including
 contracts that are not deployed. Mainnet-relevant PoCs should use contract versions

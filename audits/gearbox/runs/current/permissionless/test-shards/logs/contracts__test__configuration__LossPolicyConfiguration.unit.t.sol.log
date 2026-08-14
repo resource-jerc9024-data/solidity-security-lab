@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for contracts/test/configuration/LossPolicyConfiguration.unit.t.sol:LossPolicyConfigurationUnitTest
+[PASS] test_LP_01_configure() (gas: 78916)
+[PASS] test_LP_02_emergency_configure() (gas: 81612)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 69.53ms (549.07µs CPU time)
+
+Ran 1 test suite in 70.63ms (69.53ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

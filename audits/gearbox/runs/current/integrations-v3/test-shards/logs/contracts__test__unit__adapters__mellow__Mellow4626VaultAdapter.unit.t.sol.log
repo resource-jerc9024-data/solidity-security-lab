@@ -1,0 +1,16 @@
+No files changed, compilation skipped
+
+Ran 10 tests for contracts/test/unit/adapters/mellow/Mellow4626VaultAdapter.unit.t.sol:Mellow4626VaultAdapterUnitTest
+[PASS] test_U_M4626_01_constructor_works_as_expected() (gas: 713225)
+[PASS] test_U_M4626_02_constructor_reverts_on_invalid_multivault() (gas: 69841)
+[PASS] test_U_M4626_03_wrapper_functions_revert_on_wrong_caller() (gas: 54586)
+[PASS] test_U_M4626_04_deposit_works_as_expected() (gas: 48688)
+[PASS] test_U_M4626_05_depositDiff_works_as_expected() (gas: 500693)
+[PASS] test_U_M4626_06_mint_works_as_expected() (gas: 48742)
+[PASS] test_U_M4626_07_withdraw_works_as_expected() (gas: 35477)
+[PASS] test_U_M4626_08_redeem_works_as_expected() (gas: 35447)
+[PASS] test_U_M4626_09_redeemDiff_works_as_expected() (gas: 479332)
+[PASS] test_U_M4626_10_serialize_works_as_expected() (gas: 14578)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 9.34ms (3.96ms CPU time)
+
+Ran 1 test suite in 25.15ms (9.34ms CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

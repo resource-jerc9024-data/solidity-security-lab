@@ -1,0 +1,96 @@
+No files changed, compilation skipped
+
+Ran 18 tests for contracts/test/gas/credit/CreditFacade.gas.t.sol:CreditFacadeGasTest
+[PASS] test_G_FA_02_openCreditAccountMulticall_gas_estimate_1() (gas: 82570337)
+Logs:
+  Gas spent - opening an account with just adding collateral: 
+  328503
+
+[PASS] test_G_FA_03_openCreditAccountMulticall_gas_estimate_2() (gas: 83318544)
+Logs:
+  Gas spent - opening an account with adding collateral and executing one swap: 
+  438220
+
+[PASS] test_G_FA_04_openCreditAccountMulticall_gas_estimate_3() (gas: 83332636)
+Logs:
+  Gas spent - opening an account with adding collateral and executing two swaps: 
+  452013
+
+[PASS] test_G_FA_05_openCreditAccountMulticall_gas_estimate_4() (gas: 82806228)
+Logs:
+  Gas spent array: 
+  505195
+
+[PASS] test_G_FA_06_openCreditAccountMulticall_gas_estimate_5() (gas: 83471312)
+Logs:
+  Gas spent - opening an account with swapping into quoted collateral: 
+  534855
+
+[PASS] test_G_FA_07_increaseDebt_gas_estimate_1() (gas: 82622559)
+Logs:
+  Gas spent - multicall with increaseDebt: 
+  51114
+
+[PASS] test_G_FA_08_decreaseDebt_gas_estimate_1() (gas: 82626986)
+Logs:
+  Gas spent - multicall with decreaseDebt: 
+  55480
+
+[PASS] test_G_FA_09_decreaseDebt_gas_estimate_2() (gas: 82842044)
+Logs:
+  Gas spent - multicall with decreaseDebt with quoted tokens: 
+  115605
+
+[PASS] test_G_FA_12A_multicall_gas_estimate_1A() (gas: 83361852)
+Logs:
+  Gas spent - multicall with two swaps: 
+  152933
+
+[PASS] test_G_FA_12_multicall_gas_estimate_1() (gas: 83347761)
+Logs:
+  Gas spent - multicall with a single swap: 
+  139140
+
+[PASS] test_G_FA_13_multicall_gas_estimate_2() (gas: 83455552)
+Logs:
+  Gas spent - multicall with a single swap into quoted collateral and updating quotas: 
+  204859
+
+[PASS] test_G_FA_14_closeCreditAccount_gas_estimate_1() (gas: 82448949)
+Logs:
+  Gas spent - closeCreditAccount with no debt and underlying only: 
+  54501
+
+[PASS] test_G_FA_15_closeCreditAccount_gas_estimate_2() (gas: 82508412)
+Logs:
+  Gas spent - closeCreditAccount with debt and underlying: 
+  76934
+
+[PASS] test_G_FA_16_closeCreditAccount_gas_estimate_3() (gas: 82634026)
+Logs:
+  Gas spent - closeCreditAccount with debt and 2 tokens: 
+  110524
+
+[PASS] test_G_FA_17_closeCreditAccount_gas_estimate_4() (gas: 83256477)
+Logs:
+  Gas spent - closeCreditAccount with one swap: 
+  185576
+
+[PASS] test_G_FA_18_liquidateCreditAccount_gas_esimate_1() (gas: 82592107)
+Logs:
+  Gas spent - liquidateCreditAccount with underlying only: 
+  91770
+
+[PASS] test_G_FA_19_liquidateCreditAccount_gas_estimate_2() (gas: 82903977)
+Logs:
+  Gas spent - liquidateCreditAccount with one collateral token: 
+  208621
+
+[PASS] test_G_FA_20_liquidateCreditAccount_gas_esimate_2() (gas: 83079264)
+Logs:
+  Gas spent - liquidateCreditAccount with two collateral tokens: 
+  261861
+
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 231.23ms (221.78ms CPU time)
+
+Ran 1 test suite in 233.96ms (231.23ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)

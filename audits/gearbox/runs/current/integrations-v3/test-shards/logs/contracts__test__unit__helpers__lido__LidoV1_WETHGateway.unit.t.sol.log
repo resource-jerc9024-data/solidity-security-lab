@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for contracts/test/unit/helpers/lido/LidoV1_WETHGateway.unit.t.sol:LidoV1GatewayUnitTest
+[PASS] test_U_LWG_01_constructor_works_as_expected() (gas: 79793)
+[PASS] test_U_LWG_02_receive_works_as_expected() (gas: 27075)
+[PASS] test_U_LWG_03_submit_works_as_expected() (gas: 438380)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 4.81ms (1.36ms CPU time)
+
+Ran 1 test suite in 22.75ms (4.81ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

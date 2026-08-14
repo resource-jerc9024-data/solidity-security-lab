@@ -1,0 +1,12 @@
+No files changed, compilation skipped
+
+Ran 6 tests for contracts/test/unit/adapters/lido/WstETHV1Adapter.unit.t.sol:WstETHV1AdapterUnitTest
+[PASS] test_U_LDO1W_01_constructor_works_as_expected() (gas: 576402)
+[PASS] test_U_LDO1W_02_wrapper_functions_revert_on_wrong_caller() (gas: 36934)
+[PASS] test_U_LDO1W_03_wrap_works_as_expected() (gas: 39111)
+[PASS] test_U_LDO1W_04_wrapDiff_works_as_expected() (gas: 494764)
+[PASS] test_U_LDO1W_05_unwrap_works_as_expected() (gas: 28605)
+[PASS] test_U_LDO1W_06_unwrapDiff_works_as_expected() (gas: 478070)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 8.47ms (3.05ms CPU time)
+
+Ran 1 test suite in 24.81ms (8.47ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)

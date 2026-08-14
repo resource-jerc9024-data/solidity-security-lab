@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/unit/updatable/RedstonePriceFeed.unit.t.sol:RedstonePriceFeedUnitTest
+[PASS] test_U_RPF_01_constructor_sets_correct_values() (gas: 58742)
+[PASS] test_U_RPF_02_updatePrice_successfully_updates_price_with_correct_payload() (gas: 221447)
+[PASS] test_U_RPF_03_updatePrice_fails_on_at_least_one_package_timestamp_incorrect() (gas: 200944)
+[PASS] test_U_RPF_04_updatePrice_skips_execution_if_updating_with_an_old_payload() (gas: 296448)
+[PASS] test_U_RPF_05_updatePrice_fully_executes_on_new_payload_in_same_block() (gas: 383148)
+[PASS] test_U_RPF_06_updatePrice_fails_on_wrong_signer() (gas: 203822)
+[PASS] test_U_RPF_07_updatePrice_fails_on_insufficient_signatures() (gas: 182395)
+[PASS] test_U_RPF_08_updatePrice_reverts_on_zero_price() (gas: 212490)
+[PASS] test_U_RPF_09_updatePrice_fails_if_payload_timestamp_too_far_from_block() (gas: 189244)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 31.55ms (28.60ms CPU time)
+
+Ran 1 test suite in 32.57ms (31.55ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

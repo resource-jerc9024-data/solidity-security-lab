@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for contracts/test/unit/adapters/erc4626/ERC4626Adapter.unit.t.sol:ERC4626AdapterUnitTest
+[PASS] test_U_TV_01_constructor_works_as_expected() (gas: 1360473)
+[PASS] test_U_TV_02_wrapper_functions_revert_on_wrong_caller() (gas: 54527)
+[PASS] test_U_TV_03_deposit_works_as_expected() (gas: 45415)
+[PASS] test_U_TV_04_depositDiff_works_as_expected() (gas: 495473)
+[PASS] test_U_TV_05_mint_works_as_expected() (gas: 45470)
+[PASS] test_U_TV_06_withdraw_works_as_expected() (gas: 35397)
+[PASS] test_U_TV_07_redeem_works_as_expected() (gas: 35341)
+[PASS] test_U_TV_08_redeemDiff_works_as_expected() (gas: 479147)
+[PASS] test_U_TV_09_referral_adapter_works_as_expected() (gas: 1955914)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 9.23ms (5.13ms CPU time)
+
+Ran 1 test suite in 28.89ms (9.23ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

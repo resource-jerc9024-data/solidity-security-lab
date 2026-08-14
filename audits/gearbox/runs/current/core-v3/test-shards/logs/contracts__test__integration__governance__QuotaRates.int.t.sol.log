@@ -1,0 +1,7 @@
+No files changed, compilation skipped
+
+Ran 1 test for contracts/test/integration/governance/QuotaRates.int.t.sol:QuotaRatesIntegrationTest
+[PASS] test_I_QR_01_tumbler_allows_to_change_rates_in_poolQuotaKeeper() (gas: 392315)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 1.89ms (360.66µs CPU time)
+
+Ran 1 test suite in 30.45ms (1.89ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)

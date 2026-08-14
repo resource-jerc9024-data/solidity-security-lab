@@ -1,0 +1,27 @@
+No files changed, compilation skipped
+
+Warning: the following cheatcode(s) are deprecated and will be removed in future versions:
+  revertTo(uint256): replaced by `revertToState`
+  snapshot(): replaced by `snapshotState`
+Ran 18 tests for contracts/test/unit/pool/PoolQuotaKeeperV3.unit.t.sol:PoolQuotaKeeperV3UnitTest
+[PASS] test_U_PQK_01_constructor_sets_parameters_correctly() (gas: 10921)
+[PASS] test_U_PQK_02_configuration_functions_reverts_if_call_nonConfigurator() (gas: 34904)
+[PASS] test_U_PQK_03_gaugeOnly_funcitons_reverts_if_called_by_non_gauge() (gas: 14538)
+[PASS] test_U_PQK_04_creditManagerOnly_funcitons_reverts_if_called_by_non_gauge() (gas: 20744)
+[PASS] test_U_PQK_05_addQuotaToken_adds_token_and_set_parameters_correctly() (gas: 112275)
+[PASS] test_U_PQK_06_addQuotaToken_reverts_on_adding_the_same_token_twice() (gas: 103686)
+[PASS] test_U_PQK_07B_updateRates_reverts_on_zero_rate() (gas: 131979)
+[PASS] test_U_PQK_07_updateRates_works_as_expected() (gas: 54259410)
+[PASS] test_U_PQK_08_setGauge_works_as_expected() (gas: 2795423)
+[PASS] test_U_PQK_09_addCreditManager_reverts_for_non_cm_contract() (gas: 43065)
+[PASS] test_U_PQK_10_addCreditManager_works_as_expected() (gas: 1885125)
+[PASS] test_U_PQK_11_reverts_for_unregistered_token() (gas: 16255)
+[PASS] test_U_PQK_12_setTokenLimit_works_as_expected() (gas: 189305)
+[PASS] test_U_PQK_13_setTokenQuotaIncreaseFee_works_as_expected() (gas: 148859)
+[PASS] test_U_PQK_14_updateQuotas_reverts_for_unregistered_token() (gas: 240391)
+[PASS] test_U_PQK_15_updateQuotas_works_as_expected() (gas: 512469)
+[PASS] test_U_PQK_16_removeQuotas_works_correctly() (gas: 1146996)
+[PASS] test_U_PQK_17_accrueQuotaInterest_works_correctly() (gas: 514799)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 18.38ms (11.85ms CPU time)
+
+Ran 1 test suite in 35.89ms (18.38ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)

@@ -1,0 +1,42 @@
+No credible, exploitable oracle/health-pricing vulnerability survives source tracing in the supplied pinned bundle.
+
+The traced health path is:
+
+`priceFeed.latestRoundData()` → `PriceOracleV3._getValidatedPrice()` → `convertToUSD()` → `CollateralLogic.calcOneTokenCollateral()` → collateral value and LT-weighted value.
+
+Prices are normalized to 8 decimals, token balances are divided by the registered token’s cached decimal scale, and collateral contributes:
+
+```text
+valueUSD = balance × price / 10^tokenDecimals
+weightedValueUSD = min(valueUSD × LT / 10000, quotaUSD)
+```
+
+The supplied source does not include the final debt comparison, health-factor calculation, liquidation eligibility, or liquidation settlement. Consequently, no hypothesis lacking a demonstrated effect through the above collateral calculation can be elevated into a finding.
+
+Rejected hypotheses:
+
+- `PythPriceFeed.latestRoundData()` mishandles negative prices in its confidence check: `uint256(int256(priceData.price))` becomes a very large unsigned value, and `_getDecimalAdjustedPrice()` rejects zero but not negative. However, both `PriceOracleV3._checkAnswer()` and every supplied nested-feed validation trait reject `price < 0`. The result is a revert before collateral valuation, not inflated health. Triggering it also requires authenticated Pyth data reporting a negative price, which is excluded third-party oracle data.
+
+- Public Pyth and Redstone updates are not unauthorized price setting. `PythPriceFeed.updatePrice()` delegates payload authentication to Pyth and verifies the resulting feed ID’s timestamp. `RedstonePriceFeed.updatePrice()` requires its configured signature threshold through `RedstoneConsumerNumericBase`. Redstone’s early write to `lastPayloadTimestamp` rolls back if payload validation fails.
+
+- `ERC4626PriceFeed.getLPExchangeRate()` can react to donations through `convertToAssets(_shareUnit)`, but `LPPriceFeed.latestRoundData()` caps upward movement at `lowerBound × 1.02` and rejects downward movement below `lowerBound`. More importantly, a donation increases the vault shares’ redeemable assets; the supplied code provides no transaction in which an attacker recovers the donation while retaining fictitious collateral value. A near-threshold health change alone does not demonstrate an exploitable end effect.
+
+- Curve `get_virtual_price()` and `price_oracle()` values may be influenced by pool activity, but the supplied Curve code is only an interface. No deterministic unprivileged manipulation sequence, required capital, persistence, or recovery mechanism can be established from this bundle. LP exchange rates are also upper-capped and lower-bounded. Treating a mock pool as returning arbitrary values would merely model incorrect third-party oracle data.
+
+- Pendle’s market TWAP and SY/PY indices influence PT pricing without an additional Gearbox-specific bound. Nevertheless, the supplied bundle contains no Pendle market, observation, exchange-rate, or index-update implementation. An arbitrary mock return would not demonstrate an attacker manipulation of the real dependency. Zero `twapWindow`, a mismatched market/feed, or unsuitable `priceToSy` selection are deployment configuration issues.
+
+- `CompositePriceFeed` correctly accounts for `priceFeed0.decimals()` through `targetFeedScale`, while both components undergo positivity and freshness validation. Overflow or a zero result requires pathological underlying answers and causes a revert or conservative zero valuation, not inflated collateral.
+
+- `BoundedPriceFeed`, LP feeds, and Curve TWAP feeds declare `skipPriceCheck = true`, but they validate nested answers internally. A zero answer is allowed to propagate because the common trait deliberately permits zero for self-checking feeds; in health valuation this makes collateral worthless rather than overvalued.
+
+- `ZeroPriceFeed` and `_getSafePrice()` returning zero when no reserve feed exists are conservative. The source comments explicitly limit safe pricing to post-operation checks; ordinary collateral and liquidation evaluation use the main price path.
+
+- Price-feed asset identity is not verified automatically by `PriceOracleV3.setPriceFeed()` or `PriceFeedStore.allowPriceFeed()`. Both associations are privileged configuration operations. No unprivileged caller can remap a token to another asset’s feed, so this is configuration-only.
+
+- Token decimals are cached when the first main feed is installed. Exploitation would require a token whose `decimals()` changes after registration. No such token implementation or unprivileged decimal-changing path is supplied, so an impact cannot be demonstrated.
+
+- `NestedPriceFeeds` lacks explicit cycle and depth protection, but repository-deployed feeds use immutable underlying addresses, while externally deployed feeds are treated as leaves. No unprivileged operation in the supplied code can introduce a cycle into an accepted tree.
+
+- Rounding in `convertToUSD`, LP multiplication, Curve geometric means, Pendle multiplication, and LT weighting is downward. It can slightly undervalue collateral but does not provide an account-health inflation path.
+
+Accordingly, there is no qualifying finding and no deterministic local exploit PoC plan to provide. A fuller conclusion about liquidation availability or bad-debt realization would require the pinned CreditManager health-check, debt calculation, collateral-check mode selection, liquidation entry points, and relevant Curve/Pendle/ERC-4626 dependency implementations.

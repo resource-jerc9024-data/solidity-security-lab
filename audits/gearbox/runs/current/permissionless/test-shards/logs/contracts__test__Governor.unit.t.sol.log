@@ -1,0 +1,29 @@
+No files changed, compilation skipped
+
+Warning: the following cheatcode(s) are deprecated and will be removed in future versions:
+  revertTo(uint256): replaced by `revertToState`
+  snapshot(): replaced by `snapshotState`
+Ran 20 tests for contracts/test/Governor.unit.t.sol:GovernorUnitTest
+[PASS] test_GOV_01_setUp_is_correct() (gas: 38990)
+[PASS] test_GOV_02_constructor_reverts_on_zero_veto_admin() (gas: 664586)
+[PASS] test_GOV_03_constructor_works_as_expected() (gas: 2266988)
+[PASS] test_GOV_04_external_functions_have_correct_access_rights() (gas: 39112)
+[PASS] test_GOV_05_queueTransaction_reverts_if_transaction_is_already_queued_in_timelock() (gas: 60403)
+[PASS] test_GOV_06_queueTransaction_works_as_expected_when_batch_is_not_initiated() (gas: 65679)
+[PASS] test_GOV_07_startBatch_reverts_if_batch_is_already_started() (gas: 43104)
+[PASS] test_GOV_08_startBatch_works_as_expected() (gas: 43201)
+[PASS] test_GOV_09_queueTransaction_reverts_if_caller_is_not_batch_initiator() (gas: 54574)
+[PASS] test_GOV_10_queueTransaction_reverts_if_eta_is_different_from_batch_eta() (gas: 50409)
+[PASS] test_GOV_11_queueTransaction_works_as_expected_when_batch_is_initiated() (gas: 176316)
+[PASS] test_GOV_12_executeTransaction_and_cancelTransaction_revert_if_tx_is_part_of_batch() (gas: 117331)
+[PASS] test_GOV_13_executeTransaction_and_cancelTransaction_work_as_expected_for_individual_txs() (gas: 94929)
+[PASS] test_GOV_14_executeBatch_and_cancelBatch_revert_if_provided_batch_is_incorrect() (gas: 249057)
+[PASS] test_GOV_15_executeBatch_and_cancelBatch_work_as_expected() (gas: 232114)
+[PASS] test_GOV_16_addExecutionAdmin_and_removeExecutionAdmin_work_as_expected() (gas: 150164)
+[PASS] test_GOV_16_addQueueAdmin_and_removeQueueAdmin_work_as_expected() (gas: 150195)
+[PASS] test_GOV_18_updateVetoAdmin_works_as_expected() (gas: 60978)
+[PASS] test_GOV_19_allowPermissionlessExecution_and_forbidPermissionlessExecution_work_as_expected() (gas: 166157)
+[PASS] test_GOV_20_renounceOwnership_reverts() (gas: 12022)
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 37.03ms (30.82ms CPU time)
+
+Ran 1 test suite in 42.07ms (37.03ms CPU time): 20 tests passed, 0 failed, 0 skipped (20 total tests)
