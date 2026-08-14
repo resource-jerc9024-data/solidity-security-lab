@@ -1,0 +1,12 @@
+No files changed, compilation skipped
+
+Ran 6 tests for test/v2/MakerHelper.t.sol:MakerHelperTest
+[PASS] testPlaceOrderForV1() (gas: 1954274)
+[PASS] testPlaceOrderForV1RevertIfMarketNotWhitelisted() (gas: 124372)
+[PASS] testPlaceOrderForV2(uint256) (runs: 256, μ: 2031721, ~: 2031721)
+[PASS] testPlaceOrderForV2AndDelegateWithSignature(uint256) (runs: 256, μ: 2150831, ~: 2120493)
+[PASS] testPlaceOrderForV2RevertIfPoolNotWhitelisted(uint256) (runs: 256, μ: 137793, ~: 137793)
+[PASS] testPlaceOrderForV2RevertIfSwapTriggerNotWhitelisted(uint256) (runs: 256, μ: 138072, ~: 138072)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.08s (1.07s CPU time)
+
+Ran 1 test suite in 1.08s (1.08s CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)

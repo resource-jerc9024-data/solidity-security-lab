@@ -31,9 +31,14 @@ else
   git -C "$SOURCE_REPO" worktree add --detach "$REVIEW_ROOT" "$PINNED_COMMIT" || fail "could not create review worktree"
 fi
 
+[[ -d "$SOURCE_REPO/dependencies" ]] || fail "Soldeer dependencies are missing from source checkout"
+if [[ -L "$REVIEW_ROOT/dependencies" ]]; then
+  dependency_target="$(readlink -f "$REVIEW_ROOT/dependencies")"
+  [[ "$dependency_target" == "$(readlink -f "$SOURCE_REPO/dependencies")" ]] || fail "refusing to replace an unexpected dependency symlink"
+  unlink "$REVIEW_ROOT/dependencies" || fail "could not remove the old dependency symlink"
+fi
 if [[ ! -e "$REVIEW_ROOT/dependencies" ]]; then
-  [[ -d "$SOURCE_REPO/dependencies" ]] || fail "Soldeer dependencies are missing from source checkout"
-  ln -s "$SOURCE_REPO/dependencies" "$REVIEW_ROOT/dependencies" || fail "could not link dependencies"
+  cp -a --reflink=auto "$SOURCE_REPO/dependencies" "$REVIEW_ROOT/dependencies" || fail "could not copy dependencies into review worktree"
 fi
 
 CASE_FILE="$REVIEW_ROOT/test/v2/integration/ForkXauePriceFeedAdapter.t.sol"
@@ -76,10 +81,10 @@ run_step() {
 
 cd "$REVIEW_ROOT" || fail "could not enter review worktree"
 
-run_step contract-build 45m forge build --skip test script
-run_step unit-tests 60m forge test --skip Fork --no-match-path 'test/v2/invariant/*.t.sol' --isolate -vv
-run_step invariant-tests 60m env FOUNDRY_FUZZ_RUNS=512 FOUNDRY_INVARIANT_RUNS=128 FOUNDRY_INVARIANT_DEPTH=64 forge test --match-path 'test/v2/invariant/*.t.sol' --isolate -vv
-run_step slither-detectors 45m slither . --foundry-ignore-compile --exclude-dependencies --filter-paths '(^|/)(test|script|dependencies)/' --json "$RUN_DIR/slither.json"
-run_step slither-structure 30m slither . --foundry-ignore-compile --exclude-dependencies --filter-paths '(^|/)(test|script|dependencies)/' --print human-summary,contract-summary,entry-points,vars-and-auth
+run_step contract-build 45m forge build --use 0.8.27 --skip test script -j 1
+run_step test-shards 180m bash "$LAB_ROOT/scripts/run-termmax-test-shards.sh" "$REVIEW_ROOT" "$RUN_DIR/test-shards"
+run_step slither-build 45m forge build --use 0.8.27 --skip test script --build-info --build-info-path out/slither-build-info -j 1
+run_step slither-detectors 45m slither . --foundry-ignore-compile --foundry-build-info-directory out/slither-build-info --exclude-dependencies --filter-paths '(^|/)(test|script|dependencies)/' --json "$RUN_DIR/slither.json"
+run_step slither-structure 30m slither . --foundry-ignore-compile --foundry-build-info-directory out/slither-build-info --exclude-dependencies --filter-paths '(^|/)(test|script|dependencies)/' --print human-summary,contract-summary,entry-points,vars-and-auth
 
 printf 'Audit runner complete. Review %s\n' "$STATUS_FILE"

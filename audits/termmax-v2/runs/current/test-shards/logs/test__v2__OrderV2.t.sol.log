@@ -1,0 +1,67 @@
+No files changed, compilation skipped
+
+Ran 51 tests for test/v2/OrderV2.t.sol:OrderTestV2
+[PASS] testAddLiquidity() (gas: 1240172)
+[PASS] testAprUsesVirtualXtReserveNotBalance() (gas: 250876)
+[PASS] testAprWithCurve() (gas: 249500)
+[PASS] testAprWithoutCurve() (gas: 203256)
+[PASS] testBorrowToken_IssueFtFromGt() (gas: 742314)
+[PASS] testBorrowToken_OnlyOwner() (gas: 22731)
+[PASS] testBorrowToken_RevertWhenInsufficientXT() (gas: 787201)
+[PASS] testBorrowToken_SufficientBalances() (gas: 139750)
+[PASS] testBuyExactFt() (gas: 961610)
+[PASS] testBuyExactXt() (gas: 961677)
+[PASS] testBuyFt() (gas: 917502)
+[PASS] testBuyFtMinTokenOut() (gas: 660828)
+[PASS] testBuyXt() (gas: 916959)
+[PASS] testBuyXtMinTokenOut() (gas: 660872)
+[PASS] testByExactFtWhenTermIsNotOpen() (gas: 101971)
+[PASS] testFuzz_Redeem(uint128,uint128,uint128) (runs: 256, μ: 476993, ~: 479286)
+Logs:
+  Bound result 10000000
+  Bound result 3846
+  Bound result 2115
+
+[PASS] testFuzz_withdrawAllAssetsBeforeMaturity(bool,uint128,uint128,uint128,address) (runs: 256, μ: 856577, ~: 1296095)
+Logs:
+  Bound result 21274
+  Bound result 99999999991
+  Bound result 6668
+
+[PASS] testInvalidCurveCuts() (gas: 189054)
+[PASS] testIssueFtWhenNoAssets() (gas: 965804)
+[PASS] testIssueFtWhenSwap() (gas: 933151)
+[PASS] testOnlyMakerCanPause() (gas: 17402)
+[PASS] testOnlyMakerCanUpdateOrder() (gas: 104632)
+[PASS] testOrderExpiryTimestamp_InitializedWithMaturity() (gas: 28286)
+[PASS] testOrderExpiryTimestamp_MultipleUpdates() (gas: 68191)
+[PASS] testOrderExpiryTimestamp_OnlyOwnerCanSet() (gas: 32448)
+[PASS] testOrderExpiryTimestamp_RevertWhenExceedsMaturity() (gas: 37904)
+[PASS] testOrderExpiryTimestamp_SetExpiryTimestamp() (gas: 46694)
+[PASS] testOrderExpiryTimestamp_SetExpiryTimestampToMaturity() (gas: 50846)
+[PASS] testOrderExpiryTimestamp_SwapRevertsAfterExpiry() (gas: 114141)
+[PASS] testOrderExpiryTimestamp_SwapWorksBeforeExpiry() (gas: 322512)
+[PASS] testPauseAndUnpause() (gas: 44078)
+[PASS] testRemoveLiquidity() (gas: 1239055)
+[PASS] testRevertBorrowIsNotAllowed() (gas: 247644)
+[PASS] testRevertLendIsNotAllowed() (gas: 247924)
+[PASS] testRevertWhenIssueFt() (gas: 298955)
+[PASS] testSellFt() (gas: 983681)
+[PASS] testSellFtForExactToken() (gas: 1020204)
+[PASS] testSellFtMinTokenOut() (gas: 803480)
+[PASS] testSellXt() (gas: 992192)
+[PASS] testSellXtForExactToken() (gas: 1026185)
+[PASS] testSellXtMinTokenOut() (gas: 813570)
+[PASS] testSetCurveAndPrice(uint256,uint256) (runs: 256, μ: 629032, ~: 540219)
+[PASS] testSetGeneralConfig(uint256,address) (runs: 256, μ: 179273, ~: 179740)
+[PASS] testSetGeneralConfigOnlyMaker() (gas: 18001)
+[PASS] testSetPool() (gas: 2093226)
+[PASS] testSwapReverts() (gas: 156685)
+[PASS] testSwapTokenWhenTermIsNotOpen() (gas: 102990)
+[PASS] testSwapWithCallback(uint128,bool,bool) (runs: 256, μ: 556583, ~: 557480)
+[PASS] testUpdateOrderConfig() (gas: 709204)
+[PASS] testUpdateOrderFeeRate() (gas: 42277)
+[PASS] testUtWhenDeadlineLessThanBlockTime() (gas: 71120)
+Suite result: ok. 51 passed; 0 failed; 0 skipped; finished in 1.37s (1.36s CPU time)
+
+Ran 1 test suite in 1.37s (1.37s CPU time): 51 tests passed, 0 failed, 0 skipped (51 total tests)

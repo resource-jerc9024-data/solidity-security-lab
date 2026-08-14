@@ -1,0 +1,19 @@
+No files changed, compilation skipped
+
+Ran 13 tests for test/v2/TermMaxPriceFeedFactoryV2.t.sol:TermMaxPriceFeedFactoryV2Test
+[PASS] testCreateConstantPriceFeed() (gas: 204225)
+[PASS] testCreateConstantPriceFeedWithDifferentPrices() (gas: 971104)
+[PASS] testCreatePTWithPriceFeed() (gas: 988822)
+[PASS] testCreatePTWithPriceFeedWithDifferentDurations() (gas: 2856169)
+[PASS] testCreatePriceFeedConverter() (gas: 476609)
+[PASS] testCreatePriceFeedConverterWithZeroAddresses() (gas: 46274)
+[PASS] testCreatePriceFeedWithERC4626() (gas: 431899)
+[PASS] testCreatePriceFeedWithERC4626WithZeroAddresses() (gas: 94725)
+[PASS] testEventEmissionForAllMethods() (gas: 2044273)
+[PASS] testFactoryVersionV2() (gas: 9982)
+[PASS] testFuzzCreateConstantPriceFeed(int256) (runs: 256, μ: 202351, ~: 202351)
+[PASS] testFuzzCreatePTWithPriceFeedDuration(uint32) (runs: 256, μ: 983235, ~: 983235)
+[PASS] testMultiplePriceFeedCreations() (gas: 2042841)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 75.84ms (73.28ms CPU time)
+
+Ran 1 test suite in 79.13ms (75.84ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)

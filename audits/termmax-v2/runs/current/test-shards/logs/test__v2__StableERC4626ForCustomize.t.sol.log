@@ -1,0 +1,25 @@
+No files changed, compilation skipped
+
+Ran 12 tests for test/v2/StableERC4626ForCustomize.t.sol:StableERC4626ForCustomizeTest
+[PASS] testAddReserves() (gas: 112496)
+[PASS] testDeposit() (gas: 148587)
+[PASS] testDepositExceedingBuffer() (gas: 171126)
+[PASS] testFuzz_Deposit(uint256) (runs: 256, μ: 173860, ~: 177631)
+Logs:
+  Bound result 12000000000
+
+[PASS] testFuzz_DepositAndWithdraw(uint256,uint256) (runs: 256, μ: 210097, ~: 213317)
+Logs:
+  Bound result 1397409782049
+  Bound result 457302968799
+
+[PASS] testFuzz_UpdateBufferConfig(uint256,uint256,uint256) (runs: 256, μ: 53934, ~: 54227)
+[PASS] testIncomeAccounting() (gas: 255601)
+[PASS] testInitialization() (gas: 57953)
+[PASS] testUpdateBufferConfig() (gas: 62236)
+[PASS] testWithdraw() (gas: 178872)
+[PASS] testWithdrawAssets() (gas: 566423)
+[PASS] testWithdrawFromPool() (gas: 202156)
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 138.41ms (134.97ms CPU time)
+
+Ran 1 test suite in 139.37ms (138.41ms CPU time): 12 tests passed, 0 failed, 0 skipped (12 total tests)

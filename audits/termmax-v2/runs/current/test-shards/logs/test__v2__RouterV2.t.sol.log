@@ -1,0 +1,28 @@
+No files changed, compilation skipped
+
+Ran 22 tests for test/v2/RouterV2.t.sol:RouterTestV2
+[PASS] testBorrowTokenFromCollateral() (gas: 871640)
+[PASS] testBorrowTokenFromCollateralAndXt(bool) (runs: 256, μ: 743197, ~: 722373)
+[PASS] testFlashRepayFromCollateral() (gas: 718590)
+[PASS] testFlashRepayFromCollateral_ByFt() (gas: 1008505)
+[PASS] testFlashRepayToGetCollateral() (gas: 718669)
+[PASS] testLeverageFromCollateralAndXt(bool) (runs: 256, μ: 802645, ~: 792135)
+[PASS] testLeverageFromToken(bool) (runs: 256, μ: 983891, ~: 973380)
+[PASS] testLeverageFromTokenAndXt(bool) (runs: 256, μ: 809111, ~: 798600)
+[PASS] testLeverage_LtvTooBig(bool) (runs: 256, μ: 923119, ~: 909981)
+[PASS] testPartialRepayByTokenThroughFt() (gas: 959707)
+[PASS] testPause() (gas: 34451)
+[PASS] testPauseUnauthorized() (gas: 19311)
+[PASS] testRepayByTokenThroughFt() (gas: 947175)
+[PASS] testRouterV1UsingV2Adapter() (gas: 4576817)
+[PASS] testSwapExactTokenToToken() (gas: 535661)
+[PASS] testSwapExactTokenToTokenWithWhitelistedCallbackAdnPool() (gas: 1778360)
+[PASS] testSwapExactTokenToTokenWithWrap() (gas: 535749)
+[PASS] testSwapTokenToExactToken() (gas: 544115)
+[PASS] testSwap_RevertWhenCallbackNotWhitelisted() (gas: 379425)
+[PASS] testSwap_RevertWhenPoolNotWhitelisted() (gas: 1361980)
+[PASS] testSwap_WithV1OrderWithoutPool() (gas: 288998)
+[PASS] testUpgradeRouterToV2() (gas: 9237299)
+Suite result: ok. 22 passed; 0 failed; 0 skipped; finished in 2.01s (2.00s CPU time)
+
+Ran 1 test suite in 2.01s (2.01s CPU time): 22 tests passed, 0 failed, 0 skipped (22 total tests)

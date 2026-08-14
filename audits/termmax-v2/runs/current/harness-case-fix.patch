@@ -1,0 +1,13 @@
+diff --git a/test/v2/integration/ForkXauePriceFeedAdapter.t.sol b/test/v2/integration/ForkXauePriceFeedAdapter.t.sol
+index 9c757de..f914a06 100644
+--- a/test/v2/integration/ForkXauePriceFeedAdapter.t.sol
++++ b/test/v2/integration/ForkXauePriceFeedAdapter.t.sol
+@@ -9,7 +9,7 @@ import {
+ } from "contracts/v2/oracle/adapters/xaue/TermMaxXauePricefeedAdapter.sol";
+ import {console} from "forge-std/console.sol";
+ import {SafeCast} from "@openzeppelin/contracts/utils/math/SafeCast.sol";
+-import {TermMaxPriceFeedFactoryV2} from "contracts/v2/factory/TermMaxPricefeedFactoryV2.sol";
++import {TermMaxPriceFeedFactoryV2} from "contracts/v2/factory/TermMaxPriceFeedFactoryV2.sol";
+ 
+ /**
+  * @title ForkXauePriceFeedAdapterTest

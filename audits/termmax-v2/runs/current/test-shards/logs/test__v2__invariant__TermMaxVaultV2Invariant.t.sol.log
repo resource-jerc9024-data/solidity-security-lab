@@ -1,0 +1,742 @@
+No files changed, compilation skipped
+
+Ran 7 tests for test/v2/invariant/TermMaxVaultV2Invariant.t.sol:TermMaxVaultV2InvariantTest
+[PASS] invariant_callSummary() (runs: 128, calls: 8192, reverts: 315)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 12      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 9       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 5
+  Bound result 5
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 4
+  Bound result 4
+  Bound result 3661570635
+  Bound result 7
+  Bound result 7
+  Bound result 24175779022363492706791
+  Bound result 340282366920938463462374607431768211482
+  Bound result 8937
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 1
+  Bound result 1
+  Bound result 999999999999999999017724
+  Bound result 65218
+  Bound result 4
+  Bound result 4
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 0
+  Bound result 0
+  Bound result 116947264242272620932558
+  Bound result 3
+  Bound result 3
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+  === TERMMAX VAULT V2 INVARIANT TEST SUMMARY ===
+  deposit calls: 5
+  mint calls: 5
+  withdraw calls: 0
+  redeem calls: 0
+  setCapacity calls: 2
+  submitPerformanceFeeRate calls: 1
+  submitTimelock calls: 1
+  submitMinApy calls: 4
+  submitPool calls: 0
+  submitMarket calls: 3
+  submitGuardian calls: 3
+  setCurator calls: 3
+  pauseVault calls: 0
+  unpauseVault calls: 0
+  dealBadDebt calls: 0
+  advanceTime calls: 3
+  Ghost variables:
+  ghost_totalDeposits: 2374342911022765256941548
+  ghost_totalWithdrawals: 0
+  ghost_maxCapacityChanges: 2
+  ghost_performanceFeeRateChanges: 1
+  ghost_timelockChanges: 1
+  ghost_minApyChanges: 3
+  ghost_poolChanges: 0
+  ghost_marketWhitelistChanges: 0
+  ghost_totalBadDebtHandled: 0
+  ghost_poolEverSet: false
+  Vault state:
+  Total assets: 3348057520552228206849468
+  Total supply: 3348057520552228206849468
+  APY: 0
+  Min APY: 33194962
+  Performance fee rate: 1
+  Timelock: 574044
+  Paused: false
+  Pool address: 0x0000000000000000000000000000000000000000
+  Curator: 0x9f25471692a4f106a2094DD42906F21fd8c32C07
+  Guardian: 0x5935897A39AFABbedA5a599D38236E7Df151C8b8
+  Owner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+  Current timestamp: 906031
+
+[PASS] invariant_capacity() (runs: 128, calls: 8192, reverts: 317)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 12      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 11      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 8
+  Bound result 8
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 2
+  Bound result 2
+  Bound result 3523830843
+  Bound result 2
+  Bound result 2
+  Bound result 24175779022219554624151
+  Bound result 340282366920938463462374607431768211482
+  Bound result 9688
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 4
+  Bound result 4
+  Bound result 999999999999999999017722
+  Bound result 359365
+  Bound result 6
+  Bound result 6
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 6
+  Bound result 6
+  Bound result 116947264242272620932558
+  Bound result 0
+  Bound result 0
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+
+[PASS] invariant_ghostVariableConsistency() (runs: 128, calls: 8192, reverts: 318)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 13      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 11      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 8
+  Bound result 8
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 4
+  Bound result 4
+  Bound result 130683288057580532507390
+  Bound result 340282366920938463462374607431768211482
+  Bound result 9169
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 9
+  Bound result 9
+  Bound result 999999999999999999016968
+  Bound result 72665
+  Bound result 8
+  Bound result 8
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 5
+  Bound result 5
+  Bound result 116947264242272620932558
+  Bound result 6
+  Bound result 6
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+
+[PASS] invariant_maxDeposit() (runs: 128, calls: 8192, reverts: 317)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 12      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 11      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 8
+  Bound result 8
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 2
+  Bound result 2
+  Bound result 3523830843
+  Bound result 2
+  Bound result 2
+  Bound result 24175779022219554624151
+  Bound result 340282366920938463462374607431768211482
+  Bound result 9688
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 4
+  Bound result 4
+  Bound result 999999999999999999017722
+  Bound result 359365
+  Bound result 6
+  Bound result 6
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 6
+  Bound result 6
+  Bound result 116947264242272620932558
+  Bound result 0
+  Bound result 0
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+
+[PASS] invariant_performanceFeeRateBounds() (runs: 128, calls: 8192, reverts: 318)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 13      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 11      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 8
+  Bound result 8
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 4
+  Bound result 4
+  Bound result 130683288057580532507390
+  Bound result 340282366920938463462374607431768211482
+  Bound result 9169
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 9
+  Bound result 9
+  Bound result 999999999999999999016968
+  Bound result 72665
+  Bound result 8
+  Bound result 8
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 5
+  Bound result 5
+  Bound result 116947264242272620932558
+  Bound result 6
+  Bound result 6
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+
+[PASS] invariant_timelockBounds() (runs: 128, calls: 8192, reverts: 318)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 13      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 11      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 8
+  Bound result 8
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 4
+  Bound result 4
+  Bound result 130683288057580532507390
+  Bound result 340282366920938463462374607431768211482
+  Bound result 9169
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 9
+  Bound result 9
+  Bound result 999999999999999999016968
+  Bound result 72665
+  Bound result 8
+  Bound result 8
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 5
+  Bound result 5
+  Bound result 116947264242272620932558
+  Bound result 6
+  Bound result 6
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+
+[PASS] invariant_totalAssetsVsLiabilities() (runs: 128, calls: 8192, reverts: 318)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxVaultV2Handler | acceptGuardian           | 296   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptMinApy             | 314   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPerformanceFeeRate | 290   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptPool               | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | acceptTimelock           | 338   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | advanceTime              | 334   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | deposit                  | 335   | 13      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | mint                     | 306   | 11      | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | pauseVault               | 337   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | redeem                   | 295   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeGuardian           | 316   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMarket             | 311   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeMinApy             | 310   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokePool               | 292   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | revokeTimelock           | 335   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCapacity              | 301   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | setCurator               | 330   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitGuardian           | 331   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMarket             | 309   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitMinApy             | 321   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPerformanceFeeRate | 325   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitPool               | 294   | 294     | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | submitTimelock           | 281   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxVaultV2Handler | withdraw                 | 334   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 601566
+  Bound result 8
+  Bound result 8
+  Bound result 340308401752944590527230
+  Bound result 3
+  Bound result 3
+  Bound result 429008310189474875966499
+  Bound result 4
+  Bound result 4
+  Bound result 130683288057580532507390
+  Bound result 340282366920938463462374607431768211482
+  Bound result 9169
+  Bound result 7
+  Bound result 7
+  Bound result 543815061084843
+  Bound result 1
+  Bound result 574044
+  Bound result 7
+  Bound result 7
+  Bound result 250167131456586705090374
+  Bound result 9
+  Bound result 9
+  Bound result 999999999999999999016968
+  Bound result 72665
+  Bound result 8
+  Bound result 8
+  Bound result 87450633344767200910998
+  Bound result 33194962
+  Bound result 239246
+  Bound result 332551941862054196129223219847279051443
+  Bound result 5
+  Bound result 5
+  Bound result 116947264242272620932558
+  Bound result 6
+  Bound result 6
+  Bound result 999999999999999999041816
+  Bound result 12
+  Bound result 67298320
+
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 16.05s (16.03s CPU time)
+
+Ran 1 test suite in 16.05s (16.05s CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

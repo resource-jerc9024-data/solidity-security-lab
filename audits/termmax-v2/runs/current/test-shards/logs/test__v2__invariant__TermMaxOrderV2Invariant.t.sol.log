@@ -1,0 +1,1923 @@
+No files changed, compilation skipped
+
+Ran 14 tests for test/v2/invariant/TermMaxOrderV2Invariant.t.sol:TermMaxOrderV2InvariantTest
+[PASS] invariant_aprCalculationsValid() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 2
+  Bound result 999999999999999999004002
+  Bound result 2
+  Bound result 9
+  Bound result 3747237011
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14985
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 17115
+  Bound result 8
+  Bound result 780811729447058742953622
+  Bound result 8
+  Bound result 9
+  Bound result 393909322809724049968765
+  Bound result 9
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 2
+  Bound result 999999999999999999012540
+  Bound result 2
+  Bound result 1
+  Bound result 2172698271672454341985
+  Bound result 1
+  Bound result 6
+  Bound result 6
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991294
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 5
+  Bound result 960896583574573255312078
+  Bound result 5
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 8
+  Bound result 999999999999999999000046
+  Bound result 8
+  Bound result 8
+  Bound result 999999999999999999302854
+  Bound result 8
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_callSummary() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 9
+  Bound result 999999999999999999004002
+  Bound result 9
+  Bound result 9
+  Bound result 3747237011
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14981
+  Bound result 0
+  Bound result 791638384016915130191622
+  Bound result 0
+  Bound result 0
+  Bound result 0
+  Bound result 17147
+  Bound result 3
+  Bound result 780811729447058742953622
+  Bound result 3
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 1
+  Bound result 245823518875662851547068
+  Bound result 1
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 1
+  Bound result 1
+  Bound result 40427912208
+  Bound result 999999999999999999020997
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+  === TERMMAX ORDER V2 INVARIANT TEST SUMMARY ===
+  swapDebtTokenToFt calls: 12
+  swapDebtTokenToXt calls: 8
+  swapFtToDebtToken calls: 4
+  swapXtToDebtToken calls: 5
+  addLiquidityDebtToken calls: 9
+  removeLiquidityDebtToken calls: 7
+  setPool calls: 5
+  removePool calls: 7
+  updateGeneralConfig calls: 4
+  advanceTime calls: 3
+  Ghost variables:
+  ghost_totalFtSwapped: 1315748406709337805498769
+  ghost_totalXtSwapped: 197278845024095931316
+  ghost_totalDebtTokenSwapped: 1315748406708921869066075
+  ghost_liquidityAdded: 5722326065497013217211262
+  ghost_liquidityRemoved: 0
+  ghost_virtualXtReserveChanges: 4
+  ghost_poolEverSet: true
+  Order state:
+  FT reserve: 0
+  XT reserve: 1147957252647554209955669
+  Virtual XT reserve: 992396133013236300941185
+  Max XT reserve: 340282366920938463462374607431768220751
+  Pool address: 0x4b3f00f9299b5c00590228e5C8d6CafeC479e85E
+  Current timestamp: 5364566
+  Order maker: 0x7F1d642DbfD62aD4A8fA9810eA619707d09825D0
+
+[PASS] invariant_curveCutsValid() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 2
+  Bound result 999999999999999999004003
+  Bound result 2
+  Bound result 9
+  Bound result 3747237012
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 19512
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 17115
+  Bound result 8
+  Bound result 780811729447058742953622
+  Bound result 8
+  Bound result 9
+  Bound result 393909322809724049968765
+  Bound result 9
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 2
+  Bound result 999999999999999999012540
+  Bound result 2
+  Bound result 1
+  Bound result 2172698271672454341985
+  Bound result 1
+  Bound result 6
+  Bound result 6
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991294
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 5
+  Bound result 960896583574573255312078
+  Bound result 5
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 8
+  Bound result 999999999999999999000046
+  Bound result 8
+  Bound result 8
+  Bound result 999999999999999999302854
+  Bound result 8
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 6
+  Bound result 323539093001598381402990
+  Bound result 6
+  Bound result 0
+  Bound result 668857040011637916946195
+  Bound result 0
+
+[PASS] invariant_liquidityOperationsBalanced() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_marketReferenceConsistent() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_orderConfigurationValid() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 3
+  Bound result 999999999999999999004003
+  Bound result 3
+  Bound result 9
+  Bound result 3695799327
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 19512
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 17113
+  Bound result 8
+  Bound result 780811729447058742953622
+  Bound result 8
+  Bound result 0
+  Bound result 393909322809724049968765
+  Bound result 0
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 2
+  Bound result 999999999999999999012540
+  Bound result 2
+  Bound result 1
+  Bound result 2172698271672454341985
+  Bound result 1
+  Bound result 6
+  Bound result 6
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991294
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 5
+  Bound result 960896583574573255312078
+  Bound result 5
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 8
+  Bound result 999999999999999999000046
+  Bound result 8
+  Bound result 8
+  Bound result 999999999999999999302854
+  Bound result 8
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 6
+  Bound result 323539093001598381402990
+  Bound result 6
+  Bound result 0
+  Bound result 668857040011637916946195
+  Bound result 0
+
+[PASS] invariant_orderOwnershipConsistent() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_poolBalanceConsistency() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_poolInteractionsConsistent() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_realReservesConsistency() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 8
+  Bound result 780811729447058742953622
+  Bound result 8
+  Bound result 1
+  Bound result 393909322809724049968765
+  Bound result 1
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 7
+  Bound result 999999999999999999012538
+  Bound result 7
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 6
+  Bound result 960896583574573255312078
+  Bound result 6
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 3
+  Bound result 999999999999999999000046
+  Bound result 3
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220753
+  Bound result 2592000
+  Bound result 6
+  Bound result 323539093001598381402990
+  Bound result 6
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_swapValueConservation() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_tokenReservesNonNegative() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_virtualXtReserveChangesReasonable() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+[PASS] invariant_virtualXtReserveWithinBounds() (runs: 128, calls: 8192, reverts: 0)
+
+╭-----------------------+--------------------------+-------+---------+----------╮
+| Contract              | Selector                 | Calls | Reverts | Discards |
++===============================================================================+
+| TermMaxOrderV2Handler | addLiquidityDebtToken    | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | advanceTime              | 847   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removeLiquidityDebtToken | 830   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | removePool               | 774   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | setPool                  | 824   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToFt        | 837   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapDebtTokenToXt        | 791   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapFtToDebtToken        | 795   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | swapXtToDebtToken        | 865   | 0       | 0        |
+|-----------------------+--------------------------+-------+---------+----------|
+| TermMaxOrderV2Handler | updatePriceAndCapacity   | 792   | 0       | 0        |
+╰-----------------------+--------------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 0
+  Bound result 999999999999999999021920
+  Bound result 0
+  Bound result 4
+  Bound result 999999999999999999004003
+  Bound result 4
+  Bound result 9
+  Bound result 3695799328
+  Bound result 9
+  Bound result 0
+  Bound result 377375977959627014601917
+  Bound result 0
+  Bound result 6
+  Bound result 6
+  Bound result 14940
+  Bound result 9
+  Bound result 791638384016915130191622
+  Bound result 9
+  Bound result 0
+  Bound result 0
+  Bound result 19962
+  Bound result 6
+  Bound result 780811729447058742953622
+  Bound result 6
+  Bound result 3
+  Bound result 393909322809724049968765
+  Bound result 3
+  Bound result 340282366920938463462374607433376312878
+  Bound result 340282366920938463462374607433375315950
+  Bound result 8
+  Bound result 999999999999999999012538
+  Bound result 8
+  Bound result 2
+  Bound result 2172698271672454341985
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 40427912208
+  Bound result 999999999999999999021030
+  Bound result 351797744685506658228246
+  Bound result 1
+  Bound result 1
+  Bound result 1
+  Bound result 8
+  Bound result 3796991296
+  Bound result 8
+  Bound result 999999999999999999000620
+  Bound result 8
+  Bound result 960896583574573255312078
+  Bound result 8
+  Bound result 896924838277187716755
+  Bound result 0
+  Bound result 0
+  Bound result 98293623228478729309
+  Bound result 528361669951000752640
+  Bound result 184231114340417186891
+  Bound result 831339897268463964518215
+  Bound result 999999999999999999000008
+  Bound result 5
+  Bound result 465424857143674954642413
+  Bound result 5
+  Bound result 211433
+  Bound result 2
+  Bound result 999999999999999999999997
+  Bound result 2
+  Bound result 9
+  Bound result 999999999999999999000046
+  Bound result 9
+  Bound result 0
+  Bound result 999999999999999999302854
+  Bound result 0
+  Bound result 457435381797921507060850
+  Bound result 2591998
+  Bound result 80856116906843903665442
+  Bound result 5
+  Bound result 5
+  Bound result 6523865330262463611
+  Bound result 5
+  Bound result 999999999999999999000045
+  Bound result 5
+  Bound result 6
+  Bound result 6
+  Bound result 23385809
+  Bound result 5
+  Bound result 59446768158
+  Bound result 5
+  Bound result 2561134
+  Bound result 340282366920938463462374607431768211466
+  Bound result 26866404002633493574399109464405824713
+  Bound result 5
+  Bound result 5
+  Bound result 52672325239644225885
+  Bound result 5
+  Bound result 239548812221908034672960
+  Bound result 5
+  Bound result 999999999999999999000129
+  Bound result 5
+  Bound result 5
+  Bound result 83750789148478421649007
+  Bound result 340282366920938463462374607431768220751
+  Bound result 2592000
+  Bound result 3
+  Bound result 323539093001598381402990
+  Bound result 3
+  Bound result 1
+  Bound result 668857040011637916946195
+  Bound result 1
+
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 54.67s (54.65s CPU time)
+
+Ran 1 test suite in 54.69s (54.67s CPU time): 14 tests passed, 0 failed, 0 skipped (14 total tests)

@@ -1,0 +1,31 @@
+No files changed, compilation skipped
+
+Ran 20 tests for test/v2/TermMax4626Factory.t.sol:TermMax4626FactoryTest
+[PASS] testCreateMultipleVaultsWithSameParameters() (gas: 723001)
+[PASS] testCreateStableERC4626For4626() (gas: 399292)
+[PASS] testCreateStableERC4626For4626WithZeroThirdPool() (gas: 102803)
+[PASS] testCreateStableERC4626ForAave() (gas: 402522)
+[PASS] testCreateStableERC4626ForAaveWithZeroUnderlying() (gas: 102536)
+[PASS] testCreateStableERC4626ForCustomize() (gas: 429346)
+[PASS] testCreateStableERC4626ForVenus() (gas: 411531)
+[PASS] testCreateVariableAndStableERC4626ForAave() (gas: 776704)
+[PASS] testCreateVariableERC4626ForAave() (gas: 447260)
+[PASS] testCreateVariableERC4626ForAaveWithZeroUnderlying() (gas: 101953)
+[PASS] testCreateVaultWithExtremeTotalSupply() (gas: 2150949)
+[PASS] testCreateVaultsWithDifferentAdmins() (gas: 720263)
+[PASS] testCreateVaultsWithDifferentBufferConfigs() (gas: 714405)
+[PASS] testCreateWithInvalidBufferConfig() (gas: 788910)
+[PASS] testCreateWithZeroAddressAdmin() (gas: 204596)
+[PASS] testEventEmissions() (gas: 1119437)
+[PASS] testFactoryInitialization() (gas: 18040)
+[PASS] testGasUsage() (gas: 1120551)
+Logs:
+  Gas used for createStableERC4626For4626: 377528
+  Gas used for createStableERC4626ForAave: 347192
+  Gas used for createVariableERC4626ForAave: 386894
+
+[PASS] testImplementationAddresses() (gas: 41393)
+[PASS] testVaultFunctionality() (gas: 477860)
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 13.35ms (9.59ms CPU time)
+
+Ran 1 test suite in 23.83ms (13.35ms CPU time): 20 tests passed, 0 failed, 0 skipped (20 total tests)

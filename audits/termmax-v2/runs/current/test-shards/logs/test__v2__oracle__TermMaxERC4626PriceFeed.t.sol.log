@@ -1,0 +1,8 @@
+No files changed, compilation skipped
+
+Ran 2 tests for test/v2/oracle/TermMaxERC4626PriceFeed.t.sol:TermMaxERC4626PriceFeedTest
+[PASS] testUnderlyingAndVaultDifferentDecimals_case1(uint128) (runs: 256, μ: 2238257, ~: 2238568)
+[PASS] testUnderlyingAndVaultDifferentDecimals_case2(uint128) (runs: 256, μ: 2238367, ~: 2238678)
+Suite result: ok. 2 passed; 0 failed; 0 skipped; finished in 129.06ms (128.72ms CPU time)
+
+Ran 1 test suite in 130.96ms (129.06ms CPU time): 2 tests passed, 0 failed, 0 skipped (2 total tests)

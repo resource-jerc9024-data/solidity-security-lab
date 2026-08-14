@@ -1,0 +1,354 @@
+I found three plausible candidates, all requiring local PoCs or missing deployment/base-contract evidence before confirmation. None is labeled Confirmed.
+
+The review is necessarily constrained because the bundle omits the V1 `AccessManager`, `OrderManagerV2`, proxy deployment scripts, existing proxy implementation/layout baselines, and the exact OpenZeppelin version.
+
+## Candidate — Unauthenticated vault accounting callback
+
+Locations:
+
+- `contracts/v2/vault/TermMaxVaultV2.sol`
+  - `afterSwap(...)`
+  - `_delegateCall(...)`
+  - accounting getters using `_accretingPrincipal`, `_annualizedInterest`, `_totalFt`, and maturity mappings
+- `contracts/v2/TermMaxOrderV2.sol`
+  - both public swap functions
+  - calls to `orderConfig_.swapTrigger.afterSwap(...)`
+
+Relevant code:
+
+```solidity
+function afterSwap(
+    uint256 ftReserve,
+    uint256 xtReserve,
+    int256 deltaFt,
+    int256 deltaXt
+) external override whenNotPaused {
+    _delegateCall(
+        abi.encodeCall(
+            IOrderManagerV2.afterSwap,
+            (IERC20(asset()), ftReserve, xtReserve, deltaFt, deltaXt)
+        )
+    );
+}
+```
+
+Initialization/deployment assumptions:
+
+- The vault is initialized normally through `TermMaxVaultFactoryV2.createVault`.
+- `ORDER_MANAGER_SINGLETON` points to the production V2 order manager.
+- The delegate-called `IOrderManagerV2.afterSwap` changes vault accounting based on the supplied reserves/deltas.
+- The missing order-manager implementation does not independently authenticate `msg.sender` as a vault-owned/configured order.
+
+Attacker sequence:
+
+1. Wait for an active, unpaused vault containing deposits and configured orders.
+2. Call `vault.afterSwap(...)` directly.
+3. Supply fabricated reserves and deltas, potentially repeating calls with extreme but non-reverting values.
+4. The vault delegate-calls its order manager with attacker-controlled accounting inputs.
+5. If the order manager trusts those inputs, corrupt `_accretingPrincipal`, `_annualizedInterest`, `_totalFt`, maturity accounting, or related order state.
+6. Exploit the resulting incorrect share price through deposit, mint, withdraw, redeem, `withdrawFts`, or `dealBadDebt`; alternatively force arithmetic reverts that freeze those operations.
+
+Root cause:
+
+`afterSwap` has no caller authentication. In the intended flow, only a configured order should report its own post-swap balances and deltas. `whenNotPaused` is a state check, not authorization.
+
+Violated invariant:
+
+> Vault accounting updates attributed to an order must originate from that configured order and must describe an actual swap performed by it.
+
+Concrete potential impact:
+
+- Inflation or deflation of `totalAssets()`, allowing share-price manipulation and theft from existing depositors.
+- Corruption of accrued-interest or maturity state.
+- Persistent or temporary withdrawal/deposit freezing through inconsistent state or arithmetic reverts.
+- Miscalculation or withdrawal of performance fees.
+
+Strongest rebuttal:
+
+The missing `OrderManagerV2.afterSwap` may authenticate `msg.sender`, require it to be a registered order, derive the market/order from `msg.sender`, and reconcile supplied values against on-chain balances. Because `delegatecall` preserves the original external `msg.sender`, such a check would reject direct attacker calls and eliminate this candidate.
+
+Local Foundry PoC plan:
+
+1. Deploy the production `OrderManagerV2`, vault implementation, whitelist manager, and vault clone.
+2. Initialize the vault and create/fund one legitimate vault-owned order.
+3. Record:
+   - `totalAssets()`
+   - `convertToShares()`
+   - `accretingPrincipal()`
+   - `annualizedInterest()`
+   - relevant order and maturity mappings
+4. From an unrelated address, call `afterSwap` with combinations such as:
+   - zero reserves and large positive deltas;
+   - actual reserves with forged negative deltas;
+   - extreme `int256` values that remain inside downstream casts.
+5. Assert whether the call succeeds and storage/accounting changes.
+6. If it succeeds, demonstrate economic impact by depositing before the forged update and withdrawing after it, or vice versa.
+7. Also test repeated calls for a persistent withdrawal/deposit DoS.
+
+## Candidate — Uninitialized Router or WhitelistManager proxy takeover
+
+Locations:
+
+- `contracts/v2/router/TermMaxRouterV2.sol`
+  - constructor
+  - `initialize(address admin)`
+  - `_authorizeUpgrade(...)`
+  - `pause()` / `unpause()`
+- `contracts/v2/access/WhitelistManager.sol`
+  - constructor
+  - `initialize(address admin)`
+  - `_authorizeUpgrade(...)`
+  - `batchSetWhitelist(...)`
+
+Initialization/deployment assumptions:
+
+- A UUPS proxy is deployed without atomic initializer calldata, or initialization is submitted as a separate public transaction.
+- No deployment mechanism otherwise prevents an attacker from calling the proxy first.
+- For meaningful Router impact, users have approvals or assets associated with the router, or the router is treated as a trusted protocol component.
+- For WhitelistManager impact, production components reference the affected proxy through their immutable whitelist-manager address.
+
+Attacker sequence for the Router:
+
+1. Observe deployment of an ERC1967/UUPS proxy pointing to `TermMaxRouterV2`, with no initializer calldata.
+2. Call `initialize(attacker)` through the proxy.
+3. Become proxy owner.
+4. Pause the router or call `upgradeToAndCall` with an attacker-controlled implementation.
+5. Use the malicious implementation to steal router-held assets or exploit approvals/ongoing trusted flows.
+
+Attacker sequence for WhitelistManager:
+
+1. Observe an uninitialized proxy pointing to `WhitelistManager`.
+2. Call `initialize(attacker)` through the proxy.
+3. Become proxy owner.
+4. Upgrade it to an implementation that returns arbitrary whitelist results or mutates whitelist state without roles.
+5. Whitelist malicious markets, pools, adapters, or callbacks.
+6. Use the newly trusted component through the Router, vault, or factories to steal funds or freeze operations.
+
+Root cause:
+
+Both UUPS contracts expose unrestricted initializers. This is normal only when proxy construction and initialization are atomic. The contracts themselves do not compensate for a non-atomic deployment.
+
+Violated invariant:
+
+> The first owner of a production proxy must be the designated administrator, and no public address may acquire upgrade authority during deployment.
+
+Concrete potential impact:
+
+- Router upgrade authority, pause authority, and arbitrary execution through a malicious implementation.
+- Whitelist corruption enabling malicious delegatecall adapters, pools, markets, or callbacks.
+- Theft of assets/approvals, protocol insolvency, or freezing, depending on integration and outstanding approvals.
+
+Strongest rebuttal:
+
+Production proxy deployments may always encode `initialize(admin)` in the proxy constructor. If so, there is no externally observable uninitialized state and no exploit. This is fundamentally a deployment-assumption candidate, not a flaw in an atomically initialized deployment.
+
+Local Foundry PoC plan:
+
+1. Deploy each implementation.
+2. Deploy `ERC1967Proxy(implementation, "")`.
+3. From `attacker`, call `initialize(attacker)`.
+4. Assert `owner() == attacker`.
+5. Deploy a minimal malicious UUPS-compatible implementation.
+6. Call `upgradeToAndCall` through the proxy as the attacker.
+7. For WhitelistManager, make the malicious implementation return `true` for a malicious adapter and demonstrate Router delegatecall execution.
+8. Repeat using actual production deployment scripts. Reject the candidate if initializer calldata is always passed atomically.
+
+## Candidate — UniversalFactory permits deterministic-deployment squatting
+
+Location:
+
+- `contracts/v2/tokenomics/UniversalFactory.sol`
+  - `deploy(bytes creationCode, uint256 nonce)`
+  - `predictAddress(...)`
+  - `nonceUsed`
+
+Initialization/deployment assumptions:
+
+- A production deployment relies on a predetermined UniversalFactory address, creation code, and nonce.
+- The deployed contract is externally initializable or otherwise expects a post-deployment setup transaction.
+- The intended deployment is publicly observable before execution.
+- The predicted address has authority, approvals, pre-funded assets, or protocol configuration before safe initialization.
+
+Attacker sequence:
+
+1. Learn the intended `creationCode` and `nonce` from public scripts, governance proposals, a mempool transaction, or published deterministic-address documentation.
+2. Call `UniversalFactory.deploy(creationCode, nonce)` first.
+3. The factory deploys exactly the same contract at exactly the intended address because CREATE2 depends on the factory, nonce-derived salt, and creation-code hash—not on the caller.
+4. If the new contract is uninitialized, immediately initialize it with the attacker as owner/admin.
+5. Exercise authority already assigned to the predicted address, upgrade the contract, or withdraw assets sent there.
+6. Even where takeover is impossible, `nonceUsed[nonce]` permanently blocks the official factory call for that nonce.
+
+Root cause:
+
+Deployment is permissionless and the salt excludes the logical deployer:
+
+```solidity
+bytes32 salt = bytes32(nonce);
+```
+
+The globally shared `nonceUsed` namespace also lets any caller consume any announced nonce.
+
+Violated invariant:
+
+> A party reserving a deterministic deployment must retain exclusive ability to deploy and initialize the contract at that address.
+
+Concrete potential impact:
+
+Conditional on how the factory is used:
+
+- Ownership or upgrade-authority takeover of a pre-authorized deterministic contract.
+- Theft of assets pre-funded to a counterfactual address.
+- Freezing of a launch or claim contract whose address is already embedded in immutable/configured production contracts.
+- At minimum, permanent consumption of a selected nonce, although merely forcing use of another nonce does not meet the requested impact threshold.
+
+Strongest rebuttal:
+
+If deployed contracts are fully and safely initialized in their constructors, no assets or permissions are assigned before deployment, and callers may freely choose another nonce, early deployment provides no authority or qualifying impact. The deployed bytecode and constructor arguments are identical, and inside the constructor `msg.sender` is the UniversalFactory rather than the front-runner.
+
+Local Foundry PoC plan:
+
+1. Create a minimal UUPS or ownable contract with a public initializer.
+2. Compute its address through `predictAddress`.
+3. Preconfigure a mock protocol to trust that address or send tokens to it.
+4. Have an attacker call `deploy` with the announced code and nonce.
+5. Have the attacker call the initializer immediately.
+6. Show withdrawal of pre-funded tokens or use of the preassigned authority.
+7. Repeat with a constructor-initialized production target; reject the candidate for that deployment if the attacker gains no state-dependent advantage.
+8. Inspect production deployment scripts to determine whether UniversalFactory is actually used for authority-bearing or pre-funded addresses.
+
+## Rejected — Unlocked WhitelistManager and Router implementations
+
+Locations:
+
+- `WhitelistManager.constructor`
+- `TermMaxRouterV2.constructor`
+- both implementation `initialize` functions
+
+Neither constructor calls `_disableInitializers()`, so an attacker can initialize the implementation contract itself and become its owner.
+
+Rejected because UUPS upgrade entry points are protected by OpenZeppelin’s proxy-context checks. Owning the implementation does not grant ownership of existing proxy storage and normally does not permit upgrading production proxies. No qualifying theft or freeze follows without a separate integration that sends assets to or trusts the implementation address.
+
+Implementation locking is still recommended defensive hygiene.
+
+## Rejected — Public `TermMaxRouterV2.initializeV2()`
+
+Location:
+
+- `contracts/v2/router/TermMaxRouterV2.sol::initializeV2`
+
+Any address can consume reinitializer version 2:
+
+```solidity
+function initializeV2() external reinitializer(2) {
+    __ReentrancyGuard_init_unchained();
+}
+```
+
+Rejected for this source bundle because it only initializes the reentrancy-guard state and assigns no owner, role, whitelist, or upgrade authority. Front-running it may interfere with an expected upgrade initialization transaction, but the shown function has no meaningful configuration and no demonstrated theft, insolvency, or lasting freeze.
+
+It would become relevant if an upgrade transaction expects to call this function atomically alongside other setup and reverts because version 2 was already consumed.
+
+## Rejected — Access-manager self-bypass
+
+Location:
+
+- `contracts/v2/access/WithAccessManagerRole.sol::hasRole`
+
+```solidity
+if (msg.sender != ACCESS_MANAGER) {
+    require(IAccessControl(ACCESS_MANAGER).hasRole(role, msg.sender), ...);
+}
+```
+
+The access manager can call every `hasRole`-protected function without separately holding the relevant role. This appears intentional because `AccessManagerV2` acts as a forwarding control plane.
+
+No public escalation is shown: an unprivileged user cannot make the target see `msg.sender == ACCESS_MANAGER`. A flaw in omitted V1 forwarding or role administration could change this conclusion.
+
+## Rejected — Factory registration authority
+
+Locations:
+
+- `WithWhitelistCheck._registerAddress`
+- all V2 factory creation functions
+- `WhitelistManager.batchSetWhitelist`
+
+Factories automatically whitelist created markets, vaults, and pools. The call still reaches `WhitelistManager.hasRole(WHITELIST_ROLE)`, so each factory must itself possess `WHITELIST_ROLE`, unless the access manager is the direct caller.
+
+Creation functions are protected by deployment roles, and market/vault CREATE2 salts include `msg.sender`. No unprivileged deployment or registration path is shown.
+
+## Rejected — Generic pool clone initialization
+
+Location:
+
+- `contracts/v2/factory/TermMax4626Factory.sol::create`
+
+A `POOL_DEPLOYER_ROLE` holder can clone any configured implementation and supply arbitrary initialization calldata. This is broad authority, but the caller is already privileged and the resulting instance is intentionally whitelisted. It is out of scope absent a way for an unprivileged caller to obtain the role or influence a privileged call.
+
+## Rejected — Market, vault, token, and order clone initialization races
+
+Locations:
+
+- `TermMaxFactoryV2.createMarket`
+- `TermMaxVaultFactoryV2.createVault`
+- `TermMax4626Factory` creation functions
+- `TermMaxMarketV2._deployTokens`
+- `TermMaxMarketV2._createOrder` and deterministic `createOrder`
+
+Each clone is created and initialized in the same transaction. An external attacker cannot interleave a call between clone creation and initialization. Deterministic market/vault salts also include the authorized factory caller, preventing unrelated callers from occupying the same clone address through those factories.
+
+## Rejected — Delegate signature or permission escalation
+
+Locations:
+
+- `DelegateAble.setDelegateWithSignature`
+- `DelegateAble._checkSignature`
+- `AbstractGearingTokenV2.isOwnerOrDelegate`
+
+The signature binds delegator, delegatee, enable/disable state, nonce, deadline, EIP-712 domain, contract address, and chain ID. Nonces prevent replay. No signature forgery or cross-contract replay is apparent.
+
+Delegation is account-wide across all gearing-token IDs owned by a delegator rather than per-token. That is a broad permission model, but it is explicit in `isDelegate(owner, msgSender)` and requires an owner signature or direct owner call. It is not an unprivileged escalation by itself.
+
+## Rejected — Pause-boundary inconsistencies
+
+- Vault deposits and administrative order creation/redemption are paused.
+- Standard ERC4626 withdrawals, `withdrawFts`, and `dealBadDebt` remain available.
+- Router swaps and leverage/repay flows are paused.
+- Order trading is paused, while owner liquidity recovery remains available.
+
+Allowing withdrawals while paused is generally a safety property, not an authorization bypass. No public caller gains another user’s assets without share allowance.
+
+## Rejected — Public acceptance of pending vault changes
+
+Locations:
+
+- `acceptTimelock`
+- `acceptGuardian`
+- `acceptMarket`
+- `acceptPool`
+- `acceptPerformanceFeeRate`
+- `acceptPendingMinApy`
+
+These functions are permissionless after their timelocks. The caller cannot alter the pending value, and acceptance only executes a previously authorized proposal. This is a standard keeper-style design.
+
+## Storage-layout and role-admin limitations
+
+No conclusive storage-layout review is possible from this bundle:
+
+- The prior Router implementation/layout is absent.
+- `VaultStorageV2` is absent.
+- V1 `AccessManager` and its inheritance order are absent.
+- The exact OpenZeppelin upgradeable-contract version and storage model are not provided.
+- Upgrade deployment manifests are absent.
+
+Likewise, role-admin relationships cannot be fully cross-checked. `AccessManagerV2` inherits all role setup, default admins, initializer behavior, and implementation locking from the omitted V1 `AccessManager`. A complete review must verify:
+
+- its constructor and initializer;
+- `_disableInitializers`;
+- which account administers each role;
+- whether `DEFAULT_ADMIN_ROLE` is safely assigned;
+- whether role grants are delayed or otherwise constrained;
+- UUPS `_authorizeUpgrade`;
+- storage compatibility between V1 and V2;
+- whether arbitrary forwarding can be reached without a role check.
+
+Final status: three candidates survive source-only review, but none is Confirmed. The unauthenticated vault `afterSwap` callback is the highest-priority PoC because it is directly public and could affect live vault accounting without first assuming a deployment mistake.

@@ -1,0 +1,21 @@
+No files changed, compilation skipped
+
+Ran 15 tests for test/v2/pool/VariableERC4626ForAave.t.sol:VariableERC4626ForAaveTest
+[PASS] testDeposit() (gas: 205011)
+[PASS] testDepositToZeroAddress() (gas: 142919)
+[PASS] testDepositWithInsufficientApproval() (gas: 112364)
+[PASS] testDepositZeroAmount() (gas: 68158)
+[PASS] testFuzzDepositRedeem() (gas: 17976299)
+[PASS] testInvalidBufferConfiguration() (gas: 38040)
+[PASS] testNonAdminCannotUpdateBufferConfig() (gas: 16378)
+[PASS] testPreviewDeposit() (gas: 152691)
+[PASS] testPreviewRedeem() (gas: 186415)
+[PASS] testRedeem() (gas: 183160)
+[PASS] testRedeemMoreThanBalance() (gas: 148609)
+[PASS] testRedeemToZeroAddress() (gas: 163642)
+[PASS] testTotalAssets() (gas: 152474)
+[PASS] testUnauthorizedAccess() (gas: 17474)
+[PASS] testUpdateBufferConfig() (gas: 38878)
+Suite result: ok. 15 passed; 0 failed; 0 skipped; finished in 24.44ms (22.48ms CPU time)
+
+Ran 1 test suite in 25.41ms (24.44ms CPU time): 15 tests passed, 0 failed, 0 skipped (15 total tests)

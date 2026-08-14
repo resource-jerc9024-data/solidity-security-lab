@@ -1,0 +1,1058 @@
+No files changed, compilation skipped
+
+Ran 11 tests for test/v2/invariant/StableERC4626ForAaveInvariant.t.sol:StableERC4626ForAaveInvariantTest
+[PASS] invariant_accessControl() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 43929062970
+  Bound result 42929072635
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_balanceConsistency() (runs: 128, calls: 8192, reverts: 2319)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 321     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 46964532618
+  Bound result 45964542284
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 8921
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 7
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 4
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 5
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_bufferConfigValid() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 3035469903
+  Bound result 2035479568
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_callSummary() (runs: 128, calls: 8192, reverts: 2331)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 333     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 4
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002131
+  Bound result 3035469904
+  Bound result 46964536863
+  Bound result 43929067215
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2308
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 43929067214
+  Bound result 42929077018
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 2380
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 4
+  Bound result 6752
+  Bound result 10
+  Bound result 1
+  Bound result 7
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 10
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+  === INVARIANT TEST CALL SUMMARY ===
+  deposit calls: 0
+  withdraw calls: 6
+  redeem calls: 9
+  mint calls: 0
+  burnToAToken calls: 9
+  simulateYield calls: 6
+  withdrawIncomeAssets calls: 6
+  updateBufferConfig calls: 11
+  Ghost variables:
+  ghost_depositSum: 0
+  ghost_withdrawSum: 0
+  ghost_mintedSum: 0
+  ghost_burnedSum: 0
+  ghost_totalIncomeWithdrawn: 83557385
+  Contract state:
+  totalSupply: 0
+  totalAssets: 0
+  totalIncomeAssets: 224947911
+  underlying balance: 74864099
+  aToken balance: 66526427
+
+[PASS] invariant_conversionRatio() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 3035469903
+  Bound result 2035479568
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_ghostVariableConsistency() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 3035469903
+  Bound result 2035479568
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_incomeAssetsConsistency() (runs: 128, calls: 8192, reverts: 2320)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 322     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 43929062972
+  Bound result 42929072636
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 8921
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 9
+  Bound result 6752
+  Bound result 10
+  Bound result 5
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 2
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_maxFunctionsReasonable() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 46964532618
+  Bound result 45964542283
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_noNegativeBalances() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 46964532618
+  Bound result 45964542283
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_previewConsistency() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 43929062970
+  Bound result 42929072635
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+[PASS] invariant_totalAssetsEqualsSupply() (runs: 128, calls: 8192, reverts: 2325)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626ForAaveHandler | burnToAToken         | 1061  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | deposit              | 1045  | 1045    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | mint                 | 953   | 953     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | redeem               | 996   | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | simulateYield        | 1030  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | updateBufferConfig   | 1045  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdraw             | 1039  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626ForAaveHandler | withdrawIncomeAssets | 1023  | 327     | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 10
+  Bound result 1783821013
+  Bound result 49999999997
+  Bound result 43978055389
+  Bound result 10
+  Bound result 3695642696
+  Bound result 15704765271
+  Bound result 8662918998
+  Bound result 7
+  Bound result 10
+  Bound result 6
+  Bound result 99999501
+  Bound result 5
+  Bound result 4900000082
+  Bound result 45099999925
+  Bound result 40200002149
+  Bound result 3035469904
+  Bound result 46964532619
+  Bound result 43929062971
+  Bound result 418927
+  Bound result 83129304
+  Bound result 10
+  Bound result 10
+  Bound result 2241
+  Bound result 10
+  Bound result 7062014
+  Bound result 1000000000
+  Bound result 43929062970
+  Bound result 42929072635
+  Bound result 1584915623
+  Bound result 19765706732
+  Bound result 18181491724
+  Bound result 1546
+  Bound result 10
+  Bound result 4936917904
+  Bound result 37722888081
+  Bound result 32805340564
+  Bound result 3
+  Bound result 6752
+  Bound result 10
+  Bound result 4
+  Bound result 9
+  Bound result 2
+  Bound result 81
+  Bound result 7
+  Bound result 3
+  Bound result 11644120
+  Bound result 3455252955
+  Bound result 29869924508
+  Bound result 7897542364
+  Bound result 10
+  Bound result 10
+  Bound result 51357587
+  Bound result 3424449040
+  Bound result 44845516220
+  Bound result 41146731337
+  Bound result 9
+  Bound result 9
+  Bound result 4999999998
+  Bound result 29799237008
+  Bound result 29713160393
+  Bound result 13
+  Bound result 6
+  Bound result 66526427
+  Bound result 4
+  Bound result 10
+  Bound result 2
+  Bound result 1320583148
+  Bound result 32880922208
+  Bound result 13844472113
+
+Suite result: ok. 11 passed; 0 failed; 0 skipped; finished in 21.08s (21.08s CPU time)
+
+Ran 1 test suite in 21.09s (21.08s CPU time): 11 tests passed, 0 failed, 0 skipped (11 total tests)

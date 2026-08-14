@@ -1,0 +1,902 @@
+No files changed, compilation skipped
+
+Ran 12 tests for test/v2/invariant/VariableERC4626ForAaveInvariant.t.sol:VariableERC4626ForAaveInvariantTest
+[PASS] invariant_accessControl() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 7
+  Bound result 7
+  Bound result 29894822
+  Bound result 2
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002826
+  Bound result 45099997540
+  Bound result 40200051720
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_bufferConfigValid() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 7
+  Bound result 7
+  Bound result 29894822
+  Bound result 2
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002826
+  Bound result 45099997540
+  Bound result 40200051720
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_callSummary() (runs: 128, calls: 8192, reverts: 2335)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1122    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 9651741
+  Bound result 6
+  Bound result 10
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 3
+  Bound result 3
+  Bound result 29894822
+  Bound result 7
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 5871
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002623
+  Bound result 45099997743
+  Bound result 40200052126
+  Bound result 10
+  Bound result 8
+  Bound result 1
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001537
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476174
+  Bound result 41012951145
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+  === VARIABLE ERC4626 INVARIANT TEST CALL SUMMARY ===
+  deposit calls: 0
+  withdraw calls: 10
+  redeem calls: 9
+  mint calls: 0
+  simulateYield calls: 11
+  updateBufferConfig calls: 7
+  forceRebalance calls: 10
+  Ghost variables:
+  ghost_depositSum: 10000000
+  ghost_withdrawSum: 0
+  ghost_mintedSum: 10000000
+  ghost_burnedSum: 0
+  ghost_totalYieldAccrued: 206548681
+  ghost_totalInterestGenerated: 206548681
+  Contract state:
+  totalSupply: 0
+  totalAssets: 216548681
+  underlying balance: 10000000
+  aToken balance: 206548681
+
+[PASS] invariant_conversionConsistency() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 3
+  Bound result 7
+  Bound result 29894822
+  Bound result 4
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 5871
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002702
+  Bound result 45099997664
+  Bound result 40200051968
+  Bound result 10
+  Bound result 8
+  Bound result 7
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001519
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 43328410633
+  Bound result 38834885586
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_exchangeRateProtection() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 3
+  Bound result 3
+  Bound result 29894822
+  Bound result 3
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002804
+  Bound result 45099997562
+  Bound result 40200051764
+  Bound result 10
+  Bound result 8
+  Bound result 6
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001537
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506473998
+  Bound result 41012948964
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_maxFunctionsReasonable() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 7
+  Bound result 7
+  Bound result 29894822
+  Bound result 2
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002826
+  Bound result 45099997540
+  Bound result 40200051720
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_noNegativeBalances() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 7
+  Bound result 7
+  Bound result 29894822
+  Bound result 2
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002826
+  Bound result 45099997540
+  Bound result 40200051720
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_sharePriceMonotonic() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 3
+  Bound result 3
+  Bound result 29894822
+  Bound result 3
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002804
+  Bound result 45099997562
+  Bound result 40200051764
+  Bound result 10
+  Bound result 8
+  Bound result 6
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001537
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506473998
+  Bound result 41012948964
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_totalAssetsConsistency() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 7
+  Bound result 7
+  Bound result 29894822
+  Bound result 2
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002826
+  Bound result 45099997540
+  Bound result 40200051720
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_totalAssetsGeSupply() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 3
+  Bound result 3
+  Bound result 29894822
+  Bound result 3
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002804
+  Bound result 45099997562
+  Bound result 40200051764
+  Bound result 10
+  Bound result 8
+  Bound result 6
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001537
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506473998
+  Bound result 41012948964
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_totalSupplyConsistency() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 9651740
+  Bound result 1
+  Bound result 10
+  Bound result 10
+  Bound result 7
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 3
+  Bound result 10
+  Bound result 29894822
+  Bound result 4
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002805
+  Bound result 45099997561
+  Bound result 40200051762
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+[PASS] invariant_yieldIncreasesTotalAssets() (runs: 128, calls: 8192, reverts: 2336)
+
+╭-------------------------------+--------------------+-------+---------+----------╮
+| Contract                      | Selector           | Calls | Reverts | Discards |
++=================================================================================+
+| VariableERC4626ForAaveHandler | deposit            | 1123  | 1123    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | forceRebalance     | 1205  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | mint               | 1213  | 1213    | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | redeem             | 1159  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | simulateYield      | 1181  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | updateBufferConfig | 1148  | 0       | 0        |
+|-------------------------------+--------------------+-------+---------+----------|
+| VariableERC4626ForAaveHandler | withdraw           | 1163  | 0       | 0        |
+╰-------------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 4900015755
+  Bound result 45110692383
+  Bound result 19777944205
+  Bound result 4246
+  Bound result 5
+  Bound result 10
+  Bound result 10
+  Bound result 6
+  Bound result 10
+  Bound result 76
+  Bound result 2690563205
+  Bound result 33025283814
+  Bound result 31615359992
+  Bound result 7
+  Bound result 7
+  Bound result 29894822
+  Bound result 2
+  Bound result 3294481302
+  Bound result 46705518723
+  Bound result 43411037534
+  Bound result 35194174
+  Bound result 15277952
+  Bound result 10
+  Bound result 10
+  Bound result 4900002826
+  Bound result 45099997540
+  Bound result 40200051720
+  Bound result 10
+  Bound result 8
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 10
+  Bound result 37567582
+  Bound result 49503090
+  Bound result 29639934
+  Bound result 4900000041
+  Bound result 45099999980
+  Bound result 40200001538
+  Bound result 10
+  Bound result 423
+  Bound result 35007187
+  Bound result 10
+  Bound result 3
+  Bound result 10
+  Bound result 4493526032
+  Bound result 45506476172
+  Bound result 41012951141
+  Bound result 4900001001
+  Bound result 6043112768
+  Bound result 5715558872
+
+Suite result: ok. 12 passed; 0 failed; 0 skipped; finished in 25.72s (25.72s CPU time)
+
+Ran 1 test suite in 25.73s (25.72s CPU time): 12 tests passed, 0 failed, 0 skipped (12 total tests)

@@ -1,6 +1,6 @@
 # TermMax V2 audit state
 
-- Status: in progress
+- Status: review complete; no reward-eligible finding confirmed
 - Source commit: `e314f3f849577dfecd4614f148c4df81fdf8c72d`
 - Source branch at verification: `origin/main`
 - Source tree at verification: clean
@@ -22,11 +22,13 @@
 |---|---|---|
 | Scope refresh | Complete | `SCOPE.md` |
 | Commit pin and repository check | Complete | `runs/current/metadata.md` after runner execution |
-| Baseline build/test | Pending | `runs/current/status.tsv` |
-| Static analysis | Pending | `runs/current/slither*` |
-| Independent Codex review passes | Pending | `runs/current/codex/` |
-| Candidate reproduction | Pending | `CANDIDATES.md` |
-| Known-issue/audit comparison | Pending | `CANDIDATES.md` |
+| Baseline build/test | Complete | `RUN_SUMMARY.md`, `runs/current/status.tsv`, `runs/current/test-shards/` |
+| Static analysis | Complete | `STATIC_TRIAGE.md`, `runs/current/slither*` |
+| Independent Codex review passes | Complete | `CODEX_TRIAGE.md`, `runs/current/codex/` |
+| Candidate reproduction | Complete | `CANDIDATES.md`, `poc/RouterSameTokenBalanceSweep.t.sol` |
+| Known-issue/audit comparison | Complete | `CANDIDATES.md`; exact public duplicate PR linked there |
 
-No bounty report is ready for submission while any required evidence gate is
-pending.
+The only hypothesis that crossed the complete technical impact gate is
+`DUP-001`. It is not submission-ready because an earlier public upstream pull
+request documents the same root cause, drain path, and remediation. All other
+leads failed reachability, independence, or listed-impact requirements.

@@ -1,0 +1,15 @@
+No files changed, compilation skipped
+
+Ran 9 tests for test/v2/FactoryV2.t.sol:FactoryTestV2
+[PASS] testDeploy() (gas: 70776)
+[PASS] testDeployMarketWithInvalidParams() (gas: 2372728)
+[PASS] testDeployRepeatedly() (gas: 1041404848)
+[PASS] testInvalidLiquidationLtv() (gas: 1492898)
+[PASS] testInvalidMarketImplementation() (gas: 47323)
+[PASS] testLiquidationLtvMustBeGreaterThanMaxLtv() (gas: 1496008)
+[PASS] testRevertByCantNotFindGtImplementation() (gas: 889043)
+[PASS] testSetGtImplement() (gas: 4729603)
+[PASS] testSetGtImplementWithoutAuth() (gas: 4702314)
+Suite result: ok. 9 passed; 0 failed; 0 skipped; finished in 13.48ms (6.49ms CPU time)
+
+Ran 1 test suite in 28.44ms (13.48ms CPU time): 9 tests passed, 0 failed, 0 skipped (9 total tests)

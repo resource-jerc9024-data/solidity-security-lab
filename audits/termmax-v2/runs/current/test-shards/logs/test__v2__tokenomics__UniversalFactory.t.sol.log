@@ -1,0 +1,29 @@
+No files changed, compilation skipped
+
+Ran 20 tests for test/v2/tokenomics/UniversalFactory.t.sol:UniversalFactoryTest
+[PASS] testCrossContractTypeDeployments() (gas: 376965)
+[PASS] testDeployMockContract() (gas: 268917)
+[PASS] testDeploySimpleContract() (gas: 123821)
+[PASS] testDeployWithMaxNonce() (gas: 123209)
+[PASS] testDeployWithNonceZero() (gas: 123289)
+[PASS] testDeployerAddressInEvent() (gas: 125966)
+[PASS] testFuzzGetSalt(uint256) (runs: 256, μ: 8710, ~: 8710)
+[PASS] testFuzzMultipleNoncesDifferentAddresses(uint256,uint256) (runs: 256, μ: 240534, ~: 240534)
+[PASS] testFuzzPredictAddressConsistency(uint256) (runs: 256, μ: 11709, ~: 11709)
+[PASS] testGasDeploySimpleContract() (gas: 118489)
+Logs:
+  Gas used for simple contract deployment: 115825
+
+[PASS] testGetCreationCodeWithComplexArgs() (gas: 14206)
+[PASS] testGetCreationCodeWithEmptyArgs() (gas: 11627)
+[PASS] testGetSalt() (gas: 13515)
+[PASS] testIsDeployedAfterDeployment() (gas: 121062)
+[PASS] testIsDeployedInitiallyFalse() (gas: 11235)
+[PASS] testMultipleDeployersCanUseSameNonce() (gas: 238703)
+[PASS] testMultipleDeploymentsEmitMultipleEvents() (gas: 356914)
+[PASS] testNonceUsedAfterDeployment() (gas: 122333)
+[PASS] testNonceUsedInitiallyFalse() (gas: 19119)
+[PASS] testSaltIsDirectNonceConversion() (gas: 9174)
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 87.27ms (83.99ms CPU time)
+
+Ran 1 test suite in 88.82ms (87.27ms CPU time): 20 tests passed, 0 failed, 0 skipped (20 total tests)

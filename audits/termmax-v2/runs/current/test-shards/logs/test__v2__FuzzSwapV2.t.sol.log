@@ -1,0 +1,38 @@
+No files changed, compilation skipped
+
+Ran 8 tests for test/v2/FuzzSwapV2.t.sol:FuzzSwapTestV2
+[PASS] testBuyExactFt(uint256,uint128) (runs: 256, μ: 38235934, ~: 38398291)
+Logs:
+  buy exact ft 0 52368389429
+
+[PASS] testBuyExactXt(uint256,uint128) (runs: 256, μ: 38240161, ~: 38410777)
+Logs:
+  buy exact xt 1 46
+
+[PASS] testBuyFt(uint256,uint128) (runs: 256, μ: 38200176, ~: 38395976)
+Logs:
+  buy ft 0 52368389429
+
+[PASS] testBuyXt(uint256,uint128) (runs: 256, μ: 38213804, ~: 38441867)
+Logs:
+  buy xt 1 24056
+
+[PASS] testSellFt(uint256,uint128) (runs: 256, μ: 38239143, ~: 38434752)
+Logs:
+  sell ft 1 46
+
+[PASS] testSellFtForExactToken(uint256,uint128) (runs: 256, μ: 38279231, ~: 38473801)
+Logs:
+  sell ft for exact token 1 1537
+
+[PASS] testSellXt(uint256,uint128) (runs: 256, μ: 38241574, ~: 38454640)
+Logs:
+  sell xt 0 52368389429
+
+[PASS] testSellXtForExactToken(uint256,uint128) (runs: 256, μ: 38280532, ~: 38493881)
+Logs:
+  sell xt for exact token 0 57005
+
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 25.09s (25.08s CPU time)
+
+Ran 1 test suite in 25.09s (25.09s CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

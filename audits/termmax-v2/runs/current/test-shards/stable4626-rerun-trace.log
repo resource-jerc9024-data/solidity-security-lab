@@ -1,0 +1,1727 @@
+No files changed, compilation skipped
+{"timestamp":1786717538,"event":"failure","invariant":"invariant_accessControl","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 13683008884 != 3604989248"}
+{"timestamp":1786717547,"event":"failure","invariant":"invariant_balanceConsistency","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 17274576692 != 3604989248"}
+{"timestamp":1786717556,"event":"failure","invariant":"invariant_bufferConfigValid","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 24679751869 != 3604989248"}
+{"timestamp":1786717562,"event":"failure","invariant":"invariant_conversionRatio","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 13269620528 != 13269620498"}
+{"timestamp":1786717571,"event":"failure","invariant":"invariant_ghostVariableConsistency","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 25115986595 != 3604989248"}
+{"timestamp":1786717580,"event":"failure","invariant":"invariant_incomeAssetsConsistency","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 13502830735 != 3604989248"}
+{"timestamp":1786717590,"event":"failure","invariant":"invariant_maxFunctionsReasonable","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 8295271294 != 3604989248"}
+{"timestamp":1786717597,"event":"failure","invariant":"invariant_previewFunctionsConsistent","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 13269620528 != 13269620498"}
+{"timestamp":1786717605,"event":"failure","invariant":"invariant_thirdPoolInteractionConsistency","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 39739660748 != 3604989248"}
+{"timestamp":1786717613,"event":"failure","invariant":"invariant_totalAssetsEqualsSupply","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 17247904201 != 3604989248"}
+{"timestamp":1786717638,"event":"failure","invariant":"invariant_underlyingAssetConsistency","target":"test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest","reason":"assertion failed: 2384493384 != 2384491338"}
+
+Ran 11 tests for test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest
+[FAIL: assertion failed: 13683008884 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_accessControl() (runs: 43, calls: 21500, reverts: 3816)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1910    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1905    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [18738] StableERC4626For4626InvariantTest::invariant_accessControl()
+    ├─ [7570] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [2763] StableERC4626For4626::owner() [delegatecall]
+    │   │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [0] VM::assertEq(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, "Admin should remain the owner") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 17274576692 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_balanceConsistency() (runs: 43, calls: 21500, reverts: 3815)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1913    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1900    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [49555] StableERC4626For4626InvariantTest::invariant_balanceConsistency()
+    ├─ [2537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [2695] MockStableERC4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [389] MockStableERC4626::previewRedeem(0) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [7228] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [2421] StableERC4626For4626::totalSupply() [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [9502] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [9195] StableERC4626For4626::totalIncomeAssets() [delegatecall]
+    │   │   ├─ [695] MockStableERC4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [2748] StableERC4626For4626Handler::ghost_totalIncomeWithdrawn() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertApproxEqAbs(0, 0, 2, "Balance consistency check failed") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Stop]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 24679751869 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_bufferConfigValid() (runs: 43, calls: 21500, reverts: 3825)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1915    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1908    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [23296] StableERC4626For4626InvariantTest::invariant_bufferConfigValid()
+    ├─ [11708] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [6895] StableERC4626For4626::bufferConfig() [delegatecall]
+    │   │   └─ ← [Return] BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })
+    │   └─ ← [Return] BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })
+    ├─ [0] VM::assertTrue(true, "Minimum buffer should be <= maximum buffer") [staticcall]
+    │   └─ ← [Return]
+    ├─ [0] VM::assertTrue(true, "Buffer should be >= minimum buffer") [staticcall]
+    │   └─ ← [Return]
+    ├─ [0] VM::assertTrue(true, "Buffer should be <= maximum buffer") [staticcall]
+    │   └─ ← [Return]
+    ├─ [0] VM::assertTrue(true, "Minimum buffer should be positive") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 13269620528 != 13269620498]
+	[Sequence] (original: 295, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_conversionRatio() (runs: 21, calls: 10500, reverts: 1886)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 1531  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 1518  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 1535  | 941     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 1569  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 1568  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 1591  | 944     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 1541  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 30
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [251640] StableERC4626For4626Handler::mint(30)
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 30) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 30)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 30)
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 30
+    ├─ [86234] ERC1967Proxy::fallback(30, ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [85921] StableERC4626For4626::mint(30, ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 30)
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 30
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 30, shares: 30)
+    │   │   └─ ← [Return] 30
+    │   └─ ← [Return] 30
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 30
+    │   └─ ← [Return] 30
+    ├─ [0] VM::assertEq(30, 30) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 30
+    ├─ [0] VM::assertEq(30, 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 30 != 0
+    └─ ← [Revert] assertion failed: 30 != 0
+
+  [16389] StableERC4626For4626InvariantTest::invariant_conversionRatio()
+    ├─ [5653] ERC1967Proxy::fallback(1000000000 [1e9]) [staticcall]
+    │   ├─ [843] StableERC4626For4626::convertToShares(1000000000 [1e9]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000 [1e9]
+    │   └─ ← [Return] 1000000000 [1e9]
+    ├─ [0] VM::assertEq(1000000000 [1e9], 1000000000 [1e9], "convertToShares should return 1:1 ratio") [staticcall]
+    │   └─ ← [Return]
+    ├─ [515] ERC1967Proxy::fallback(1000000000 [1e9]) [staticcall]
+    │   ├─ [205] StableERC4626For4626::convertToAssets(1000000000 [1e9]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000 [1e9]
+    │   └─ ← [Return] 1000000000 [1e9]
+    ├─ [0] VM::assertEq(1000000000 [1e9], 1000000000 [1e9], "convertToAssets should return 1:1 ratio") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 25115986595 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_ghostVariableConsistency() (runs: 43, calls: 21500, reverts: 3824)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1918    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1905    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [30396] StableERC4626For4626InvariantTest::invariant_ghostVariableConsistency()
+    ├─ [2792] StableERC4626For4626Handler::ghost_mintedSum() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [2836] StableERC4626For4626Handler::ghost_burnedSum() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [792] StableERC4626For4626Handler::ghost_mintedSum() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [836] StableERC4626For4626Handler::ghost_burnedSum() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [7228] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [2421] StableERC4626For4626::totalSupply() [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [728] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [421] StableERC4626For4626::totalSupply() [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertApproxEqAbs(0, 0, 1, "Ghost variable tracking inconsistent with actual supply") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 13502830735 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_incomeAssetsConsistency() (runs: 43, calls: 21500, reverts: 3826)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1917    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1907    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [49731] StableERC4626For4626InvariantTest::invariant_incomeAssetsConsistency()
+    ├─ [25002] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [20195] StableERC4626For4626::totalIncomeAssets() [delegatecall]
+    │   │   ├─ [2695] MockStableERC4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [2537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [695] MockStableERC4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [389] MockStableERC4626::previewRedeem(0) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [728] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [421] StableERC4626For4626::totalSupply() [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [2748] StableERC4626For4626Handler::ghost_totalIncomeWithdrawn() [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertTrue(true, "Income assets should not exceed available assets") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 8295271294 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_maxFunctionsReasonable() (runs: 43, calls: 21500, reverts: 3819)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1914    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1903    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [20613] StableERC4626For4626InvariantTest::invariant_maxFunctionsReasonable()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    ├─ [5287] ERC1967Proxy::fallback(0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf) [staticcall]
+    │   ├─ [477] StableERC4626For4626::maxDeposit(0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf) [delegatecall]
+    │   │   └─ ← [Return] 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]
+    │   └─ ← [Return] 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]
+    ├─ [0] VM::assertTrue(true, "maxDeposit should be positive") [staticcall]
+    │   └─ ← [Return]
+    ├─ [1205] ERC1967Proxy::fallback(0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf) [staticcall]
+    │   ├─ [895] StableERC4626For4626::maxMint(0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf) [delegatecall]
+    │   │   └─ ← [Return] 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]
+    │   └─ ← [Return] 115792089237316195423570985008687907853269984665640564039457584007913129639935 [1.157e77]
+    ├─ [0] VM::assertTrue(true, "maxMint should be positive") [staticcall]
+    │   └─ ← [Return]
+    ├─ [3123] ERC1967Proxy::fallback(0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 13269620528 != 13269620498]
+	[Sequence] (original: 295, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_previewFunctionsConsistent() (runs: 21, calls: 10500, reverts: 1889)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 1531  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 1518  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 1535  | 943     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 1569  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 1568  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 1591  | 945     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 1541  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 30
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [251640] StableERC4626For4626Handler::mint(30)
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 30) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 30)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 30)
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 30
+    ├─ [86234] ERC1967Proxy::fallback(30, ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [85921] StableERC4626For4626::mint(30, ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 30)
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 30
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 30)
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 30, shares: 30)
+    │   │   └─ ← [Return] 30
+    │   └─ ← [Return] 30
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 30
+    │   └─ ← [Return] 30
+    ├─ [0] VM::assertEq(30, 30) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 30
+    ├─ [0] VM::assertEq(30, 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 30 != 0
+    └─ ← [Revert] assertion failed: 30 != 0
+
+  [20168] StableERC4626For4626InvariantTest::invariant_previewFunctionsConsistent()
+    ├─ [5763] ERC1967Proxy::fallback(1000000000 [1e9]) [staticcall]
+    │   ├─ [953] StableERC4626For4626::previewDeposit(1000000000 [1e9]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000 [1e9]
+    │   └─ ← [Return] 1000000000 [1e9]
+    ├─ [0] VM::assertEq(1000000000 [1e9], 1000000000 [1e9], "previewDeposit should be 1:1") [staticcall]
+    │   └─ ← [Return]
+    ├─ [1031] ERC1967Proxy::fallback(1000000000 [1e9]) [staticcall]
+    │   ├─ [721] StableERC4626For4626::previewMint(1000000000 [1e9]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000 [1e9]
+    │   └─ ← [Return] 1000000000 [1e9]
+    ├─ [0] VM::assertEq(1000000000 [1e9], 1000000000 [1e9], "previewMint should be 1:1") [staticcall]
+    │   └─ ← [Return]
+    ├─ [547] ERC1967Proxy::fallback(1000000000 [1e9]) [staticcall]
+    │   ├─ [237] StableERC4626For4626::previewWithdraw(1000000000 [1e9]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000 [1e9]
+    │   └─ ← [Return] 1000000000 [1e9]
+    ├─ [0] VM::assertEq(1000000000 [1e9], 1000000000 [1e9], "previewWithdraw should be 1:1") [staticcall]
+    │   └─ ← [Return]
+    ├─ [735] ERC1967Proxy::fallback(1000000000 [1e9]) [staticcall]
+    │   ├─ [425] StableERC4626For4626::previewRedeem(1000000000 [1e9]) [delegatecall]
+    │   │   └─ ← [Return] 1000000000 [1e9]
+    │   └─ ← [Return] 1000000000 [1e9]
+    ├─ [0] VM::assertEq(1000000000 [1e9], 1000000000 [1e9], "previewRedeem should be 1:1") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 39739660748 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_thirdPoolInteractionConsistency() (runs: 43, calls: 21500, reverts: 3816)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1915    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1900    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [11302] StableERC4626For4626InvariantTest::invariant_thirdPoolInteractionConsistency()
+    ├─ [2695] MockStableERC4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [389] MockStableERC4626::previewRedeem(0) [staticcall]
+    │   └─ ← [Return] 0
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 17247904201 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_totalAssetsEqualsSupply() (runs: 43, calls: 21500, reverts: 3823)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 3057  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 3214  | 1       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 3173  | 1913    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 3149  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 3060  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 3133  | 1909    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 3034  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 729740676930
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [357897] StableERC4626For4626Handler::mint(3357371460729740676930 [3.357e21])
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [192046] ERC1967Proxy::fallback(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [191733] StableERC4626For4626::mint(729740676930 [7.297e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 729740676930 [7.297e11])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   │   ├─ [2768] MockERC20::allowance(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 0
+    │   │   ├─ [22225] MockERC20::approve(MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [74592] MockStableERC4626::deposit(724740676930 [7.247e11], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   │   │   ├─ [25423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 724740676930 [7.247e11])
+    │   │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 724740676930 [7.247e11])
+    │   │   │   │   └─ ← [Return] true
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 724740676930 [7.247e11])
+    │   │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 724740676930 [7.247e11], shares: 724740676930 [7.247e11])
+    │   │   │   └─ ← [Return] 724740676930 [7.247e11]
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 729740676930 [7.297e11])
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 729740676930 [7.297e11], shares: 729740676930 [7.297e11])
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 729740676930 [7.297e11]
+    │   └─ ← [Return] 729740676930 [7.297e11]
+    ├─ [0] VM::assertEq(729740676930 [7.297e11], 729740676930 [7.297e11]) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 5000000000 [5e9]
+    ├─ [0] VM::assertEq(5000000000 [5e9], 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 5000000000 != 0
+    └─ ← [Revert] assertion failed: 5000000000 != 0
+
+  [17318] StableERC4626For4626InvariantTest::invariant_totalAssetsEqualsSupply()
+    ├─ [7084] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [2277] StableERC4626For4626::totalAssets() [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [728] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [421] StableERC4626For4626::totalSupply() [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertEq(0, 0, "Total assets should equal total supply") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+[FAIL: assertion failed: 2384493384 != 2384491338]
+	[Sequence] (original: 87, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[2046]
+ invariant_underlyingAssetConsistency() (runs: 200, calls: 100000, reverts: 17557)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 14205 | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 14371 | 3       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 14293 | 8697    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 14267 | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 14326 | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 14404 | 8857    | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 14235 | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 2046
+
+Traces:
+  [6132787] StableERC4626For4626InvariantTest::setUp()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3
+    ├─ [392444] → new MockERC20@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 1731 bytes of code
+    ├─ [658235] → new MockStableERC4626@0x2e234DAe75C793f67A35089C9d99245E1C58470b
+    │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   └─ ← [Return] 6
+    │   └─ ← [Return] 3056 bytes of code
+    ├─ [1862291] → new StableERC4626For4626@0xF62849F9A0B5Bf2913b396098F7c7019b51A820a
+    │   ├─ emit Initialized(version: 18446744073709551615 [1.844e19])
+    │   └─ ← [Return] 9185 bytes of code
+    ├─ [311031] → new ERC1967Proxy@0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9
+    │   ├─ emit Upgraded(implementation: StableERC4626For4626: [0xF62849F9A0B5Bf2913b396098F7c7019b51A820a])
+    │   ├─ [260488] StableERC4626For4626::initialize(0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], BufferConfig({ minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9] })) [delegatecall]
+    │   │   ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   │   ├─ [675] MockERC20::name() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ [837] MockERC20::symbol() [staticcall]
+    │   │   │   └─ ← [Return] "USDC"
+    │   │   ├─ emit OwnershipTransferred(previousOwner: 0x0000000000000000000000000000000000000000, newOwner: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3)
+    │   │   ├─ [247] MockERC20::decimals() [staticcall]
+    │   │   │   └─ ← [Return] 6
+    │   │   ├─ emit UpdateBufferConfig(minimumBuffer: 1000000000 [1e9], maximumBuffer: 10000000000 [1e10], buffer: 5000000000 [5e9])
+    │   │   ├─ emit ERC4626For4626Initialized(admin: 0xb26a74C06DFf56d21D0dd9A41F003530B5376bA3, underlying: MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], pool: MockStableERC4626: [0x2e234DAe75C793f67A35089C9d99245E1C58470b])
+    │   │   ├─ emit Initialized(version: 1)
+    │   │   └─ ← [Stop]
+    │   └─ ← [Return] 130 bytes of code
+    ├─ [2509349] → new StableERC4626For4626Handler@0xc7183455a4C133Ae270771860664b6B7ec320bB1
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x2B5AD5c4795c026514f8317c7a215E218DcCD6cF
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x6813Eb9362372EEF6200f3b1dbC3f819671cBA69
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x1efF47bc3a10a45D4B230B5d10E37751FE6AA718
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xe1AB8145F7E55DC933d51a18c793F901A3A0b276
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xE57bFE9F44b819898F47BF37E5AF72a0783e1141
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xd41c057fd1c78805AAC12B0A94a405c0461A6FBb
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF1F6619B38A98d6De0800F1DefC0a6399eB6d30C
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0xF7Edc8FA1eCc32967F827C9043FcAe6ba73afA5c
+    │   ├─ [0] VM::addr(<pk>) [staticcall]
+    │   │   └─ ← [Return] 0x4CCeBa2d7D2B4fdcE4304d3e09a1fea9fbEb1528
+    │   └─ ← [Return] 10720 bytes of code
+    └─ ← [Stop]
+
+  [251640] StableERC4626For4626Handler::mint(2046)
+    ├─ [0] VM::startPrank(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   └─ ← [Return]
+    ├─ [0] console::log("Bound result", 2046) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [46465] MockERC20::mint(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 2046)
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 2046)
+    │   └─ ← [Stop]
+    ├─ [24325] MockERC20::approve(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 2046)
+    │   ├─ emit Approval(owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], spender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 2046)
+    │   └─ ← [Return] true
+    ├─ [7623] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [2813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 0
+    │   └─ ← [Return] 0
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 2046
+    ├─ [86234] ERC1967Proxy::fallback(2046, ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9])
+    │   ├─ [85921] StableERC4626For4626::mint(2046, ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   ├─ [23423] MockERC20::transferFrom(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], 2046)
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 2046)
+    │   │   │   └─ ← [Return] true
+    │   │   ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   │   │   └─ ← [Return] 2046
+    │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], amount: 2046)
+    │   │   ├─ emit Deposit(sender: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], owner: ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9], assets: 2046, shares: 2046)
+    │   │   └─ ← [Return] 2046
+    │   └─ ← [Return] 2046
+    ├─ [1123] ERC1967Proxy::fallback(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   ├─ [813] StableERC4626For4626::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [delegatecall]
+    │   │   └─ ← [Return] 2046
+    │   └─ ← [Return] 2046
+    ├─ [0] VM::assertEq(2046, 2046) [staticcall]
+    │   └─ ← [Return]
+    ├─ [537] MockERC20::balanceOf(ERC1967Proxy: [0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9]) [staticcall]
+    │   └─ ← [Return] 2046
+    ├─ [0] VM::assertEq(2046, 0) [staticcall]
+    │   └─ ← [Revert] assertion failed: 2046 != 0
+    └─ ← [Revert] assertion failed: 2046 != 0
+
+  [28666] StableERC4626For4626InvariantTest::invariant_underlyingAssetConsistency()
+    ├─ [7409] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [2602] StableERC4626For4626::underlying() [delegatecall]
+    │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    ├─ [0] VM::assertEq(MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], "Underlying should match expected") [staticcall]
+    │   └─ ← [Return]
+    ├─ [2828] ERC1967Proxy::fallback() [staticcall]
+    │   ├─ [2521] StableERC4626For4626::asset() [delegatecall]
+    │   │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    ├─ [0] VM::assertEq(MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], "Asset should match underlying") [staticcall]
+    │   └─ ← [Return]
+    ├─ [350] MockStableERC4626::asset() [staticcall]
+    │   └─ ← [Return] MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f]
+    ├─ [0] VM::assertEq(MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], MockERC20: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], "Third pool asset should match underlying") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Backtrace:
+  at VM.assertEq
+  at StableERC4626For4626Handler.mint
+
+Suite result: FAILED. 0 passed; 11 failed; 0 skipped; finished in 105.73s (105.73s CPU time)
+
+Ran 1 test suite in 105.76s (105.73s CPU time): 0 tests passed, 11 failed, 0 skipped (11 total tests)
+
+Failing tests:
+Encountered 11 failing tests in test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest
+[FAIL: assertion failed: 13683008884 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_accessControl() (runs: 43, calls: 21500, reverts: 3816)
+[FAIL: assertion failed: 17274576692 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_balanceConsistency() (runs: 43, calls: 21500, reverts: 3815)
+[FAIL: assertion failed: 24679751869 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_bufferConfigValid() (runs: 43, calls: 21500, reverts: 3825)
+[FAIL: assertion failed: 13269620528 != 13269620498]
+	[Sequence] (original: 295, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_conversionRatio() (runs: 21, calls: 10500, reverts: 1886)
+[FAIL: assertion failed: 25115986595 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_ghostVariableConsistency() (runs: 43, calls: 21500, reverts: 3824)
+[FAIL: assertion failed: 13502830735 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_incomeAssetsConsistency() (runs: 43, calls: 21500, reverts: 3826)
+[FAIL: assertion failed: 8295271294 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_maxFunctionsReasonable() (runs: 43, calls: 21500, reverts: 3819)
+[FAIL: assertion failed: 13269620528 != 13269620498]
+	[Sequence] (original: 295, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_previewFunctionsConsistent() (runs: 21, calls: 10500, reverts: 1889)
+[FAIL: assertion failed: 39739660748 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_thirdPoolInteractionConsistency() (runs: 43, calls: 21500, reverts: 3816)
+[FAIL: assertion failed: 17247904201 != 3604989248]
+	[Sequence] (original: 274, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_totalAssetsEqualsSupply() (runs: 43, calls: 21500, reverts: 3823)
+[FAIL: assertion failed: 2384493384 != 2384491338]
+	[Sequence] (original: 87, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[2046]
+ invariant_underlyingAssetConsistency() (runs: 200, calls: 100000, reverts: 17557)
+
+Encountered a total of 11 failing tests, 0 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 11 failed tests
+
+Fuzz seed: 0xee106e5b4fa7485f8d846c6de9acf32e5309daaceb58fb324961f664f33bf44c (use `--fuzz-seed` to reproduce)

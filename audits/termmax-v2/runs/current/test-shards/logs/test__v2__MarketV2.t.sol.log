@@ -1,0 +1,26 @@
+No files changed, compilation skipped
+
+Ran 20 tests for test/v2/MarketV2.t.sol:MarketV2Test
+[PASS] testBurn() (gas: 228483)
+[PASS] testBurnWhenTermIsNotOpen() (gas: 102269)
+[PASS] testCreateOrder() (gas: 1316766)
+[PASS] testCreateOrderWhenTermIsNotOpen() (gas: 108277)
+[PASS] testFuzzIssueFtByExistedGtDebtAmount(uint128) (runs: 256, μ: 520576, ~: 529982)
+[PASS] testIssueFt() (gas: 641789)
+[PASS] testIssueFtByExistGt() (gas: 541579)
+[PASS] testIssueFtByExistedGtWhenTermIsNotOpen() (gas: 25052)
+[PASS] testIssueFtWhenTermIsNotOpen() (gas: 26221)
+[PASS] testLeverage() (gas: 1038914)
+[PASS] testLeverageWhenTermIsNotOpen() (gas: 636888)
+[PASS] testMint() (gas: 209134)
+[PASS] testMintWhenTermIsNotOpen() (gas: 101947)
+[PASS] testPredictAndCreateOrderWithSalt() (gas: 1318367)
+[PASS] testPredictOrderAddressIsStable() (gas: 134520)
+[PASS] testRedeem() (gas: 1183087)
+[PASS] testRedeemBeforeDeadline() (gas: 268635)
+[PASS] testUpdateMarketConfig() (gas: 102075)
+[PASS] testUpdateMarketConfigWhenNotOwner() (gas: 25800)
+[PASS] testUpdateOrderConfigInvalidParams() (gas: 30981)
+Suite result: ok. 20 passed; 0 failed; 0 skipped; finished in 286.34ms (262.61ms CPU time)
+
+Ran 1 test suite in 290.18ms (286.34ms CPU time): 20 tests passed, 0 failed, 0 skipped (20 total tests)

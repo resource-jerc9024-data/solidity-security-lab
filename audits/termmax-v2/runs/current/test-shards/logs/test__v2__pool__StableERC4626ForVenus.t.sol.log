@@ -1,0 +1,34 @@
+No files changed, compilation skipped
+
+Ran 13 tests for test/v2/pool/StableERC4626ForVenus.t.sol:StableERC4626ForVenusTest
+[PASS] testBurnMoreThanBalance() (gas: 145976)
+[PASS] testCurrentIncomeAssets() (gas: 328118)
+[PASS] testFuzz_Mint(uint256) (runs: 256, μ: 235641, ~: 254858)
+Logs:
+  Bound result 1000000
+
+[PASS] testFuzz_Redeem(uint256) (runs: 256, μ: 269585, ~: 288826)
+Logs:
+  Bound result 1000000
+
+[PASS] testFuzz_UpdateBufferConfig(uint256,uint256,uint256) (runs: 256, μ: 64387, ~: 64541)
+Logs:
+  Bound result 933248035374
+  Bound result 182947075384635
+  Bound result 128032042418540
+
+[PASS] testFuzz_WithdrawIncomeAssets(uint256,uint256) (runs: 256, μ: 314562, ~: 323951)
+Logs:
+  Bound result 99994999001325
+  Bound result 9999498907240
+
+[PASS] testInvalidBufferConfiguration() (gas: 82019)
+[PASS] testMintZeroAmount() (gas: 64859)
+[PASS] testNonAdminCannotUpdateBufferConfig() (gas: 17951)
+[PASS] testNonAdminCannotWithdrawIncome() (gas: 154997)
+[PASS] testWithdrawIncomeAsInvalidToken() (gas: 612979)
+[PASS] testWithdrawIncomeAsVToken_WithRefinedSetup() (gas: 322420)
+[PASS] testWithdrawTooMuchIncome() (gas: 165023)
+Suite result: ok. 13 passed; 0 failed; 0 skipped; finished in 193.44ms (192.11ms CPU time)
+
+Ran 1 test suite in 195.05ms (193.44ms CPU time): 13 tests passed, 0 failed, 0 skipped (13 total tests)

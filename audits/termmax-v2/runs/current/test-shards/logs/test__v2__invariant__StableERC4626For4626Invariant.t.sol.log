@@ -1,0 +1,273 @@
+No files changed, compilation skipped
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_accessControl" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_balanceConsistency" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_bufferConfigValid" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_conversionRatio" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_ghostVariableConsistency" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_incomeAssetsConsistency" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_maxFunctionsReasonable" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_previewFunctionsConsistent" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_thirdPoolInteractionConsistency" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_totalAssetsEqualsSupply" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+Warning: Replayed invariant failure from "/workspaces/audits/termmax-contract-v2-review/cache/invariant/failures/StableERC4626For4626InvariantTest/invariant_underlyingAssetConsistency" file. 
+Run `forge clean` or remove file to ignore failure and to continue invariant test campaign.
+
+Ran 12 tests for test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_accessControl() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_balanceConsistency() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_bufferConfigValid() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[PASS] invariant_callSummary() (runs: 128, calls: 8192, reverts: 1497)
+
+╭-----------------------------+----------------------+-------+---------+----------╮
+| Contract                    | Selector             | Calls | Reverts | Discards |
++=================================================================================+
+| StableERC4626For4626Handler | deposit              | 1153  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | mint                 | 1170  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | redeem               | 1151  | 755     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | simulateYield        | 1209  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | updateBufferConfig   | 1182  | 0       | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdraw             | 1158  | 742     | 0        |
+|-----------------------------+----------------------+-------+---------+----------|
+| StableERC4626For4626Handler | withdrawIncomeAssets | 1169  | 0       | 0        |
+╰-----------------------------+----------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 628096541359
+  Bound result 1648890932
+  Bound result 4297937102
+  Bound result 4297937099
+  Bound result 152397071564
+  Bound result 17569885145
+  Bound result 7200
+  Bound result 75703442
+  Bound result 527909722513
+  Bound result 11444913793
+  Bound result 867719386000
+  Bound result 311174114525
+  Bound result 599668124596
+  Bound result 100000002
+  Bound result 49900007199
+  Bound result 49800007216
+  Bound result 75703442
+  Bound result 4900003284
+  Bound result 45099999915
+  Bound result 39181098264
+  Bound result 799979592
+  Bound result 799979592
+  Bound result 799979592
+  Bound result 73335757648
+  Bound result 75703442
+  Bound result 1750045292
+  Bound result 48511763007
+  Bound result 46761720675
+  Bound result 1000000000
+  Bound result 797739205760
+  Bound result 4999999998
+  Bound result 36637819361
+  Bound result 8442667033
+  Bound result 10
+  Bound result 1275846350
+  Bound result 6708868879
+  Bound result 3544498061
+  Bound result 695318633512
+  Bound result 390472452035
+  Bound result 75703442
+  Bound result 8002
+  Bound result 7630
+  Bound result 5719
+  Bound result 577005886164
+  Bound result 4900007201
+  Bound result 45101202400
+  Bound result 40201204168
+  Bound result 4900005082
+  Bound result 45099994995
+  Bound result 40199993375
+  Bound result 75703442
+  Bound result 75703442
+  Bound result 75703442
+  Bound result 4881761573
+  Bound result 39510812533
+  Bound result 34629851725
+  Bound result 75703442
+  Bound result 782782542842
+  Bound result 9725
+  Bound result 893925467
+  Bound result 45777743930
+  Bound result 12795782867
+  Bound result 142904
+  Bound result 563198407577
+  Bound result 75703442
+  Bound result 75703442
+  Bound result 2381213073727
+  Bound result 532751161
+  Bound result 49467248949
+  Bound result 33192394448
+  Bound result 22821208904
+  Bound result 260467862695
+  Bound result 78891925254
+  === INVARIANT TEST CALL SUMMARY ===
+  deposit calls: 0
+  withdraw calls: 0
+  redeem calls: 0
+  mint calls: 0
+  simulateYield calls: 0
+  withdrawIncomeAssets calls: 0
+  updateBufferConfig calls: 0
+  === GHOST VARIABLES ===
+  ghost_depositSum: 5983639864528
+  ghost_withdrawSum: 3756587032275
+  ghost_mintedSum: 5983639864528
+  ghost_burnedSum: 3756587032275
+  ghost_totalIncomeWithdrawn: 0
+  === CONTRACT STATE ===
+  totalSupply: 2227052832253
+  totalAssets: 2227052832253
+  totalIncomeAssets: 0
+  underlying balance: 33192394448
+  third pool shares: 2193860437805
+
+[FAIL: assertion failed: 30 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_conversionRatio() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 30
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_ghostVariableConsistency() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_incomeAssetsConsistency() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_maxFunctionsReasonable() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 30 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_previewFunctionsConsistent() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 30
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_thirdPoolInteractionConsistency() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_totalAssetsEqualsSupply() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 729740676930
+
+[FAIL: assertion failed: 2046 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[2046]
+ invariant_underlyingAssetConsistency() (runs: 1, calls: 1, reverts: 1)
+Logs:
+  Bound result 2046
+
+Suite result: FAILED. 1 passed; 11 failed; 0 skipped; finished in 5.69s (5.68s CPU time)
+
+Ran 1 test suite in 5.69s (5.69s CPU time): 1 tests passed, 11 failed, 0 skipped (12 total tests)
+
+Failing tests:
+Encountered 11 failing tests in test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626InvariantTest
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_accessControl() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_balanceConsistency() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_bufferConfigValid() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 30 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_conversionRatio() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_ghostVariableConsistency() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_incomeAssetsConsistency() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_maxFunctionsReasonable() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 30 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[30]
+ invariant_previewFunctionsConsistent() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_thirdPoolInteractionConsistency() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 5000000000 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[3357371460729740676930 [3.357e21]]
+ invariant_totalAssetsEqualsSupply() (runs: 1, calls: 1, reverts: 1)
+[FAIL: assertion failed: 2046 != 0]
+	[Sequence] (original: 1, shrunk: 1)
+		sender=0x5991A2dF15A8F6A256D3Ec51E99254Cd3fb576A9 addr=[test/v2/invariant/StableERC4626For4626Invariant.t.sol:StableERC4626For4626Handler]0xc7183455a4C133Ae270771860664b6B7ec320bB1 calldata=mint(uint256) args=[2046]
+ invariant_underlyingAssetConsistency() (runs: 1, calls: 1, reverts: 1)
+
+Encountered a total of 11 failing tests, 1 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 11 failed tests
+
+Fuzz seed: 0x7b398d90303a34e936c02f37fd90031625502a1a6c1507fd526aa6002bba621f (use `--fuzz-seed` to reproduce)

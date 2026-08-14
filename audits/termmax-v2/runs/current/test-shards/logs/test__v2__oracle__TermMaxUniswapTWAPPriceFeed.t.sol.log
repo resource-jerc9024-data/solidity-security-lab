@@ -1,0 +1,13 @@
+No files changed, compilation skipped
+
+Ran 7 tests for test/v2/oracle/TermMaxUniswapTWAPPriceFeed.t.sol:TermMaxUniswapTWAPPriceFeedTest
+[PASS] testConstructorRevertsWhenLatestObservationTooRecent() (gas: 88867)
+[PASS] testConstructorRevertsWhenObservationCardinalityTooLow() (gas: 60659)
+[PASS] testConstructorRevertsWhenOldestObservationTooRecent() (gas: 109290)
+[PASS] testDecimals() (gas: 974017)
+[PASS] testDescription() (gas: 982245)
+[PASS] testLatestRoundDataComputesExpectedPrice() (gas: 987555)
+[PASS] testVersion() (gas: 974163)
+Suite result: ok. 7 passed; 0 failed; 0 skipped; finished in 6.86ms (3.63ms CPU time)
+
+Ran 1 test suite in 30.43ms (6.86ms CPU time): 7 tests passed, 0 failed, 0 skipped (7 total tests)

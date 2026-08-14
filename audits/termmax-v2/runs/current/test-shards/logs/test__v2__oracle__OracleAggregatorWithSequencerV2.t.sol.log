@@ -1,0 +1,9 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/v2/oracle/OracleAggregatorWithSequencerV2.t.sol:OracleAggregatorWithSequencerTestV2
+[PASS] test_GetPriceSucceedsAfterGracePeriod() (gas: 1122617)
+[PASS] test_RevertWhenGracePeriodNotOver() (gas: 1025993)
+[PASS] test_RevertWhenSequencerDown() (gas: 1045807)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 2.08ms (509.97µs CPU time)
+
+Ran 1 test suite in 20.29ms (2.08ms CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

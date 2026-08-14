@@ -1,0 +1,27 @@
+No files changed, compilation skipped
+
+Ran 21 tests for test/v2/OrderV2WithPool.t.sol:OrderTestV2WithPool
+[PASS] testAddLiquidityDepositsDebtToPool() (gas: 167060)
+[PASS] testBuyExactFt() (gas: 1062097)
+[PASS] testBuyExactXt() (gas: 1062183)
+[PASS] testBuyFt() (gas: 1023272)
+[PASS] testBuyFtMinTokenOut() (gas: 660454)
+[PASS] testBuyXt() (gas: 1022874)
+[PASS] testBuyXtMinTokenOut() (gas: 660476)
+[PASS] testFuzz_removeLiquidityAsShare(uint256) (runs: 256, μ: 312239, ~: 312255)
+[PASS] testIssueFtWhenSwap() (gas: 1061745)
+[PASS] testRedeemAllWhenOrderEmpty() (gas: 241756)
+[PASS] testRemoveLiquidityWithdrawsDebtToRecipient() (gas: 167483)
+[PASS] testRevertBorrowIsNotAllowed() (gas: 247292)
+[PASS] testRevertLendIsNotAllowed() (gas: 247381)
+[PASS] testSellFt() (gas: 1104002)
+[PASS] testSellFtForExactToken() (gas: 1140459)
+[PASS] testSellFtMinTokenOut() (gas: 902911)
+[PASS] testSellXt() (gas: 1112906)
+[PASS] testSellXtForExactToken() (gas: 1146701)
+[PASS] testSellXtMinTokenOut() (gas: 912624)
+[PASS] testSwapWithCallback(uint128,bool,bool) (runs: 256, μ: 638383, ~: 638945)
+[PASS] testUtWhenDeadlineLessThanBlockTime() (gas: 71120)
+Suite result: ok. 21 passed; 0 failed; 0 skipped; finished in 314.89ms (303.49ms CPU time)
+
+Ran 1 test suite in 317.01ms (314.89ms CPU time): 21 tests passed, 0 failed, 0 skipped (21 total tests)

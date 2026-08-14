@@ -1,0 +1,12 @@
+No files changed, compilation skipped
+
+Ran 6 tests for test/v2/oracle/TermMaxConstantPriceFeed.t.sol:TermMaxConstantPriceFeedTest
+[PASS] testAssetIsZeroAddress() (gas: 8837)
+[PASS] testDecimals() (gas: 8522)
+[PASS] testDescription() (gas: 9467)
+[PASS] testGetRoundDataReturnsSameAsLatest() (gas: 10370)
+[PASS] testLatestRoundDataReturnsConstantAnswerAndTimestamps() (gas: 10649)
+[PASS] testVersion() (gas: 8759)
+Suite result: ok. 6 passed; 0 failed; 0 skipped; finished in 1.51ms (297.14µs CPU time)
+
+Ran 1 test suite in 16.34ms (1.51ms CPU time): 6 tests passed, 0 failed, 0 skipped (6 total tests)

@@ -1,0 +1,164 @@
+## Result
+
+No issue can be classified as Confirmed. The supplied contracts reveal two review leads, but neither establishes a credible in-scope exploit without assumptions outside the bundle:
+
+1. Public sweeping of balances held by `TermMaxRouterV2`.
+2. Cross-owner GT merging through delegation.
+
+The first depends on a victim leaving tokens in a deliberately stateless router. The second provides no capability beyond the already broad delegate powers shown here. Everything else examined either reverts atomically, requires privileged configuration, relies on unavailable dependency code, or lacks a measurable theft, freeze, or insolvency outcome.
+
+No PoC was executed because the review was restricted to source-only analysis.
+
+## Architecture and trust boundaries
+
+| Component | Assets/accounting controlled | Important external boundaries |
+|---|---|---|
+| `TermMaxMarketV2` | Debt-token reserves; FT/XT issuance and redemption | Debt token, GT implementation, flash-loan receiver, cloned orders |
+| `TermMaxOrderV2` | Maker FT/XT inventory, virtual XT price reserve, optional ERC-4626 shares | Market, ERC-4626 pool, maker/vault swap callback |
+| `AbstractGearingTokenV2` | Loan debt, collateral custody, GT ownership/delegation, liquidation | Oracle, collateral token, flash-repay callback |
+| `TermMaxRouterV2` | Transient execution balances only; no per-user accounting | Whitelisted delegatecall adapters, markets, GTs, Aave, Morpho |
+| `TermMaxVaultV2` | ERC-4626 shares and virtual FT/principal accounting | Delegatecalled `OrderManagerV2`, external pool, vault-owned orders |
+| `OrderManagerV2` | Order maturity list, annualized interest, bad-debt accounting | Orders, markets, vault pool |
+| Oracle aggregators | Price selection, heartbeat, bounds, sequencer status | Primary/backup feeds and sequencer feed |
+
+Principal invariants:
+
+- Market debt reserves must cover redeemable FT after accounting for outstanding GT debt and collateral delivery.
+- An order’s real assets must cover its computed reserve transitions.
+- A GT’s collateral must remain sufficient for its recorded debt.
+- Router execution must not consume assets belonging to an unrelated user.
+- Vault shares must represent realizable assets, not merely accrued virtual principal.
+- Maturity accounting must accrue each order’s interest exactly once and stop at maturity.
+
+## Candidate 1 — Public router balance sweeping
+
+**Evidence rank:** Medium-low  
+**Severity hypothesis:** High if protocol-generated third-party balances can be stranded; otherwise out of scope/user error.
+
+**Locations**
+
+- `TermMaxRouterV2._executeSwapPaths`: `useBalanceOnchain` selects the router’s entire balance.
+- `TermMaxRouterV2._executeSwapUnits`: an `adapter == address(0)` unit transfers `inputAmt` directly to an arbitrary `recipient`.
+- `_flashRepayFromCollateral`: transfers the router’s entire output-token balance.
+- `swapAndRepay`: returns the router’s entire remaining repay-token balance to the caller.
+
+**Shortest transaction sequence**
+
+1. Victim or an earlier protocol operation leaves token `T` in the router.
+2. Attacker calls `swapTokens` with:
+   - `useBalanceOnchain = true`
+   - first unit `tokenIn = T`
+   - `adapter = address(0)`
+   - `recipient = attacker`
+3. `_executeSwapPaths` reads the complete router balance and `_executeSwapUnits` transfers it to the attacker.
+
+**Required capital/timing**
+
+Negligible capital. The attacker must transact after the balance arrives and before its intended consumer. A mempool front-run is possible if a user separately transfers tokens and then attempts to consume them.
+
+**Root cause**
+
+Router token balances have no ownership attribution, while public entry points treat the whole balance as caller-controlled input.
+
+**Violated invariant**
+
+A user must not be able to consume assets deposited or produced for a different user.
+
+**Measurable end effect**
+
+Loss equals the router’s balance of the selected token.
+
+**Disconfirming checks**
+
+- No normal successful flow in the supplied bundle clearly leaves victim funds stranded.
+- `useBalanceOnchain` may intentionally define all router balances as permissionless/unowned.
+- A direct token transfer followed by another transaction is normally considered user error.
+- Whitelisted adapters may guarantee complete consumption, but adapter implementations were not supplied.
+- There is no claim, escrow, or refund mapping indicating that router balances are intended to remain user-owned.
+
+**Minimal deterministic local PoC**
+
+1. Deploy router proxy and a mock ERC-20.
+2. Give the router 100 tokens, either by direct transfer or by demonstrating residue from a supported flow.
+3. From an unrelated account, call `swapTokens` with one zero-adapter unit and `useBalanceOnchain = true`.
+4. Assert attacker balance increases by 100 and router balance becomes zero.
+
+The decisive PoC must produce the balance through a documented, correctly parameterized TermMax flow. A direct donation-only PoC would not establish an Immunefi-valid issue.
+
+## Candidate 2 — Delegated merge can move a GT into another owner’s NFT
+
+**Evidence rank:** Low / substantially disconfirmed  
+**Severity hypothesis:** High in isolation, but likely not a distinct vulnerability.
+
+**Location**
+
+`AbstractGearingTokenV2.merge`:
+
+- Checks each ID with `_checkIsOwnerOrDelegate`.
+- Does not require all IDs to have the same owner.
+- Keeps `ids[0]` as the surviving NFT.
+- Adds later loans’ debt and collateral into that NFT, then burns the later NFTs.
+
+**Shortest transaction sequence**
+
+1. Attacker owns GT `A`.
+2. Victim delegates authority over victim GT `V` to attacker.
+3. Attacker calls `merge([A, V])`.
+4. `V` is burned and its collateral/debt becomes part of attacker-owned `A`.
+5. Attacker repays or maintains the combined debt and extracts the combined collateral.
+
+**Required capital/timing**
+
+The victim must explicitly delegate to the attacker. To extract all collateral, the attacker may need capital equal to the victim’s debt.
+
+**Root cause**
+
+Authorization is checked independently per NFT, but ownership consistency is not checked before destructive aggregation.
+
+**Violated invariant**
+
+If delegation is non-custodial, a delegate should not be able to convert a delegated NFT into an NFT owned by another principal.
+
+**Measurable end effect**
+
+Potential transfer of the victim’s net collateral equity into an attacker-owned GT.
+
+**Disconfirming checks**
+
+This candidate is strongly weakened by other functions in the same contract:
+
+- A delegate can call `removeCollateral`, and collateral is sent to `msg.sender`.
+- A delegate can call `flashRepay`, and removed collateral is sent to `msg.sender`.
+- A delegate can call `repayAndRemoveCollateral` with an arbitrary `collateralRecipient`.
+
+Therefore delegation already appears to grant broad custody-like authority. If that is intentional, merge does not create a new theft capability. The missing `DelegateAble` implementation and delegation documentation are required to settle intended authority.
+
+**Minimal deterministic local PoC**
+
+1. Mint an attacker-owned GT and a victim-owned GT.
+2. Have the victim grant the attacker delegation.
+3. Call `merge([attackerId, victimId])`.
+4. Assert the victim ID is burned and the surviving attacker-owned loan contains both collateral amounts.
+5. Compare against direct delegate extraction through `flashRepay` or `repayAndRemoveCollateral`.
+
+## Other investigated paths
+
+No credible end effect was established for these:
+
+- **Maturity races:** Trading is stopped at `timestamp >= expiry`; GT mutation and repayment stop at maturity; liquidation and redemption windows are mutually ordered.
+- **Redemption rounding:** Redemption recomputes proportions against remaining FT supply. Dust may change who receives final units, but no scalable theft was demonstrated.
+- **Collateral donations:** Donations to the GT can consume collateral capacity and benefit FT redemption, but no profitable unprivileged theft path follows.
+- **Partial-state callbacks:** Market and GT callbacks occur inside reentrancy guards and failures revert the complete transaction. Order swap callbacks occur before token movement, but the vault deliberately evaluates post-swap deltas.
+- **Debt transfer plus liquidation:** NFT transfer changes the owner checked by delegation. No stale-owner liquidation path is visible.
+- **Queue reordering:** V2 disables supply and withdrawal queues. The maturity linked list appears monotonic, though its library implementation was not supplied.
+- **Vault accounting:** Virtual accrued interest can exceed immediately idle liquidity, but curator-managed order liquidity appears to be the intended liquidity model. No unprivileged extraction or permanent freeze was proven.
+- **Adapter composition:** Delegatecall is dangerous by construction, but adapters are whitelist-gated. No adapter implementation was supplied, and malicious-whitelist scenarios are privileged/configuration-only.
+- **Oracle conversion:** Decimal conversions are internally consistent for ordinary values. Zero-price acceptance is notable, but exploitation depends on external oracle behavior and falls into the excluded unavailable/bad-oracle category.
+- **Factory initialization:** Market, order, GT, and vault implementations disable initializers. Router implementation initialization does not by itself provide a path to upgrade or seize an initialized proxy.
+- **Fee extraction:** Rounding around `mintGtFeeRatio` may create unit-scale discrepancies, but no repeatable positive-value cycle was established.
+
+## Final assessment
+
+Based solely on the supplied source bundle, there is no credible, PoC-backed Immunefi candidate meeting the requested theft, freezing, insolvency, or unclaimed-yield impact criteria.
+
+The router sweep deserves the first deterministic integration test, specifically asking whether any valid adapter, rollover, repayment, or multi-path flow leaves third-party tokens in the router. Without that reachability result, it should not be submitted as a vulnerability.

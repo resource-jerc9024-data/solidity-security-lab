@@ -18,11 +18,20 @@ bash scripts/run-termmax-codex-passes.sh
 ```
 
 The first command creates an isolated review worktree at the exact pinned
-commit, applies only the documented Linux test-import case correction, then
-runs contract compilation, non-fork unit tests, invariants, Slither detectors,
-and Slither structure printers. The second command runs independent read-only
-Codex review passes and records only their final candidate reports.
+commit, copies the already-installed Soldeer dependencies, applies only the
+documented Linux test-import case correction, and pins Solidity `0.8.27`. It
+then compiles production contracts, runs each non-fork V2 test file as a shard,
+generates dedicated Slither build-info, and runs detector and structure passes.
+Per-file sharding avoids a Solidity compiler termination seen with the entire
+test tree in one compilation unit.
+
+The second command runs four independent Codex review passes. Because this
+Codespace kernel does not permit Bubblewrap namespaces, the runner embeds a
+pass-specific read-only Solidity source bundle in each prompt and forbids tool,
+shell, filesystem, and network calls. It does not use unsafe unrestricted
+execution.
 
 Generated evidence is written to `audits/termmax-v2/runs/current/`. Exit codes
 are recorded in `status.tsv`; a non-zero analyzer exit is evidence to triage,
-not proof of a vulnerability.
+not proof of a vulnerability. See `RUN_SUMMARY.md` for the manually classified
+baseline exceptions and `STATIC_TRIAGE.md` for detector dispositions.

@@ -1,0 +1,30 @@
+No files changed, compilation skipped
+
+Ran 18 tests for test/v2/TermMaxViewer.t.sol:TermMaxViewerTest
+[PASS] testAssetsWithERC20Collateral_MultipleUsers() (gas: 247589)
+[PASS] testAssetsWithERC20Collateral_NoGtBalance() (gas: 80581)
+[PASS] testAssetsWithERC20Collateral_WithBalances() (gas: 265193)
+[PASS] testAssetsWithERC20Collateral_WithGtTokens() (gas: 608425)
+[PASS] testCannotInitializeImplementation() (gas: 13624)
+[PASS] testCannotInitializeTwice() (gas: 18155)
+[PASS] testFullIntegrationScenario() (gas: 310869)
+[PASS] testGetPoolUnclaimedRewards_EmptyArray() (gas: 17376)
+[PASS] testGetPoolUnclaimedRewards_MultiplePools() (gas: 1810328)
+[PASS] testGetPoolUnclaimedRewards_SingleAavePool() (gas: 137413)
+[PASS] testGetPoolUnclaimedRewards_SingleERC4626Pool() (gas: 182501)
+[PASS] testInitialize() (gas: 18208)
+[PASS] testOnlyOwnerCanAuthorizeUpgrade() (gas: 3609220)
+[PASS] testPreviewDealBadDebt_FuzzTest(uint256,uint256,uint256,uint256) (runs: 256, μ: 32925, ~: 32762)
+Logs:
+  Bound result 3
+  Bound result 50000000
+  Bound result 45495556820578500150775343682547622445
+  Bound result 80000000000000000000
+
+[PASS] testPreviewDealBadDebt_MaxValues() (gas: 26386)
+[PASS] testPreviewDealBadDebt_WithBadDebt() (gas: 25763)
+[PASS] testPreviewDealBadDebt_ZeroBadDebt() (gas: 20751)
+[PASS] testdata() (gas: 448813)
+Suite result: ok. 18 passed; 0 failed; 0 skipped; finished in 107.09ms (95.50ms CPU time)
+
+Ran 1 test suite in 109.46ms (107.09ms CPU time): 18 tests passed, 0 failed, 0 skipped (18 total tests)

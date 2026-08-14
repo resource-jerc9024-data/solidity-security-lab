@@ -1,0 +1,31 @@
+No files changed, compilation skipped
+
+Ran 1 test for test/v2/FuzzActionsV2.t.sol:FuzzActionsTestV2
+[PASS] testActions() (gas: 42333629)
+Logs:
+  buy exact ft
+  sell xt
+  sell xt
+  sell xt for exact token
+  sell ft
+  sell xt
+  sell xt for exact token
+  buy exact xt
+  sell xt for exact token
+  sell ft
+  buy xt
+  buy xt
+  buy exact xt
+  sell ft for exact token
+  buy xt
+  sell xt for exact token
+  sell ft
+  sell xt for exact token
+  buy exact xt
+  buy ft
+  sell xt
+  buy ft
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 42.45ms (40.37ms CPU time)
+
+Ran 1 test suite in 44.50ms (42.45ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)

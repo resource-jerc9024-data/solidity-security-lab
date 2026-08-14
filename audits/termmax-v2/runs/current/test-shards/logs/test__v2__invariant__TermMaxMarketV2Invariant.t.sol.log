@@ -1,0 +1,539 @@
+No files changed, compilation skipped
+
+Ran 10 tests for test/v2/invariant/TermMaxMarketV2Invariant.t.sol:TermMaxMarketV2InvariantTest
+[PASS] invariant_callSummary() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 1
+  Bound result 627103
+  Bound result 9
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19945
+  Bound result 7
+  Bound result 7
+  Bound result 0
+  Bound result 3
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 8
+  Bound result 9
+  Bound result 5
+  Bound result 2
+  Bound result 14028
+  Bound result 1
+  Bound result 1975669
+  Bound result 5
+  Bound result 0
+  Bound result 9
+  Bound result 8
+  Bound result 5
+  Bound result 3
+  === TERMMAX MARKET V2 INVARIANT TEST SUMMARY ===
+  mint calls: 0
+  burn calls: 8
+  issueFt calls: 0
+  leverageByXt calls: 3
+  issueFtByExistedGt calls: 9
+  redeem calls: 10
+  createOrder calls: 8
+  advanceTime calls: 8
+  Ghost variables:
+  ghost_totalMinted: 0
+  ghost_totalBurned: 0
+  ghost_totalFtIssued: 0
+  ghost_totalXtLeveraged: 0
+  ghost_totalGtMinted: 0
+  ghost_totalRedeemed: 0
+  Contract state:
+  FT total supply: 0
+  XT total supply: 0
+  Market debt balance: 0
+  GT collateral balance: 0
+  Current timestamp: 6203711
+  Market maturity: 1739970167
+
+[PASS] invariant_debtTokenConsistency() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+[PASS] invariant_feeCalculationSafety() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 1
+  Bound result 627103
+  Bound result 9
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19952
+  Bound result 2
+  Bound result 2
+  Bound result 2
+  Bound result 7
+  Bound result 7
+  Bound result 13484
+  Bound result 8
+  Bound result 3
+  Bound result 3
+  Bound result 8
+  Bound result 8
+  Bound result 14028
+  Bound result 1
+  Bound result 1975669
+  Bound result 5
+  Bound result 0
+  Bound result 0
+  Bound result 2
+  Bound result 3
+  Bound result 0
+
+[PASS] invariant_ftXtSupplyEquality() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+[PASS] invariant_gtExistenceConsistency() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+[PASS] invariant_marketConfigValid() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 9
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19945
+  Bound result 7
+  Bound result 7
+  Bound result 0
+  Bound result 5
+  Bound result 6
+  Bound result 13485
+  Bound result 5
+  Bound result 8
+  Bound result 2
+  Bound result 5
+  Bound result 2
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 2
+  Bound result 9
+  Bound result 1
+  Bound result 0
+  Bound result 1
+  Bound result 2
+
+[PASS] invariant_maturityRespected() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+[PASS] invariant_noNegativeBalances() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+[PASS] invariant_redemptionTiming() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+[PASS] invariant_totalValueLocked() (runs: 128, calls: 8192, reverts: 2080)
+
+╭------------------------+--------------------+-------+---------+----------╮
+| Contract               | Selector           | Calls | Reverts | Discards |
++==========================================================================+
+| TermMaxMarketV2Handler | advanceTime        | 1028  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | burn               | 1027  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | createOrder        | 995   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFt            | 1042  | 1042    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | issueFtByExistedGt | 994   | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | leverageByXt       | 1046  | 0       | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | mint               | 1038  | 1038    | 0        |
+|------------------------+--------------------+-------+---------+----------|
+| TermMaxMarketV2Handler | redeem             | 1022  | 0       | 0        |
+╰------------------------+--------------------+-------+---------+----------╯
+
+Logs:
+  Bound result 783422
+  Bound result 3
+  Bound result 627103
+  Bound result 7
+  Bound result 181608
+  Bound result 2588450
+  Bound result 19943
+  Bound result 6
+  Bound result 6
+  Bound result 3
+  Bound result 2
+  Bound result 0
+  Bound result 13485
+  Bound result 5
+  Bound result 4
+  Bound result 4
+  Bound result 5
+  Bound result 1
+  Bound result 14029
+  Bound result 0
+  Bound result 1975669
+  Bound result 1
+  Bound result 3
+  Bound result 5
+  Bound result 5
+  Bound result 1
+  Bound result 3
+
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 18.27s (18.23s CPU time)
+
+Ran 1 test suite in 18.27s (18.27s CPU time): 10 tests passed, 0 failed, 0 skipped (10 total tests)

