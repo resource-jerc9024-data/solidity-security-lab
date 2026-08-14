@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+broadcast/
+cache/
+out/
+node_modules/
+
+# Keep unpublished audit notes and proof-of-concept tests local by default.
+audit/FINDINGS.md
+test/security/*.t.sol
