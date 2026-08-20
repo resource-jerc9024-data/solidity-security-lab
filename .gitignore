@@ -9,6 +9,10 @@ out/
 node_modules/
 .termmax-review-cache/
 .gearbox-review-cache/
+.spark-review-cache/
+audits/spark/source/
+audits/spark/review/
+audits/spark/runs/current/
 
 # Keep unpublished audit notes and proof-of-concept tests local by default.
 audit/FINDINGS.md
